@@ -21,6 +21,8 @@ public class CreateTriangulationMesh : MonoBehaviour {
 
     public List<GameObject> resources = new List<GameObject>();
 
+    public Mesh meshCurrent;
+
     void Start()
     {
 
@@ -97,6 +99,8 @@ public class CreateTriangulationMesh : MonoBehaviour {
         meshCol.sharedMesh = mesh;
         meshCol.convex = true;
         meshCol.isTrigger = true;
+
+        this.GetComponent<MeshRenderer>().enabled = true;
     }
 
     void OnTriggerEnter(Collider other)
@@ -107,5 +111,10 @@ public class CreateTriangulationMesh : MonoBehaviour {
             triangulationResourceCount.text = "Resource count in triangulation zone: " + resources.Count.ToString();
             Debug.Log("Resource added to the list");
         }
+    }
+
+    public void DeRenderTriangulation()
+    {
+        this.GetComponent<MeshRenderer>().enabled = false;
     }
 }

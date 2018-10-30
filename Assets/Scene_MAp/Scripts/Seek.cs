@@ -17,9 +17,10 @@ public class Seek : AIBehaviour
 
         targetPosition = playerScriptObject.GetComponent<PlayerScript>().petToPosition;
 
-        if (targetPosition != this.transform.position)
+        float distanceFromTarget = Vector3.Distance(this.transform.position, targetPosition);
+
+        if (targetPosition != this.transform.position && atPosition == false)
         {
-            float distanceFromTarget = Vector3.Distance(this.transform.position, targetPosition);
             if(distanceFromTarget > arrivalRadius && distanceFromTarget > arrivalRadius * 10)
             {
                 desiredVelocity = Vector3.Normalize(targetPosition - transform.position) * agent.Superspeed;

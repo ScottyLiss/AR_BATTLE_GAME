@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pet : MonoBehaviour
 {
@@ -62,4 +63,9 @@ public class Pet : MonoBehaviour
 			trait.Feed(foodQuantity);
 		}
 	}
+
+    public void ReturnToMapScene()
+    {
+        SceneManager.LoadScene(0); // Loads Map Scene
+    }
 }

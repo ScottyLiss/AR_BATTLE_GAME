@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -52,6 +53,17 @@ public class PlayerScript : MonoBehaviour
 
     #endregion
 
+    #region Debug Related Variables
+    [SerializeField] private bool debugOn = false;
+    [SerializeField] private GameObject debugObject;
+    [SerializeField] private Text storeCombat;
+    private int combatStored;
+    #endregion
+
+    #region CombatRelated within map
+    private bool combatAsk = false;
+    [SerializeField]private GameObject combatCanvasAsk;
+    #endregion
     //--------------------------------------------------------------------------------------------------------------------//
     //                                        END OF VARIABLE DEFINING                                                    //
     //--------------------------------------------------------------------------------------------------------------------//
@@ -121,9 +133,18 @@ public class PlayerScript : MonoBehaviour
             Destroy(PositionTwo);
             Destroy(PositionThree);
         }
+
+        StartCoroutine("TimeTillCombat");
+
     }
     #endregion
 
+
+    IEnumerator TimeTillCombat()
+    {
+        yield return new WaitForSeconds(2.0f);
+        StoreOrBattleCanvas();
+    }
 
     public void CallPet() // Call your pet
     {
@@ -168,5 +189,64 @@ public class PlayerScript : MonoBehaviour
         */
     }
 
+
+    #region DebugMethods
+    public void DebugModeOn()
+    {
+        if(!debugOn)
+        {
+            debugObject.SetActive(true);
+            debugOn = true;
+        }
+        else
+        {
+            debugObject.SetActive(false);
+            debugOn = false;
+        }
+    }
+
+    #endregion
+
+    #region BattleMethods
+    public void StoreOrBattleCanvas()
+    {
+        if(!combatAsk)
+        {
+            combatCanvasAsk.SetActive(true);
+            combatAsk = true;
+        }
+        else
+        {
+            combatCanvasAsk.SetActive(false);
+            combatAsk = false;
+        }
+    }
+
+    public void StoreBattle()
+    {
+        combatStored++;
+        combatCanvasAsk.SetActive(false);
+        combatAsk = false;
+
+        CTM.DeRenderTriangulation();
+
+        storeCombat.text = "Combat Stored: " + combatStored.ToString();
+
+    }
+
+    public void BattleNow()
+    {
+        SceneManager.LoadScene(1); // Loads Battle Scene
+    }
+
+    #endregion
+
+    #region PetMethods (Scene)
+    public void CheckPetScene()
+    {
+        SceneManager.LoadScene(2); // Loads Pet Scene
+    }
+
+    #endregion
 
 }
