@@ -7,9 +7,6 @@ public class CreateTriangulationMesh : MonoBehaviour {
 
     //Reference Video used : https://www.youtube.com/watch?v=R_kV3YiJqEw //
 
-    [SerializeField] private Text triangulationZoneSize;
-    [SerializeField] private Text triangulationResourceCount;
-
     public Vector3[] vertices = new Vector3[4];
 
     public float width = 50f;
@@ -26,11 +23,6 @@ public class CreateTriangulationMesh : MonoBehaviour {
     void Start()
     {
 
-    }
-
-    public void TriangulationZoneSizeUpdate(float value)
-    {
-        triangulationZoneSize.text = "Triangulation Size: " + Mathf.RoundToInt(value).ToString();
     }
 
 
@@ -108,7 +100,6 @@ public class CreateTriangulationMesh : MonoBehaviour {
         if(other.tag == "Resources")
         {
             resources.Add(other.gameObject);
-            triangulationResourceCount.text = "Resource count in triangulation zone: " + resources.Count.ToString();
             Debug.Log("Resource added to the list");
         }
     }

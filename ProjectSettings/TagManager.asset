@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Resources
+  - Robot
+  - Breach
   layers:
   - Default
   - TransparentFX

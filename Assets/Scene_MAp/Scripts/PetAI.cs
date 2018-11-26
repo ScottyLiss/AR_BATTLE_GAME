@@ -11,7 +11,6 @@ public class PetAI : MonoBehaviour {
     private List<AIBehaviour> aiBehaviours = new List<AIBehaviour>();
 
 
-    [SerializeField]private TempValueScript tempValue;
 
 
     void OnTriggerEnter(Collider other)
@@ -19,8 +18,10 @@ public class PetAI : MonoBehaviour {
         if (other.tag == "Resources")
         {
             Destroy(other.gameObject);
-            tempValue.resourceCount++;
-            tempValue.ResourceUpdate();
+        }
+        if(other.tag == "Robot")
+        {
+            Debug.LogError("enter combat here!");
         }
     }
 

@@ -28,6 +28,7 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]private float triangulationSpace;
     [SerializeField]private CreateTriangulationMesh CTM;
+    public GameObject robot;
     #endregion
 
     #region CallPet Variables
@@ -40,30 +41,13 @@ public class PlayerScript : MonoBehaviour
     private bool callingPet = false;
     #endregion
 
-    #region Camera Related Variables
-    [Header("<Camera Related Variables>")]
-    private Vector3 offset;
-    private Vector3 testVector;
-    [SerializeField]protected Camera mainCamera;
-    [SerializeField] protected Camera petCam;
-    private bool cameraReset;
-    private float speed = 2.0f;
-    private bool petCame = false;
-    private bool mainCam = false;
+    #region Breach
+    public GameObject breach;
+    public int breachCount = 0;
+    public Vector3 positionToTarget;
 
     #endregion
 
-    #region Debug Related Variables
-    [SerializeField] private bool debugOn = false;
-    [SerializeField] private GameObject debugObject;
-    [SerializeField] private Text storeCombat;
-    private int combatStored;
-    #endregion
-
-    #region CombatRelated within map
-    private bool combatAsk = false;
-    [SerializeField]private GameObject combatCanvasAsk;
-    #endregion
     //--------------------------------------------------------------------------------------------------------------------//
     //                                        END OF VARIABLE DEFINING                                                    //
     //--------------------------------------------------------------------------------------------------------------------//
@@ -71,9 +55,8 @@ public class PlayerScript : MonoBehaviour
 
     protected void Start()
     {
-        petCam.enabled = false;
-        cameraReset = false;
-        offset = mainCamera.transform.position - this.transform.position;
+        breachCount = 0;
+        CallPet();
         callingPet = false;
         petToPosition = this.transform.position;
     }
@@ -85,25 +68,12 @@ public class PlayerScript : MonoBehaviour
         {
             beaconsPlaced.Push(Instantiate(beacon, this.transform.position + Vector3.up, Quaternion.identity));
             beaconCount++;
+            if(beaconCount == 3)
+            {
+                Triangulation();
+            }
         }
     }
-
-    public void ReturnLastPlacedBeacon()
-    {
-        GameObject g = beaconsPlaced.Pop();
-        Destroy(g);
-        beaconCount--;
-    }
-
-    public void ReturnBeacons() // Return all beacons placed (or previous one)
-    {
-        foreach(GameObject g in beaconsPlaced)
-        {
-            Destroy(g);
-            beaconCount--;
-        }
-    }
-
 
     public void Triangulation() //Connect all the beacons calculate the space and check all the items on the map
     {
@@ -115,6 +85,7 @@ public class PlayerScript : MonoBehaviour
             PositionTwo = beaconsPlaced.Pop();
             positionOne = beaconsPlaced.Pop();
 
+            positionToTarget = PositionThree.transform.position;
 
             float distanceP1P2 = Vector3.Distance(positionOne.transform.position, PositionTwo.transform.position); //Distance P1 -> P2
             float distanceP1P3 = Vector3.Distance(positionOne.transform.position, PositionThree.transform.position); //Distance P1 -> P3
@@ -124,119 +95,60 @@ public class PlayerScript : MonoBehaviour
         
             triangulationSpace = (distanceP1P2 * distanceP1P3) * 1/2; // Calculate the space of the triangle 
 
-            CTM.TriangulationZoneSizeUpdate(triangulationSpace);
 
             CTM.TheThreeVertices(positionOne.transform.position, PositionTwo.transform.position, PositionThree.transform.position, centrePoint);
+
+
 
             beaconCount = 0;
             Destroy(positionOne);
             Destroy(PositionTwo);
             Destroy(PositionThree);
+
+            StartCoroutine("SpawnRobotAndCallResources");
+        }
+    }
+
+
+
+    IEnumerator SpawnRobotAndCallResources()
+    {
+        yield return new WaitForSeconds(1.0f);
+        CTM.DeRenderTriangulation();
+
+        if(CTM.resources.Count > 0)
+        {
+            Instantiate(robot, new Vector3(this.transform.position.x, robot.transform.position.y, this.transform.position.z), Quaternion.identity);
         }
 
-        StartCoroutine("TimeTillCombat");
-
+        foreach (GameObject a in CTM.resources)
+        {
+            a.GetComponent<ResourceMove>().t_pos = positionToTarget; 
+        }
     }
+
     #endregion
 
 
-    IEnumerator TimeTillCombat()
-    {
-        yield return new WaitForSeconds(2.0f);
-        StoreOrBattleCanvas();
-    }
 
+
+    #region Pet Methods
     public void CallPet() // Call your pet
     {
-        petToPosition = this.transform.position;
+        pet.GetComponent<Arrival>().targetPosition = this.transform.position;
         callingPet = true;
     }
-
-    private void Update()
-    {
-        float interpolation = speed * Time.deltaTime;
-
-       /*
-        if (callingPet)
-        {
-            Vector3 position = petCam.transform.position;
-            position.x = Mathf.Lerp(petCam.transform.position.x, position.x, interpolation);
-            position.z = Mathf.Lerp(petCam.transform.position.z, position.z, interpolation);
-            if(petCame != true)
-            {
-                petCame = true;
-                mainCam = false;
-                mainCamera.enabled = false;
-                petCam.enabled = true;
-            }
-
-        }
-        else
-        {
-         Vector3 position = mainCamera.transform.position;
-         position.x = Mathf.Lerp(mainCamera.transform.position.x, position.x, interpolation);
-         position.z = Mathf.Lerp(mainCamera.transform.position.z, position.z, interpolation);
-
-         mainCamera.transform.position = position;
-            if(!mainCam)
-            {
-                petCam.enabled = false;
-                mainCamera.enabled = true;
-                petCame = false;
-                mainCam = true;
-            }
-        }
-        */
-    }
-
-
-    #region DebugMethods
-    public void DebugModeOn()
-    {
-        if(!debugOn)
-        {
-            debugObject.SetActive(true);
-            debugOn = true;
-        }
-        else
-        {
-            debugObject.SetActive(false);
-            debugOn = false;
-        }
-    }
-
     #endregion
 
     #region BattleMethods
-    public void StoreOrBattleCanvas()
+
+    public void PlaceBreach()
     {
-        if(!combatAsk)
+        if(breachCount < 3)
         {
-            combatCanvasAsk.SetActive(true);
-            combatAsk = true;
+            Instantiate(breach, new Vector3(this.transform.position.x, breach.transform.position.y, this.transform.position.z), Quaternion.identity);
+            breachCount++;
         }
-        else
-        {
-            combatCanvasAsk.SetActive(false);
-            combatAsk = false;
-        }
-    }
-
-    public void StoreBattle()
-    {
-        combatStored++;
-        combatCanvasAsk.SetActive(false);
-        combatAsk = false;
-
-        CTM.DeRenderTriangulation();
-
-        storeCombat.text = "Combat Stored: " + combatStored.ToString();
-
-    }
-
-    public void BattleNow()
-    {
-        SceneManager.LoadScene(1); // Loads Battle Scene
     }
 
     #endregion
@@ -244,7 +156,8 @@ public class PlayerScript : MonoBehaviour
     #region PetMethods (Scene)
     public void CheckPetScene()
     {
-        SceneManager.LoadScene(2); // Loads Pet Scene
+        Debug.LogError("Transition to Pet here!");
+        //SceneManager.LoadScene(2); // Loads Pet Scene
     }
 
     #endregion
