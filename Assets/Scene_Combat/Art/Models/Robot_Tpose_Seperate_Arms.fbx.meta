@@ -1,0 +1,224 @@
+fileFormatVersion: 2
+guid: 4deeb950a01d2f24f84ff5a7cca950a5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: back
+    100002: Claw_arm
+    100004: End_jnt
+    100006: global_CTRL
+    100008: L_foot_jnt
+    100010: L_Gun_arm
+    100012: L_hip_CTRL
+    100014: L_Hip_IK
+    100016: L_hip_jnt
+    100018: L_knee_CTRL
+    100020: L_knee_IK
+    100022: L_knee_jnt
+    100024: L_lowerArm
+    100026: L_lowerArm 1
+    100028: L_sawBlade
+    100030: L_underLowerArm
+    100032: L_underLowerArm_CTRL
+    100034: L_underLowerArm_IK
+    100036: L_underUpperArm
+    100038: L_upperArm
+    100040: L_upperArm_CTRL
+    100042: L_upperArm_IK
+    100044: L_upperLowerArm_CTRL
+    100046: L_upperLowerArm_IK
+    100048: mid_CTRL
+    100050: Mid_Jnt
+    100052: polySurface43
+    100054: polySurface56
+    100056: R_clawHandL
+    100058: R_clawHandR
+    100060: R_clawHandR_CTRL
+    100062: R_clawHandR_IK
+    100064: R_clawHandTipL
+    100066: R_clawHandTipL_CTRL
+    100068: R_clawHandTipL_IK
+    100070: R_clawHandTipR
+    100072: R_clawHandTipR_CTRL
+    100074: R_clawHandTipR_IK
+    100076: R_foot_jnt
+    100078: R_Gun_arm
+    100080: R_hip_CTRL
+    100082: R_hip_IK
+    100084: R_hip_jnt
+    100086: R_knee_CTRL
+    100088: R_knee_IK
+    100090: R_knee_jnt
+    100092: R_underLowerArm
+    100094: R_underUpperArm
+    100096: R_upperArm
+    100098: R_upperArm_CTRL
+    100100: R_upperArm_IK
+    100102: R_upperLowerArm_CTRL
+    100104: R_upperLowerArm_IK
+    100106: //RootNode
+    100108: Root_jnt
+    100110: Saw_arm
+    100112: Sawblade
+    100114: sawBlade_CTRL
+    400000: back
+    400002: Claw_arm
+    400004: End_jnt
+    400006: global_CTRL
+    400008: L_foot_jnt
+    400010: L_Gun_arm
+    400012: L_hip_CTRL
+    400014: L_Hip_IK
+    400016: L_hip_jnt
+    400018: L_knee_CTRL
+    400020: L_knee_IK
+    400022: L_knee_jnt
+    400024: L_lowerArm
+    400026: L_lowerArm 1
+    400028: L_sawBlade
+    400030: L_underLowerArm
+    400032: L_underLowerArm_CTRL
+    400034: L_underLowerArm_IK
+    400036: L_underUpperArm
+    400038: L_upperArm
+    400040: L_upperArm_CTRL
+    400042: L_upperArm_IK
+    400044: L_upperLowerArm_CTRL
+    400046: L_upperLowerArm_IK
+    400048: mid_CTRL
+    400050: Mid_Jnt
+    400052: polySurface43
+    400054: polySurface56
+    400056: R_clawHandL
+    400058: R_clawHandR
+    400060: R_clawHandR_CTRL
+    400062: R_clawHandR_IK
+    400064: R_clawHandTipL
+    400066: R_clawHandTipL_CTRL
+    400068: R_clawHandTipL_IK
+    400070: R_clawHandTipR
+    400072: R_clawHandTipR_CTRL
+    400074: R_clawHandTipR_IK
+    400076: R_foot_jnt
+    400078: R_Gun_arm
+    400080: R_hip_CTRL
+    400082: R_hip_IK
+    400084: R_hip_jnt
+    400086: R_knee_CTRL
+    400088: R_knee_IK
+    400090: R_knee_jnt
+    400092: R_underLowerArm
+    400094: R_underUpperArm
+    400096: R_upperArm
+    400098: R_upperArm_CTRL
+    400100: R_upperArm_IK
+    400102: R_upperLowerArm_CTRL
+    400104: R_upperLowerArm_IK
+    400106: //RootNode
+    400108: Root_jnt
+    400110: Saw_arm
+    400112: Sawblade
+    400114: sawBlade_CTRL
+    2000000: back
+    2100000: lambert1
+    2300000: Claw_arm
+    2300002: L_Gun_arm
+    2300004: polySurface56
+    2300006: R_Gun_arm
+    2300008: Saw_arm
+    2300010: Sawblade
+    3300000: Claw_arm
+    3300002: L_Gun_arm
+    3300004: polySurface56
+    3300006: R_Gun_arm
+    3300008: Saw_arm
+    3300010: Sawblade
+    4300000: polySurface56
+    4300002: Claw_arm
+    4300004: L_Gun_arm
+    4300006: R_Gun_arm
+    4300008: Saw_arm
+    4300010: Sawblade
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PetAI : MonoBehaviour {
 
@@ -21,7 +22,7 @@ public class PetAI : MonoBehaviour {
         }
         if(other.tag == "Robot")
         {
-            Debug.LogError("enter combat here!");
+            SceneManager.LoadScene(1);
         }
     }
 
