@@ -46,3 +46,10 @@ public class Breach : MonoBehaviour {
     }
 	
 }
+
+public enum BreachState
+{
+	Regular,
+	Fortified,
+	Rich
+}

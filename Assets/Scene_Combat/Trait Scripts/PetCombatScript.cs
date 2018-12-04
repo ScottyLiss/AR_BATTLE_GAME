@@ -6,14 +6,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Pet : MonoBehaviour
+public class PetCombatScript : MonoBehaviour
 {
-	public Stats stats;
-
-	public List<Trait> traits;
-
-	public int hunger = 100;
-
 	public Text PetStatsText;
 
 	public Slider HealthSlider;
@@ -25,23 +19,26 @@ public class Pet : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		StaticVariables.pet = this;
+	    if (!StaticVariables.combatPet)
+	    {
+		    StaticVariables.combatPet = this;
+	    }
 
-		foreach (Trait trait in traits)
+		foreach (Trait trait in StaticVariables.petData.traits)
 		{
 			trait.Start();
 		}
 
-	    HealthSlider.maxValue = stats.health;
+	    HealthSlider.maxValue = StaticVariables.petData.stats.health;
     }
 
     // Update is called once per frame
     void Update()
     {
-		foreach (Trait trait in traits)
-		{
-			trait.Update();
-		}
+//		foreach (Trait trait in StaticVariables.petData.traits)
+//		{
+//			trait.Update();
+//		}
 
 		//PetStatsText.text = $"Pet Stats:\n" +
 		//                    $"Health {stats.health}\n" +
@@ -51,10 +48,7 @@ public class Pet : MonoBehaviour
 		//                    $"Crit Chance {stats.critChance}\n" +
 		//                    $"Dodge Chance {stats.dodgeChance}\n";
 
-	    if (StaticVariables.isInBattle)
-	    {
-			this.CombatUpdate();
-	    }
+		this.CombatUpdate();
 	}
 
 	// Update is called once per frame
@@ -141,12 +135,12 @@ public class Pet : MonoBehaviour
 		}
 
 		// Update the combat logic for the traits
-		foreach (Trait trait in traits)
+		foreach (Trait trait in StaticVariables.petData.traits)
 		{
 			trait.CombatUpdate();
 		}
 
-		if (stats.health < 0)
+		if (StaticVariables.petData.stats.health < 0)
 		{
 			SceneManager.LoadScene(0);
 		}
@@ -154,9 +148,9 @@ public class Pet : MonoBehaviour
 
 	public void GetHit(float damage)
 	{
-		this.stats.health -= (int)damage;
+		StaticVariables.petData.stats.health -= (int)damage;
 
-		this.HealthSlider.value = stats.health;
+		this.HealthSlider.value = StaticVariables.petData.stats.health;
 
 		StartCoroutine(PlayDamagedCoroutine());
 

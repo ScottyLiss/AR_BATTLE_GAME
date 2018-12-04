@@ -57,7 +57,7 @@ public class Trait : ScriptableObject
 
 			if (value >= activationThreshold && !IsActive)
 			{
-				StaticVariables.pet.traits.Add(this);
+				StaticVariables.petData.traits.Add(this);
 				IsActive = true;
 				this.Start();	
 			}
@@ -118,7 +118,7 @@ public class Trait : ScriptableObject
 
 		foreach (GenericEffect effect in effects)
 		{
-			StaticVariables.pet.stats += effect.statsAdjustment;
+			StaticVariables.petData.stats += effect.statsAdjustment;
 			effect.Start();
 		}
 
@@ -133,11 +133,11 @@ public class Trait : ScriptableObject
 	{
 		foreach (GenericEffect effect in effects)
 		{
-			StaticVariables.pet.stats -= effect.statsAdjustment;
+			StaticVariables.petData.stats -= effect.statsAdjustment;
 			effect.Remove();
 		}
 
-		StaticVariables.pet.traits.Remove(this);
+		StaticVariables.petData.traits.Remove(this);
 		
 		if (removedTraitCallback != null)
 		{

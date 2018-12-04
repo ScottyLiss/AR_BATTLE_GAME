@@ -39,7 +39,8 @@ public class BombScript : HittableObject {
 	void Update () {
 		
 		// Move the bomb along the screen
-		transform.Translate(direction * speed * Time.deltaTime);
+		transform.Translate(direction * speed * Time.deltaTime, Space.World);
+		transform.Rotate(direction * speed * Time.deltaTime * 30, Space.Self);
 
 		// Store the camera position of the object
 		Vector2 cameraRelativePosition = Camera.main.WorldToScreenPoint(transform.position);
@@ -68,7 +69,7 @@ public class BombScript : HittableObject {
 
 	public override void OnHit(Vector3 pointHit, float? damageDealth = null)
 	{
-		StaticVariables.pet.GetHit(400);
+		StaticVariables.combatPet.GetHit(400);
 
 		Destroy(gameObject);
 	}

@@ -8,7 +8,7 @@ public class ChameleonEffect : GenericEffect
     // Update is called once per frame
     public override void Update()
     {
-		StaticVariables.pet.gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color((Time.time / 10.0f) % 1.0f, 0, 0));
+		StaticVariables.combatPet.gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color((Time.time / 10.0f) % 1.0f, 0, 0));
 	}
 
 	// On Removal, reset the color of the pet
@@ -16,6 +16,6 @@ public class ChameleonEffect : GenericEffect
 	{
 		base.Remove();
 
-		StaticVariables.pet.gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(1, 1, 1));
+		StaticVariables.combatPet.gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(1, 1, 1));
 	}
 }

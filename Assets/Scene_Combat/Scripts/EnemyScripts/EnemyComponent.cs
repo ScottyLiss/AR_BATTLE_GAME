@@ -44,7 +44,7 @@ public class EnemyComponent : HittableObject
 	// Handle attacking from this component
 	public virtual void Attack()
 	{
-		StaticVariables.pet.GetHit(damage);
+		StaticVariables.combatPet.GetHit(damage);
 	}
 
 	// Handle the hit on the component
@@ -57,9 +57,9 @@ public class EnemyComponent : HittableObject
 
 			if (damageToApply == null)
 			{
-				health -= StaticVariables.pet.stats.damage;
+				health -= StaticVariables.petData.stats.damage;
 
-				ShowDamageNumber(StaticVariables.pet.stats.damage, positionHit);
+				ShowDamageNumber(StaticVariables.petData.stats.damage, positionHit);
 			}
 			else
 			{
@@ -86,7 +86,7 @@ public class EnemyComponent : HittableObject
 		textMeshComponent.text = damageDone.ToString();
 
 		// Store the damage ratio
-		float damageRatio = (float)damageDone / (float) StaticVariables.pet.stats.damage;
+		float damageRatio = (float)damageDone / (float) StaticVariables.petData.stats.damage;
 
 		// Scale the damage text
 		textMeshComponent.fontSize *= (damageRatio);

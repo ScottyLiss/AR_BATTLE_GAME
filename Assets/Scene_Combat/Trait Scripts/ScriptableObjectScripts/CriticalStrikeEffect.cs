@@ -68,7 +68,7 @@ public class CriticalStrikeEffect : GenericEffect
 				) <= instantiatedCriticalEffectOuterRing.GetComponent<Image>().rectTransform.rect.width)
 			{
 				targetComponent.OnHit(targetComponent.transform.position, 
-					StaticVariables.pet.stats.damage * Mathf.Lerp(1, StaticVariables.pet.stats.critMultiplier,
+					StaticVariables.petData.stats.damage * Mathf.Lerp(1, StaticVariables.petData.stats.critMultiplier,
 						((mechanicDuration - currentMechanicLifetime) / mechanicDuration)
 					));
 
@@ -87,7 +87,7 @@ public class CriticalStrikeEffect : GenericEffect
 			}
 		}
 
-		else if(Random.value * 100f <= (StaticVariables.pet.stats.critChance * Time.deltaTime) && StaticVariables.EnemyComponents.Count > 0)
+		else if(Random.value * 100f <= (StaticVariables.petData.stats.critChance * Time.deltaTime) && StaticVariables.EnemyComponents.Count > 0)
 		{
 			mechanicInPlay = true;
 		}

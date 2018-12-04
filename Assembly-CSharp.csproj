@@ -60,6 +60,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DataHolders\BreachMapData.cs" />
+    <Compile Include="Assets\DataHolders\DataHolder.cs" />
+    <Compile Include="Assets\DataHolders\MapData.cs" />
+    <Compile Include="Assets\DataHolders\PlayerData.cs" />
+    <Compile Include="Assets\DataHolders\ResourceData.cs" />
+    <Compile Include="Assets\DataHolders\ResourceMapData.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
@@ -585,7 +591,7 @@
     <Compile Include="Assets\Scene_Combat\Scripts\UIHandler.cs" />
     <Compile Include="Assets\Scene_Combat\StaticVariables.cs" />
     <Compile Include="Assets\Scene_Combat\Trait Scripts\HittableObject.cs" />
-    <Compile Include="Assets\Scene_Combat\Trait Scripts\Pet.cs" />
+    <Compile Include="Assets\Scene_Combat\Trait Scripts\PetCombatScript.cs" />
     <Compile Include="Assets\Scene_Combat\Trait Scripts\ScriptableObjectScripts\ChameleonEffect.cs" />
     <Compile Include="Assets\Scene_Combat\Trait Scripts\ScriptableObjectScripts\CriticalStrikeEffect.cs" />
     <Compile Include="Assets\Scene_Combat\Trait Scripts\ScriptableObjectScripts\GenericEffect.cs" />
@@ -599,12 +605,15 @@
     <Compile Include="Assets\Scene_MAp\Scripts\Arrival.cs" />
     <Compile Include="Assets\Scene_MAp\Scripts\Breach.cs" />
     <Compile Include="Assets\Scene_MAp\Scripts\CreateTriangulationMesh.cs" />
+    <Compile Include="Assets\Scene_MAp\Scripts\PersistanceManagerScript.cs" />
     <Compile Include="Assets\Scene_MAp\Scripts\PetAI.cs" />
     <Compile Include="Assets\Scene_MAp\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scene_MAp\Scripts\ResourceMove.cs" />
     <Compile Include="Assets\Scene_MAp\Scripts\Seek.cs" />
     <Compile Include="Assets\Scene_MAp\Scripts\SpawnResources.cs" />
     <Compile Include="Assets\Scene_MAp\Scripts\TempValueScript.cs" />
+    <Compile Include="Assets\Scripts\PetData.cs" />
+    <Compile Include="Assets\Scripts\SceneTransitionHandler.cs" />
     <None Include="Assets\Mapbox\Mapbox\Unity\Location\ExampleGpsTraces\LocationProviderAndroidNative.txt" />
     <None Include="Assets\Mapbox\UnityARInterface\Examples\Common\Shaders\MobileOcclusion.shader" />
     <None Include="Assets\Scene_MAp\Shaders\UnlitShadowsShader.shader" />

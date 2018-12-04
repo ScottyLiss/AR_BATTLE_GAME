@@ -154,11 +154,23 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     #region PetMethods (Scene)
-    public void CheckPetScene()
+    public void EnterPetScreen()
     {
-        Debug.LogError("Transition to Pet here!");
+        //Debug.LogError("Transition to Pet here!");
         //SceneManager.LoadScene(2); // Loads Pet Scene
+
+		// Puase the game
+	    Time.timeScale = 0;
+
+
     }
+
+	public void ClosePetScreen()
+	{
+
+		// Resume the game
+		Time.timeScale = 1;
+	}
 
     #endregion
 

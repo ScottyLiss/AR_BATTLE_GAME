@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be6b9ba9b06e9c46a20fda22ce5c0ea, type: 3}
   m_Name: CriticalStrike1
   m_EditorClassIdentifier: 
-  HasBeenUnlockedBefore: 0
+  HasBeenUnlockedBefore: 1
   layer: 0
   activationPoints: 0
-  IsActive: 0
+  IsActive: 1
   effects:
   - {fileID: 11400000, guid: b0627aaa15c788d4d9ea1a21809690f4, type: 2}
   traitRequirements: []

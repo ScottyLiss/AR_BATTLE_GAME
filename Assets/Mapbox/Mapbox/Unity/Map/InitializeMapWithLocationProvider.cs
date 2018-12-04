@@ -15,6 +15,8 @@
 		{
 			// Prevent double initialization of the map. 
 			_map.InitializeOnStart = false;
+
+			StaticVariables.map = gameObject;
 		}
 
 		protected virtual IEnumerator Start()

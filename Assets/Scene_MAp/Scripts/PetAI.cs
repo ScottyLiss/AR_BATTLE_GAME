@@ -22,7 +22,7 @@ public class PetAI : MonoBehaviour {
         }
         if(other.tag == "Robot")
         {
-            SceneManager.LoadScene(1);
+            StaticVariables.sceneManager.TransitionToCombat();
         }
     }
 
@@ -57,6 +57,11 @@ public class PetAI : MonoBehaviour {
         get;
         protected set;
     }
+
+	private void Start()
+	{
+		StaticVariables.petAI = this;
+	}
 
     private void Update()
     {
