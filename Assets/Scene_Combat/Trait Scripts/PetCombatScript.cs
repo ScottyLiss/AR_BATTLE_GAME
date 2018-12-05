@@ -69,6 +69,7 @@ public class PetCombatScript : MonoBehaviour
 
 			// Set up the layer mask to only hit enemy parts in the enemy parts layer
 			int layerMask = 1 << 9;
+			layerMask += 1 << 11;
 
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 			{
