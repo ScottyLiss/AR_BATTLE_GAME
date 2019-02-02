@@ -13,7 +13,7 @@ public class Trait : ScriptableObject
 	[SerializeField] private int layer = 0;
 
 	// The activation points for this trait
-	[SerializeField] private int activationPoints = 0;
+	[NonSerialized] private int activationPoints = 0;
 
 	// Whether this trait is currently active on the pet
 	public bool IsActive;
@@ -239,8 +239,8 @@ public enum Food
 	Rock,
 	Plastic,
 	Water,
-	Flammable,
-	Frozen,
+	Fire,
+	Ice,
 	Electric,
 	Radioactive
 }

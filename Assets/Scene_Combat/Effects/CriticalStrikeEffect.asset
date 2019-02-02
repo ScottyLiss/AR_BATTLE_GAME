@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Name: CriticalStrikeEffect
   m_EditorClassIdentifier: 
   statsAdjustment:
-    health: 0
-    resistance: 0
-    damage: 0
-    iceDamage: 0
-    fireDamage: 0
-    electricDamage: 0
-    critMultiplier: 2
-    critChance: 30
-    dodgeChance: 0
-    criticalSweetSpotDuration: 0.3
+    _health: 0
+    _maxHealth: 0
+    _resistance: 0
+    _damage: 0
+    _iceDamage: 0
+    _fireDamage: 0
+    _electricDamage: 0
+    _critMultiplier: 2
+    _critChance: 60
+    _dodgeChance: 0
+    _criticalSweetSpotDuration: 3
   isTrigger: 0
   description: 
   CriticalEffectGameObject: {fileID: 1236294730088390, guid: 46bd0ae61444914408cb528d38d3ef5e,

@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Name: Damage4
   m_EditorClassIdentifier: 
   HasBeenUnlockedBefore: 0
-  layer: 6
-  activationPoints: 0
+  layer: 5
   IsActive: 0
   effects:
   - {fileID: 11400000, guid: eeea6a75cc0c2c04dab399a37a8b4df3, type: 2}
@@ -23,4 +22,4 @@ MonoBehaviour:
   activationThreshold: 5
   deactivationThreshold: 0
   activationFood: 1
-  detrimentalFood: 0
+  detrimentalFood: 3

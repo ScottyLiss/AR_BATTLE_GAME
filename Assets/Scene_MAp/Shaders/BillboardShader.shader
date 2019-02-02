@@ -1,5 +1,6 @@
 ﻿Shader "Cg  shader for billboards" {
 	Properties{
+	    _ColorOverride("Color Override", Color) = (1,1,1,1)
 		_MainTex("Texture2D", 2D) = "white"
 		_ScaleX("Scale X", Float) = 1.0
 		_ScaleY("Scale Y", Float) = 1.0
@@ -18,6 +19,7 @@
 
 			  // User-specified uniforms            
 			  uniform sampler2D _MainTex;
+			  uniform float4 _ColorOverride;
 			  uniform float _ScaleX;
 			  uniform float _ScaleY;
 
@@ -46,7 +48,7 @@
 
 			  float4 frag(vertexOutput input) : COLOR
 			  {
-				 return tex2D(_MainTex, float2(input.tex.xy));
+				 return tex2D(_MainTex, float2(input.tex.xy)) * _ColorOverride;
 			  }
 
 			  ENDCG

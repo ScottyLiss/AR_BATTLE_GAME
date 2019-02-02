@@ -1,0 +1,224 @@
+fileFormatVersion: 2
+guid: 4fe4f8731e0f0704a85395384c906a07
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: faceNoodleBack_jnt_LA
+    100002: faceNoodleBack_jnt_LA1
+    100004: faceNoodleBack_jnt_LB
+    100006: faceNoodleBack_jnt_LB1
+    100008: faceNoodleBack_jnt_LC
+    100010: faceNoodleBack_jnt_LC1
+    100012: faceNoodleFront_jnt_LA
+    100014: faceNoodleFront_jnt_LA1
+    100016: faceNoodleFront_jnt_LB
+    100018: faceNoodleFront_jnt_LB1
+    100020: faceNoodleFront_jnt_LC
+    100022: faceNoodleFront_jnt_LC1
+    100024: foreLeg_jnt_LA
+    100026: foreLeg_jnt_LA1
+    100028: foreLeg_jnt_LB
+    100030: foreLeg_jnt_LB1
+    100032: foreLeg_jnt_LC
+    100034: foreLeg_jnt_LC1
+    100036: foreLeg_jnt_LD
+    100038: foreLeg_jnt_LD1
+    100040: foreLeg_jnt_LE
+    100042: foreLeg_jnt_LE1
+    100044: head_jnt
+    100046: hindLeg_jnt_SPRING_LA
+    100048: hindLeg_jnt_SPRING_LA1
+    100050: hindLeg_jnt_SPRING_LB
+    100052: hindLeg_jnt_SPRING_LB1
+    100054: hindLeg_jnt_SPRING_LC
+    100056: hindLeg_jnt_SPRING_LC1
+    100058: hindLeg_jnt_SPRING_LD
+    100060: hindLeg_jnt_SPRING_LD1
+    100062: hindLeg_jnt_SPRING_LE
+    100064: hindLeg_jnt_SPRING_LE1
+    100066: hindLeg_jnt_SPRING_LF
+    100068: hindLeg_jnt_SPRING_LF1
+    100070: Left_Ear_Base_JNT
+    100072: Left_Ear_Mid_JNT
+    100074: Left_Ear_Tip_JNT
+    100076: midLeg_jnt_LA
+    100078: midLeg_jnt_LB
+    100080: midLeg_jnt_LC
+    100082: midLeg_jnt_LD
+    100084: midLeg_jnt_LE
+    100086: midLeg_jnt_LF
+    100088: midLeg_jnt_LF 1
+    100090: midLeg_jnt_RA
+    100092: midLeg_jnt_RB
+    100094: midLeg_jnt_RC
+    100096: midLeg_jnt_RD
+    100098: midLeg_jnt_RE
+    100100: neck_jntA
+    100102: neckJnt_2
+    100104: //RootNode
+    100106: Right_Ear_Base_JNT
+    100108: Right_Ear_Mid_JNT
+    100110: Right_Ear_Tip_JNT
+    100112: Root_jnt
+    100114: spine_jntA
+    100116: spine_jntB
+    100118: spine_jntC
+    100120: spine_jntD
+    100122: tail_jnt_A
+    100124: tail_jnt_B
+    100126: tail_jnt_C
+    100128: tail_jnt_D
+    100130: tail_jnt_E
+    100132: tail_jnt_F
+    400000: faceNoodleBack_jnt_LA
+    400002: faceNoodleBack_jnt_LA1
+    400004: faceNoodleBack_jnt_LB
+    400006: faceNoodleBack_jnt_LB1
+    400008: faceNoodleBack_jnt_LC
+    400010: faceNoodleBack_jnt_LC1
+    400012: faceNoodleFront_jnt_LA
+    400014: faceNoodleFront_jnt_LA1
+    400016: faceNoodleFront_jnt_LB
+    400018: faceNoodleFront_jnt_LB1
+    400020: faceNoodleFront_jnt_LC
+    400022: faceNoodleFront_jnt_LC1
+    400024: foreLeg_jnt_LA
+    400026: foreLeg_jnt_LA1
+    400028: foreLeg_jnt_LB
+    400030: foreLeg_jnt_LB1
+    400032: foreLeg_jnt_LC
+    400034: foreLeg_jnt_LC1
+    400036: foreLeg_jnt_LD
+    400038: foreLeg_jnt_LD1
+    400040: foreLeg_jnt_LE
+    400042: foreLeg_jnt_LE1
+    400044: head_jnt
+    400046: hindLeg_jnt_SPRING_LA
+    400048: hindLeg_jnt_SPRING_LA1
+    400050: hindLeg_jnt_SPRING_LB
+    400052: hindLeg_jnt_SPRING_LB1
+    400054: hindLeg_jnt_SPRING_LC
+    400056: hindLeg_jnt_SPRING_LC1
+    400058: hindLeg_jnt_SPRING_LD
+    400060: hindLeg_jnt_SPRING_LD1
+    400062: hindLeg_jnt_SPRING_LE
+    400064: hindLeg_jnt_SPRING_LE1
+    400066: hindLeg_jnt_SPRING_LF
+    400068: hindLeg_jnt_SPRING_LF1
+    400070: Left_Ear_Base_JNT
+    400072: Left_Ear_Mid_JNT
+    400074: Left_Ear_Tip_JNT
+    400076: midLeg_jnt_LA
+    400078: midLeg_jnt_LB
+    400080: midLeg_jnt_LC
+    400082: midLeg_jnt_LD
+    400084: midLeg_jnt_LE
+    400086: midLeg_jnt_LF
+    400088: midLeg_jnt_LF 1
+    400090: midLeg_jnt_RA
+    400092: midLeg_jnt_RB
+    400094: midLeg_jnt_RC
+    400096: midLeg_jnt_RD
+    400098: midLeg_jnt_RE
+    400100: neck_jntA
+    400102: neckJnt_2
+    400104: //RootNode
+    400106: Right_Ear_Base_JNT
+    400108: Right_Ear_Mid_JNT
+    400110: Right_Ear_Tip_JNT
+    400112: Root_jnt
+    400114: spine_jntA
+    400116: spine_jntB
+    400118: spine_jntC
+    400120: spine_jntD
+    400122: tail_jnt_A
+    400124: tail_jnt_B
+    400126: tail_jnt_C
+    400128: tail_jnt_D
+    400130: tail_jnt_E
+    400132: tail_jnt_F
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: -0.07734838, y: 0.7028636, z: -0.07734838, w: 0.7028636}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

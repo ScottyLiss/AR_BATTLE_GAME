@@ -69,6 +69,7 @@ public class PetCombatScript : MonoBehaviour
 
 			// Set up the layer mask to only hit enemy parts in the enemy parts layer
 			int layerMask = 1 << 9;
+			layerMask += 1 << 11;
 
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
 			{
@@ -81,7 +82,7 @@ public class PetCombatScript : MonoBehaviour
 					{
 						hit.collider.gameObject.GetComponent<HittableObject>().OnHit(hit.point);
 
-						StartCoroutine(PlayAttackCoroutine());
+						gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Attack");
 					}
 
 					// Handle the hit if it's a hittable object
@@ -89,7 +90,7 @@ public class PetCombatScript : MonoBehaviour
 					{
 						hit.collider.gameObject.GetComponentInParent<HittableObject>().OnHit(hit.point);
 
-						StartCoroutine(PlayAttackCoroutine());
+						gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Attack");
 					}
 
 					//// Set up a reference to the parent object in the hierarchy
@@ -142,7 +143,9 @@ public class PetCombatScript : MonoBehaviour
 
 		if (StaticVariables.petData.stats.health < 0)
 		{
-			SceneManager.LoadScene(0);
+			StaticVariables.EnemyComponents = new List<EnemyComponent>();
+
+			StaticVariables.sceneManager.TransitionOutOfCombat();
 		}
 	}
 
@@ -155,14 +158,6 @@ public class PetCombatScript : MonoBehaviour
 		StartCoroutine(PlayDamagedCoroutine());
 
 		StaticVariables.uiHandler.PlayerGotHit();
-	}
-
-	public void FeedPet(FoodQuantity foodQuantity)
-	{
-		foreach (Trait trait in StaticVariables.traitManager.allTraits.OrderBy(trait => trait.GetLayer()))
-		{
-			trait.Feed(foodQuantity);
-		}
 	}
 
 	// DEBUG

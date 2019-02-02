@@ -25,25 +25,25 @@ public class TraitRendererEditor : Editor
 			}
 
 			// Load in all traits
-			GameObject.Find("Main Camera").GetComponent<TraitManager>().allTraits.OrderBy(trait => trait.GetLayer()).ToList().ForEach(trait =>
+			GameObject.Find("SceneManager").GetComponent<TraitManager>().allTraits.OrderBy(trait => trait.GetLayer()).ToList().ForEach(trait =>
 			{
 				GameObject newGameObject = Instantiate(myScript.TraitUITemplate, myScript.gameObject.transform);
 				newGameObject.name = $"TraitBadge: {trait.name}";
 				newGameObject.transform.Find("TraitDescription").GetComponent<Text>().text = trait.name;
 				newGameObject.GetComponent<TraitUIScript>().AssociatedTrait = trait;
 
-				if (trait.traitRequirements.Length > 0)
-				{
-					foreach (Trait traitRequirement in trait.traitRequirements)
-					{
-						GameObject traitRequirementGameObject = GameObject.Find($"TraitBadge: {traitRequirement.name}");
-
-						GameObject newTraitConnector = Instantiate(myScript.TraitConnectorTemplate, newGameObject.transform);
-
-						newTraitConnector.GetComponent<TraitConnectorScript>().BottomTrait = traitRequirementGameObject;
-						newTraitConnector.GetComponent<TraitConnectorScript>().TopTrait = newGameObject;
-					}
-				}
+//				if (trait.traitRequirements.Length > 0)
+//				{
+//					foreach (Trait traitRequirement in trait.traitRequirements)
+//					{
+//						GameObject traitRequirementGameObject = GameObject.Find($"TraitBadge: {traitRequirement.name}");
+//
+//						GameObject newTraitConnector = Instantiate(myScript.TraitConnectorTemplate, newGameObject.transform);
+//
+//						newTraitConnector.GetComponent<TraitConnectorScript>().BottomTrait = traitRequirementGameObject;
+//						newTraitConnector.GetComponent<TraitConnectorScript>().TopTrait = newGameObject;
+//					}
+//				}
 			});
 		}
 	}

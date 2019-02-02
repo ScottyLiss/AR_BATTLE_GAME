@@ -10,7 +10,18 @@ public class PetAI : MonoBehaviour {
     protected float superSpeed = 15.0f;
     protected float maxSteering = 10.0f;
     private List<AIBehaviour> aiBehaviours = new List<AIBehaviour>();
+    public StoreAllResources resources;
 
+    public float l_Elec;
+    public float l_Fire;
+    public float l_Water;
+    public float l_Bio;
+    public float l_Ice;
+    public float l_Rock;
+    public float l_Metal;
+    public float l_Rad;
+
+    public UpdateResources updateRS;
 
 
 
@@ -18,14 +29,81 @@ public class PetAI : MonoBehaviour {
     {
         if (other.tag == "Resources")
         {
-            Destroy(other.gameObject);
+            UpdateRespectiveResource(other.name); // Checks what resource it is and updates the scriptable object to store the values
+
+            Destroy(other.gameObject); // Check what object it is, update it repsectively
         }
+
         if(other.tag == "Robot")
         {
             StaticVariables.sceneManager.TransitionToCombat();
+            
+            Destroy(other.gameObject);
+        }
+
+        if (other.tag == "Breach" && other.GetComponent<Breach>() && !other.GetComponent<Breach>().BreachDefeated)
+        {
+            StaticVariables.sceneManager.TransitionToCombat(other.GetComponent<Breach>());
         }
     }
 
+
+    void UpdateRespectiveResource(string r_Name)
+    {
+        switch(r_Name)
+        {
+            case "Crystal0(Clone)":
+                resources.r_Fire += 1;
+                l_Fire += 1;
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+                break;
+            case "Crystal1(Clone)":
+                resources.r_Ice += 1;
+                l_Ice += 1;
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+
+                break;
+            case "Crystal2(Clone)":
+                resources.r_Bio += 1;
+                l_Bio += 1;
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+
+                break;
+            case "Crystal3(Clone)":
+                resources.r_Rock += 1;
+                l_Rock += 1;
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+
+                break;
+            case "Crystal4(Clone)":
+                resources.r_Rad += 1;
+                l_Rad += 1;
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+
+                break;
+            case "Crystal5(Clone)":
+                resources.r_Metal += 1;
+                l_Metal += 1;
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+
+                break;
+            case "Crystal6(Clone)":
+                resources.r_Water += 1;
+                l_Water += 1;
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+
+                break;
+            case "Crystal7(Clone)":
+                resources.r_Elec += 1;
+                l_Elec += 1;
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+
+                break;
+            default:
+                break;
+
+        }
+    }
 
     public float MaxSpeed
     {
@@ -61,7 +139,18 @@ public class PetAI : MonoBehaviour {
 	private void Start()
 	{
 		StaticVariables.petAI = this;
-	}
+
+        l_Elec = resources.r_Elec;
+        l_Fire = resources.r_Fire;
+        l_Water = resources.r_Water;
+        l_Bio = resources.r_Bio;
+        l_Ice = resources.r_Ice;
+        l_Rock = resources.r_Rock;
+        l_Metal = resources.r_Metal;
+        l_Rad = resources.r_Rad;
+
+        updateRS.UpdateValues();
+    }
 
     private void Update()
     {

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4251882345414748}
   - component: {fileID: 114679115579164332}
   - component: {fileID: 65811567339246362}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Crystal2
   m_TagString: Resources
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 01d709ca4f1c330498010a48f41e2153, type: 2}
+  - {fileID: 2100000, guid: f1854b829d49509408bb45c024fc6318, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

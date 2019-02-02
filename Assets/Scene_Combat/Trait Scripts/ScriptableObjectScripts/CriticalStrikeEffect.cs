@@ -29,7 +29,7 @@ public class CriticalStrikeEffect : GenericEffect
 	// The implementation of critical strike
 	public override void CombatUpdate()
 	{
-		if (mechanicInPlay)
+		if (mechanicInPlay && (!targetComponent || (targetComponent && !targetComponent.markedForDestruction)))
 		{
 			// Choose a random component as the target
 			if (targetComponent == null)
@@ -65,7 +65,7 @@ public class CriticalStrikeEffect : GenericEffect
 			    Vector2.Distance(
 				    Input.GetTouch(0).position,
 				    (Vector2) Camera.main.WorldToScreenPoint(targetComponent.transform.position)
-				) <= instantiatedCriticalEffectOuterRing.GetComponent<Image>().rectTransform.rect.width)
+				) <= instantiatedCriticalEffectOuterRing.GetComponent<Image>().rectTransform.rect.width * 0.6)
 			{
 				targetComponent.OnHit(targetComponent.transform.position, 
 					StaticVariables.petData.stats.damage * Mathf.Lerp(1, StaticVariables.petData.stats.critMultiplier,
