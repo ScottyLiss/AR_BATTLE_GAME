@@ -1863,6 +1863,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1881,6 +1882,25 @@ MonoBehaviour:
   m_FillOrigin: 0
 --- !u!222 &339680605
 CanvasRenderer:
+=======
+  petData:
+    stats:
+      health: 2000
+      resistance: 0
+      damage: 25
+      iceDamage: 0
+      fireDamage: 0
+      electricDamage: 0
+      critMultiplier: 0
+      critChance: 0
+      dodgeChance: 0
+      criticalSweetSpotDuration: 0
+    traits:
+    - {fileID: 11400000, guid: 8c64701acab1c1f4a92e4c5a248495e7, type: 2}
+    hunger: 100
+--- !u!4 &769758379
+Transform:
+>>>>>>> master
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
