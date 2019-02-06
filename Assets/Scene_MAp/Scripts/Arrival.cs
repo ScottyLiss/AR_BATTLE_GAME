@@ -9,25 +9,25 @@ public class Arrival : AIBehaviour
     /// Controls how far from the target position should the agent start to slow down
     /// </summary>
     [SerializeField]
-	protected float arrivalRadius = 1.0f;
+	protected float arrivalRadius = 5.0f;
     public GameObject player;
     public Vector3 targetPosition;
 
 	public override Vector3 UpdateBehaviour(PetAI steeringAgent)
 	{
 
-		// Get the desired velocity for seek and limit to maxSpeed
+		// Get the desired velocity for arrival and limit to maxSpeed
 		desiredVelocity = (targetPosition - transform.position);
-		float distance = (targetPosition - transform.position).magnitude;
+		float distance = Vector3.Distance(targetPosition, transform.position);
 		desiredVelocity.Normalize();
 
 		if(distance < arrivalRadius)
 		{
-			desiredVelocity *= steeringAgent.MaxSpeed * (distance / arrivalRadius);
+                desiredVelocity *= steeringAgent.MaxSpeed * (distance / arrivalRadius);
 		}
 		else
 		{
-			desiredVelocity *= steeringAgent.MaxSpeed;
+			desiredVelocity *= 65;
 		}
 
 		// Calculate steering velocity

@@ -82,8 +82,17 @@ public class EnemyAppendage : EnemyComponent {
 
 				gameObject.GetComponent<Rigidbody>().AddForceAtPosition(hitVector3 * 10, positionHit);
 
+				StaticVariables.EnemyComponents.Remove(this);
+
+				this.markedForDestruction = true;
+
 				StartCoroutine(DestroyObjectCoroutine(4));
 			}
 		}
+	}
+
+	private void OnDestroy()
+	{
+		StaticVariables.AttackCallbacks -= this.AttackDealDamage;
 	}
 }

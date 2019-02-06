@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Name: AddDamage1
   m_EditorClassIdentifier: 
   statsAdjustment:
-    health: 0
-    resistance: 0
-    damage: 20
-    iceDamage: 0
-    fireDamage: 0
-    electricDamage: 0
-    critMultiplier: 0
-    critChance: 0
+    _health: 0
+    _maxHealth: 0
+    _resistance: 0
+    _damage: 5
+    _iceDamage: 0
+    _fireDamage: 0
+    _electricDamage: 0
+    _critMultiplier: 0
+    _critChance: 0
+    _dodgeChance: 0
+    _criticalSweetSpotDuration: 0
   isTrigger: 0
   description: 

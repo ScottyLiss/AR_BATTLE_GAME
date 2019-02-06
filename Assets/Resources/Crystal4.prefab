@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4180269560231982}
   - component: {fileID: 114221181736099860}
   - component: {fileID: 65997754355741852}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Crystal4
   m_TagString: Resources
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9de06d32755958045a422d429f27a9a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0de729e1a38593a4f82a286aa92734a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

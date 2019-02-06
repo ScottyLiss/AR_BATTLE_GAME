@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Name: CriticalStrike1
   m_EditorClassIdentifier: 
   HasBeenUnlockedBefore: 1
-  layer: 0
-  activationPoints: 0
-  IsActive: 1
+  layer: 1
+  IsActive: 0
   effects:
   - {fileID: 11400000, guid: b0627aaa15c788d4d9ea1a21809690f4, type: 2}
   traitRequirements: []
   traitDependents: []
-  activationThreshold: 0
+  activationThreshold: 3
   deactivationThreshold: 0
-  activationFood: 0
+  activationFood: 2
   detrimentalFood: 0

@@ -9,7 +9,30 @@ public class Breach : MonoBehaviour {
     // - Otherwise, return and refuse resources
 
     public int br_lvl;
-    public bool br_defeat;
+    
+    private bool breachIsDefeated = false;
+
+    public bool BreachDefeated
+    {
+        get { return breachIsDefeated; }
+
+        set
+        {
+            breachIsDefeated = value;
+
+            if (value)
+            {
+                timer = 300;
+                gameObject.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+            }
+
+            else
+            {
+                br_lvl++;
+                gameObject.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+            }
+        }
+    }
 
 
     public float timer = 600;
@@ -18,15 +41,17 @@ public class Breach : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        Instantiate(robot, new Vector3(this.transform.position.x, robot.transform.position.y, this.transform.position.z), Quaternion.identity);
+        var robotGameObject = Instantiate(robot, gameObject.transform);
+        robotGameObject.transform.position = new Vector3(this.transform.position.x, robot.transform.position.y,
+            this.transform.position.z);
         br_lvl = 1;
         timer = 0;
-        br_defeat = false;
+        BreachDefeated = false;
 	}
 
     void Update()
     {
-        if(!br_defeat)
+        if(!BreachDefeated)
         {
             
         }
@@ -38,9 +63,7 @@ public class Breach : MonoBehaviour {
             }
             else
             {
-                br_lvl++;
-                br_defeat = false;
-                Instantiate(robot, new Vector3(this.transform.position.x, robot.transform.position.y, this.transform.position.z), Quaternion.identity);
+                BreachDefeated = false;
             }
         }
     }

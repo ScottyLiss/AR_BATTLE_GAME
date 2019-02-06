@@ -94,7 +94,7 @@ public class BattleInputHandler : MonoBehaviour
 		fDefaultSecondsToDamageEnemy = fSecondsToDamageEnemy;
         fDefaultSecondsToDamagePlayer = fSecondsToDamagePlayer;
 
-        playerHealth.maxValue = StaticVariables.petData.stats.health;
+        playerHealth.maxValue = StaticVariables.petData.stats.maxHealth;
         playerHealth.value = StaticVariables.petData.stats.health;
 
         //SwipeAttackRecharge.maxValue = SECONDS_SWIPE_RECHARGE;

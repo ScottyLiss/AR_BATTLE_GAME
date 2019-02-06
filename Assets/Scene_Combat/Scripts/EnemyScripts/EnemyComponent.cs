@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,7 @@ using UnityEngine.UI;
 public class EnemyComponent : HittableObject
 {
 	public AudioClip[] impactSounds;
+	[NonSerialized] public bool markedForDestruction;
 
 	public int health = 300;
 	public int damage = 30;
