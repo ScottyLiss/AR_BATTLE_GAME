@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_2_10;UNITY_2018_2;UNITY_2018;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_EVENT_QUEUE;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_POST_PROCESSING_STACK_V2;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_2_3;UNITY_2018_2;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -48,8 +48,8 @@
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
-    <UnityBuildTarget>Android:13</UnityBuildTarget>
-    <UnityVersion>2018.2.10f1</UnityVersion>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
+    <UnityVersion>2018.2.3f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -60,6 +60,61 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CameraRotationController.cs" />
+    <Compile Include="Assets\CharacterIdleController.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineBlendListCamera.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineBrain.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineClearShot.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineCollider.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineConfiner.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineDollyCart.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineExternalCamera.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineFollowZoom.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineFreeLook.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineMixingCamera.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachinePath.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachinePipeline.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineSmoother.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineSmoothPath.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineStateDrivenCamera.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineTargetGroup.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineVirtualCamera.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineBasicMultiChannelPerlin.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineComposer.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineFramingTransposer.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineGroupComposer.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineHardLockToTarget.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineHardLookAt.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineOrbitalTransposer.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachinePOV.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineSameAsFollowObject.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineTrackedDolly.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineTransposer.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\AxisState.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CameraState.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineBlend.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineBlenderSettings.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineComponentBase.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineCore.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineDebugLogger.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineExtension.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachinePathBase.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachinePropertyAttribute.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineVirtualCameraBase.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\GaussianFilter.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\ICinemachineCamera.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\ICinemachineComponent.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\LensSettings.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\NoiseSettings.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\Predictor.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\ReflectionHelpers.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\SplineHelpers.cs" />
+    <Compile Include="Assets\Cinemachine\Base\Runtime\Core\UnityVectorExtensions.cs" />
+    <Compile Include="Assets\Cinemachine\PostFX\CinemachinePostFX.cs" />
+    <Compile Include="Assets\Cinemachine\PostFX\CinemachinePostProcessing.cs" />
+    <Compile Include="Assets\Cinemachine\Timeline\CinemachineMixer.cs" />
+    <Compile Include="Assets\Cinemachine\Timeline\CinemachineShot.cs" />
+    <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
     <Compile Include="Assets\DataHolders\BreachMapData.cs" />
     <Compile Include="Assets\DataHolders\DataHolder.cs" />
     <Compile Include="Assets\DataHolders\MapData.cs" />
@@ -74,6 +129,9 @@
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Filter.cs" />
+    <Compile Include="Assets\HealthSliderScript.cs" />
+    <Compile Include="Assets\HungerUIUpdater.cs" />
     <Compile Include="Assets\Mapbox\GoogleARCore\Examples\ComputerVision\Scripts\ComputerVisionController.cs" />
     <Compile Include="Assets\Mapbox\GoogleARCore\Examples\ComputerVision\Scripts\EdgeDetector.cs" />
     <Compile Include="Assets\Mapbox\GoogleARCore\Examples\ComputerVision\Scripts\TextureReader.cs" />
@@ -574,6 +632,7 @@
     <Compile Include="Assets\Mapbox\UnityARKitPlugin\Plugins\iOS\UnityARKit\NativeInterface\ARUserAnchor.cs" />
     <Compile Include="Assets\Mapbox\UnityARKitPlugin\Plugins\iOS\UnityARKit\NativeInterface\UnityARSessionNativeInterface.cs" />
     <Compile Include="Assets\Mapbox\UnityARKitPlugin\UnityARKitPluginSettings.cs" />
+    <Compile Include="Assets\PetPreviewScript.cs" />
     <Compile Include="Assets\Scene_Combat\Scripts\BattleInputHandler.cs" />
     <Compile Include="Assets\Scene_Combat\Scripts\BillboardScript.cs" />
     <Compile Include="Assets\Scene_Combat\Scripts\BodyPartScript.cs" />
@@ -612,88 +671,200 @@
     <Compile Include="Assets\Scene_MAp\Scripts\Seek.cs" />
     <Compile Include="Assets\Scene_MAp\Scripts\SpawnResources.cs" />
     <Compile Include="Assets\Scene_MAp\Scripts\TempValueScript.cs" />
+    <Compile Include="Assets\Scene_Pet\ButtonHandler.cs" />
+    <Compile Include="Assets\Scene_Pet\StoreAllResources.cs" />
+    <Compile Include="Assets\Scene_Pet\UpdateResources.cs" />
     <Compile Include="Assets\Scripts\PetData.cs" />
     <Compile Include="Assets\Scripts\SceneTransitionHandler.cs" />
+    <Compile Include="Assets\SpeedChecker.cs" />
+    <Compile Include="Assets\TraitBadgeUpdater.cs" />
+    <Compile Include="Assets\TraitBadgeUpdaterEditor.cs" />
+    <Compile Include="Assets\TraitsUILoader.cs" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_DoubleShadeWithFeather_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\UCTS_ShadowCaster_Tess.cginc" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_DoubleShadeWithFeather_Clipping_Tess_StencilMask.shader" />
     <None Include="Assets\Mapbox\Mapbox\Unity\Location\ExampleGpsTraces\LocationProviderAndroidNative.txt" />
     <None Include="Assets\Mapbox\UnityARInterface\Examples\Common\Shaders\MobileOcclusion.shader" />
     <None Include="Assets\Scene_MAp\Shaders\UnlitShadowsShader.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_ShadingGradeMap.shader" />
     <None Include="Assets\Mapbox\UnityARInterface\Examples\Common\Shaders\InstancedSurfaceShader.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_AngelRing_Tess.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_TransClipping.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_TransClipping_StencilOut.shader" />
     <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\UCTS_Tess.cginc" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_ShadingGradeMap_AngelRing_TransClipping_Tess_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_ShadingGradeMap_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_DoubleShadeWithFeather_Clipping_Tess.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_OutlineObject_StencilOut.shader" />
     <None Include="Assets\Mapbox\Mapbox\Unity\Location\ExampleGpsTraces\Helsinki.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_TransClipping_StencilMask.shader" />
     <None Include="Assets\Mapbox\Mapbox\Examples\2_AstronautGame\AstronautGame\Building\CharacterBuildingShader.shader" />
     <None Include="Assets\Mapbox\GoogleARCore\SDK\Materials\ARBackground.shader" />
     <None Include="Assets\Mapbox\Mapbox\Shaders\RasterWithTransparencyShader.shader" />
     <None Include="Assets\Scene_MAp\Shaders\BillboardShader.shader" />
     <None Include="Assets\Mapbox\Mapbox\Shaders\MapboxStylesPerRenderer.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\UCTS_ShadingGradeMap_tess.cginc" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_AngelRing_TransClipping.shader" />
     <None Include="Assets\Art_Folder\Fonts\OFL-FAQ.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_TransClipping_Tess_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_ShadingGradeMap_TransClipping_Tess_StencilMask.shader" />
     <None Include="Assets\Mapbox\Mapbox\Fonts\OpenSansLic.txt" />
     <None Include="Assets\Mapbox\MapboxAR\link.xml" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_ShadingGradeMap_AngelRing_TransClipping.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_DoubleShadeWithFeather_Tess.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_DoubleShadeWithFeather_TransClipping_Tess.shader" />
     <None Include="Assets\Mapbox\MapboxAR\Examples\ARTabletop\Shaders\ClipBox\Clip_Box.shader" />
     <None Include="Assets\Mapbox\Mapbox\README.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_Mobile_Clipping.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_Mobile_TransClipping.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_ShadingGradeMap_TransClipping_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\UCTS_DoubleShadeWithFeather_tess.cginc" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_AngelRing_Tess_Light_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_DoubleShadeWithFeather_Clipping_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_DoubleShadeWithFeather_Tess_Light.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_Mobile.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_Clipping_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_Mobile.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_DoubleShadeWithFeather_TransClipping_StencilOut.shader" />
     <None Include="Assets\Resources\Mapbox\MapboxConfiguration.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\UCTS_ShadingGradeMap.cginc" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_AngelRing_Mobile_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_ShadingGradeMap_AngelRing_TransClipping_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_DoubleShadeWithFeather_Tess_Light_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_AngelRing_TransClipping_StencilOut.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_Mobile_StencilOut.shader" />
     <None Include="Assets\Mapbox\UnityARKitPlugin\Examples\Common\Shaders\MobileOcclusion.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_ShadingGradeMap_TransClipping.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_DoubleShadeWithFeather_Transparent.shader" />
     <None Include="Assets\Mapbox\Mapbox\Core\Plugins\Android\UniAndroidPermission\AndroidManifest-uniRP.xml" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_DoubleShadeWithFeather_TransClipping_Tess_StencilMask.shader" />
     <None Include="Assets\Mapbox\MapboxAR\Examples\ARTabletop\Shaders\ClipBox\LICENSE.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_DoubleShadeWithFeather_Clipping_Tess_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_AngelRing_Tess_Light.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_DoubleShadeWithFeather_Transparent_Tess.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\UCTS_DoubleShadeWithFeather.cginc" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_ShadingGradeMap_TransClipping_StencilMask.shader" />
     <None Include="Assets\Scene_MAp\Resources\Mapbox\MapboxConfiguration.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_Tess.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_ShadingGradeMap_AngelRing_Tess_TransClipping.shader" />
+    <None Include="Assets\Cinemachine\ReleaseNotes.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_AngelRing_TransClipping_Tess.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_AngelRing_Mobile.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_DoubleShadeWithFeather_Tess_Light_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_DoubleShadeWithFeather_Tess_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_TransClipping.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_AngelRing_TransClipping_Tess_StencilOut.shader" />
     <None Include="Assets\Mapbox\Mapbox\Shaders\MapboxStyles.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_Mobile_Clipping_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_Clipping.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_Mobile_TransClipping.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_DoubleShadeWithFeather_Clipping_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_ShadingGradeMap_Tess.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_DoubleShadeWithFeather_Tess_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_ShadingGradeMap_Transparent_Tess.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_Tess_StencilMask.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_DoubleShadeWithFeather_TransClipping_Tess_StencilOut.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_ShadingGradeMap_AngelRing_Tess.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_Tess_Light_StencilOut.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Mapbox\UnityARKitPlugin\ARKitRemote\ARKITREMOTE.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_TransClipping_Tess_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_DoubleShadeWithFeather_TransClipping_Tess_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_ShadingGradeMap_AngelRing_Tess_StencilOut.shader" />
     <None Include="Assets\Mapbox\Mapbox\Unity\Location\ExampleGpsTraces\LocationProviderUnity.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_DoubleShadeWithFeather.shader" />
     <None Include="Assets\Mapbox\Mapbox\Core\Plugins\link.xml" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_DoubleShadeWithFeather_TransClipping.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_ShadingGradeMap_AngelRing.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_TransClipping_StencilOut.shader" />
     <None Include="Assets\Mapbox\Mapbox\Unity\Location\ExampleGpsTraces\LocationProviderAndroidNative-2.txt" />
     <None Include="Assets\Mapbox\UnityARKitPlugin\Plugins\iOS\UnityARKit\Shaders\YUVShaderLinear.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_DoubleShadeWithFeather_Tess_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_ShadingGradeMap_AngelRing_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_Mobile_TransClipping_StencilMask.shader" />
     <None Include="Assets\Mapbox\Mapbox\Examples\2_AstronautGame\AstronautGame\Astronaut\ProjectorLight.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_DoubleShadeWithFeather_Clipping_Tess_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_DoubleShadeWithFeather_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_OutlineObject.shader" />
     <None Include="Assets\Scene_Combat\Sounds\_readme_pres.txt" />
     <None Include="Assets\Mapbox\GoogleARCore\Examples\ComputerVision\Materials\AREdgeDetectionBackground.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_Mobile_TransClipping_StencilMask.shader" />
     <None Include="Assets\Mapbox\UnityARKitPlugin\Examples\Common\Shaders\MobileARShadow.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_DoubleShadeWithFeather_TransClipping_Tess.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Mapbox\Resources\Mapbox\MapboxConfiguration.txt" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_OutlineObject_Tess_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_DoubleShadeWithFeather_Clipping_Tess.shader" />
     <None Include="Assets\Mapbox\MapboxAR\Examples\ARTabletop\Shaders\Clip_MapboxStyles.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_Clipping_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_AngelRing_StencilOut.shader" />
     <None Include="Assets\Mapbox\UnityARKitPlugin\Examples\Common\Shaders\InstancedSurfaceShader.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_ShadingGradeMap_Tess_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_Tess_Light_StencilMask.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_AngelRing_Tess_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_ShadingGradeMap_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_Mobile_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_DoubleShadeWithFeather_Tess_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_DoubleShadeWithFeather_Clipping_Tess_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_Tess_StencilOut.shader" />
     <None Include="Assets\Mapbox\MapboxAR\Examples\ARTabletop\Shaders\Clip_MapBoxStylesPerRenderer.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_ShadingGradeMap_Transparent.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_DoubleShadeWithFeather_Tess.shader" />
     <None Include="Assets\Art_Folder\Fonts\Open Font License.txt" />
     <None Include="Assets\Mapbox\UnityARKitPlugin\Plugins\iOS\UnityARKit\Shaders\YUVShader.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\UCTS_Outline.cginc" />
     <None Include="Assets\BOXOPHOBIC\Skybox Cubemap Extended\Shaders\Skybox Cubemap Extended.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_AngelRing.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_DoubleShadeWithFeather_TransClipping_Tess_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_TransClipping_Tess.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Scene_MAp\Shaders\SpriteShaderMaterialBased.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_StencilOut.shader" />
     <None Include="Assets\Mapbox\UnityARInterface\Examples\Common\Shaders\MobileARShadow.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_Mobile_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_StencilMask.shader" />
     <None Include="Assets\Mapbox\Mapbox\link.xml" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_ShadingGradeMap_StencilOut.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_ShadingGradeMap_TransClipping_Tess_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_ShadingGradeMap_Tess_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_TransClipping_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_DoubleShadeWithFeather_TransClipping_StencilMask.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\UCTS_ShadowCaster.cginc" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Toon_DoubleShadeWithFeather_Mobile_StencilOut.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_OutlineObject_Tess.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\UCTS_Outline_Tess.cginc" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\ToonColor_ShadingGradeMap_TransClipping_Tess.shader" />
+    <None Include="Assets\Art_Folder\Toon\Shader\ToonColor_DoubleShadeWithFeather_Clipping.shader" />
     <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
-    <Reference Include="Cinemachine">
-      <HintPath>H:/Projects/UniversityWork/Year3/Pre-Production-IP3/AR_BATTLE_GAME/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
+    <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_Tess_Light.shader" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>H:/Projects/UniversityWork/Year3/Pre-Production-IP3/AR_BATTLE_GAME/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/tsingh201/Desktop/AR_BATTLE_GAME/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>H:/Projects/UniversityWork/Year3/Pre-Production-IP3/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/tsingh201/Desktop/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>H:/Projects/UniversityWork/Year3/Pre-Production-IP3/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>H:/Projects/UniversityWork/Year3/Pre-Production-IP3/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>H:/Projects/UniversityWork/Year3/Pre-Production-IP3/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>H:/Projects/UniversityWork/Year3/Pre-Production-IP3/AR_BATTLE_GAME/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+      <HintPath>C:/Users/tsingh201/Desktop/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>H:/Projects/UniversityWork/Year3/Pre-Production-IP3/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/tsingh201/Desktop/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -721,6 +892,12 @@
     </Reference>
     <Reference Include="UnityEngine.CloudWebServicesModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CloudWebServicesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
@@ -764,9 +941,6 @@
     <Reference Include="UnityEngine.ParticleSystemModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.ParticlesLegacyModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.PerformanceReportingModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
     </Reference>
@@ -784,9 +958,6 @@
     </Reference>
     <Reference Include="UnityEngine.SharedInternalsModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpatialTrackingModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.SpatialTrackingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpriteMaskModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
@@ -891,16 +1062,16 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Mapbox.IO.Compression">
-      <HintPath>H:/Projects/UniversityWork/Year3/Pre-Production-IP3/AR_BATTLE_GAME/Assets/Mapbox/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35/Mapbox.IO.Compression.dll</HintPath>
+      <HintPath>C:/Users/tsingh201/Desktop/AR_BATTLE_GAME/Assets/Mapbox/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35/Mapbox.IO.Compression.dll</HintPath>
     </Reference>
     <Reference Include="Mapbox.Json">
-      <HintPath>H:/Projects/UniversityWork/Year3/Pre-Production-IP3/AR_BATTLE_GAME/Assets/Mapbox/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json/Net35/Mapbox.Json.dll</HintPath>
+      <HintPath>C:/Users/tsingh201/Desktop/AR_BATTLE_GAME/Assets/Mapbox/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json/Net35/Mapbox.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/Preslav/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/tsingh201/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/Preslav/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/tsingh201/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

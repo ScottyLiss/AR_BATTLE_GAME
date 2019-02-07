@@ -313,11 +313,14 @@ namespace Mapbox.Unity.MeshGeneration.Data
 		{
 			_tiles.Add(tile);
 
+			gameObject.layer = 12;
+
             if(placedAllResources == false)
             {
                 for (int i = 0; i < 50; i++)
                 {
                     GameObject instance = Resources.Load("Crystal" + Mathf.RoundToInt(UnityEngine.Random.Range(0, 8)), typeof(GameObject)) as GameObject;
+	                instance.layer = 12;
                     Instantiate(instance, gameObject.transform.position + new Vector3(UnityEngine.Random.Range(-50, 50), 1.584367f, UnityEngine.Random.Range(-50, 50)), Quaternion.identity, gameObject.transform);
                 }
             }

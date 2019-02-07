@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Name: Damage3
   m_EditorClassIdentifier: 
   HasBeenUnlockedBefore: 0
-  layer: 5
-  activationPoints: 0
+  layer: 4
   IsActive: 0
   effects:
   - {fileID: 11400000, guid: eeea6a75cc0c2c04dab399a37a8b4df3, type: 2}
   traitRequirements:
-  - {fileID: 11400000, guid: 9b7c41592fc847544afa4b021b844428, type: 2}
   - {fileID: 11400000, guid: 0e6e03a90effabd4880a25aeeb8002bf, type: 2}
   traitDependents:
   - {fileID: 11400000, guid: f452e803c77ff654ab58ed30a572301b, type: 2}
@@ -26,4 +24,4 @@ MonoBehaviour:
   activationThreshold: 5
   deactivationThreshold: 0
   activationFood: 1
-  detrimentalFood: 0
+  detrimentalFood: 3

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4872687727248592}
   - component: {fileID: 114755648668404912}
   - component: {fileID: 65782986933722192}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Crystal6
   m_TagString: Resources
   m_Icon: {fileID: 0}

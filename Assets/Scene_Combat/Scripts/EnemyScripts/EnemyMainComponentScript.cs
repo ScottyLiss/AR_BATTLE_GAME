@@ -49,7 +49,8 @@ public class EnemyMainComponentScript : EnemyComponent
 
 		if (health < 0)
 		{
-			SceneManager.LoadScene(0);
+			StaticVariables.EnemyComponents = new List<EnemyComponent>();
+			StaticVariables.sceneManager.TransitionOutOfCombat();
 		}
 	}
 

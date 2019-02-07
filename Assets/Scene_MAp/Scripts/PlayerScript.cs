@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -48,11 +49,16 @@ public class PlayerScript : MonoBehaviour
 
     #endregion
 
+    #region PetButton
+    public GameObject petMenu;
+    #endregion
     //--------------------------------------------------------------------------------------------------------------------//
     //                                        END OF VARIABLE DEFINING                                                    //
     //--------------------------------------------------------------------------------------------------------------------//
     #endregion
 
+    public GameObject test21; 
+    
     protected void Start()
     {
         breachCount = 0;
@@ -66,8 +72,13 @@ public class PlayerScript : MonoBehaviour
     {
         if(beaconCount < 3)
         {
-            beaconsPlaced.Push(Instantiate(beacon, this.transform.position + Vector3.up, Quaternion.identity));
+            GameObject thing = (Instantiate(beacon, test21.transform));
+            thing.transform.position = this.gameObject.transform.position + Vector3.up;
+            
+            beaconsPlaced.Push(thing);
+            
             beaconCount++;
+            gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("PlaceBeacon");
             if(beaconCount == 3)
             {
                 Triangulation();
@@ -129,7 +140,18 @@ public class PlayerScript : MonoBehaviour
 
     #endregion
 
+    #region AnimationMethods
 
+    private Vector3 lastFramePosition = Vector3.zero;
+
+    private void Update()
+    {
+        gameObject.transform.GetChild(0).GetComponent<Animator>().SetFloat("Speed", Vector3.Distance(lastFramePosition, gameObject.transform.position));
+
+        lastFramePosition = gameObject.transform.position;
+    }
+
+    #endregion
 
 
     #region Pet Methods
@@ -146,7 +168,9 @@ public class PlayerScript : MonoBehaviour
     {
         if(breachCount < 3)
         {
-            Instantiate(breach, new Vector3(this.transform.position.x, breach.transform.position.y, this.transform.position.z), Quaternion.identity);
+            var newBreach = Instantiate(breach, gameObject.transform.parent);
+            newBreach.transform.position = new Vector3(this.transform.position.x, breach.transform.position.y,
+                this.transform.position.z);
             breachCount++;
         }
     }
@@ -154,24 +178,11 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     #region PetMethods (Scene)
-    public void EnterPetScreen()
+    public void TransitionToInventory()
     {
-        //Debug.LogError("Transition to Pet here!");
-        //SceneManager.LoadScene(2); // Loads Pet Scene
-
-		// Puase the game
-	    Time.timeScale = 0;
-
-
+        petMenu.GetComponent<UpdateResources>().UpdateValues();
+        petMenu.SetActive(true);
     }
-
-	public void ClosePetScreen()
-	{
-
-		// Resume the game
-		Time.timeScale = 1;
-	}
-
     #endregion
 
 }

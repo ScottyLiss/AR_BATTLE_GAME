@@ -111,4 +111,4 @@ MonoBehaviour:
   br_lvl: 0
   br_defeat: 0
   timer: 600
-  robot: {fileID: 1887335478764900, guid: 5c6e4c772e224be4aba0654c541f9222, type: 2}
+  robot: {fileID: 1979704518594656, guid: d74787ac37817e04e9f45e68c1ced142, type: 2}

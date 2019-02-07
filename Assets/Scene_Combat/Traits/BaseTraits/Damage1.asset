@@ -13,16 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasBeenUnlockedBefore: 1
   layer: 1
-  activationPoints: 0
   IsActive: 0
   effects:
   - {fileID: 11400000, guid: eeea6a75cc0c2c04dab399a37a8b4df3, type: 2}
   traitRequirements: []
-  traitDependents:
-  - {fileID: 11400000, guid: db9b2b9129b8b3c439349d91c1b83d8d, type: 2}
-  - {fileID: 11400000, guid: 8c83e6741c84ed24199da9d4b16ada54, type: 2}
-  - {fileID: 11400000, guid: 0e6e03a90effabd4880a25aeeb8002bf, type: 2}
+  traitDependents: []
   activationThreshold: 5
   deactivationThreshold: 0
   activationFood: 1
-  detrimentalFood: 0
+  detrimentalFood: 3

@@ -10,8 +10,8 @@ public class TraitUIScript : MonoBehaviour
 	{
 		{Food.Biomass, "B"},
 		{Food.Electric, "E" },
-		{Food.Flammable, "Fl"},
-		{Food.Frozen, "Fr"},
+		{Food.Fire, "Fl"},
+		{Food.Ice, "Fr"},
 		{Food.Metal, "M"},
 		{Food.Plastic, "P"},
 		{Food.Radioactive, "Rd"},

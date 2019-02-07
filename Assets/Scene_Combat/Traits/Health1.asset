@@ -11,17 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be6b9ba9b06e9c46a20fda22ce5c0ea, type: 3}
   m_Name: Health1
   m_EditorClassIdentifier: 
-  HasBeenUnlockedBefore: 0
-  layer: 2
-  activationPoints: 0
+  HasBeenUnlockedBefore: 1
+  layer: 1
   IsActive: 0
   effects:
   - {fileID: 11400000, guid: 2b2b348f78848a14f99c7d82ae35a13e, type: 2}
-  traitRequirements:
-  - {fileID: 11400000, guid: 3f064d43d651b68489461dc1f22e0724, type: 2}
-  traitDependents:
-  - {fileID: 11400000, guid: 2926c86db65be7242a0de62a244a55b7, type: 2}
+  traitRequirements: []
+  traitDependents: []
   activationThreshold: 5
   deactivationThreshold: 0
   activationFood: 2
-  detrimentalFood: 4
+  detrimentalFood: 0
