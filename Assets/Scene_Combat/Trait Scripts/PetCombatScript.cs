@@ -141,7 +141,7 @@ public class PetCombatScript : MonoBehaviour
       timeSinceLastAttack = 0;
 
       //Raycast "fires" in the mouse direction
-      Vector3 pos = Input.touchCount > 0 ? (Vector3)Input.GetTouch(0).position : Input.mousePosition;
+      //Vector3 pos = Input.touchCount > 0 ? (Vector3)Input.GetTouch(0).position : Input.mousePosition;
             //Raycast "fires" in the mouse direction
             Vector3 pos;
             if (bDebug == true)
