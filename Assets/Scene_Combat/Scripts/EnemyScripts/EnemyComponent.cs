@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,40 +8,47 @@ using UnityEngine.UI;
 [RequireComponent(typeof(AudioSource))]
 public class EnemyComponent : HittableObject
 {
-	public AudioClip[] impactSounds;
+    public AudioClip[] impactSounds;
 	[NonSerialized] public bool markedForDestruction;
 
 	public int health = 300;
 	public int damage = 30;
-	public float hitRate = 1.5f;
+	//public float hitRate = 1.5f;
 
 	public GameObject DamageTextPrefab;
 
-	public float timeSinceLastActivation = 0;
-	private bool isRunningDamageCoroutine;
+    private float timeSinceLastActivation = 0;
+    public float fGapBetweenAttacks = 0;
+    private bool isRunningDamageCoroutine;
 	private float timeSinceLastHit;
+    
 
 	// Run on start
 	public void Start()
 	{
-		StaticVariables.EnemyComponents.Add(this);
-	}
+        //Assign to every enemy component a unique id
+        StaticVariables.iAttackingLoopID++;
+        StaticVariables.EnemyComponents.Add(this);
+        //Calculate time since last activation based on the assigned id
+        timeSinceLastActivation = StaticVariables.iAttackingLoopID * fGapBetweenAttacks;
+
+    }
 
 	// Handle update logic
 	public void Update()
 	{
-		// Update the time
-		timeSinceLastActivation += Time.deltaTime;
+        // Update the time
+        timeSinceLastActivation += Time.deltaTime;
 
-		if (timeSinceLastActivation > hitRate)
-		{
-			// Reset the time
-			timeSinceLastActivation -= hitRate;
+        if (timeSinceLastActivation > ((StaticVariables.iAttackingLoopID - 1) * fGapBetweenAttacks))
+        {
+            // Reset the time
+            timeSinceLastActivation -= ((StaticVariables.iAttackingLoopID - 1) * fGapBetweenAttacks);
 
-			// Proc an attack
-			this.Attack();
-		}
-	}
+            // Proc an attack
+            this.Attack();
+        }
+    }
 
 	// Handle attacking from this component
 	public virtual void Attack()
@@ -175,4 +182,9 @@ public class EnemyComponent : HittableObject
 
 		gameObject.SetActive(false);
 	}
+
+    void OnDestroy()
+    {
+        StaticVariables.iAttackingLoopID = 0; ;
+    }
 }

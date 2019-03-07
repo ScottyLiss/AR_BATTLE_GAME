@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -44,13 +46,24 @@ public class PlayerScript : MonoBehaviour
 
     #region Breach
     public GameObject breach;
+    public bool breachPlaceable = true;
     public int breachCount = 0;
     public Vector3 positionToTarget;
+    public int breachConsumable = 3; //Temp Value for Breach consumable
 
     #endregion
 
     #region PetButton
     public GameObject petMenu;
+    #endregion
+
+    #region JunkPile
+    private bool bDebug;
+    private bool bPileSystemStatus;
+    public int iInteractionCounter;
+    private RaycastHit hit;
+    public GameObject PileUI;
+    public GameObject PileObject;
     #endregion
     //--------------------------------------------------------------------------------------------------------------------//
     //                                        END OF VARIABLE DEFINING                                                    //
@@ -65,6 +78,9 @@ public class PlayerScript : MonoBehaviour
         CallPet();
         callingPet = false;
         petToPosition = this.transform.position;
+
+        bDebug = EditorApplication.isPlaying;
+        bPileSystemStatus = true;
     }
 
     #region Beacon Methods
@@ -82,6 +98,47 @@ public class PlayerScript : MonoBehaviour
             if(beaconCount == 3)
             {
                 Triangulation();
+            }
+        }
+    }
+
+    public void RemoveBeacon() // Remove the placed beacon on the map
+    {
+        Ray ray;
+
+        float distance;
+
+        //If fire button is pressed 
+        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
+            !EventSystem.current.IsPointerOverGameObject(0)) ||
+            (bDebug == true && Input.GetButtonDown("Fire1")))
+        {
+            //Raycast "fires" in the mouse direction
+            Vector3 pos;
+            if (bDebug == true)
+            {
+                pos = Input.mousePosition;
+            }
+            else
+            {
+                pos = Input.GetTouch(0).position;
+            }
+
+            ray = Camera.main.ScreenPointToRay(pos);
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                // if we have hit the beacon
+                if (hit.collider.tag == "Beacon")
+                {
+                    distance = Vector3.Distance(this.transform.position, hit.transform.position);
+
+                    if ((distance < 30) && (beaconCount > 0) && (beaconCount < 3))
+                    {
+                        Destroy(hit.collider.gameObject);
+                        beaconCount--;
+                    }
+                }
             }
         }
     }
@@ -149,10 +206,13 @@ public class PlayerScript : MonoBehaviour
         gameObject.transform.GetChild(0).GetComponent<Animator>().SetFloat("Speed", Vector3.Distance(lastFramePosition, gameObject.transform.position));
 
         lastFramePosition = gameObject.transform.position;
+
+        CheckIfPileInRange();
+
+        RemoveBeacon();
     }
 
     #endregion
-
 
     #region Pet Methods
     public void CallPet() // Call your pet
@@ -162,15 +222,32 @@ public class PlayerScript : MonoBehaviour
     }
     #endregion
 
-    #region BattleMethods
+    #region BattleMethods (Breaches)
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Breach")
+        {
+            breachPlaceable = false;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Breach")
+        {
+            breachPlaceable = true;
+        }
+    }
 
     public void PlaceBreach()
     {
-        if(breachCount < 3)
+        if(breachCount < 3 && breachConsumable > 0 && breachPlaceable == true)
         {
             var newBreach = Instantiate(breach, gameObject.transform.parent);
             newBreach.transform.position = new Vector3(this.transform.position.x, breach.transform.position.y,
-                this.transform.position.z);
+            this.transform.position.z);
+            breachConsumable--;
             breachCount++;
         }
     }
@@ -185,4 +262,100 @@ public class PlayerScript : MonoBehaviour
     }
     #endregion
 
+    #region JunkPile
+
+    public void CheckIfPileInRange() // Check if the player is in range to interact with the junk pile
+    {
+        Ray ray;
+
+        float distance;
+
+        if (bPileSystemStatus == false)
+        {
+            return;
+        }
+
+
+        //If fire button is pressed 
+        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
+            !EventSystem.current.IsPointerOverGameObject(0)) ||
+            (bDebug == true && Input.GetButtonDown("Fire1")))
+        {
+
+            //Debug.Log("1");
+
+            //Raycast "fires" in the mouse direction
+            Vector3 pos;
+            if (bDebug == true)
+            {
+                pos = Input.mousePosition;
+            }
+            else
+            {
+                pos = Input.GetTouch(0).position;
+            }
+
+            ray = Camera.main.ScreenPointToRay(pos);
+
+
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                // We've hit a part of an enemy
+                if (hit.collider.tag == "JunkPile")
+                {
+                    distance = Vector3.Distance(this.transform.position, hit.transform.position);
+
+                    if (distance < 30)
+                    {
+                        PileObject = hit.collider.gameObject;
+                        Debug.Log("ok");
+                        PileUI.SetActive(true);
+                        iInteractionCounter = 0;
+                    }
+
+
+                }
+            }
+        }
+
+    }
+
+    public void PilePopping()
+    {
+        iInteractionCounter++;
+
+        if (iInteractionCounter >= 4)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                //Debug.Log(i.ToString());
+                GameObject instance = Resources.Load("Crystal" + Mathf.RoundToInt(UnityEngine.Random.Range(0, 5)), typeof(GameObject)) as GameObject;
+                instance.layer = 12;
+                Instantiate(instance, PileObject.transform.position + new Vector3(0, 1.584367f, 0), Quaternion.identity);
+
+            }
+            Destroy(PileObject);
+            PileUI.transform.localScale = new Vector3(6.0f, 6.0f, 6.0f);
+            PileUI.SetActive(false);
+
+        }
+        else
+        {
+            PileUI.transform.localScale -= new Vector3(1.0f, 1.0f, 1.0f);
+        }
+    }
+
+    public void DisablePileSystem()
+    {
+        bPileSystemStatus = false;
+    }
+
+    public void EnablePileSystem()
+    {
+        bPileSystemStatus = true;
+    }
+
+
+    #endregion
 }

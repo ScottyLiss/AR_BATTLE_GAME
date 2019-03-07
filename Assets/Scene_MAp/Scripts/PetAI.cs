@@ -20,10 +20,28 @@ public class PetAI : MonoBehaviour {
     public float l_Rock;
     public float l_Metal;
     public float l_Rad;
+    public float l_Bonding;
 
     public UpdateResources updateRS;
 
 
+
+    private void Start()
+    {
+        StaticVariables.petAI = this;
+
+        l_Elec = resources.r_Elec;
+        l_Fire = resources.r_Fire;
+        l_Water = resources.r_Water;
+        l_Bio = resources.r_Bio;
+        l_Ice = resources.r_Ice;
+        l_Rock = resources.r_Rock;
+        l_Metal = resources.r_Metal;
+        l_Rad = resources.r_Rad;
+        l_Bonding = resources.r_Bonding;
+
+        updateRS.UpdateValues();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -52,58 +70,44 @@ public class PetAI : MonoBehaviour {
     {
         switch(r_Name)
         {
-            case "Crystal0(Clone)":
-                resources.r_Fire += 1;
-                l_Fire += 1;
-                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
-                break;
-            case "Crystal1(Clone)":
-                resources.r_Ice += 1;
-                l_Ice += 1;
-                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
 
-                break;
-            case "Crystal2(Clone)":
+            case "Crystal0(Clone)":
                 resources.r_Bio += 1;
                 l_Bio += 1;
                 StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
 
                 break;
-            case "Crystal3(Clone)":
+            case "Crystal1(Clone)":
                 resources.r_Rock += 1;
                 l_Rock += 1;
                 StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
 
                 break;
-            case "Crystal4(Clone)":
+            case "Crystal2(Clone)":
                 resources.r_Rad += 1;
                 l_Rad += 1;
                 StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
 
                 break;
-            case "Crystal5(Clone)":
+            case "Crystal3(Clone)":
                 resources.r_Metal += 1;
                 l_Metal += 1;
                 StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
 
                 break;
-            case "Crystal6(Clone)":
+            case "Crystal4(Clone)":
                 resources.r_Water += 1;
                 l_Water += 1;
                 StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
-
-                break;
-            case "Crystal7(Clone)":
-                resources.r_Elec += 1;
-                l_Elec += 1;
-                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
-
                 break;
             default:
                 break;
 
         }
     }
+
+
+    #region AI Movement Related 
 
     public float MaxSpeed
     {
@@ -136,21 +140,6 @@ public class PetAI : MonoBehaviour {
         protected set;
     }
 
-	private void Start()
-	{
-		StaticVariables.petAI = this;
-
-        l_Elec = resources.r_Elec;
-        l_Fire = resources.r_Fire;
-        l_Water = resources.r_Water;
-        l_Bio = resources.r_Bio;
-        l_Ice = resources.r_Ice;
-        l_Rock = resources.r_Rock;
-        l_Metal = resources.r_Metal;
-        l_Rad = resources.r_Rad;
-
-        updateRS.UpdateValues();
-    }
 
     private void Update()
     {
@@ -165,21 +154,21 @@ public class PetAI : MonoBehaviour {
         GetComponents<AIBehaviour>(aiBehaviours);
         foreach (AIBehaviour currentBehaviour in aiBehaviours)
         {
-           if(currentBehaviour.enabled)
+            if (currentBehaviour.enabled)
             {
                 steeringVelocity += currentBehaviour.UpdateBehaviour(this);
             }
         }
 
-            CurrentVelocity += LimitSteering(steeringVelocity, maxSteering);
-            CurrentVelocity += LimitVelocity(CurrentVelocity, maxSpeed);
+        CurrentVelocity += LimitSteering(steeringVelocity, maxSteering);
+        CurrentVelocity += LimitVelocity(CurrentVelocity, maxSpeed);
     }
 
     protected virtual void UpdatePosition() // Updates position
     {
-        if(CurrentVelocity != Vector3.zero)
+        if (CurrentVelocity != Vector3.zero)
         {
-            transform.position += new Vector3(CurrentVelocity.x, 0.0f , CurrentVelocity.z) * Time.deltaTime;
+            transform.position += new Vector3(CurrentVelocity.x, 0.0f, CurrentVelocity.z) * Time.deltaTime;
         }
 
     }
@@ -187,14 +176,14 @@ public class PetAI : MonoBehaviour {
     protected virtual void UpdateDirection() // Updates direction
     {
         if (CurrentVelocity.sqrMagnitude > 0.0f)
-        { 
+        {
             transform.forward = Vector3.Normalize(new Vector3(CurrentVelocity.x, 0.0f, CurrentVelocity.z));
         }
     }
 
     static public Vector3 LimitSteering(Vector3 steeringVelocity, float maxSteering) // Limit how much they can steer
     {
-        if(steeringVelocity.sqrMagnitude > maxSteering * maxSteering)
+        if (steeringVelocity.sqrMagnitude > maxSteering * maxSteering)
         {
             steeringVelocity.Normalize();
             steeringVelocity *= maxSteering;
@@ -213,3 +202,6 @@ public class PetAI : MonoBehaviour {
         return velocity;
     }
 }
+
+
+#endregion

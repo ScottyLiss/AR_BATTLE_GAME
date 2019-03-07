@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,8 +25,11 @@ public static class StaticVariables
 	public static PetData petData;
 	public static PlayerData playerData;
 	public static int BombsInPlay { get; set; }
+    public static int iAttackingLoopID = 0;
+    public static int iRobotAttackLanePosition = 0;
+    public static bool bRobotAttackTriggered = false;
 
-	public delegate void AttackDelegate();
+    public delegate void AttackDelegate();
 
 	public static event AttackDelegate AttackCallbacks;
 

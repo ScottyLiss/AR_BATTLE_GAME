@@ -20,7 +20,7 @@ public class SceneTransitionHandler : MonoBehaviour
 
 	private bool showingAlert = false;
 
-	private static int sceneToLoadCombat = 2;
+	private static int sceneToLoadCombat = 2; //Default scene to load first
 	private static bool isLoadingSomething = false;
 
 	void Awake()
@@ -58,7 +58,7 @@ public class SceneTransitionHandler : MonoBehaviour
 				yield return new WaitForEndOfFrame();
 			}
 
-			SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(0));
+			SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(1)); // Transition Combat --> Map
 
 			MapHolderGameObject.SetActive(true);
 
@@ -134,7 +134,7 @@ public class SceneTransitionHandler : MonoBehaviour
 
 			isLoadingSomething = false;
 
-			sceneToLoadCombat = 3;
+			sceneToLoadCombat = 3; // Load Combat Scene 3?
 		}
 	}
 

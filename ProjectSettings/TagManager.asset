@@ -9,6 +9,10 @@ TagManager:
   - Breach
   - Enemy
   - BodyPart
+  - Bonding
+  - Beacon
+  - JunkPile
+  - UIDraggable
   layers:
   - Default
   - TransparentFX

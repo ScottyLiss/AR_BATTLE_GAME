@@ -9,18 +9,19 @@ public class PetData
 {
 	public Stats stats;
 	public List<Trait> traits;
-	public int hunger = 100;
+	public int hunger = 0;
+
 
 	public bool FeedPet(FoodQuantity foodQuantity)
 	{
-		if (hunger >= 10)
+		if (hunger < 100)
 		{
 			foreach (Trait trait in StaticVariables.traitManager.allTraits.OrderBy(trait => trait.GetLayer()))
 			{
 				trait.Feed(foodQuantity);
 			}
 
-			hunger -= 10;
+			hunger += 10;
 
 			return true;
 		}

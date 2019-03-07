@@ -317,10 +317,18 @@ namespace Mapbox.Unity.MeshGeneration.Data
 
             if(placedAllResources == false)
             {
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 25; i++)
                 {
-                    GameObject instance = Resources.Load("Crystal" + Mathf.RoundToInt(UnityEngine.Random.Range(0, 8)), typeof(GameObject)) as GameObject;
+                    GameObject instance = Resources.Load("Crystal" + Mathf.RoundToInt(UnityEngine.Random.Range(0, 5)), typeof(GameObject)) as GameObject;
 	                instance.layer = 12;
+                    Instantiate(instance, gameObject.transform.position + new Vector3(UnityEngine.Random.Range(-50, 50), 1.584367f, UnityEngine.Random.Range(-50, 50)), Quaternion.identity, gameObject.transform);
+                }
+
+                //Spread the junk pile items on the map
+                for (int i = 0; i < 10; i++)
+                {
+                    GameObject instance = Resources.Load("Junk_pile", typeof(GameObject)) as GameObject;
+                    instance.layer = 12;
                     Instantiate(instance, gameObject.transform.position + new Vector3(UnityEngine.Random.Range(-50, 50), 1.584367f, UnityEngine.Random.Range(-50, 50)), Quaternion.identity, gameObject.transform);
                 }
             }

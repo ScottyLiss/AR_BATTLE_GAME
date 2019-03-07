@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4779075291989244}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: transform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4979827588628252}
   - component: {fileID: 33797146322544418}
   - component: {fileID: 23625944491430422}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pPyramid1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4103894385423150}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pTorus1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4533286051033226}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pTorus4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,9 +81,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4199115709101630}
-  m_Layer: 0
+  - component: {fileID: 65444612615512480}
+  m_Layer: 12
   m_Name: Beacon
-  m_TagString: Untagged
+  m_TagString: Beacon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +99,7 @@ GameObject:
   - component: {fileID: 4872602636609684}
   - component: {fileID: 33368504325433060}
   - component: {fileID: 23478206571238028}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pTorus6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4418508819178306}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: transform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4213324807160044}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pTorus5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4987953133805476}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: transform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1647069943091960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.593594, y: -0.28999996, z: 5.305803}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4979827588628252}
@@ -359,3 +360,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256119870530444}
   m_Mesh: {fileID: 4300000, guid: 1180418dc6bcabb46a3cf175d06ca7a7, type: 3}
+--- !u!65 &65444612615512480
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1647069943091960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 1.7, z: 0}

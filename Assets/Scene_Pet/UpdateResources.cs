@@ -18,6 +18,66 @@ public class UpdateResources : MonoBehaviour
     public Text r_Metal;
     public Text r_Rad;
 
+
+
+    private int iDraggedElement;
+    private bool bDropped;
+
+
+
+    // Use this for initialization
+    void Start()
+    {
+        iDraggedElement = -1;
+        bDropped = false;
+    }
+
+    void Update()
+    {
+
+
+        if (iDraggedElement == 0)
+        {
+            Debug.Log("0");
+            Feed_Elec();
+        }
+        else if (iDraggedElement == 1)
+        {
+            Debug.Log("1");
+            Feed_Fire();
+        }
+        else if (iDraggedElement == 2)
+        {
+            Debug.Log("2");
+            Feed_Water();
+        }
+        else if (iDraggedElement == 3)
+        {
+            Debug.Log("3");
+            Feed_Bio();
+        }
+        else if (iDraggedElement == 4)
+        {
+            Debug.Log("4");
+            Feed_Ice();
+        }
+        else if (iDraggedElement == 5)
+        {
+            Debug.Log("5");
+            Feed_Rock();
+        }
+        else if (iDraggedElement == 6)
+        {
+            Debug.Log("6");
+            Feed_Metal();
+        }
+        else if (iDraggedElement == 7)
+        {
+            Debug.Log("7");
+            Feed_Rad();
+        }
+    }
+
     public void UpdateValues()
     {
         r_Elec.text = pet.l_Elec.ToString();
@@ -33,9 +93,11 @@ public class UpdateResources : MonoBehaviour
 
     public void Feed_Elec()
     {
-        if(pet.l_Elec > 0)
-        {
+        iDraggedElement = 0;
 
+        if (pet.l_Elec > 0 && bDropped == true)
+        {
+            bDropped = false;
             if (StaticVariables.petData.FeedPet(new FoodQuantity()
             {
                 foodQuantity = 1,
@@ -51,9 +113,11 @@ public class UpdateResources : MonoBehaviour
 
     public void Feed_Fire()
     {
-        if (pet.l_Fire > 0)
-        {
+        iDraggedElement = 1;
 
+        if (pet.l_Fire > 0 && bDropped == true)
+        {
+            bDropped = false;
             if (StaticVariables.petData.FeedPet(new FoodQuantity()
             {
                 foodQuantity = 1,
@@ -69,10 +133,12 @@ public class UpdateResources : MonoBehaviour
 
     public void Feed_Water()
     {
-        if (pet.l_Water > 0)
+        iDraggedElement = 2;
+
+        if (pet.l_Water > 0 && bDropped == true)
         {
 
-
+            bDropped = false;
             if (StaticVariables.petData.FeedPet(new FoodQuantity()
             {
                 foodQuantity = 1,
@@ -88,10 +154,13 @@ public class UpdateResources : MonoBehaviour
 
     public void Feed_Bio()
     {
-        if (pet.l_Bio > 0)
+        Debug.Log("Dragged");
+        iDraggedElement = 3;
+
+        if (pet.l_Bio > 0 && bDropped == true)
         {
 
-
+            bDropped = false;
             if (StaticVariables.petData.FeedPet(new FoodQuantity()
             {
                 foodQuantity = 1,
@@ -104,12 +173,14 @@ public class UpdateResources : MonoBehaviour
             }
         }
     }
-    
+
     public void Feed_Ice()
     {
-        if (pet.l_Ice > 0)
-        {
+        iDraggedElement = 4;
 
+        if (pet.l_Ice > 0 && bDropped == true)
+        {
+            bDropped = false;
 
             if (StaticVariables.petData.FeedPet(new FoodQuantity()
             {
@@ -126,8 +197,11 @@ public class UpdateResources : MonoBehaviour
 
     public void Feed_Rock()
     {
-        if (pet.l_Rock > 0)
+        iDraggedElement = 5;
+
+        if (pet.l_Rock > 0 && bDropped == true)
         {
+            bDropped = false;
             if (StaticVariables.petData.FeedPet(new FoodQuantity()
             {
                 foodQuantity = 1,
@@ -143,9 +217,11 @@ public class UpdateResources : MonoBehaviour
 
     public void Feed_Metal()
     {
-        if (pet.l_Metal > 0)
-        {
+        iDraggedElement = 6;
 
+        if (pet.l_Metal > 0 && bDropped == true)
+        {
+            bDropped = false;
 
             if (StaticVariables.petData.FeedPet(new FoodQuantity()
             {
@@ -162,9 +238,11 @@ public class UpdateResources : MonoBehaviour
 
     public void Feed_Rad()
     {
-        if (pet.l_Rad > 0)
-        {
+        iDraggedElement = 7;
 
+        if (pet.l_Rad > 0 && bDropped == true)
+        {
+            bDropped = false;
 
             if (StaticVariables.petData.FeedPet(new FoodQuantity()
             {
@@ -178,4 +256,10 @@ public class UpdateResources : MonoBehaviour
             }
         }
     }
+
+    public void SetElementDroppedOnCreature()
+    {
+        bDropped = true;
+    }
+
 }

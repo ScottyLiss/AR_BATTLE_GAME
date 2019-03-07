@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEngine.Animations;
@@ -24,19 +24,27 @@ public class EnemyAppendage : EnemyComponent {
 		}
 	}
 
+    //To move in the enemy Component
 	public override void Attack()
 	{
 		enemyMainComponentScript.gameObject.transform.parent.GetComponent<Animator>().SetTrigger(AnimationTrigger);
+        StaticVariables.iRobotAttackLanePosition = StaticVariables.combatPet.iPetLanePosition;
+        StaticVariables.bRobotAttackTriggered = true;
 
-		StaticVariables.AttackCallbacks += AttackDealDamage;
+        StaticVariables.AttackCallbacks += AttackDealDamage;
 	}
-
-	private void AttackDealDamage()
+    //To move in the enemy Component
+    private void AttackDealDamage()
 	{
-		base.Attack();
+        StaticVariables.bRobotAttackTriggered = false;
+        if (StaticVariables.iRobotAttackLanePosition == StaticVariables.combatPet.iPetLanePosition)
+        {
+            base.Attack();
 
-		if (AttackAudioClip)
-			GetComponent<AudioSource>().PlayOneShot(AttackAudioClip);
+            if (AttackAudioClip)
+                GetComponent<AudioSource>().PlayOneShot(AttackAudioClip);
+        }
+		
 	}
 
 	public override void OnHit(Vector3 positionHit, float? damageToApply = null)
