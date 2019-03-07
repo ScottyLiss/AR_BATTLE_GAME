@@ -11,7 +11,30 @@ public class PetCombatScript : MonoBehaviour
 {
 	public Text PetStatsText;
 
+  public float placeholderStamina
+  {
+      get
+      {
+          return _placeholderStamina;
+      }
+
+      set
+      {
+          _placeholderStamina = value;
+          StaminaSlider.value = value;
+      }
+  }
+
+  private float _placeholderStamina = 100;
+
+  private float attackStaminaCost = 5;
+  private float staminaRegenPerSecond = 80;
+  private float staminaRegenDelay = 0.6f;
+  private float timeSinceLastAttack = 0.6f;
+  [SerializeField] private bool staminaShouldRegen = true;
+
 	public Slider HealthSlider;
+  public Slider StaminaSlider;
 
     public Image attackingFeedback1;
     public Image attackingFeedback2;
@@ -22,7 +45,7 @@ public class PetCombatScript : MonoBehaviour
 	private bool isRunningDamageCoroutine = false;
 	private float timeSinceLastHit = 0;
 
-    
+
 
     private Vector3 fp;   //First touch position
     private Vector3 lp;   //Last touch position
@@ -73,32 +96,33 @@ public class PetCombatScript : MonoBehaviour
 		}
 
 	    HealthSlider.maxValue = StaticVariables.petData.stats.health;
+      StaminaSlider.maxValue = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //		foreach (Trait trait in StaticVariables.petData.traits)
-        //		{
-        //			trait.Update();
-        //		}
+      if (timeSinceLastAttack < staminaRegenDelay)
+      {
+          staminaShouldRegen = false;
+          timeSinceLastAttack += Time.deltaTime;
+      }
 
-        //PetStatsText.text = $"Pet Stats:\n" +
-        //                    $"Health {stats.health}\n" +
-        //                    $"Resistance {stats.resistance}\n" +
-        //                    $"Damage {stats.damage}\n" +
-        //                    $"Crit Multiplier {stats.critMultiplier}\n" +
-        //                    $"Crit Chance {stats.critChance}\n" +
-        //                    $"Dodge Chance {stats.dodgeChance}\n";
+      else
+      {
+          staminaShouldRegen = true;
+      }
+
+      if (staminaShouldRegen && placeholderStamina < 100)
+      {
+          placeholderStamina = Mathf.Clamp(placeholderStamina + staminaRegenPerSecond * Time.deltaTime, 0, 100);
+      }
 
         CheckForSwipe();
 
         HitFeedbackUpdate();
 
         this.CombatUpdate();
-
-        
-
     }
 
 	// Update is called once per frame
@@ -108,12 +132,16 @@ public class PetCombatScript : MonoBehaviour
 		Ray ray;
 		RaycastHit hit;
 
-		//If fire button is pressed 
+		//If fire button is pressed
 		if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
-		    !EventSystem.current.IsPointerOverGameObject(0)) ||
-            (bDebug == true && Input.GetButtonDown("Fire1")))
+    !EventSystem.current.IsPointerOverGameObject(0)) || (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject(0))
+        && placeholderStamina > attackStaminaCost)
 		{
 
+      timeSinceLastAttack = 0;
+
+      //Raycast "fires" in the mouse direction
+      Vector3 pos = Input.touchCount > 0 ? (Vector3)Input.GetTouch(0).position : Input.mousePosition;
             //Raycast "fires" in the mouse direction
             Vector3 pos;
             if (bDebug == true)
@@ -124,7 +152,7 @@ public class PetCombatScript : MonoBehaviour
             {
                 pos = Input.GetTouch(0).position;
             }
-			
+
 			ray = Camera.main.ScreenPointToRay(pos);
 
 			// Set up the layer mask to only hit enemy parts in the enemy parts layer
@@ -137,10 +165,16 @@ public class PetCombatScript : MonoBehaviour
 				if (hit.collider != null)
 				{
 
+          // Lower the stamina
+          placeholderStamina -= attackStaminaCost;
+
 					// Handle the hit if it's a hittable object
 					if (hit.collider.gameObject.GetComponent<HittableObject>())
 					{
-						hit.collider.gameObject.GetComponent<HittableObject>().OnHit(hit.point);
+            float damageToDeal = StaticVariables.petData.stats.damage * Mathf.Lerp(0.5f, 1f, placeholderStamina / 100f);
+            float damageMultiplier = StaticVariables.RandomInstance.Next(0, 100) < StaticVariables.petData.stats.critChance ? StaticVariables.petData.stats.critMultiplier : 1;
+
+            hit.collider.gameObject.GetComponent<HittableObject>().OnHit(hit.point, damageToDeal * damageMultiplier);
 
 						gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Attack");
 					}
@@ -152,45 +186,6 @@ public class PetCombatScript : MonoBehaviour
 
 						gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Attack");
 					}
-
-					//// Set up a reference to the parent object in the hierarchy
-					//GameObject parentObject = hit.collider.gameObject;
-
-					//// Reference to the enemy component hit (if found)
-					//EnemyComponent enemyComponent = null;
-
-					//// Loop through the hierarchy to find the root enemy component object
-					//while ((enemyComponent = parentObject.GetComponent<EnemyComponent>()) == null)
-					//{
-					//	if (parentObject.transform.parent == null) break;
-
-					//	parentObject = parentObject.transform.parent.gameObject;
-					//}
-
-					//if (enemyComponent != null)
-					//{
-					//	// Run the appropriate logic for the hit component
-					//	enemyComponent.OnHit(hit.point);
-					//}
-
-					//// A reference to the enemy script
-					//EnemyMainComponentScript enemyMainComponentScript;
-
-					//// Set up a reference to the parent object in the hierarchy
-					//parentObject = hit.collider.gameObject;
-
-					//// Loop through the hierarchy to find the root enemy object
-					//while ((enemyMainComponentScript = parentObject.GetComponent<EnemyMainComponentScript>()) == null)
-					//{
-					//	if (parentObject.transform.parent == null) break;
-
-					//	parentObject = parentObject.transform.parent.gameObject;
-					//}
-
-					//if (enemyMainComponentScript != null)
-					//{
-					//	enemyMainComponentScript.OnHit(hit.point);
-					//}
 				}
 			}
 		}
@@ -238,12 +233,12 @@ public class PetCombatScript : MonoBehaviour
             attackingFeedback2.gameObject.SetActive(false);
             attackingFeedback3.gameObject.SetActive(false);
         }
-     
+
     }
 
     public void GetHit(float damage)
 	{
-       
+
         StaticVariables.petData.stats.health -= (int)damage;
 
 		this.HealthSlider.value = StaticVariables.petData.stats.health;
@@ -251,8 +246,6 @@ public class PetCombatScript : MonoBehaviour
 		StartCoroutine(PlayDamagedCoroutine());
 
 		StaticVariables.uiHandler.PlayerGotHit();
-
-       
     }
 
     public void CheckForSwipe()
@@ -271,7 +264,7 @@ public class PetCombatScript : MonoBehaviour
                     fp = Input.GetTouch(0).position;
                     lp = Input.GetTouch(0).position;
                 }
-                
+
             }
             else if (bDebug == false && Input.GetTouch(0).phase == TouchPhase.Moved) // update the last position based on where they moved
             {
@@ -287,7 +280,7 @@ public class PetCombatScript : MonoBehaviour
                 {
                     lp = Input.GetTouch(0).position;  //last touch position. Ommitted if you use list
                 }
-                    
+
 
                 //Check if drag distance is greater than 20% of the screen height
                 if (Mathf.Abs(lp.x - fp.x) > dragDistance || Mathf.Abs(lp.y - fp.y) > dragDistance)
@@ -297,49 +290,11 @@ public class PetCombatScript : MonoBehaviour
                     {   //If the horizontal movement is greater than the vertical movement...
 
                         iPetLanePosition = Mathf.Clamp(iPetLanePosition + (int)Mathf.Sign(lp.x - fp.x), 0, 2);
-                        //if ((lp.x > fp.x))  //If the movement was to the right)
-                        //{   //Right swipe
-                        //    Debug.Log("Right Swipe");
-
-                        //    if (StaticVariables.iPetLanePosition < 2)
-                        //    {
-                        //        StaticVariables.iPetLanePosition++;
-                        //        UpdatePetPosition();
-                        //    }
-                                
-                        //}
-                        //else
-                        //{   //Left swipe
-                        //    Debug.Log("Left Swipe");
-
-                        //    if (StaticVariables.iPetLanePosition > 0)
-                        //    {
-                        //        StaticVariables.iPetLanePosition--;
-                        //        UpdatePetPosition();
-                        //    }
-                                
-                        //}
-                    }  
+                    }
                 }
             }
         }
     }
-
-    //public void UpdatePetPosition()
-    //{
-    //    switch(StaticVariables.iPetLanePosition)
-    //    {
-    //        case 0:
-    //            gameObject.transform.position = new Vector3(-0.22f, gameObject.transform.position.y, gameObject.transform.position.z);
-    //        break;
-    //        case 1:
-    //            gameObject.transform.position = new Vector3(-0.02f, gameObject.transform.position.y, gameObject.transform.position.z);
-    //        break;
-    //        case 2:
-    //            gameObject.transform.position = new Vector3(+0.18f, gameObject.transform.position.y, gameObject.transform.position.z);
-    //        break;
-    //    }
-    //}
 
     // DEBUG
     public void FeedPetFood(Food foodType)
@@ -384,6 +339,15 @@ public class PetCombatScript : MonoBehaviour
 			timeSinceLastHit = 0;
 		}
 	}
+
+  protected virtual IEnumerator DelayStamina()
+  {
+      staminaShouldRegen = false;
+
+      yield return new WaitForSeconds(staminaRegenDelay);
+
+      staminaShouldRegen = true;
+  }
 
 	protected virtual IEnumerator PlayDamagedCoroutine()
 	{
