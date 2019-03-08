@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.31525815, g: 0.67287755, b: 1.0545171, a: 1}
+  m_IndirectSpecularColor: {r: 0.31524733, g: 0.6728595, b: 1.0545179, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4960,16 +4960,13 @@ MonoBehaviour:
   petData:
     stats:
       _health: 1000
+      _stamina: 100
+      _maxStamina: 100
       _maxHealth: 1000
       _resistance: 0
       _damage: 25
-      _iceDamage: 0
-      _fireDamage: 0
-      _electricDamage: 0
-      _critMultiplier: 0
-      _critChance: 0
-      _dodgeChance: 0
-      _criticalSweetSpotDuration: 0
+      _critMultiplier: 2.5
+      _critChance: 5
     traits: []
     hunger: 0
 --- !u!4 &769758379
