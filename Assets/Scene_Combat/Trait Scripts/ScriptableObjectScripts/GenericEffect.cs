@@ -66,7 +66,33 @@ public class Stats
 			_maxHealth = value;
 		}
 	}
-	public int resistance 
+    public float stamina
+    {
+        get
+        {
+            return _stamina;
+        }
+
+        set
+        {
+            OnStatsChanged?.Invoke();
+            _stamina = value;
+        }
+    }
+    public float maxStamina
+    {
+        get
+        {
+            return _maxStamina;
+        }
+
+        set
+        {
+            OnStatsChanged?.Invoke();
+            _maxStamina = value;
+        }
+    }
+    public int resistance 
 	{
 		get
 		{
@@ -90,45 +116,6 @@ public class Stats
 		{
 			OnStatsChanged?.Invoke();
 			_damage = value;
-		}
-	}
-	public int iceDamage 
-	{
-		get
-		{
-			return _iceDamage;
-		}
-		
-		set
-		{
-			OnStatsChanged?.Invoke();
-			_iceDamage = value;
-		}
-	}
-	public int fireDamage 
-	{
-		get
-		{
-			return _fireDamage;
-		}
-		
-		set
-		{
-			OnStatsChanged?.Invoke();
-			_fireDamage = value;
-		}
-	}
-	public int electricDamage 
-	{
-		get
-		{
-			return _electricDamage;
-		}
-		
-		set
-		{
-			OnStatsChanged?.Invoke();
-			_electricDamage = value;
 		}
 	}
 	public float critMultiplier 
@@ -157,62 +144,30 @@ public class Stats
 			_critChance = value;
 		}
 	}
-	public int dodgeChance 
-	{
-		get
-		{
-			return _dodgeChance;
-		}
-		
-		set
-		{
-			OnStatsChanged?.Invoke();
-			_dodgeChance = value;
-		}
-	}
-	public float criticalSweetSpotDuration 
-	{
-		get
-		{
-			return _criticalSweetSpotDuration;
-		}
-		
-		set
-		{
-			OnStatsChanged?.Invoke();
-			_criticalSweetSpotDuration = value;
-		}
-	}
 	
 	public int _health;
-	public int _maxHealth;
+    public float _stamina;
+    public float _maxStamina;
+    public int _maxHealth;
 	public int _resistance;
 	public int _damage;
-	public int _iceDamage;
-	public int _fireDamage;
-	public int _electricDamage;
 	public float _critMultiplier;
 	public int _critChance;
-	public int _dodgeChance;
-	public float _criticalSweetSpotDuration;
 
 	public static Stats operator + (Stats stats1, Stats stats2)
 	{
 		Stats newStats = new Stats();
 
-		newStats.maxHealth = stats1.maxHealth + stats2.maxHealth;
-		newStats.health = Mathf.Clamp(stats1.health + stats2.health, 0, newStats.maxHealth);
+		newStats._maxHealth = stats1.maxHealth + stats2.maxHealth;
+		newStats._health = Mathf.Clamp(stats1.health + stats2.health, 0, newStats.maxHealth);
+		newStats._maxStamina = stats1.maxStamina + stats2.maxStamina;
+		newStats._stamina = Mathf.Clamp(stats1.stamina + stats2.stamina, 0, newStats.maxStamina);
 
-		newStats.resistance = stats1.resistance + stats2.resistance;
+        newStats._resistance = stats1.resistance + stats2.resistance;
 
-		newStats.damage = stats1.damage + stats2.damage;
-		newStats.iceDamage = stats1.iceDamage + stats2.iceDamage;
-		newStats.fireDamage = stats1.fireDamage + stats2.fireDamage;
-		newStats.electricDamage = stats1.electricDamage + stats2.electricDamage;
-		newStats.critMultiplier = stats1.critMultiplier + stats2.critMultiplier;
-		newStats.critChance = stats1.critChance + stats2.critChance;
-		newStats.dodgeChance = stats1.dodgeChance + stats2.dodgeChance;
-		newStats.criticalSweetSpotDuration = stats1.criticalSweetSpotDuration + stats2.criticalSweetSpotDuration;
+		newStats._damage = stats1.damage + stats2.damage;
+		newStats._critMultiplier = stats1.critMultiplier + stats2.critMultiplier;
+		newStats._critChance = stats1.critChance + stats2.critChance;
 
 		OnStatsChanged?.Invoke();
 
@@ -223,21 +178,18 @@ public class Stats
 	{
 		Stats newStats = new Stats();
 
-		newStats.health = stats1.health - stats2.health;
-		newStats.health = Mathf.Clamp(stats1.health - stats2.health, 0, newStats.maxHealth);
+        newStats._maxHealth = stats1.maxHealth - stats2.maxHealth;
+        newStats._health = Mathf.Clamp(stats1.health - stats2.health, 0, newStats.maxHealth);
+        newStats._maxStamina = stats1.maxStamina - stats2.maxStamina;
+        newStats._stamina = Mathf.Clamp(stats1.stamina - stats2.stamina, 0, newStats.maxStamina);
 
-		newStats.resistance = stats1.resistance - stats2.resistance;
+        newStats._resistance = stats1.resistance - stats2.resistance;
 
-		newStats.damage = stats1.damage - stats2.damage;
-		newStats.iceDamage = stats1.iceDamage - stats2.iceDamage;
-		newStats.fireDamage = stats1.fireDamage - stats2.fireDamage;
-		newStats.electricDamage = stats1.electricDamage - stats2.electricDamage;
-		newStats.critMultiplier = stats1.critMultiplier - stats2.critMultiplier;
-		newStats.critChance = stats1.critChance - stats2.critChance;
-		newStats.dodgeChance = stats1.dodgeChance - stats2.dodgeChance;
-		newStats.criticalSweetSpotDuration = stats1.criticalSweetSpotDuration - stats2.criticalSweetSpotDuration;
+        newStats._damage = stats1.damage - stats2.damage;
+        newStats._critMultiplier = stats1.critMultiplier - stats2.critMultiplier;
+        newStats._critChance = stats1.critChance - stats2.critChance;
 
-		OnStatsChanged?.Invoke();
+        OnStatsChanged?.Invoke();
 
 		return newStats;
 	}

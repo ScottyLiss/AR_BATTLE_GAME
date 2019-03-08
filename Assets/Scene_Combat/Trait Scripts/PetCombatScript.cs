@@ -9,41 +9,25 @@ using UnityEditor;
 
 public class PetCombatScript : MonoBehaviour
 {
-	public Text PetStatsText;
+    public Text PetStatsText;
 
-  public float placeholderStamina
-  {
-      get
-      {
-          return _placeholderStamina;
-      }
+    private float attackStaminaCost = 5;
+    private float staminaRegenPerSecond = 80;
+    private float staminaRegenDelay = 0.6f;
+    private float timeSinceLastAttack = 0.6f;
+    [SerializeField] private bool staminaShouldRegen = true;
 
-      set
-      {
-          _placeholderStamina = value;
-          StaminaSlider.value = value;
-      }
-  }
-
-  private float _placeholderStamina = 100;
-
-  private float attackStaminaCost = 5;
-  private float staminaRegenPerSecond = 80;
-  private float staminaRegenDelay = 0.6f;
-  private float timeSinceLastAttack = 0.6f;
-  [SerializeField] private bool staminaShouldRegen = true;
-
-	public Slider HealthSlider;
-  public Slider StaminaSlider;
+    public Slider HealthSlider;
+    public Slider StaminaSlider;
 
     public Image attackingFeedback1;
     public Image attackingFeedback2;
     public Image attackingFeedback3;
 
     private bool bDebug;
-	private bool isRunningAttackCoroutine = false;
-	private bool isRunningDamageCoroutine = false;
-	private float timeSinceLastHit = 0;
+    private bool isRunningAttackCoroutine = false;
+    private bool isRunningDamageCoroutine = false;
+    private float timeSinceLastHit = 0;
 
 
 
@@ -86,37 +70,38 @@ public class PetCombatScript : MonoBehaviour
 
 
         if (!StaticVariables.combatPet)
-	    {
-		    StaticVariables.combatPet = this;
-	    }
+        {
+            StaticVariables.combatPet = this;
+        }
 
-		foreach (Trait trait in StaticVariables.petData.traits)
-		{
-			trait.Start();
-		}
+        foreach (Trait trait in StaticVariables.petData.traits)
+        {
+            trait.Start();
+        }
 
-	    HealthSlider.maxValue = StaticVariables.petData.stats.health;
-      StaminaSlider.maxValue = 100;
+        HealthSlider.maxValue = StaticVariables.petData.stats.health;
+        StaminaSlider.maxValue = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
-      if (timeSinceLastAttack < staminaRegenDelay)
-      {
-          staminaShouldRegen = false;
-          timeSinceLastAttack += Time.deltaTime;
-      }
+        if (timeSinceLastAttack < staminaRegenDelay)
+        {
+            staminaShouldRegen = false;
+            timeSinceLastAttack += Time.deltaTime;
+        }
 
-      else
-      {
-          staminaShouldRegen = true;
-      }
+        else
+        {
+            staminaShouldRegen = true;
+        }
 
-      if (staminaShouldRegen && placeholderStamina < 100)
-      {
-          placeholderStamina = Mathf.Clamp(placeholderStamina + staminaRegenPerSecond * Time.deltaTime, 0, 100);
-      }
+        if (staminaShouldRegen && StaticVariables.petData.stats.stamina < 100)
+        {
+            StaticVariables.petData.stats.stamina = Mathf.Clamp(StaticVariables.petData.stats.stamina + staminaRegenPerSecond * Time.deltaTime, 0, 100);
+            StaminaSlider.value = StaticVariables.petData.stats.stamina;
+        }
 
         CheckForSwipe();
 
@@ -125,23 +110,23 @@ public class PetCombatScript : MonoBehaviour
         this.CombatUpdate();
     }
 
-	// Update is called once per frame
-	void CombatUpdate()
-	{
+    // Update is called once per frame
+    void CombatUpdate()
+    {
 
-		Ray ray;
-		RaycastHit hit;
+        Ray ray;
+        RaycastHit hit;
 
-		//If fire button is pressed
-		if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
+        //If fire button is pressed
+        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
     !EventSystem.current.IsPointerOverGameObject(0)) || (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject(0))
-        && placeholderStamina > attackStaminaCost)
-		{
+        && StaticVariables.petData.stats.stamina > attackStaminaCost)
+        {
 
-      timeSinceLastAttack = 0;
+            timeSinceLastAttack = 0;
 
-      //Raycast "fires" in the mouse direction
-      //Vector3 pos = Input.touchCount > 0 ? (Vector3)Input.GetTouch(0).position : Input.mousePosition;
+            //Raycast "fires" in the mouse direction
+            //Vector3 pos = Input.touchCount > 0 ? (Vector3)Input.GetTouch(0).position : Input.mousePosition;
             //Raycast "fires" in the mouse direction
             Vector3 pos;
             if (bDebug == true)
@@ -153,60 +138,61 @@ public class PetCombatScript : MonoBehaviour
                 pos = Input.GetTouch(0).position;
             }
 
-			ray = Camera.main.ScreenPointToRay(pos);
+            ray = Camera.main.ScreenPointToRay(pos);
 
-			// Set up the layer mask to only hit enemy parts in the enemy parts layer
-			int layerMask = 1 << 9;
-			layerMask += 1 << 11;
+            // Set up the layer mask to only hit enemy parts in the enemy parts layer
+            int layerMask = 1 << 9;
+            layerMask += 1 << 11;
 
-			if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
-			{
-				// We've hit a part of an enemy
-				if (hit.collider != null)
-				{
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+            {
+                // We've hit a part of an enemy
+                if (hit.collider != null)
+                {
 
-          // Lower the stamina
-          placeholderStamina -= attackStaminaCost;
+                    // Lower the stamina
+                    StaticVariables.petData.stats.stamina -= attackStaminaCost;
+                    StaminaSlider.value = StaticVariables.petData.stats.stamina;
 
-					// Handle the hit if it's a hittable object
-					if (hit.collider.gameObject.GetComponent<HittableObject>())
-					{
-            float damageToDeal = StaticVariables.petData.stats.damage * Mathf.Lerp(0.5f, 1f, placeholderStamina / 100f);
-            float damageMultiplier = StaticVariables.RandomInstance.Next(0, 100) < StaticVariables.petData.stats.critChance ? StaticVariables.petData.stats.critMultiplier : 1;
+                    // Handle the hit if it's a hittable object
+                    if (hit.collider.gameObject.GetComponent<HittableObject>())
+                    {
+                        float damageToDeal = StaticVariables.petData.stats.damage * Mathf.Lerp(0.5f, 1f, StaticVariables.petData.stats.stamina / 100f);
+                        float damageMultiplier = StaticVariables.RandomInstance.Next(0, 100) < StaticVariables.petData.stats.critChance ? StaticVariables.petData.stats.critMultiplier : 1;
 
-            hit.collider.gameObject.GetComponent<HittableObject>().OnHit(hit.point, damageToDeal * damageMultiplier);
+                        hit.collider.gameObject.GetComponent<HittableObject>().OnHit(hit.point, damageToDeal * damageMultiplier);
 
-						gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Attack");
-					}
+                        gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Attack");
+                    }
 
-					// Handle the hit if it's a hittable object
-					else if (hit.collider.gameObject.GetComponentInParent<HittableObject>())
-					{
-						hit.collider.gameObject.GetComponentInParent<HittableObject>().OnHit(hit.point);
+                    // Handle the hit if it's a hittable object
+                    else if (hit.collider.gameObject.GetComponentInParent<HittableObject>())
+                    {
+                        hit.collider.gameObject.GetComponentInParent<HittableObject>().OnHit(hit.point);
 
-						gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Attack");
-					}
-				}
-			}
-		}
+                        gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Attack");
+                    }
+                }
+            }
+        }
 
-		// Update the combat logic for the traits
-		foreach (Trait trait in StaticVariables.petData.traits)
-		{
-			trait.CombatUpdate();
-		}
+        // Update the combat logic for the traits
+        foreach (Trait trait in StaticVariables.petData.traits)
+        {
+            trait.CombatUpdate();
+        }
 
-		if (StaticVariables.petData.stats.health < 0)
-		{
-			StaticVariables.EnemyComponents = new List<EnemyComponent>();
+        if (StaticVariables.petData.stats.health < 0)
+        {
+            StaticVariables.EnemyComponents = new List<EnemyComponent>();
 
-			StaticVariables.sceneManager.TransitionOutOfCombat();
-		}
-	}
+            StaticVariables.sceneManager.TransitionOutOfCombat();
+        }
+    }
 
     public void HitFeedbackUpdate()
     {
-        if(StaticVariables.bRobotAttackTriggered)
+        if (StaticVariables.bRobotAttackTriggered)
         {
             switch (StaticVariables.iRobotAttackLanePosition)
             {
@@ -237,15 +223,15 @@ public class PetCombatScript : MonoBehaviour
     }
 
     public void GetHit(float damage)
-	{
+    {
 
         StaticVariables.petData.stats.health -= (int)damage;
 
-		this.HealthSlider.value = StaticVariables.petData.stats.health;
+        this.HealthSlider.value = StaticVariables.petData.stats.health;
 
-		StartCoroutine(PlayDamagedCoroutine());
+        StartCoroutine(PlayDamagedCoroutine());
 
-		StaticVariables.uiHandler.PlayerGotHit();
+        StaticVariables.uiHandler.PlayerGotHit();
     }
 
     public void CheckForSwipe()
@@ -254,7 +240,7 @@ public class PetCombatScript : MonoBehaviour
         {
             if ((bDebug == false && Input.GetTouch(0).phase == TouchPhase.Began) || (Input.GetButtonDown("Fire1"))) //check for the first touch
             {
-                if(bDebug == true)
+                if (bDebug == true)
                 {
                     fp = Input.mousePosition;
                     lp = Input.mousePosition;
@@ -298,108 +284,108 @@ public class PetCombatScript : MonoBehaviour
 
     // DEBUG
     public void FeedPetFood(Food foodType)
-	{
-		foreach (Trait trait in StaticVariables.traitManager.allTraits)
-		{
-			FoodQuantity foodQuantity = new FoodQuantity();
-			foodQuantity.foodType = foodType;
-			foodQuantity.foodQuantity = 1;
+    {
+        foreach (Trait trait in StaticVariables.traitManager.allTraits)
+        {
+            FoodQuantity foodQuantity = new FoodQuantity();
+            foodQuantity.foodType = foodType;
+            foodQuantity.foodQuantity = 1;
 
-			trait.Feed(foodQuantity);
-		}
-	}
+            trait.Feed(foodQuantity);
+        }
+    }
 
-	protected virtual IEnumerator PlayAttackCoroutine()
-	{
-		if (!isRunningAttackCoroutine)
-		{
-			isRunningAttackCoroutine = true;
+    protected virtual IEnumerator PlayAttackCoroutine()
+    {
+        if (!isRunningAttackCoroutine)
+        {
+            isRunningAttackCoroutine = true;
 
-			Vector3 originalPosition = gameObject.transform.position;
-			gameObject.transform.Translate(new Vector3(0, 0, 0.5f), Space.Self);
+            Vector3 originalPosition = gameObject.transform.position;
+            gameObject.transform.Translate(new Vector3(0, 0, 0.5f), Space.Self);
 
-			timeSinceLastHit = 0;
+            timeSinceLastHit = 0;
 
-			while (timeSinceLastHit < 0.1)
-			{
-				timeSinceLastHit += Time.deltaTime;
+            while (timeSinceLastHit < 0.1)
+            {
+                timeSinceLastHit += Time.deltaTime;
 
-				transform.Translate(new Vector3(0, 0, -1 * Time.deltaTime), Space.Self);
+                transform.Translate(new Vector3(0, 0, -1 * Time.deltaTime), Space.Self);
 
-				yield return new WaitForEndOfFrame();
-			}
+                yield return new WaitForEndOfFrame();
+            }
 
-			transform.position = originalPosition;
+            transform.position = originalPosition;
 
-			isRunningAttackCoroutine = false;
-		}
+            isRunningAttackCoroutine = false;
+        }
 
-		else
-		{
-			timeSinceLastHit = 0;
-		}
-	}
+        else
+        {
+            timeSinceLastHit = 0;
+        }
+    }
 
-  protected virtual IEnumerator DelayStamina()
-  {
-      staminaShouldRegen = false;
+    protected virtual IEnumerator DelayStamina()
+    {
+        staminaShouldRegen = false;
 
-      yield return new WaitForSeconds(staminaRegenDelay);
+        yield return new WaitForSeconds(staminaRegenDelay);
 
-      staminaShouldRegen = true;
-  }
+        staminaShouldRegen = true;
+    }
 
-	protected virtual IEnumerator PlayDamagedCoroutine()
-	{
-		if (!isRunningDamageCoroutine)
-		{
-			isRunningDamageCoroutine = true;
+    protected virtual IEnumerator PlayDamagedCoroutine()
+    {
+        if (!isRunningDamageCoroutine)
+        {
+            isRunningDamageCoroutine = true;
 
-			timeSinceLastHit = 0;
-			Material defaultMaterial = null;
-			Material[] defaultChildMaterials = new Material[gameObject.transform.childCount];
+            timeSinceLastHit = 0;
+            Material defaultMaterial = null;
+            Material[] defaultChildMaterials = new Material[gameObject.transform.childCount];
 
-			if (gameObject.GetComponent<MeshRenderer>() &&
-			    gameObject.GetComponent<MeshRenderer>().material != StaticVariables.damagedMaterial)
-			{
-				defaultMaterial = gameObject.GetComponent<MeshRenderer>().material;
-				gameObject.GetComponent<MeshRenderer>().material = StaticVariables.damagedMaterial;
-			}
+            if (gameObject.GetComponent<MeshRenderer>() &&
+                gameObject.GetComponent<MeshRenderer>().material != StaticVariables.damagedMaterial)
+            {
+                defaultMaterial = gameObject.GetComponent<MeshRenderer>().material;
+                gameObject.GetComponent<MeshRenderer>().material = StaticVariables.damagedMaterial;
+            }
 
 
-			for (var i = 0; i < gameObject.transform.childCount; i++)
-			{
-				if (gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() &&
-				    gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() != StaticVariables.damagedMaterial)
-				{
-					defaultChildMaterials[i] = gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material;
-					gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material =
-						StaticVariables.damagedMaterial;
-				}
-			}
+            for (var i = 0; i < gameObject.transform.childCount; i++)
+            {
+                if (gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() &&
+                    gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() != StaticVariables.damagedMaterial)
+                {
+                    defaultChildMaterials[i] = gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material;
+                    gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material =
+                        StaticVariables.damagedMaterial;
+                }
+            }
 
-			while (timeSinceLastHit < 0.1)
-			{
-				timeSinceLastHit += Time.deltaTime;
+            while (timeSinceLastHit < 0.1)
+            {
+                timeSinceLastHit += Time.deltaTime;
 
-				yield return new WaitForEndOfFrame();
-			}
+                yield return new WaitForEndOfFrame();
+            }
 
-			if (gameObject.GetComponent<MeshRenderer>() && defaultMaterial)
-				gameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
+            if (gameObject.GetComponent<MeshRenderer>() && defaultMaterial)
+                gameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
 
-			for (var i = 0; i < gameObject.transform.childCount; i++)
-			{
-				if (gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() && defaultChildMaterials[i])
-					gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material = defaultChildMaterials[i];
-			}
+            for (var i = 0; i < gameObject.transform.childCount; i++)
+            {
+                if (gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() && defaultChildMaterials[i])
+                    gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material = defaultChildMaterials[i];
+            }
 
-			isRunningDamageCoroutine = false;
-		}
+            isRunningDamageCoroutine = false;
+        }
 
-		else
-		{
-			timeSinceLastHit = 0;
-		}
-	}
+        else
+        {
+            timeSinceLastHit = 0;
+        }
+    }
 }
