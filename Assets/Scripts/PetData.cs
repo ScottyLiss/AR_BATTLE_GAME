@@ -11,8 +11,26 @@ public class PetData
 	public List<Trait> traits;
 	public int hunger = 0;
 
+    public Catalyst headCatalyst;
+    public Catalyst bodyCatalyst;
+    public Catalyst tailCatalyst;
+    public Catalyst legsCatalyst;
 
-	public bool FeedPet(FoodQuantity foodQuantity)
+    public Catalyst[] catalysts
+    {
+        get
+        {
+            return new Catalyst[]
+            {
+                headCatalyst,
+                bodyCatalyst,
+                tailCatalyst,
+                legsCatalyst,
+            };
+        }
+    }
+
+    public bool FeedPet(FoodQuantity foodQuantity)
 	{
 		if (hunger < 100)
 		{

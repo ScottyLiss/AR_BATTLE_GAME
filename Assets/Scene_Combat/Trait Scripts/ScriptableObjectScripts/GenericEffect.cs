@@ -49,9 +49,9 @@ public class Stats
 		
 		set
 		{
-			OnStatsChanged?.Invoke();
 			_health = value;
-		}
+			OnStatsChanged?.Invoke();
+        }
 	}
 	public int maxHealth 
 	{
@@ -62,9 +62,9 @@ public class Stats
 		
 		set
 		{
-			OnStatsChanged?.Invoke();
 			_maxHealth = value;
-		}
+			OnStatsChanged?.Invoke();
+        }
 	}
     public float stamina
     {
@@ -75,8 +75,8 @@ public class Stats
 
         set
         {
-            OnStatsChanged?.Invoke();
             _stamina = value;
+            OnStatsChanged?.Invoke();
         }
     }
     public float maxStamina
@@ -88,8 +88,21 @@ public class Stats
 
         set
         {
-            OnStatsChanged?.Invoke();
             _maxStamina = value;
+            OnStatsChanged?.Invoke();
+        }
+    }
+    public float lowStaminaMultiplier
+    {
+        get
+        {
+            return _lowStaminaMultiplier;
+        }
+
+        set
+        {
+            _lowStaminaMultiplier = value;
+            OnStatsChanged?.Invoke();
         }
     }
     public int resistance 
@@ -101,9 +114,9 @@ public class Stats
 		
 		set
 		{
-			OnStatsChanged?.Invoke();
 			_resistance = value;
-		}
+			OnStatsChanged?.Invoke();
+        }
 	}
 	public int damage 
 	{
@@ -114,9 +127,9 @@ public class Stats
 		
 		set
 		{
-			OnStatsChanged?.Invoke();
 			_damage = value;
-		}
+			OnStatsChanged?.Invoke();
+        }
 	}
 	public float critMultiplier 
 	{
@@ -127,9 +140,9 @@ public class Stats
 		
 		set
 		{
-			OnStatsChanged?.Invoke();
 			_critMultiplier = value;
-		}
+			OnStatsChanged?.Invoke();
+        }
 	}
 	public int critChance 
 	{
@@ -140,14 +153,15 @@ public class Stats
 		
 		set
 		{
-			OnStatsChanged?.Invoke();
 			_critChance = value;
-		}
+			OnStatsChanged?.Invoke();
+        }
 	}
 	
 	public int _health;
     public float _stamina;
     public float _maxStamina;
+    public float _lowStaminaMultiplier;
     public int _maxHealth;
 	public int _resistance;
 	public int _damage;
@@ -162,6 +176,7 @@ public class Stats
 		newStats._health = Mathf.Clamp(stats1.health + stats2.health, 0, newStats.maxHealth);
 		newStats._maxStamina = stats1.maxStamina + stats2.maxStamina;
 		newStats._stamina = Mathf.Clamp(stats1.stamina + stats2.stamina, 0, newStats.maxStamina);
+        newStats._lowStaminaMultiplier = stats1.lowStaminaMultiplier + stats2.lowStaminaMultiplier;
 
         newStats._resistance = stats1.resistance + stats2.resistance;
 
@@ -182,6 +197,7 @@ public class Stats
         newStats._health = Mathf.Clamp(stats1.health - stats2.health, 0, newStats.maxHealth);
         newStats._maxStamina = stats1.maxStamina - stats2.maxStamina;
         newStats._stamina = Mathf.Clamp(stats1.stamina - stats2.stamina, 0, newStats.maxStamina);
+        newStats._lowStaminaMultiplier = stats1.lowStaminaMultiplier - stats2.lowStaminaMultiplier;
 
         newStats._resistance = stats1.resistance - stats2.resistance;
 

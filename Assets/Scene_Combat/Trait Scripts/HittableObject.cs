@@ -2,6 +2,9 @@
 
 public class HittableObject: MonoBehaviour
 {
+    // The type of hittable object
+    public HittableTypes HittableType = HittableTypes.Body;
+
 	public void Start()
 	{
 		// gameObject.layer = 9;
@@ -11,4 +14,11 @@ public class HittableObject: MonoBehaviour
 	{
 
 	}
+}
+
+public enum HittableTypes
+{
+    Appendage,
+    Body,
+    Bomb
 }

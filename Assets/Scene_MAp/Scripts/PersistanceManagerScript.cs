@@ -15,6 +15,12 @@ public class PersistanceManagerScript : MonoBehaviour
 	void Awake()
 	{
 		GameObject.DontDestroyOnLoad(gameObject);
+
+        // Run all initialization logic
+        CatalystFactory.Initialize();
+
+        // DEBUG
+        petData.bodyCatalyst = CatalystFactory.CreateNewCatalyst(10);
 	}
 
 	void Start()

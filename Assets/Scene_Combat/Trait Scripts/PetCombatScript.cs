@@ -7,11 +7,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEditor;
 
+public delegate void IntReferenceDelegate(ref int intRef);
+public delegate void FloatReferenceDelegate(ref float intRef);
+
 public class PetCombatScript : MonoBehaviour
 {
     public Text PetStatsText;
 
-    private float attackStaminaCost = 5;
+    public float attackStaminaCost = 5;
     private float staminaRegenPerSecond = 80;
     private float staminaRegenDelay = 0.6f;
     private float timeSinceLastAttack = 0.6f;
@@ -29,7 +32,11 @@ public class PetCombatScript : MonoBehaviour
     private bool isRunningDamageCoroutine = false;
     private float timeSinceLastHit = 0;
 
-
+    // Event handlers for all pet actions
+    public event FloatReferenceDelegate CalculatingBaseDamage;
+    public event FloatReferenceDelegate CalculatingDamageMultiplier;
+    public event FloatReferenceDelegate OnPetHit;
+    public event VoidDelegate PetChangedLane;
 
     private Vector3 fp;   //First touch position
     private Vector3 lp;   //Last touch position
@@ -51,6 +58,7 @@ public class PetCombatScript : MonoBehaviour
             _iPetLanePosition = value;
 
             gameObject.transform.position = petPositions[value].position;
+            PetChangedLane?.Invoke();
         }
     }
 
@@ -77,6 +85,18 @@ public class PetCombatScript : MonoBehaviour
         foreach (Trait trait in StaticVariables.petData.traits)
         {
             trait.Start();
+        }
+
+        foreach (Catalyst catalyst in StaticVariables.petData.catalysts)
+        {
+            if (catalyst != null)
+            {
+                foreach (CatalystEffect catalystEffect in catalyst.effects)
+                {
+                    catalystEffect.Start();
+                    Debug.Log(catalystEffect.name);
+                }
+            }            
         }
 
         HealthSlider.maxValue = StaticVariables.petData.stats.health;
@@ -157,8 +177,19 @@ public class PetCombatScript : MonoBehaviour
                     // Handle the hit if it's a hittable object
                     if (hit.collider.gameObject.GetComponent<HittableObject>())
                     {
-                        float damageToDeal = StaticVariables.petData.stats.damage * Mathf.Lerp(0.5f, 1f, StaticVariables.petData.stats.stamina / 100f);
+                        float damageToDeal = StaticVariables.petData.stats.damage * Mathf.Lerp(StaticVariables.petData.stats.lowStaminaMultiplier, 1f, StaticVariables.petData.stats.stamina / 100f);
+
+                        // Run all of the modifications
+                        CalculatingBaseDamage?.Invoke(ref damageToDeal);
+
                         float damageMultiplier = StaticVariables.RandomInstance.Next(0, 100) < StaticVariables.petData.stats.critChance ? StaticVariables.petData.stats.critMultiplier : 1;
+
+                        // Run all of the modifications
+                        CalculatingDamageMultiplier?.Invoke(ref damageMultiplier);
+
+                        float baseDamage = damageToDeal * damageMultiplier;
+
+                        //float resolvedDamage = this.ResolveDamage(baseDamage, hit.collider.gameObject.GetComponent<HittableObject>());
 
                         hit.collider.gameObject.GetComponent<HittableObject>().OnHit(hit.point, damageToDeal * damageMultiplier);
 
@@ -225,13 +256,18 @@ public class PetCombatScript : MonoBehaviour
     public void GetHit(float damage)
     {
 
-        StaticVariables.petData.stats.health -= (int)damage;
+        if (damage > 0)
+        {
+            OnPetHit?.Invoke(ref damage);
 
-        this.HealthSlider.value = StaticVariables.petData.stats.health;
+            StaticVariables.petData.stats.health -= (int)damage;
 
-        StartCoroutine(PlayDamagedCoroutine());
+            this.HealthSlider.value = StaticVariables.petData.stats.health;
 
-        StaticVariables.uiHandler.PlayerGotHit();
+            StartCoroutine(PlayDamagedCoroutine());
+
+            StaticVariables.uiHandler.PlayerGotHit();
+        }
     }
 
     public void CheckForSwipe()

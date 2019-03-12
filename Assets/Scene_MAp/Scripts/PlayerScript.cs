@@ -57,6 +57,11 @@ public class PlayerScript : MonoBehaviour
     public GameObject petMenu;
     #endregion
 
+    #region Catalysts
+    public List<Catalyst> catalysts = new List<Catalyst>();
+    public GameObject catalystInventoryTemp;
+    #endregion
+
     #region JunkPile
     private bool bDebug;
     private bool bPileSystemStatus;
@@ -78,6 +83,8 @@ public class PlayerScript : MonoBehaviour
         CallPet();
         callingPet = false;
         petToPosition = this.transform.position;
+
+        StaticVariables.playerScript = this;
 
         bDebug = EditorApplication.isPlaying;
         bPileSystemStatus = true;
@@ -260,6 +267,13 @@ public class PlayerScript : MonoBehaviour
         petMenu.GetComponent<UpdateResources>().UpdateValues();
         petMenu.SetActive(true);
     }
+
+    // TODO: Remove, this is for DEBUGGING!
+    public void TransitionToCatalysts()
+    {
+        petMenu.GetComponent<UpdateResources>().UpdateValues();
+        petMenu.SetActive(true);
+    }
     #endregion
 
     #region JunkPile
@@ -331,14 +345,13 @@ public class PlayerScript : MonoBehaviour
             {
                 //Debug.Log(i.ToString());
                 GameObject instance = Resources.Load("Crystal" + Mathf.RoundToInt(UnityEngine.Random.Range(0, 5)), typeof(GameObject)) as GameObject;
+                catalysts.Add(CatalystFactory.CreateNewCatalyst(10));
                 instance.layer = 12;
                 Instantiate(instance, PileObject.transform.position + new Vector3(0, 1.584367f, 0), Quaternion.identity);
-
             }
             Destroy(PileObject);
             PileUI.transform.localScale = new Vector3(6.0f, 6.0f, 6.0f);
             PileUI.SetActive(false);
-
         }
         else
         {

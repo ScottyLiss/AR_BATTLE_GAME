@@ -7,8 +7,11 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class EnemyAppendage : EnemyComponent {
 
-	// The enemy this appendage belongs to
-	public EnemyMainComponentScript enemyMainComponentScript;
+    // This is an appendage
+    public new HittableTypes HittableType = HittableTypes.Appendage;
+
+    // The enemy this appendage belongs to
+    public EnemyMainComponentScript enemyMainComponentScript;
 
 	public string AnimationTrigger;
 
