@@ -14,7 +14,7 @@ using Mapbox.Unity.MeshGeneration.Data;
 using Mapbox.Unity.Location;
 using UnityEngine.UI;
 using System.Security.Permissions;
-
+using Mapbox.Unity.Map;
 
 public class PersistanceStoring : MonoBehaviour
 {
@@ -23,8 +23,23 @@ public class PersistanceStoring : MonoBehaviour
 
 
     public GameObject player;
-    public DeviceLocationProvider locationProvider;
+    public AbstractMap abstractMap;
+    //public DeviceLocationProvider locationProvider;
     public Location location;
+
+    ILocationProvider _locationProvider;
+    ILocationProvider locationProvider
+    {
+        get
+        {
+            if (_locationProvider == null)
+            {
+                _locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider;
+            }
+
+            return _locationProvider;
+        }
+    }
 
     public Text coords;
     public Text worldpos;
@@ -227,8 +242,9 @@ public class PersistanceStoring : MonoBehaviour
         location = locationProvider.CurrentLocation;
         coords.text = location.LatitudeLongitude.ToString();
         string[] cArray = coords.text.Split(',');
-        worldpos.text = Conversions.LatitudeLongitudeToUnityTilePosition(location.LatitudeLongitude, 255, 255, 4096).ToString();
+        //worldpos.text = Conversions.LatitudeLongitudeToUnityTilePosition(location.LatitudeLongitude, 255, 255, 4096).ToString();
         //worldpos.text = Conversions.GeoToWorldPosition(double.Parse(cArray[0]), double.Parse(cArray[1]), new Mapbox.Utils.Vector2d(10, 10), (float)2.5).ToString();
+        worldpos.text = abstractMap.GeoToWorldPosition(locationProvider.CurrentLocation.LatitudeLongitude).ToString();
         localPos.text = player.transform.position.ToString();
     }
     
