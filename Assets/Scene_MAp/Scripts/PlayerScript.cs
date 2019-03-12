@@ -79,7 +79,7 @@ public class PlayerScript : MonoBehaviour
         callingPet = false;
         petToPosition = this.transform.position;
 
-        bDebug = EditorApplication.isPlaying;
+//        bDebug = EditorApplication.isPlaying;
         bPileSystemStatus = true;
     }
 

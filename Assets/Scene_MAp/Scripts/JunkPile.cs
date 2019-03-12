@@ -11,7 +11,7 @@ public class JunkPile : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        bDebug = EditorApplication.isPlaying;
+//        bDebug = EditorApplication.isPlaying;
     }
 
     // Update is called once per frame
