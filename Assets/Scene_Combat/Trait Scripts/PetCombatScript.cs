@@ -34,7 +34,9 @@ public class PetCombatScript : MonoBehaviour
 
     // Event handlers for all pet actions
     public event FloatReferenceDelegate CalculatingBaseDamage;
-    public event FloatReferenceDelegate CalculatingDamageMultiplier;
+    public event FloatReferenceDelegate CalculatingDamageStaminaCost;
+    public event FloatReferenceDelegate CalculatingLowStaminaMultiplier;
+    public event FloatReferenceDelegate CalculatingDamageMultiplier; 
     public event FloatReferenceDelegate OnPetHit;
     public event VoidDelegate PetChangedLane;
 
@@ -94,6 +96,7 @@ public class PetCombatScript : MonoBehaviour
                 foreach (CatalystEffect catalystEffect in catalyst.effects)
                 {
                     catalystEffect.Start();
+                    catalystEffect.CombatStart();
                     Debug.Log(catalystEffect.name);
                 }
             }            
@@ -102,6 +105,18 @@ public class PetCombatScript : MonoBehaviour
         HealthSlider.maxValue = StaticVariables.petData.stats.health;
         StaminaSlider.maxValue = 100;
     }
+
+    // Clear all events of handlers and stop all coroutines before exiting combat
+    public void ClearData()
+    {
+        OnPetHit = null;
+        PetChangedLane = null;
+        CalculatingBaseDamage = null;
+        CalculatingDamageMultiplier = null;
+        CalculatingDamageStaminaCost = null;
+
+        StopAllCoroutines();
+}
 
     // Update is called once per frame
     void Update()
@@ -171,13 +186,21 @@ public class PetCombatScript : MonoBehaviour
                 {
 
                     // Lower the stamina
-                    StaticVariables.petData.stats.stamina -= attackStaminaCost;
+                    float newAttackStaminaCost = attackStaminaCost;
+
+                    CalculatingDamageStaminaCost?.Invoke(ref newAttackStaminaCost);
+
+                    StaticVariables.petData.stats.stamina -= newAttackStaminaCost;
                     StaminaSlider.value = StaticVariables.petData.stats.stamina;
 
                     // Handle the hit if it's a hittable object
                     if (hit.collider.gameObject.GetComponent<HittableObject>())
                     {
-                        float damageToDeal = StaticVariables.petData.stats.damage * Mathf.Lerp(StaticVariables.petData.stats.lowStaminaMultiplier, 1f, StaticVariables.petData.stats.stamina / 100f);
+                        float lowStaminaMultiplier = 0.5f;
+
+                        CalculatingLowStaminaMultiplier?.Invoke(ref lowStaminaMultiplier);
+
+                        float damageToDeal = StaticVariables.petData.stats.damage * Mathf.Lerp(lowStaminaMultiplier, 1f, StaticVariables.petData.stats.stamina / 100f);
 
                         // Run all of the modifications
                         CalculatingBaseDamage?.Invoke(ref damageToDeal);
@@ -216,6 +239,19 @@ public class PetCombatScript : MonoBehaviour
         if (StaticVariables.petData.stats.health < 0)
         {
             StaticVariables.EnemyComponents = new List<EnemyComponent>();
+
+            // Update the end of combat logic for the catalysts
+            foreach (Catalyst catalyst in StaticVariables.petData.catalysts)
+            {
+                if (catalyst != null)
+                {
+                    foreach (CatalystEffect catalystEffect in catalyst.effects)
+                    {
+                        catalystEffect.CombatEnd();
+                        Debug.Log(catalystEffect.name);
+                    }
+                }
+            }
 
             StaticVariables.sceneManager.TransitionOutOfCombat();
         }

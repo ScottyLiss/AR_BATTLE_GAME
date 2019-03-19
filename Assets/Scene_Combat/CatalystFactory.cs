@@ -17,7 +17,8 @@ public static class CatalystFactory {
     // The possible catalyst effects
     private static Type[] possibleCatalystEffects = new Type[]
     {
-
+        typeof(LastStand),
+        typeof(PersistentAttacks)
     };
 
     // Method to initialize the data
@@ -82,6 +83,7 @@ public static class CatalystFactory {
         // Create the final Catalyst object
         return new Catalyst()
         {
+            name = newName,
             rarity = newRarity,
             statsAdjustment = newStatAdjustment,
             effects = new List<CatalystEffect>() { CreateNewCatalystEffect(newRarity, level) },

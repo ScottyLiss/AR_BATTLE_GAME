@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CatalystEffect : GenericEffect {
 
+    // The name of the catalyst effect
+    public new string name = "Generic Name (Please Override)";
+
     // The rarities supported by the effect
     public bool[] supportedRarities = new bool[] { true, true, true, true, true };
 

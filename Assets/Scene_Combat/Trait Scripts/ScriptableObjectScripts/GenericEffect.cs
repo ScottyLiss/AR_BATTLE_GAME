@@ -31,10 +31,20 @@ public class GenericEffect : ScriptableObject
 
 	}
 
+    public virtual void CombatStart()
+    {
+
+    }
+
 	public virtual void CombatUpdate()
 	{
 
 	}
+
+    public virtual void CombatEnd()
+    {
+
+    }
 }
 
 [Serializable]
@@ -89,19 +99,6 @@ public class Stats
         set
         {
             _maxStamina = value;
-            OnStatsChanged?.Invoke();
-        }
-    }
-    public float lowStaminaMultiplier
-    {
-        get
-        {
-            return _lowStaminaMultiplier;
-        }
-
-        set
-        {
-            _lowStaminaMultiplier = value;
             OnStatsChanged?.Invoke();
         }
     }
@@ -161,7 +158,6 @@ public class Stats
 	public int _health;
     public float _stamina;
     public float _maxStamina;
-    public float _lowStaminaMultiplier;
     public int _maxHealth;
 	public int _resistance;
 	public int _damage;
@@ -176,7 +172,6 @@ public class Stats
 		newStats._health = Mathf.Clamp(stats1.health + stats2.health, 0, newStats.maxHealth);
 		newStats._maxStamina = stats1.maxStamina + stats2.maxStamina;
 		newStats._stamina = Mathf.Clamp(stats1.stamina + stats2.stamina, 0, newStats.maxStamina);
-        newStats._lowStaminaMultiplier = stats1.lowStaminaMultiplier + stats2.lowStaminaMultiplier;
 
         newStats._resistance = stats1.resistance + stats2.resistance;
 
@@ -197,7 +192,6 @@ public class Stats
         newStats._health = Mathf.Clamp(stats1.health - stats2.health, 0, newStats.maxHealth);
         newStats._maxStamina = stats1.maxStamina - stats2.maxStamina;
         newStats._stamina = Mathf.Clamp(stats1.stamina - stats2.stamina, 0, newStats.maxStamina);
-        newStats._lowStaminaMultiplier = stats1.lowStaminaMultiplier - stats2.lowStaminaMultiplier;
 
         newStats._resistance = stats1.resistance - stats2.resistance;
 
