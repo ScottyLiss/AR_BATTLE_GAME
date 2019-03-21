@@ -33,7 +33,7 @@ public class LastStand : CatalystEffect {
     // Recalculate whether the effect should proc
     private void CheckHealthCondition(ref float damage)
     {
-        if (StaticVariables.petData.stats.health - damage < StaticVariables.petData.stats.maxHealth / 2)
+        if (StaticVariables.petData.stats.health - damage < StaticVariables.petData.stats.maxHealth *0.1f)
         {
             StaticVariables.combatPet.StartCoroutine(RunEffect());
         }

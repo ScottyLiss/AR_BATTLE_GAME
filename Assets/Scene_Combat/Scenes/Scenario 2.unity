@@ -145,6 +145,7 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 10
+  m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -153,6 +154,16 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    LensShift: {x: 0, y: 0}
+  m_Transitions:
+    m_BlendHint: 0
+    m_InheritPosition: 0
+    m_OnCameraLive:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 652507119}
 --- !u!4 &1210406
 Transform:
@@ -214,6 +225,7 @@ MonoBehaviour:
   m_NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
   m_AmplitudeGain: 0.4
   m_FrequencyGain: 0.9
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &7820424
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -230,9 +242,11 @@ MonoBehaviour:
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
+  m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
   m_RollDamping: 0
+  m_AngularDamping: 0
 --- !u!114 &7820425
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -247,6 +261,7 @@ MonoBehaviour:
   m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 10
+  m_LookaheadIgnoreY: 0
   m_HorizontalDamping: 0.5
   m_VerticalDamping: 0.5
   m_ScreenX: 0.5
@@ -257,6 +272,7 @@ MonoBehaviour:
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
   m_BiasY: 0
+  m_CenterOnActivate: 1
 --- !u!114 &7820426
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -660,8 +676,8 @@ RectTransform:
   m_Father: {fileID: 1436481464}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1394,6 +1410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b35775c45a48b4a9b20b6778f8f0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -1404,6 +1421,7 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 3
+  HittableType: 0
   enemyMainComponentScript: {fileID: 1828724740}
   AnimationTrigger: RightArmAttack
   AttackAudioClip: {fileID: 8300000, guid: 5bebcf714b59906488a23ad6058c2a7e, type: 3}
@@ -1795,6 +1813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863c0eb34ce1cfd46a2faa5ec06a163f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -1805,6 +1824,7 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 3
+  HittableType: 0
   enemyMainComponentScript: {fileID: 1828724740}
   AnimationTrigger: ClawAttack
   AttackAudioClip: {fileID: 8300000, guid: 4fceeb0be94054045a1a9f8915f501ec, type: 3}
@@ -2150,6 +2170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b35775c45a48b4a9b20b6778f8f0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -2160,6 +2181,7 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 0
+  HittableType: 0
   enemyMainComponentScript: {fileID: 1557514927}
   AnimationTrigger: 
   AttackAudioClip: {fileID: 0}
@@ -2356,6 +2378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863c0eb34ce1cfd46a2faa5ec06a163f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -2366,6 +2389,7 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 3
+  HittableType: 0
   enemyMainComponentScript: {fileID: 1828724740}
   AnimationTrigger: LeftArmAttack
   AttackAudioClip: {fileID: 8300000, guid: 5bebcf714b59906488a23ad6058c2a7e, type: 3}
@@ -2902,8 +2926,8 @@ RectTransform:
   m_Father: {fileID: 1871346860}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3048,7 +3072,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0, y: 0.5}
@@ -3229,6 +3253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd533655862bac44f98918a6f5fac91c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HittableType: 1
   ActualAppendage: {fileID: 265526131}
 --- !u!1 &490267902
 GameObject:
@@ -3360,16 +3385,22 @@ MonoBehaviour:
   m_DefaultBlend:
     m_Style: 1
     m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
   m_CustomBlends: {fileID: 11400000, guid: 564d732be62d7ac49b0506c3c22c8c19, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp, Version=0.0.0.0,
+    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
+    m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &534669907
 MonoBehaviour:
@@ -3810,6 +3841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863c0eb34ce1cfd46a2faa5ec06a163f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -3820,6 +3852,7 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 3
+  HittableType: 0
   enemyMainComponentScript: {fileID: 1828724740}
   AnimationTrigger: SawAttack
   AttackAudioClip: {fileID: 8300000, guid: 04919da837ba2c247a357f0212c2e592, type: 3}
@@ -4010,6 +4043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd533655862bac44f98918a6f5fac91c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HittableType: 1
   ActualAppendage: {fileID: 237867924}
 --- !u!136 &634865591
 CapsuleCollider:
@@ -4156,6 +4190,7 @@ MonoBehaviour:
   m_NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
   m_AmplitudeGain: 0.9
   m_FrequencyGain: 2.5
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &652507121
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -4172,9 +4207,11 @@ MonoBehaviour:
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
+  m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
   m_RollDamping: 0
+  m_AngularDamping: 0
 --- !u!114 &652507122
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -4189,6 +4226,7 @@ MonoBehaviour:
   m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 10
+  m_LookaheadIgnoreY: 0
   m_HorizontalDamping: 0.5
   m_VerticalDamping: 0.5
   m_ScreenX: 0.5
@@ -4199,6 +4237,7 @@ MonoBehaviour:
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
   m_BiasY: 0
+  m_CenterOnActivate: 1
 --- !u!114 &652507123
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -4251,6 +4290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd533655862bac44f98918a6f5fac91c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HittableType: 1
   ActualAppendage: {fileID: 340093958}
 --- !u!65 &653229763
 BoxCollider:
@@ -4417,7 +4457,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0, y: 0.5}
@@ -5937,6 +5977,7 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 10
+  m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -5945,6 +5986,16 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
+    LensShift: {x: 0, y: 0}
+  m_Transitions:
+    m_BlendHint: 0
+    m_InheritPosition: 0
+    m_OnCameraLive:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 7820422}
 --- !u!4 &1180731949
 Transform:
@@ -6359,6 +6410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd533655862bac44f98918a6f5fac91c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HittableType: 1
   ActualAppendage: {fileID: 556715025}
 --- !u!1 &1268853504
 GameObject:
@@ -7428,6 +7480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c41c530ec51dfd41a5add3f529116ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -7438,6 +7491,7 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 0
+  HittableType: 1
   RotationIntensity: 4
   RotationTimeFrame: 0.4
   HealthSlider: {fileID: 1611887854}
@@ -8417,6 +8471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c41c530ec51dfd41a5add3f529116ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -8427,6 +8482,7 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 0
+  HittableType: 1
   RotationIntensity: 4
   RotationTimeFrame: 0.4
   HealthSlider: {fileID: 1611887854}
@@ -8754,6 +8810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863c0eb34ce1cfd46a2faa5ec06a163f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -8764,6 +8821,7 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 0
+  HittableType: 0
   enemyMainComponentScript: {fileID: 1557514927}
   AnimationTrigger: 
   AttackAudioClip: {fileID: 0}
@@ -10514,7 +10572,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PetStatsText: {fileID: 0}
+  attackStaminaCost: 5
+  staminaShouldRegen: 1
   HealthSlider: {fileID: 2103386397}
+  StaminaSlider: {fileID: 0}
+  attackingFeedback1: {fileID: 0}
+  attackingFeedback2: {fileID: 0}
+  attackingFeedback3: {fileID: 0}
+  petPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &2049555172
 Transform:
   m_ObjectHideFlags: 0
