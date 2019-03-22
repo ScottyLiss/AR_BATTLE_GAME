@@ -41,4 +41,5 @@ public static class StaticVariables
 	}
 
     internal static PlayerScript playerScript;
+	public static PersistanceStoring persistanceStoring;
 }

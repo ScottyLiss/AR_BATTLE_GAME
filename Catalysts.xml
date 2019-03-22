@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Catalysts>
+  <LastCreatedID>3</LastCreatedID>
+  <Catalyst>
+    <ID>1</ID>
+    <Name>New Catalyst</Name>
+    <Rarity>0</Rarity>
+    <Slot>3</Slot>
+    <Stats-Adjustments>
+      <Crit-Multiplier>4,750727</Crit-Multiplier>
+    </Stats-Adjustments>
+    <Effects>
+      <Effect>
+        <Type-Index>1</Type-Index>
+        <Rarity>0</Rarity>
+      </Effect>
+    </Effects>
+  </Catalyst>
+  <Catalyst>
+    <ID>2</ID>
+    <Name>New Catalyst</Name>
+    <Rarity>2</Rarity>
+    <Slot>3</Slot>
+    <Stats-Adjustments>
+      <Crit-Chance>7</Crit-Chance>
+    </Stats-Adjustments>
+    <Effects>
+      <Effect>
+        <Type-Index>1</Type-Index>
+        <Rarity>2</Rarity>
+      </Effect>
+    </Effects>
+  </Catalyst>
+  <Catalyst>
+    <ID>3</ID>
+    <Name>New Catalyst</Name>
+    <Rarity>1</Rarity>
+    <Slot>0</Slot>
+    <Stats-Adjustments>
+      <Health>657</Health>
+      <Stamina>7</Stamina>
+    </Stats-Adjustments>
+    <Effects>
+      <Effect>
+        <Type-Index>1</Type-Index>
+        <Rarity>1</Rarity>
+      </Effect>
+    </Effects>
+  </Catalyst>
+</Catalysts>

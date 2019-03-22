@@ -27,11 +27,14 @@ public static class CatalystFactory {
     }
 
     // Method to create new catalysts
-    public static Catalyst CreateNewCatalyst(int level)
+    public static Catalyst CreateNewCatalyst(int level, Rarities? rarity = null)
     {
 
         // Generate a name for the catalyst
         string newName = "New Catalyst";
+        
+        // Generate a random slot to fit this catalyst into
+        PetBodySlot newSlot = (PetBodySlot)StaticVariables.RandomInstance.Next(0, 4);
 
         // Generate a random rarity
         int newRarityRoll = StaticVariables.RandomInstance.Next(0, 100);
@@ -46,6 +49,9 @@ public static class CatalystFactory {
             newRarity = Rarities.Rare;
         else
             newRarity = Rarities.Legendary;
+        
+        // We have a rarity supplied, so use it. Otherwise, use the one generated
+        newRarity = rarity ?? newRarity;
 
         // Determine the number of stats to be changed
         int numberOfStatsToChange = Mathf.Clamp((int)newRarity + StaticVariables.RandomInstance.Next(-1, 2), 1, 4);
@@ -79,15 +85,24 @@ public static class CatalystFactory {
             critChance = (int)((5 + StaticVariables.RandomInstance.NextDouble() * 20) * statsModifiers[3]),
             critMultiplier = (float)((5 + StaticVariables.RandomInstance.NextDouble() * 20) * statsModifiers[4]),
         };
+        
+        // Increment the last created ID property of catalysts
+        Catalyst.LastCreatedID++;
 
         // Create the final Catalyst object
-        return new Catalyst()
+        Catalyst newCatalyst = new Catalyst()
         {
+            id = Catalyst.LastCreatedID,
             name = newName,
             rarity = newRarity,
             statsAdjustment = newStatAdjustment,
             effects = new List<CatalystEffect>() { CreateNewCatalystEffect(newRarity, level) },
+            slot = newSlot
         };
+        
+        StaticVariables.persistanceStoring.SaveNewCatalyst(newCatalyst);
+
+        return newCatalyst;
     }
 
     private static CatalystEffect CreateNewCatalystEffect(Rarities rarity, int level)
@@ -114,6 +129,8 @@ public static class CatalystFactory {
             // Set its rarity
             newCatalystEffect.rarity = rarity;
         }
+
+        newCatalystEffect.typeIndex = effectIndex;
 
         return newCatalystEffect;
     }

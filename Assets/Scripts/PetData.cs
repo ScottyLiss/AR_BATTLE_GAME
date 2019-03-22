@@ -16,6 +16,8 @@ public class PetData
     public Catalyst tailCatalyst;
     public Catalyst legsCatalyst;
 
+	public int BondingLevel = 1;
+
     public Catalyst[] catalysts
     {
         get

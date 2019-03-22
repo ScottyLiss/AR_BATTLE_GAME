@@ -42,7 +42,8 @@ public class PersistanceStoring : MonoBehaviour
     public List<string> tempList = new List<string>();
     public List<Vector3> tempListB = new List<Vector3>();
 
-    XmlDocument doc = new XmlDocument(); // An XmlDocument used to obtain methods like /load etc.. from it
+    XmlDocument mapDoc = new XmlDocument(); // An XmlDocument used to obtain methods like /load etc.. from it
+    XmlDocument inventoryDoc = new XmlDocument();
 
 
     ILocationProvider _locationprovider;
@@ -75,6 +76,8 @@ public class PersistanceStoring : MonoBehaviour
 
     private void Start()
     {
+        StaticVariables.persistanceStoring = this;
+                
         foreach (KeyValuePair<string, Mapbox.Utils.Vector2d> entry in coordinatesPos)
         {
             Debug.Log(entry.Value);
@@ -82,6 +85,7 @@ public class PersistanceStoring : MonoBehaviour
 
         UpdateDictionary();
         InitialiseXmlFile();
+        LoadLastCatalystId();
     }
 
     private void InitialiseXmlFile()
@@ -92,8 +96,8 @@ public class PersistanceStoring : MonoBehaviour
         // In other words, [0] in nodelist (name), has [0] in nodelistB (coords)
         if (File.Exists("Data.xml"))
         {
-            doc.Load("Data.xml");
-            XmlNodeList nodelist = doc.SelectNodes("Objects/Name");
+            mapDoc.Load("Data.xml");
+            XmlNodeList nodelist = mapDoc.SelectNodes("Objects/Name");
 
             foreach (XmlNode node in nodelist)
             {
@@ -101,7 +105,7 @@ public class PersistanceStoring : MonoBehaviour
                 //Debug.Log(node.InnerText); // Displays the name of the object stored
             }
 
-            XmlNodeList nodelistB = doc.SelectNodes("Objects/Coordinate");
+            XmlNodeList nodelistB = mapDoc.SelectNodes("Objects/Coordinate");
             foreach (XmlNode node in nodelistB)
             {
                 string tArray;
@@ -140,8 +144,67 @@ public class PersistanceStoring : MonoBehaviour
             writer.Close();
         }
 
+        // Initialize the inventory files
+        if (!File.Exists("Breaches.xml"))
+        {
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
 
+            XmlWriter writer = XmlWriter.Create("Breaches.xml", settings);
+            writer.WriteStartDocument();
+            
+            writer.WriteEndDocument();
 
+            writer.Flush();
+            writer.Close();
+        }
+
+        if (!File.Exists("Catalysts.xml"))
+        {
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+
+            XmlWriter writer = XmlWriter.Create("Catalysts.xml", settings);
+            writer.WriteStartDocument();
+
+            writer.WriteStartElement("Catalysts");
+            
+            writer.WriteStartElement("LastCreatedID");
+            writer.WriteString(Catalyst.LastCreatedID.ToString());
+            writer.WriteEndElement();
+            
+            writer.WriteEndElement();
+
+            writer.WriteEndDocument();
+
+            writer.Flush();
+            writer.Close();
+        }
+
+        else
+        {
+            XmlDocument catalystDocument = new XmlDocument();
+            catalystDocument.Load("Catalysts.xml");
+            XmlNode lastCreatedIdNode = catalystDocument.SelectSingleNode("LastCreatedID");
+            
+            // Set the last created ID
+            if (lastCreatedIdNode != null)
+                Catalyst.LastCreatedID = Convert.ToUInt32(lastCreatedIdNode.InnerText);
+        }
+
+        if (!File.Exists("Materials.xml"))
+        {
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+
+            XmlWriter writer = XmlWriter.Create("Materials.xml", settings);
+            writer.WriteStartDocument();
+
+            writer.WriteEndDocument();
+
+            writer.Flush();
+            writer.Close();
+        }
 
 
 
@@ -228,29 +291,91 @@ public class PersistanceStoring : MonoBehaviour
         #endregion
     }
 
+    #region Catalyst Saving and Loading
 
-    private void XmlFileWrite()
+    public void SaveNewCatalyst(Catalyst newCatalyst)
     {
+        var xmlDoc = XDocument.Load("Catalysts.xml");
 
+        var catalystsElement = xmlDoc.Element("Catalysts");
+        
+        var catalystElement = new XElement("Catalyst");
+        var catalystId = new XElement("ID", newCatalyst.id);
+        var catalystName = new XElement("Name", newCatalyst.name);
+        var catalystRarity = new XElement("Rarity", (int) newCatalyst.rarity);
+        var catalystSlot = new XElement("Slot", (int) newCatalyst.slot);
+
+        catalystElement.Add(catalystId);
+        catalystElement.Add(catalystName);
+        catalystElement.Add(catalystRarity);
+        catalystElement.Add(catalystSlot);
+        
+        var catalystStatsAdjustments = new XElement("Stats-Adjustments");
+
+        if (newCatalyst.statsAdjustment.damage != 0)
+            catalystStatsAdjustments.Add(new XElement("Damage", newCatalyst.statsAdjustment.damage.ToString()));
+        if (newCatalyst.statsAdjustment.maxHealth != 0)
+            catalystStatsAdjustments.Add(new XElement("Health", newCatalyst.statsAdjustment.maxHealth.ToString()));
+        if (newCatalyst.statsAdjustment.maxStamina != 0)
+            catalystStatsAdjustments.Add(new XElement("Stamina", newCatalyst.statsAdjustment.maxStamina.ToString()));
+        if (newCatalyst.statsAdjustment.critChance != 0)
+            catalystStatsAdjustments.Add(new XElement("Crit-Chance", newCatalyst.statsAdjustment.critChance.ToString()));
+        if (newCatalyst.statsAdjustment.critMultiplier != 0)
+            catalystStatsAdjustments.Add(new XElement("Crit-Multiplier", newCatalyst.statsAdjustment.critMultiplier.ToString()));
+        
+        catalystElement.Add(catalystStatsAdjustments);
+        
+        var catalystEffects = new XElement("Effects");
+
+        newCatalyst.effects.ForEach(effect =>
+        {
+            var catalystEffect = new XElement("Effect");
+            var catalystEffectType = new XElement("Type-Index", effect.typeIndex);
+            var catalystEffectRarity = new XElement("Rarity", (int)effect.rarity);
+
+            catalystEffect.Add(catalystEffectType);
+            catalystEffect.Add(catalystEffectRarity);
+
+            catalystEffects.Add(catalystEffect);
+        });
+
+        catalystElement.Add(catalystEffects);
+
+        catalystsElement?.Add(catalystElement);
+        
+        catalystsElement.SetElementValue("LastCreatedID", Catalyst.LastCreatedID);
+
+        xmlDoc.Save("Catalysts.xml");
     }
 
-    private void XmlFileRead()
+    public void DeleteCatalystFromInventory(int catalystId)
     {
+        mapDoc.Load("Data.xml");
+        XmlNodeList nodelist = mapDoc.SelectNodes("Catalyst");
 
+        if (nodelist != null)
+            for (int i = 0; i < nodelist.Count; i++)
+            {
+                // We've found our node, so delete it
+                if (nodelist[i].SelectSingleNode("ID")?.Value == catalystId.ToString())
+                {
+                    var parentNode = nodelist[i].ParentNode;
+                    parentNode?.RemoveChild(nodelist[i]);
+                }
+            }
     }
 
-    private void Update()
+    public void LoadLastCatalystId()
     {
-        location = locationProvider.CurrentLocation;
-        coords.text = location.LatitudeLongitude.ToString();
-        string[] cArray = coords.text.Split(',');
-        //worldpos.text = Conversions.LatitudeLongitudeToUnityTilePosition(location.LatitudeLongitude, 255, 255, 4096).ToString();
-        //worldpos.text = Conversions.GeoToWorldPosition(double.Parse(cArray[0]), double.Parse(cArray[1]), new Mapbox.Utils.Vector2d(10, 10), (float)2.5).ToString();
-        worldpos.text = abstractMap.GeoToWorldPosition(locationProvider.CurrentLocation.LatitudeLongitude).ToString(); 
-        localPos.text = player.transform.position.ToString();
+        var xmlDoc = XDocument.Load("Catalysts.xml");
+
+        var lastCatalystId = xmlDoc.Element("Catalysts")?.Element("LastCreatedID")?.Value;
+
+        Catalyst.LastCreatedID = Convert.ToUInt32(lastCatalystId);
     }
 
-
+    #endregion
+    
 
     // Check Values to position in Unity, see whether it correlates 
     // Test Build on Memu (Emulator)
