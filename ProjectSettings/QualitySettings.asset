@@ -107,8 +107,7 @@ QualitySettings:
     asyncUploadTimeSlice: 2
     asyncUploadBufferSize: 4
     resolutionScalingFixedDPIFactor: 1
-    excludedTargetPlatforms:
-    - Android
+    excludedTargetPlatforms: []
   - serializedVersion: 2
     name: High
     pixelLightCount: 2

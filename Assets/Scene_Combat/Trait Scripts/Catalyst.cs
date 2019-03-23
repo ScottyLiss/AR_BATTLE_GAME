@@ -25,4 +25,7 @@ public class Catalyst
 
     // The rarity of the catalyst
     public Rarities rarity;
+    
+    // The model index to use
+    public int modelVariantIndex = 1;
 }

@@ -27,7 +27,7 @@ public class UIElementDragger : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        bDebug = EditorApplication.isPlaying;
+        bDebug = false;//EditorApplication.isPlaying;
         draggedObject.SetActive(false);
     }
 	

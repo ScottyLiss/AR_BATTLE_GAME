@@ -72,7 +72,7 @@ public class PetCombatScript : MonoBehaviour
         attackingFeedback2.gameObject.SetActive(false);
         attackingFeedback3.gameObject.SetActive(false);
 
-        bDebug = EditorApplication.isPlaying;
+        bDebug = false;//EditorApplication.isPlaying;
 
         iPetLanePosition = 1;
 
@@ -82,6 +82,23 @@ public class PetCombatScript : MonoBehaviour
         if (!StaticVariables.combatPet)
         {
             StaticVariables.combatPet = this;
+        }
+        
+        //DEBUG
+        if (StaticVariables.petData == null)
+        {
+            StaticVariables.petData = new PetData()
+            {
+                stats = new Stats()
+                {
+                    damage = 25,
+                    health = 1000,
+                    maxHealth = 1000,
+                    maxStamina = 100,
+                    stamina = 100
+                },
+                traits = new List<Trait>()
+            };
         }
 
         foreach (Trait trait in StaticVariables.petData.traits)

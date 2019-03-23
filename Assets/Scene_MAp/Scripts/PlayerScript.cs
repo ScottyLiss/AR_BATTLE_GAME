@@ -86,7 +86,7 @@ public class PlayerScript : MonoBehaviour
 
         StaticVariables.playerScript = this;
 
-        bDebug = EditorApplication.isPlaying;
+        bDebug = false;//EditorApplication.isPlaying;
         bPileSystemStatus = true;
     }
 
@@ -198,7 +198,7 @@ public class PlayerScript : MonoBehaviour
 
         foreach (GameObject a in CTM.resources)
         {
-            a.GetComponent<ResourceMove>().t_pos = positionToTarget; 
+            //a.GetComponent<ResourceMove>().t_pos = positionToTarget; 
         }
     }
 

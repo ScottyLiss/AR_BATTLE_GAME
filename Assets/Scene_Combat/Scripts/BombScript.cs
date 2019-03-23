@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BombScript : HittableObject {
 
-    // This is a body
-    public new HittableTypes HittableType = HittableTypes.Bomb;
+	public BombScript()
+	{
+		HittableType = HittableTypes.Bomb;
+	}
 
     // The direction the bomb is going
     public Vector2 direction;

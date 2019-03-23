@@ -34,7 +34,7 @@ public class PersistanceManagerScript : MonoBehaviour
 		}
 
 		// DEBUG
-		petData.bodyCatalyst = CatalystFactory.CreateNewCatalyst(10);
+		//petData.bodyCatalyst = CatalystFactory.CreateNewCatalyst(10);
 
 		LoadPetData();
 		LoadPlayerData();
