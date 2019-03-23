@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A3F6DB27-415E-BCD2-C9BA-DD84C5C5E985}</ProjectGuid>
+    <ProjectGuid>{2A4C84B9-B669-00A9-F3A0-734EBFEC468D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -577,7 +577,6 @@
      <Compile Include="Assets\PersistanceStoring.cs" />
      <Compile Include="Assets\PetPreviewScript.cs" />
      <Compile Include="Assets\Resources\UIElementDragger.cs" />
-     <Compile Include="Assets\Scene_Combat\CatalystFactory.cs" />
      <Compile Include="Assets\Scene_Combat\Scripts\BattleInputHandler.cs" />
      <Compile Include="Assets\Scene_Combat\Scripts\BillboardScript.cs" />
      <Compile Include="Assets\Scene_Combat\Scripts\BombScript.cs" />
@@ -597,6 +596,7 @@
      <Compile Include="Assets\Scene_Combat\Trait Scripts\CatalystEffect.cs" />
      <Compile Include="Assets\Scene_Combat\Trait Scripts\CatalystEffectDefinitions\LastStand.cs" />
      <Compile Include="Assets\Scene_Combat\Trait Scripts\CatalystEffectDefinitions\PersistentAttacks.cs" />
+     <Compile Include="Assets\Scene_Combat\Trait Scripts\CatalystFactory.cs" />
      <Compile Include="Assets\Scene_Combat\Trait Scripts\HittableObject.cs" />
      <Compile Include="Assets\Scene_Combat\Trait Scripts\PetCombatScript.cs" />
      <Compile Include="Assets\Scene_Combat\Trait Scripts\ScriptableObjectScripts\ChameleonEffect.cs" />
@@ -628,6 +628,7 @@
      <Compile Include="Assets\Scripts\PetData.cs" />
      <Compile Include="Assets\Scripts\SceneTransitionHandler.cs" />
      <Compile Include="Assets\SpeedChecker.cs" />
+     <Compile Include="Assets\TempBattleHandler_Swarm.cs" />
      <Compile Include="Assets\TraitBadgeUpdater.cs" />
      <Compile Include="Assets\TraitBadgeUpdaterEditor.cs" />
      <Compile Include="Assets\TraitsUILoader.cs" />
@@ -805,22 +806,22 @@
      <None Include="Assets\Scene_Combat\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\Art_Folder\Toon\Shader\Tess\Toon_ShadingGradeMap_Tess_Light.shader" />
  <Reference Include="Cinemachine">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="com.unity.cinemachine.editor">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -1018,10 +1019,10 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.20f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="Mapbox.IO.Compression">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Assets/Mapbox/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35/Mapbox.IO.Compression.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Assets/Mapbox/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35/Mapbox.IO.Compression.dll</HintPath>
  </Reference>
  <Reference Include="Mapbox.Json">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Assets/Mapbox/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json/Net35/Mapbox.Json.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Assets/Mapbox/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json/Net35/Mapbox.Json.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Users/Sathrek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>

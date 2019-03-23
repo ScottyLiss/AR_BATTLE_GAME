@@ -12,7 +12,6 @@ public class CatalystEffect : GenericEffect {
 
     // The rarity of the instantiated catalyst effect
     private Rarities _rarity;
-    public int typeIndex;
 
     public Rarities rarity
     {

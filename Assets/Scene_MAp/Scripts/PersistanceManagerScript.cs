@@ -15,9 +15,6 @@ public class PersistanceManagerScript : MonoBehaviour
 	void Awake()
 	{
 		GameObject.DontDestroyOnLoad(gameObject);
-
-        // Run all initialization logic
-        CatalystFactory.Initialize();
 	}
 
 	void Start()
@@ -32,9 +29,6 @@ public class PersistanceManagerScript : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-
-		// DEBUG
-		petData.bodyCatalyst = CatalystFactory.CreateNewCatalyst(10);
 
 		LoadPetData();
 		LoadPlayerData();
@@ -86,14 +80,5 @@ public class PersistanceManagerScript : MonoBehaviour
 		// TODO: Check if the resources saved are still relevant
 
 		return newMapData;
-	}
-
-	public void SaveCatalystToInventory(Catalyst newCatalyst)
-	{
-		BinaryFormatter binaryFormatter = new BinaryFormatter();
-		FileStream fileToSaveTo = File.Create(Application.persistentDataPath + "/mapData.dat");
-		
-		
-		throw new NotImplementedException();
 	}
 }

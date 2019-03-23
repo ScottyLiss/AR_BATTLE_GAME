@@ -40,7 +40,6 @@ public class SceneTransitionHandler : MonoBehaviour
 
 	public void TransitionOutOfCombat()
 	{
-        StaticVariables.combatPet.ClearData();
 		StartCoroutine(TransitionOutOfCombatCoroutine());
 	}
 

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CE08E2FB-38E5-25C2-AC9A-2627E28E73B9}</ProjectGuid>
+    <ProjectGuid>{58CAFE68-77F7-E11C-AC31-321EDCF07A4B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -165,22 +165,22 @@
      <Compile Include="Assets\Scene_Combat\Editor\TraitRendererEditor.cs" />
      <None Include="Assets\EffectExamples\Editor\PackageManagerAssembly\PackageImportList.txt" />
  <Reference Include="Cinemachine">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="com.unity.cinemachine.editor">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -426,13 +426,13 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.20f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="PackageManagerAssembly">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Assets/EffectExamples/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Assets/EffectExamples/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
  </Reference>
  <Reference Include="Mapbox.IO.Compression">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Assets/Mapbox/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35/Mapbox.IO.Compression.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Assets/Mapbox/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35/Mapbox.IO.Compression.dll</HintPath>
  </Reference>
  <Reference Include="Mapbox.Json">
- <HintPath>C:/Users/Sathrek/Desktop/AR GAme/AR_BATTLE_GAME/Assets/Mapbox/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json/Net35/Mapbox.Json.dll</HintPath>
+ <HintPath>C:/Users/Sathrek/Desktop/AR_BATTLE_GAME-master/Assets/Mapbox/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json/Net35/Mapbox.Json.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Users/Sathrek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
@@ -806,7 +806,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{A3F6DB27-415E-BCD2-C9BA-DD84C5C5E985}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{2A4C84B9-B669-00A9-F3A0-734EBFEC468D}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

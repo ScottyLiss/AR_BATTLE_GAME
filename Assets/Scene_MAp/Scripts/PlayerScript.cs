@@ -29,8 +29,8 @@ public class PlayerScript : MonoBehaviour
     [Header("<Triangulatio Variables>")]
 
 
-    [SerializeField]private float triangulationSpace;
-    [SerializeField]private CreateTriangulationMesh CTM;
+    [SerializeField] private float triangulationSpace;
+    [SerializeField] private CreateTriangulationMesh CTM;
     public GameObject robot;
     #endregion
 
@@ -46,10 +46,12 @@ public class PlayerScript : MonoBehaviour
 
     #region Breach
     public GameObject breach;
+    public PlayerData playerdata;
     public bool breachPlaceable = true;
     public int breachCount = 0;
     public Vector3 positionToTarget;
-    public int breachConsumable = 3; //Temp Value for Breach consumable
+    private int iSelectedBreach = 0;// temp, 1= breach A    2= breach B
+    //public int breachConsumable = 3; //Temp Value for Breach consumable
 
     #endregion
 
@@ -57,9 +59,8 @@ public class PlayerScript : MonoBehaviour
     public GameObject petMenu;
     #endregion
 
-    #region Catalysts
-    public List<Catalyst> catalysts = new List<Catalyst>();
-    public GameObject catalystInventoryTemp;
+    #region PlayerButton
+    public GameObject playerMenu;
     #endregion
 
     #region JunkPile
@@ -75,34 +76,44 @@ public class PlayerScript : MonoBehaviour
     //--------------------------------------------------------------------------------------------------------------------//
     #endregion
 
-    public GameObject test21; 
-    
+    public GameObject test21;
+
     protected void Start()
     {
+        
+
         breachCount = 0;
         CallPet();
         callingPet = false;
         petToPosition = this.transform.position;
 
-        StaticVariables.playerScript = this;
-
-        bDebug = EditorApplication.isPlaying;
+//        bDebug = EditorApplication.isPlaying;
         bPileSystemStatus = true;
+
+        playerdata = new PlayerData();
+        playerdata.nickname = "hey";
+
+
+        StaticVariables.playerData = playerdata;
+        StaticVariables.playerData.AddBreach();
+        StaticVariables.playerData.AddBreach();
+        StaticVariables.playerData.AddBreach();
+
     }
 
     #region Beacon Methods
     public void PlaceBeacon() // Place a beacon (object) on current position
     {
-        if(beaconCount < 3)
+        if (beaconCount < 3)
         {
             GameObject thing = (Instantiate(beacon, test21.transform));
             thing.transform.position = this.gameObject.transform.position + Vector3.up;
-            
+
             beaconsPlaced.Push(thing);
-            
+
             beaconCount++;
             gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("PlaceBeacon");
-            if(beaconCount == 3)
+            if (beaconCount == 3)
             {
                 Triangulation();
             }
@@ -152,7 +163,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Triangulation() //Connect all the beacons calculate the space and check all the items on the map
     {
-        if(beaconCount == 3)
+        if (beaconCount == 3)
         {
             //Grab position one, calculate distance between point 1 to point 2 and point 1 to point 3, then use those values to 1/2*(distance(p1-p2) * distance(p1-p3) = square volume of object
             GameObject positionOne, PositionTwo, PositionThree;
@@ -167,8 +178,8 @@ public class PlayerScript : MonoBehaviour
 
             Vector3 centrePoint = PositionTwo.transform.position;
             centrePoint.y -= 0.01f;
-        
-            triangulationSpace = (distanceP1P2 * distanceP1P3) * 1/2; // Calculate the space of the triangle 
+
+            triangulationSpace = (distanceP1P2 * distanceP1P3) * 1 / 2; // Calculate the space of the triangle 
 
 
             CTM.TheThreeVertices(positionOne.transform.position, PositionTwo.transform.position, PositionThree.transform.position, centrePoint);
@@ -191,14 +202,14 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         CTM.DeRenderTriangulation();
 
-        if(CTM.resources.Count > 0)
+        if (CTM.resources.Count > 0)
         {
             Instantiate(robot, new Vector3(this.transform.position.x, robot.transform.position.y, this.transform.position.z), Quaternion.identity);
         }
 
         foreach (GameObject a in CTM.resources)
         {
-            a.GetComponent<ResourceMove>().t_pos = positionToTarget; 
+            a.GetComponent<ResourceMove>().t_pos = positionToTarget;
         }
     }
 
@@ -233,7 +244,7 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Breach")
+        if (other.tag == "Breach")
         {
             breachPlaceable = false;
         }
@@ -241,7 +252,7 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if(other.tag == "Breach")
+        if (other.tag == "Breach")
         {
             breachPlaceable = true;
         }
@@ -249,13 +260,16 @@ public class PlayerScript : MonoBehaviour
 
     public void PlaceBreach()
     {
-        if(breachCount < 3 && breachConsumable > 0 && breachPlaceable == true)
+        if (iSelectedBreach > 0 && breachCount < 3 && StaticVariables.playerData.BreachCount() > 0 && breachPlaceable == true)
         {
             var newBreach = Instantiate(breach, gameObject.transform.parent);
             newBreach.transform.position = new Vector3(this.transform.position.x, breach.transform.position.y,
             this.transform.position.z);
-            breachConsumable--;
+            StaticVariables.playerData.BreachDepolyed(iSelectedBreach);
+            //breachConsumable--;
             breachCount++;
+
+
         }
     }
 
@@ -263,13 +277,6 @@ public class PlayerScript : MonoBehaviour
 
     #region PetMethods (Scene)
     public void TransitionToInventory()
-    {
-        petMenu.GetComponent<UpdateResources>().UpdateValues();
-        petMenu.SetActive(true);
-    }
-
-    // TODO: Remove, this is for DEBUGGING!
-    public void TransitionToCatalysts()
     {
         petMenu.GetComponent<UpdateResources>().UpdateValues();
         petMenu.SetActive(true);
@@ -323,7 +330,7 @@ public class PlayerScript : MonoBehaviour
                     if (distance < 30)
                     {
                         PileObject = hit.collider.gameObject;
-                        Debug.Log("ok");
+                        //Debug.Log("ok");
                         PileUI.SetActive(true);
                         iInteractionCounter = 0;
                     }
@@ -345,13 +352,20 @@ public class PlayerScript : MonoBehaviour
             {
                 //Debug.Log(i.ToString());
                 GameObject instance = Resources.Load("Crystal" + Mathf.RoundToInt(UnityEngine.Random.Range(0, 5)), typeof(GameObject)) as GameObject;
-                catalysts.Add(CatalystFactory.CreateNewCatalyst(10));
                 instance.layer = 12;
                 Instantiate(instance, PileObject.transform.position + new Vector3(0, 1.584367f, 0), Quaternion.identity);
+
             }
+
+            //Debug.Log(i.ToString());
+            GameObject instance2 = Resources.Load("BreachCollect", typeof(GameObject)) as GameObject;
+            instance2.layer = 12;
+            Instantiate(instance2, PileObject.transform.position + new Vector3(0, 1.584367f, 0), Quaternion.identity);
+
             Destroy(PileObject);
             PileUI.transform.localScale = new Vector3(6.0f, 6.0f, 6.0f);
             PileUI.SetActive(false);
+
         }
         else
         {
@@ -369,6 +383,37 @@ public class PlayerScript : MonoBehaviour
         bPileSystemStatus = true;
     }
 
+
+    #endregion
+
+    #region PlayerMethods (Scene)
+
+    public void TransitionToPlayerInventory()
+    {
+        StaticVariables.playerData.LoadBreachesOnInventory(playerMenu);
+        playerMenu.SetActive(true);
+    }
+
+    public void SelectBreachA()
+    {
+        if (StaticVariables.playerData.CheckIfBreachAvailable(1))
+            iSelectedBreach = 1;// Breach A
+        else
+            iSelectedBreach = 0;
+    }
+
+    public void SelectBreachB()
+    {
+        if (StaticVariables.playerData.CheckIfBreachAvailable(2))
+            iSelectedBreach = 2;// Breach B
+        else
+            iSelectedBreach = 0;
+    }
+
+    public void TempSpawnBreach()
+    {
+        Instantiate(breach, this.transform.position, Quaternion.identity);
+    }
 
     #endregion
 }

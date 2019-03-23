@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PetAI : MonoBehaviour {
+public class PetAI : MonoBehaviour
+{
 
     //Variables
     protected float maxSpeed = 5.0f;
@@ -52,23 +53,34 @@ public class PetAI : MonoBehaviour {
             Destroy(other.gameObject); // Check what object it is, update it repsectively
         }
 
-        if(other.tag == "Robot")
+        if (other.tag == "Robot")
         {
             StaticVariables.sceneManager.TransitionToCombat();
-            
+
             Destroy(other.gameObject);
         }
 
         if (other.tag == "Breach" && other.GetComponent<Breach>() && !other.GetComponent<Breach>().BreachDefeated)
         {
-            StaticVariables.sceneManager.TransitionToCombat(other.GetComponent<Breach>());
+            //StaticVariables.sceneManager.TransitionToCombat(other.GetComponent<Breach>());
+            SceneManager.LoadScene(Mathf.RoundToInt(Random.Range(1.6f, 3.4f)));
+           // SceneManager.LoadScene(3);
         }
+
+        if (other.tag == "BreachCollect")
+        {
+            StaticVariables.playerData.AddBreach();
+            Destroy(other.gameObject);
+        }
+
     }
 
 
     void UpdateRespectiveResource(string r_Name)
     {
-        switch(r_Name)
+
+
+        switch (r_Name)
         {
 
             case "Crystal0(Clone)":

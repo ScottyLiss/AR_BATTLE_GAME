@@ -39,7 +39,4 @@ public static class StaticVariables
 
 		AttackCallbacks = null;
 	}
-
-    internal static PlayerScript playerScript;
-	public static PersistanceStoring persistanceStoring;
 }

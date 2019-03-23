@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,11 +9,8 @@ using UnityEngine.UI;
 public class EnemyMainComponentScript : EnemyComponent
 {
 
-    // This is a body
-    public new HittableTypes HittableType = HittableTypes.Body;
-
-    // The degrees to turn the enemy when they are hit
-    public float RotationIntensity;
+	// The degrees to turn the enemy when they are hit
+	public float RotationIntensity;
 
 	// The time it will take for the rotation to apply and then reverse
 	public float RotationTimeFrame;
@@ -53,7 +50,7 @@ public class EnemyMainComponentScript : EnemyComponent
 		if (health < 0)
 		{
 			StaticVariables.EnemyComponents = new List<EnemyComponent>();
-			StaticVariables.sceneManager.TransitionOutOfCombat();
+            SceneManager.LoadScene(1);
 		}
 	}
 

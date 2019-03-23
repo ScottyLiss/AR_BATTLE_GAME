@@ -1410,7 +1410,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b35775c45a48b4a9b20b6778f8f0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -1421,7 +1420,6 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 3
-  HittableType: 0
   enemyMainComponentScript: {fileID: 1828724740}
   AnimationTrigger: RightArmAttack
   AttackAudioClip: {fileID: 8300000, guid: 5bebcf714b59906488a23ad6058c2a7e, type: 3}
@@ -1813,7 +1811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863c0eb34ce1cfd46a2faa5ec06a163f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -1824,7 +1821,6 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 3
-  HittableType: 0
   enemyMainComponentScript: {fileID: 1828724740}
   AnimationTrigger: ClawAttack
   AttackAudioClip: {fileID: 8300000, guid: 4fceeb0be94054045a1a9f8915f501ec, type: 3}
@@ -2170,7 +2166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b35775c45a48b4a9b20b6778f8f0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -2181,7 +2176,6 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 0
-  HittableType: 0
   enemyMainComponentScript: {fileID: 1557514927}
   AnimationTrigger: 
   AttackAudioClip: {fileID: 0}
@@ -2378,7 +2372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863c0eb34ce1cfd46a2faa5ec06a163f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -2389,7 +2382,6 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 3
-  HittableType: 0
   enemyMainComponentScript: {fileID: 1828724740}
   AnimationTrigger: LeftArmAttack
   AttackAudioClip: {fileID: 8300000, guid: 5bebcf714b59906488a23ad6058c2a7e, type: 3}
@@ -3253,7 +3245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd533655862bac44f98918a6f5fac91c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HittableType: 1
   ActualAppendage: {fileID: 265526131}
 --- !u!1 &490267902
 GameObject:
@@ -3841,7 +3832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863c0eb34ce1cfd46a2faa5ec06a163f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -3852,7 +3842,6 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 3
-  HittableType: 0
   enemyMainComponentScript: {fileID: 1828724740}
   AnimationTrigger: SawAttack
   AttackAudioClip: {fileID: 8300000, guid: 04919da837ba2c247a357f0212c2e592, type: 3}
@@ -4043,7 +4032,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd533655862bac44f98918a6f5fac91c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HittableType: 1
   ActualAppendage: {fileID: 237867924}
 --- !u!136 &634865591
 CapsuleCollider:
@@ -4290,7 +4278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd533655862bac44f98918a6f5fac91c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HittableType: 1
   ActualAppendage: {fileID: 340093958}
 --- !u!65 &653229763
 BoxCollider:
@@ -6410,7 +6397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd533655862bac44f98918a6f5fac91c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HittableType: 1
   ActualAppendage: {fileID: 556715025}
 --- !u!1 &1268853504
 GameObject:
@@ -7480,7 +7466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c41c530ec51dfd41a5add3f529116ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -7491,7 +7476,6 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 0
-  HittableType: 1
   RotationIntensity: 4
   RotationTimeFrame: 0.4
   HealthSlider: {fileID: 1611887854}
@@ -8471,7 +8455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c41c530ec51dfd41a5add3f529116ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -8482,7 +8465,6 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 0
-  HittableType: 1
   RotationIntensity: 4
   RotationTimeFrame: 0.4
   HealthSlider: {fileID: 1611887854}
@@ -8810,7 +8792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863c0eb34ce1cfd46a2faa5ec06a163f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HittableType: 1
   impactSounds:
   - {fileID: 8300000, guid: aad96c0a7515ada4c878468deb9298c4, type: 3}
   - {fileID: 8300000, guid: 988c226230f247d48b891c844e300e00, type: 3}
@@ -8821,7 +8802,6 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 0
-  HittableType: 0
   enemyMainComponentScript: {fileID: 1557514927}
   AnimationTrigger: 
   AttackAudioClip: {fileID: 0}
@@ -10572,10 +10552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PetStatsText: {fileID: 0}
-  attackStaminaCost: 5
-  staminaShouldRegen: 1
   HealthSlider: {fileID: 2103386397}
-  StaminaSlider: {fileID: 0}
   attackingFeedback1: {fileID: 0}
   attackingFeedback2: {fileID: 0}
   attackingFeedback3: {fileID: 0}

@@ -23,9 +23,9 @@ public class PetCombatScript : MonoBehaviour
     public Slider HealthSlider;
     public Slider StaminaSlider;
 
-    public Image attackingFeedback1;
-    public Image attackingFeedback2;
-    public Image attackingFeedback3;
+    public GameObject attackingFeedback1;
+    public GameObject attackingFeedback2;
+    public GameObject attackingFeedback3;
 
     private bool bDebug;
     private bool isRunningAttackCoroutine = false;
@@ -46,7 +46,7 @@ public class PetCombatScript : MonoBehaviour
 
     public Transform[] petPositions = new Transform[3];
 
-    private int _iPetLanePosition;
+    private int _iPetLanePosition = 1;
 
     public int iPetLanePosition
     {
@@ -72,7 +72,7 @@ public class PetCombatScript : MonoBehaviour
         attackingFeedback2.gameObject.SetActive(false);
         attackingFeedback3.gameObject.SetActive(false);
 
-        bDebug = EditorApplication.isPlaying;
+        //bDebug = EditorApplication.isPlaying;
 
         iPetLanePosition = 1;
 
@@ -259,33 +259,38 @@ public class PetCombatScript : MonoBehaviour
 
     public void HitFeedbackUpdate()
     {
-        if (StaticVariables.bRobotAttackTriggered)
+        Scene m_scene = SceneManager.GetActiveScene();
+        if(m_scene.name != "Scenario 3")
         {
-            switch (StaticVariables.iRobotAttackLanePosition)
+            if (StaticVariables.bRobotAttackTriggered)
             {
-                case 0:
-                    attackingFeedback1.gameObject.SetActive(true);
-                    attackingFeedback2.gameObject.SetActive(false);
-                    attackingFeedback3.gameObject.SetActive(false);
-                    break;
-                case 1:
-                    attackingFeedback1.gameObject.SetActive(false);
-                    attackingFeedback2.gameObject.SetActive(true);
-                    attackingFeedback3.gameObject.SetActive(false);
-                    break;
-                case 2:
-                    attackingFeedback1.gameObject.SetActive(false);
-                    attackingFeedback2.gameObject.SetActive(false);
-                    attackingFeedback3.gameObject.SetActive(true);
-                    break;
+                switch (StaticVariables.iRobotAttackLanePosition)
+                {
+                    case 0:
+                        attackingFeedback1.gameObject.SetActive(true);
+                        attackingFeedback2.gameObject.SetActive(false);
+                        attackingFeedback3.gameObject.SetActive(false);
+                        break;
+                    case 1:
+                        attackingFeedback1.gameObject.SetActive(false);
+                        attackingFeedback2.gameObject.SetActive(true);
+                        attackingFeedback3.gameObject.SetActive(false);
+                        break;
+                    case 2:
+                        attackingFeedback1.gameObject.SetActive(false);
+                        attackingFeedback2.gameObject.SetActive(false);
+                        attackingFeedback3.gameObject.SetActive(true);
+                        break;
+                }
+            }
+            else
+            {
+                attackingFeedback1.gameObject.SetActive(false);
+                attackingFeedback2.gameObject.SetActive(false);
+                attackingFeedback3.gameObject.SetActive(false);
             }
         }
-        else
-        {
-            attackingFeedback1.gameObject.SetActive(false);
-            attackingFeedback2.gameObject.SetActive(false);
-            attackingFeedback3.gameObject.SetActive(false);
-        }
+        
 
     }
 
