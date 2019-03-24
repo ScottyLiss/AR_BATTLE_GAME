@@ -12,6 +12,12 @@ public class JunkPile : MonoBehaviour
     void Start()
     {
 //        bDebug = EditorApplication.isPlaying;
+
+        #if UNITY_EDITOR
+            bDebug = true;
+        #else
+            bDebug = false;
+        #endif
     }
 
     // Update is called once per frame

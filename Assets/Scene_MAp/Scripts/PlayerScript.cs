@@ -87,7 +87,12 @@ public class PlayerScript : MonoBehaviour
         callingPet = false;
         petToPosition = this.transform.position;
 
-//        bDebug = EditorApplication.isPlaying;
+        #if UNITY_EDITOR
+            bDebug = true;
+        #else
+            bDebug = false;
+        #endif
+
         bPileSystemStatus = true;
 
         playerdata = new PlayerData();

@@ -27,8 +27,13 @@ public class UIElementDragger : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        //bDebug = EditorApplication.isPlaying;
-        draggedObject.SetActive(false);
+         #if UNITY_EDITOR
+             bDebug = true;
+         #else
+             bDebug = false;
+         #endif
+        
+         draggedObject.SetActive(false);
     }
 	
 	// Update is called once per frame

@@ -73,6 +73,12 @@ public class PetCombatScript : MonoBehaviour
         attackingFeedback3.gameObject.SetActive(false);
 
         //bDebug = EditorApplication.isPlaying;
+        
+        #if UNITY_EDITOR
+            bDebug = true;
+        #else
+            bDebug = false;
+        #endif
 
         iPetLanePosition = 1;
 
