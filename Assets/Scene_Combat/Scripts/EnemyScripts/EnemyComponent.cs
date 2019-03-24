@@ -8,19 +8,38 @@ using UnityEngine.UI;
 [RequireComponent(typeof(AudioSource))]
 public class EnemyComponent : HittableObject
 {
+    #region Sounds 
+    [Header("<Sound Related Variables>")]
     public AudioClip[] impactSounds;
-	[NonSerialized] public bool markedForDestruction;
+    #endregion
 
-	public int health = 300;
-	public int damage = 30;
-	//public float hitRate = 1.5f;
 
-	public GameObject DamageTextPrefab;
 
-    private float timeSinceLastActivation = 0;
+    #region Object Health
+    [Header("<Health Related Variables>")]
+    public int health = 300;
+    #endregion
+
+    #region Damage 
+    [Header("<Damage Related Variables>")]
+    public int damage = 30;
+    public GameObject DamageTextPrefab;
     public float fGapBetweenAttacks = 0;
+    #endregion
+
+    #region Activation Time
+    // Variables not vissible in Editor
+    private float timeSinceLastActivation = 0;
     private bool isRunningDamageCoroutine;
 	private float timeSinceLastHit;
+    #endregion
+
+
+    [NonSerialized] public bool markedForDestruction; // Ensures that an enemy appendage can be destroyed
+
+
+
+
     
 
 	// Run on start
@@ -29,9 +48,9 @@ public class EnemyComponent : HittableObject
         //Assign to every enemy component a unique id
         StaticVariables.iAttackingLoopID++;
         StaticVariables.EnemyComponents.Add(this);
+
         //Calculate time since last activation based on the assigned id
         timeSinceLastActivation = StaticVariables.iAttackingLoopID * fGapBetweenAttacks;
-
     }
 
 	// Handle update logic

@@ -787,8 +787,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 237867922}
-  - component: {fileID: 237867923}
   - component: {fileID: 237867926}
+  - component: {fileID: 237867923}
   - component: {fileID: 237867925}
   m_Layer: 9
   m_Name: Robot_G_arm_R
@@ -810,7 +810,7 @@ Transform:
   m_Children:
   - {fileID: 1071797216}
   m_Father: {fileID: 573013530}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &237867923
 SkinnedMeshRenderer:
@@ -1054,9 +1054,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 265526129}
+  - component: {fileID: 265526131}
   - component: {fileID: 265526132}
   - component: {fileID: 265526130}
-  - component: {fileID: 265526131}
   m_Layer: 9
   m_Name: Robot_Cl_arm_L
   m_TagString: Untagged
@@ -1076,7 +1076,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 573013530}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &265526130
 AudioSource:
@@ -1252,73 +1252,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.9050949, y: 1.1757817, z: -0.12682402}
     m_Extent: {x: 1.1472762, y: 0.6819283, z: 0.5169175}
   m_DirtyAABB: 0
---- !u!1 &268673804
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 268673806}
-  - component: {fileID: 268673805}
-  m_Layer: 0
-  m_Name: BattleHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &268673805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 268673804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c8968711fac67b49a6ef55456bc3016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalCamera: {fileID: 1180731948}
-  shakeyCamera: {fileID: 1210405}
-  defaultEnemyMaterial: {fileID: 0}
-  defaultPetMaterial: {fileID: 0}
-  damagedMaterial: {fileID: 2100000, guid: ea9d7004ea7b1484d83b63969e1b33d1, type: 2}
-  playerHealth: {fileID: 2103386397}
-  enemyHealth: {fileID: 1611887854}
-  SwipeAttackRecharge: {fileID: 0}
-  ShieldRecharge: {fileID: 1071239135}
-  enemy: {fileID: 0}
-  player: {fileID: 0}
-  playerDamageSound: {fileID: 0}
-  playerAttackSound: {fileID: 0}
-  fPlayerHealth: 1000
-  fEnemyHealth: 1000
-  fPlayerDamage: 35
-  fPlayerAutoDamage: 5
-  fEnemyDamage: 50
-  fSecondsToDamageEnemy: 1
-  fSecondsToDamagePlayer: 1
-  bAutoAttack: 0
-  bSwipeAttack: 0
-  bTapAndHoldAttack: 1
-  fTapAndHoldDamage: 5
-  bWeakSpot: 0
-  fWeakSpotMultiply: 1
-  bShield: 0
---- !u!4 &268673806
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 268673804}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.020000458, y: 1.3649945, z: 2.2840006}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &288170061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,9 +1295,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 340093956}
+  - component: {fileID: 340093958}
   - component: {fileID: 340093957}
   - component: {fileID: 340093959}
-  - component: {fileID: 340093958}
   m_Layer: 9
   m_Name: Robot_G_arm_L
   m_TagString: Untagged
@@ -1384,7 +1317,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 573013530}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &340093957
 SkinnedMeshRenderer:
@@ -1619,7 +1552,7 @@ Transform:
   - {fileID: 351747756}
   - {fileID: 2104531464}
   m_Father: {fileID: 573013530}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -0.569991, y: 0.00012392164, z: -90.02493}
 --- !u!224 &392832182 stripped
 RectTransform:
@@ -2097,8 +2030,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 556715022}
-  - component: {fileID: 556715023}
   - component: {fileID: 556715025}
+  - component: {fileID: 556715023}
   - component: {fileID: 556715024}
   m_Layer: 9
   m_Name: Robot_Saw_arm_R
@@ -2119,7 +2052,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 573013530}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &556715023
 SkinnedMeshRenderer:
@@ -2369,7 +2302,6 @@ Transform:
   m_LocalPosition: {x: 0.14, y: 0.014994035, z: 1.43}
   m_LocalScale: {x: 0.56174564, y: 0.56174564, z: 0.56174564}
   m_Children:
-  - {fileID: 1377463512}
   - {fileID: 1828724737}
   - {fileID: 265526129}
   - {fileID: 340093956}
@@ -2423,7 +2355,7 @@ Transform:
   - {fileID: 1210406}
   - {fileID: 1195794055}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &634865588
 GameObject:
@@ -2716,7 +2648,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 268673805}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
@@ -2861,7 +2793,7 @@ Transform:
   - {fileID: 2140389360}
   - {fileID: 61596380}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &701623008
 GameObject:
@@ -2962,7 +2894,7 @@ RectTransform:
   m_Children:
   - {fileID: 1611887853}
   m_Father: {fileID: 573013530}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4124,36 +4056,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fc52c5c48cdbb64cb676bbf7e7eb475, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1377463511
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 100000, guid: bc3245fa8a2e56b4eb88814d715a334b,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1377463512}
-  m_Layer: 9
-  m_Name: back
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1377463512
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 400000, guid: bc3245fa8a2e56b4eb88814d715a334b,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1377463511}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: -1000.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 573013530}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1402697250
 GameObject:
   m_ObjectHideFlags: 0
@@ -4798,7 +4700,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 573013530}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1828724738
 CapsuleCollider:
@@ -6166,8 +6068,8 @@ MonoBehaviour:
   PetStatsText: {fileID: 0}
   attackStaminaCost: 5
   staminaShouldRegen: 1
-  HealthSlider: {fileID: 2103386397}
   StaminaSlider: {fileID: 392832183}
+  HealthSlider: {fileID: 2103386397}
   attackingFeedback1: {fileID: 196152760}
   attackingFeedback2: {fileID: 1741662443}
   attackingFeedback3: {fileID: 94322095}

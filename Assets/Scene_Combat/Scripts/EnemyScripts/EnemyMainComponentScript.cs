@@ -9,28 +9,32 @@ using UnityEngine.UI;
 public class EnemyMainComponentScript : EnemyComponent
 {
 
-	// The degrees to turn the enemy when they are hit
-	public float RotationIntensity;
+    #region Rotation Values
+    [Header("<Rotation Related Variables>")]
+    public float RotationIntensity; // The degrees to turn the enemy when they are hit
+    public float RotationTimeFrame; // The time it will take for the rotation to apply and then reverse
 
-	// The time it will take for the rotation to apply and then reverse
-	public float RotationTimeFrame;
+    private Quaternion defaultRotationQuaternion;
+    #endregion
 
-	public Slider HealthSlider;
-
-	private Quaternion defaultRotationQuaternion;
+    #region Health Related
+    [Header("<Health Related Variables>")]
+    public Slider HealthSlider;
+    #endregion
 
 	void Start()
 	{
-		base.Start();
-		this.defaultRotationQuaternion = transform.parent.rotation;
+		base.Start(); // Calls start method in Enemycomponent 
+		this.defaultRotationQuaternion = transform.parent.rotation; // Sets default rotation value
 
-		gameObject.layer = 9;
+		gameObject.layer = 9; // Sets the object attatched to layer 9 (EnemyBodyParts)
 
-		foreach (Transform child in gameObject.transform)
+		foreach (Transform child in gameObject.transform) //Sets children to layer 9 as well
 		{
 			child.gameObject.layer = 9;
 		}
 
+        // Sets default health values
 		HealthSlider.maxValue = health;
 		HealthSlider.value = health;
 	}
@@ -101,58 +105,4 @@ public class EnemyMainComponentScript : EnemyComponent
 		gameObject.transform.parent.rotation = defaultRotationQuaternion;
 	}
 
-	//protected virtual IEnumerator PlayDamagedCoroutine()
-	//{
-
-	//	if (!isRunningDamageCoroutine)
-	//	{
-	//		isRunningDamageCoroutine = true;
-
-	//		timeSinceLastHit = 0;
-	//		Material defaultMaterial = null;
-	//		Material[] defaultChildMaterials = new Material[gameObject.transform.childCount];
-
-	//		if (gameObject.GetComponent<MeshRenderer>() &&
-	//		    gameObject.GetComponent<MeshRenderer>().material != StaticVariables.damagedMaterial)
-	//		{
-	//			defaultMaterial = gameObject.GetComponent<MeshRenderer>().material;
-	//			gameObject.GetComponent<MeshRenderer>().material = StaticVariables.damagedMaterial;
-	//		}
-
-
-	//		for (var i = 0; i < gameObject.transform.childCount; i++)
-	//		{
-	//			if (gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() &&
-	//			    gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() != StaticVariables.damagedMaterial)
-	//			{
-	//				defaultChildMaterials[i] = gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material;
-	//				gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material =
-	//					StaticVariables.damagedMaterial;
-	//			}
-	//		}
-
-	//		while (timeSinceLastHit < 0.1)
-	//		{
-	//			timeSinceLastHit += Time.deltaTime;
-
-	//			yield return new WaitForEndOfFrame();
-	//		}
-
-	//		if (gameObject.GetComponent<MeshRenderer>() && defaultMaterial)
-	//			gameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
-
-	//		for (var i = 0; i < gameObject.transform.childCount; i++)
-	//		{
-	//			if (gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() && defaultChildMaterials[i])
-	//				gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material = defaultChildMaterials[i];
-	//		}
-
-	//		isRunningDamageCoroutine = false;
-	//	}
-
-	//	else
-	//	{
-	//		timeSinceLastHit = 0;
-	//	}
-	//}
 }

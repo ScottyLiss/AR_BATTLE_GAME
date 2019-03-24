@@ -14,14 +14,21 @@ public class PetCombatScript : MonoBehaviour
 {
     public Text PetStatsText;
 
+    #region Stamina Variables
     public float attackStaminaCost = 5;
     private float staminaRegenPerSecond = 80;
     private float staminaRegenDelay = 0.6f;
     private float timeSinceLastAttack = 0.6f;
     [SerializeField] private bool staminaShouldRegen = true;
-
-    public Slider HealthSlider;
     public Slider StaminaSlider;
+    #endregion
+
+    #region Health Variables
+    public Slider HealthSlider;
+    #endregion
+
+
+
 
     public GameObject attackingFeedback1;
     public GameObject attackingFeedback2;
@@ -72,7 +79,7 @@ public class PetCombatScript : MonoBehaviour
         attackingFeedback2.gameObject.SetActive(false);
         attackingFeedback3.gameObject.SetActive(false);
 
-        //bDebug = EditorApplication.isPlaying;
+        bDebug = EditorApplication.isPlaying;
 
         iPetLanePosition = 1;
 
