@@ -19,7 +19,8 @@ public class JunkPile : MonoBehaviour
             bDebug = false;
         #endif
     }
-
+    
+    // TODO: Move this to evented logic
     // Update is called once per frame
     void Update()
     {

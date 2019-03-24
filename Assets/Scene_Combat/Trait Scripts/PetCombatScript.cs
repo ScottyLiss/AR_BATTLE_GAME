@@ -89,6 +89,23 @@ public class PetCombatScript : MonoBehaviour
         {
             StaticVariables.combatPet = this;
         }
+        
+        //DEBUG to enable combat from the scenario scene
+        if (StaticVariables.petData == null)
+        {
+            StaticVariables.petData = new PetData()
+            {
+                stats = new Stats()
+                {
+                    damage = 25,
+                    health = 1000,
+                    maxHealth = 1000,
+                    maxStamina = 100,
+                    stamina = 100
+                },
+                traits = new List<Trait>()
+            };
+        }
 
         foreach (Trait trait in StaticVariables.petData.traits)
         {
@@ -296,7 +313,6 @@ public class PetCombatScript : MonoBehaviour
                 attackingFeedback3.gameObject.SetActive(false);
             }
         }
-        
 
     }
 

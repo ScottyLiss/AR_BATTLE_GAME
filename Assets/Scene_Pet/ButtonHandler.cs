@@ -14,6 +14,7 @@ public class ButtonHandler : MonoBehaviour
     public GameObject invMenu;
     public GameObject traitMenu;
     public GameObject background;
+    public GameObject catalystMenu;
 
     public void ClosePetMenu()
     {
@@ -70,5 +71,13 @@ public class ButtonHandler : MonoBehaviour
         //SceneManager.LoadScene(4);
     }
 
+    public void OpenCatalystsMenu()
+    {
+        catalystMenu.GetComponent<CatalystMenu>().EnableMenu();
+    }
 
+    public void CloseCatalystsMenu()
+    {
+        catalystMenu.GetComponent<CatalystMenu>().DisableMenu();
+    }
 }

@@ -7,44 +7,55 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class EnemyAppendage : EnemyComponent {
 
-	// The enemy this appendage belongs to
-	public EnemyMainComponentScript enemyMainComponentScript;
+	public EnemyAppendage()
+	{
+		HittableType = HittableTypes.Appendage;
+	}
+
+    // The enemy this appendage belongs to
+    public EnemyMainComponentScript enemyMainComponentScript;
 
 	public string AnimationTrigger;
 
 	public AudioClip AttackAudioClip;
 
+    private Animator mainComponentAnimator;
+
 	// Use this for initialization
 	void Start ()
 	{
 		base.Start();
-		while (!enemyMainComponentScript)
+
+        mainComponentAnimator = enemyMainComponentScript.gameObject.transform.parent.GetComponent<Animator>();
+
+        while (!enemyMainComponentScript)
 		{
 			enemyMainComponentScript = gameObject.GetComponentInParent<EnemyMainComponentScript>();
 		}
 	}
 
-    //To move in the enemy Component
-	public override void Attack()
+  //To move in the enemy Component
+  public override void Attack()
 	{
-		enemyMainComponentScript.gameObject.transform.parent.GetComponent<Animator>().SetTrigger(AnimationTrigger);
+
+        enemyMainComponentScript.gameObject.transform.parent.GetComponent<Animator>().SetTrigger(AnimationTrigger);
         StaticVariables.iRobotAttackLanePosition = StaticVariables.combatPet.iPetLanePosition;
         StaticVariables.bRobotAttackTriggered = true;
 
-        StaticVariables.AttackCallbacks += AttackDealDamage;
+		StaticVariables.AttackCallbacks += AttackDealDamage;
 	}
-    //To move in the enemy Component
-    private void AttackDealDamage()
+
+  //To move in the enemy Component
+	private void AttackDealDamage()
 	{
-        StaticVariables.bRobotAttackTriggered = false;
-        if (StaticVariables.iRobotAttackLanePosition == StaticVariables.combatPet.iPetLanePosition)
+    StaticVariables.bRobotAttackTriggered = false;
+    if (StaticVariables.iRobotAttackLanePosition == StaticVariables.combatPet.iPetLanePosition)
         {
             base.Attack();
 
             if (AttackAudioClip)
                 GetComponent<AudioSource>().PlayOneShot(AttackAudioClip);
         }
-		
 	}
 
 	public override void OnHit(Vector3 positionHit, float? damageToApply = null)
@@ -53,10 +64,15 @@ public class EnemyAppendage : EnemyComponent {
 		{
 			base.OnHit(positionHit, damageToApply);
 
-			if (gameObject.transform.parent)
+            int nameHash = mainComponentAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash;
+            float normalizedTime = mainComponentAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            float length = mainComponentAnimator.GetCurrentAnimatorStateInfo(0).length;
+
+            enemyMainComponentScript.gameObject.transform.parent.GetComponent<Animator>().Play(nameHash, 0, normalizedTime - ((0.1f * ((float)damageToApply / StaticVariables.petData.stats.damage)) / length));
+
+            if (gameObject.transform.parent)
 			{
-				gameObject.transform.parent.GetComponentInChildren<EnemyMainComponentScript>()
-					.RotateOnDamage(positionHit);
+				gameObject.transform.parent.GetComponentInChildren<EnemyMainComponentScript>().RotateOnDamage(positionHit);
 			}
 
 

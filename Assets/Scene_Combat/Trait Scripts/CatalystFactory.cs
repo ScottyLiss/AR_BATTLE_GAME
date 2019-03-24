@@ -77,7 +77,7 @@ public static class CatalystFactory {
             damage = (int)(0.25 * level * (5 + StaticVariables.RandomInstance.NextDouble() * 5) * statsModifiers[1]),
             maxStamina = (int)(level * (5 + StaticVariables.RandomInstance.NextDouble() * 5) * statsModifiers[2]),
             critChance = (int)((5 + StaticVariables.RandomInstance.NextDouble() * 20) * statsModifiers[3]),
-            critMultiplier = (float)((5 + StaticVariables.RandomInstance.NextDouble() * 20) * statsModifiers[4]),
+            critMultiplier = (float)((1 + StaticVariables.RandomInstance.NextDouble() * 0.5) * statsModifiers[4]),
         };
 
         // Create the final Catalyst object
@@ -90,11 +90,11 @@ public static class CatalystFactory {
         };
     }
 
-    private static CatalystEffect CreateNewCatalystEffect(Rarities rarity, int level)
+    public static CatalystEffect CreateNewCatalystEffect(Rarities rarity, int level, int? effectIndexToUse = null)
     {
 
         // Roll random effect
-        int effectIndex = StaticVariables.RandomInstance.Next(0, possibleCatalystEffects.Length);
+        int effectIndex = effectIndexToUse ?? StaticVariables.RandomInstance.Next(0, possibleCatalystEffects.Length);
 
         // Create a new instance of that type of catalyst effect
         CatalystEffect newCatalystEffect = (CatalystEffect)Activator.CreateInstance(possibleCatalystEffects[effectIndex]);

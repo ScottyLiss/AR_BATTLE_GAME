@@ -30,6 +30,28 @@ public class PetData
         }
     }
 
+	public void EquipCatalyst(Catalyst catalystToEquip)
+	{
+		// Add the catalyst to the appropriate slot
+		switch (catalystToEquip.slot)
+		{
+			case PetBodySlot.Head:
+				headCatalyst = catalystToEquip;
+				break;
+			case PetBodySlot.Body:
+				bodyCatalyst = catalystToEquip;
+				break;
+			case PetBodySlot.Tail:
+				tailCatalyst = catalystToEquip;
+				break;
+			case PetBodySlot.Legs:
+				legsCatalyst = catalystToEquip;
+				break;
+		}
+		
+		StaticVariables.persistanceStoring.DeleteCatalystFromInventory(catalystToEquip.id);
+	}
+
     public bool FeedPet(FoodQuantity foodQuantity)
     {
         if (hunger < 100)

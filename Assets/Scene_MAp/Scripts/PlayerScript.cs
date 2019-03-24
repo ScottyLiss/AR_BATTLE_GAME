@@ -29,8 +29,8 @@ public class PlayerScript : MonoBehaviour
     [Header("<Triangulatio Variables>")]
 
 
-    [SerializeField] private float triangulationSpace;
-    [SerializeField] private CreateTriangulationMesh CTM;
+    [SerializeField]private float triangulationSpace;
+    [SerializeField]private CreateTriangulationMesh CTM;
     public GameObject robot;
     #endregion
 
@@ -59,8 +59,15 @@ public class PlayerScript : MonoBehaviour
     public GameObject petMenu;
     #endregion
 
+    #region Catalysts
+    public List<Catalyst> catalysts = new List<Catalyst>();
+    public GameObject catalystInventoryTemp;
+    #endregion
+
     #region PlayerButton
+
     public GameObject playerMenu;
+
     #endregion
 
     #region JunkPile
@@ -80,19 +87,18 @@ public class PlayerScript : MonoBehaviour
 
     protected void Start()
     {
-        
-
         breachCount = 0;
         CallPet();
         callingPet = false;
         petToPosition = this.transform.position;
+
+        StaticVariables.playerScript = this;
 
         #if UNITY_EDITOR
             bDebug = true;
         #else
             bDebug = false;
         #endif
-
         bPileSystemStatus = true;
 
         playerdata = new PlayerData();
@@ -273,8 +279,6 @@ public class PlayerScript : MonoBehaviour
             StaticVariables.playerData.BreachDepolyed(iSelectedBreach);
             //breachConsumable--;
             breachCount++;
-
-
         }
     }
 
@@ -357,9 +361,9 @@ public class PlayerScript : MonoBehaviour
             {
                 //Debug.Log(i.ToString());
                 GameObject instance = Resources.Load("Crystal" + Mathf.RoundToInt(UnityEngine.Random.Range(0, 5)), typeof(GameObject)) as GameObject;
+                catalysts.Add(CatalystFactory.CreateNewCatalyst(10));
                 instance.layer = 12;
                 Instantiate(instance, PileObject.transform.position + new Vector3(0, 1.584367f, 0), Quaternion.identity);
-
             }
 
             //Debug.Log(i.ToString());

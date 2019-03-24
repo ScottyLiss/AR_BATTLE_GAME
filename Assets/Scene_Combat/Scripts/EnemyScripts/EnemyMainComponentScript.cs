@@ -9,8 +9,13 @@ using UnityEngine.UI;
 public class EnemyMainComponentScript : EnemyComponent
 {
 
-	// The degrees to turn the enemy when they are hit
-	public float RotationIntensity;
+	public EnemyMainComponentScript()
+	{
+		HittableType = HittableTypes.Body;
+	}
+
+    // The degrees to turn the enemy when they are hit
+    public float RotationIntensity;
 
 	// The time it will take for the rotation to apply and then reverse
 	public float RotationTimeFrame;

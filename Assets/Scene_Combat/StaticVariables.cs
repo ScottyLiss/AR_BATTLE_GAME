@@ -28,8 +28,10 @@ public static class StaticVariables
     public static int iAttackingLoopID = 0;
     public static int iRobotAttackLanePosition = 0;
     public static bool bRobotAttackTriggered = false;
+	public static PersistanceStoring persistanceStoring;
+	public static PlayerScript playerScript;
 
-    public delegate void AttackDelegate();
+	public delegate void AttackDelegate();
 
 	public static event AttackDelegate AttackCallbacks;
 
