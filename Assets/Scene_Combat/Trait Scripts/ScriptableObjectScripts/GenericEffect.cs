@@ -102,16 +102,16 @@ public class Stats
             OnStatsChanged?.Invoke();
         }
     }
-    public int resistance 
+    public float armour 
 	{
 		get
 		{
-			return _resistance;
+			return _armour;
 		}
 		
 		set
 		{
-			_resistance = value;
+			_armour = value;
 			OnStatsChanged?.Invoke();
         }
 	}
@@ -159,7 +159,7 @@ public class Stats
     public float _stamina;
     public float _maxStamina;
     public int _maxHealth;
-	public int _resistance;
+	public float _armour;
 	public int _damage;
 	public float _critMultiplier;
 	public int _critChance;
@@ -173,7 +173,7 @@ public class Stats
 		newStats._maxStamina = stats1.maxStamina + stats2.maxStamina;
 		newStats._stamina = Mathf.Clamp(stats1.stamina + stats2.stamina, 0, newStats.maxStamina);
 
-        newStats._resistance = stats1.resistance + stats2.resistance;
+        newStats._armour = stats1.armour + stats2.armour;
 
 		newStats._damage = stats1.damage + stats2.damage;
 		newStats._critMultiplier = stats1.critMultiplier + stats2.critMultiplier;
@@ -193,7 +193,7 @@ public class Stats
         newStats._maxStamina = stats1.maxStamina - stats2.maxStamina;
         newStats._stamina = Mathf.Clamp(stats1.stamina - stats2.stamina, 0, newStats.maxStamina);
 
-        newStats._resistance = stats1.resistance - stats2.resistance;
+        newStats._armour = stats1.armour - stats2.armour;
 
         newStats._damage = stats1.damage - stats2.damage;
         newStats._critMultiplier = stats1.critMultiplier - stats2.critMultiplier;

@@ -38,6 +38,7 @@ public class PetCombatScript : MonoBehaviour
     public event FloatReferenceDelegate CalculatingLowStaminaMultiplier;
     public event FloatReferenceDelegate CalculatingDamageMultiplier; 
     public event FloatReferenceDelegate OnPetHit;
+    public event FloatReferenceDelegate OnPetHitArmourCalculation;
     public event VoidDelegate PetChangedLane;
 
     private Vector3 fp;   //First touch position
@@ -323,7 +324,11 @@ public class PetCombatScript : MonoBehaviour
         {
             OnPetHit?.Invoke(ref damage);
 
-            StaticVariables.petData.stats.health -= (int)damage;
+            float armour = StaticVariables.petData.stats.armour;
+
+            OnPetHitArmourCalculation?.Invoke(ref armour);
+
+            StaticVariables.petData.stats.health -= (int)damage - (int)armour;
 
             this.HealthSlider.value = StaticVariables.petData.stats.health;
 

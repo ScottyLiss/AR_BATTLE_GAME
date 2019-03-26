@@ -13,6 +13,7 @@ public class EnemyComponent : HittableObject
 
 	public int health = 300;
 	public int damage = 30;
+    public float armour = 5;
 	//public float hitRate = 1.5f;
 
 	public GameObject DamageTextPrefab;
@@ -66,15 +67,15 @@ public class EnemyComponent : HittableObject
 
 			if (damageToApply == null)
 			{
-				health -= StaticVariables.petData.stats.damage;
+				health -= StaticVariables.petData.stats.damage - (int)armour;
 
-				ShowDamageNumber(StaticVariables.petData.stats.damage, positionHit);
+				ShowDamageNumber(StaticVariables.petData.stats.damage - (int)armour, positionHit);
 			}
 			else
 			{
-				health -= (int) damageToApply;
+				health -= (int)damageToApply - (int)armour;
 
-				ShowDamageNumber((int) damageToApply, positionHit);
+				ShowDamageNumber((int)damageToApply - (int)armour, positionHit);
 			}
 
 			StartCoroutine(PlayDamagedCoroutine());

@@ -51,7 +51,7 @@ public static class CatalystFactory {
         int numberOfStatsToChange = Mathf.Clamp((int)newRarity + StaticVariables.RandomInstance.Next(-1, 2), 1, 4);
 
         // Instantiate the map of stats to change
-        double[] statsModifiers = new double[5];
+        double[] statsModifiers = new double[6];
 
         // The index to enable
         int indexToEnable = StaticVariables.RandomInstance.Next(0, statsModifiers.Length);
@@ -78,6 +78,7 @@ public static class CatalystFactory {
             maxStamina = (int)(level * (5 + StaticVariables.RandomInstance.NextDouble() * 5) * statsModifiers[2]),
             critChance = (int)((5 + StaticVariables.RandomInstance.NextDouble() * 20) * statsModifiers[3]),
             critMultiplier = (float)((1 + StaticVariables.RandomInstance.NextDouble() * 0.5) * statsModifiers[4]),
+            armour = (float)(1 * level * (1 + StaticVariables.RandomInstance.NextDouble() * 0.5) * statsModifiers[4]),
         };
 
         // Create the final Catalyst object
