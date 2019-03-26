@@ -103,18 +103,18 @@ public class CatalystMenu : MonoBehaviour
 		Catalyst catalystToLoad = inventoryCatalyst.catalystAssociated;
 		
 		// The model variant to attach
-		GameObject modelVariant = Resources.Load<GameObject>("Variants/Tail/" + catalystToLoad.modelVariantIndex);
+		GameObject modelVariant = Resources.Load<GameObject>("Variants/" + catalystToLoad.slot + "/" + catalystToLoad.modelVariantIndex);
 
 		// Instantiate the model variant as a child of the pangolin
 		GameObject modelVariantInstance = Instantiate(modelVariant, StaticVariables.petAI.transform);
 		
 		// Remove previous variants of the same type and rename this one
-		GameObject oldVariant = StaticVariables.petAI.transform.Find("Tail")?.gameObject;
+		GameObject oldVariant = StaticVariables.petAI.transform.Find(catalystToLoad.slot.ToString())?.gameObject;
 		
 		if (oldVariant) 
 			Destroy(oldVariant);
 		
-		modelVariantInstance.name = "Tail";
+		modelVariantInstance.name = catalystToLoad.slot.ToString();
 		
 		// Save references to the skinned meshes of the variant and pangolin base
 		SkinnedMeshRenderer variantSkinnedMeshRenderer = modelVariantInstance.GetComponentInChildren<SkinnedMeshRenderer>();
@@ -138,11 +138,20 @@ public class CatalystMenu : MonoBehaviour
 			
 			// Attempt to replace the bone with the base pangolin equivalent
 			string boneName = boneArray[i].name;
+
+            // Clear any inconsistencies
+            boneName = boneName.Split(':').Length > 1 ? boneName.Split(':')[1] : boneName;
+
 			if (false == boneMap.TryGetValue(boneName, out boneArray[i]))
 			{
 				Debug.LogError("failed to get bone: " + boneName);
 				Debug.Break();
 			}
+
+            else
+            {
+                Debug.Log(boneName);
+            }
 		}
 		
 		// Set the modified array to the mesh renderer

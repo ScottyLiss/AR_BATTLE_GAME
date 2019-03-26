@@ -1,0 +1,239 @@
+fileFormatVersion: 2
+guid: df49232dfc432a649bddee3fcde975f0
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleBack_jnt_LA
+    100002: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleBack_jnt_LA1
+    100004: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleBack_jnt_LB
+    100006: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleBack_jnt_LB1
+    100008: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleBack_jnt_LC
+    100010: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleBack_jnt_LC1
+    100012: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleFront_jnt_LA
+    100014: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleFront_jnt_LA1
+    100016: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleFront_jnt_LB
+    100018: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleFront_jnt_LB1
+    100020: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleFront_jnt_LC
+    100022: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleFront_jnt_LC1
+    100024: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LA
+    100026: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LA1
+    100028: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LB
+    100030: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LB1
+    100032: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LC
+    100034: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LC1
+    100036: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LD
+    100038: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LD1
+    100040: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LE
+    100042: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LE1
+    100044: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Global_CTRL
+    100046: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:head_jnt
+    100048: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LA
+    100050: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LA1
+    100052: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LB
+    100054: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LB1
+    100056: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LC
+    100058: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LC1
+    100060: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LD
+    100062: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LD1
+    100064: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LE
+    100066: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LE1
+    100068: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LF
+    100070: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LF1
+    100072: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Left_Ear_Base_JNT
+    100074: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Left_Ear_Mid_JNT
+    100076: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Left_Ear_Tip_JNT
+    100078: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LA
+    100080: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LB
+    100082: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LC
+    100084: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LD
+    100086: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LE
+    100088: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LF
+    100090: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LF 1
+    100092: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_RA
+    100094: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_RB
+    100096: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_RC
+    100098: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_RD
+    100100: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_RE
+    100102: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:neck_jntA
+    100104: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:neckJnt_2
+    100106: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Pangolin_ReferenceFile:Pangolin
+    100108: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Right_Ear_Base_JNT
+    100110: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Right_Ear_Mid_JNT
+    100112: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Right_Ear_Tip_JNT
+    100114: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Root_jnt
+    100116: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:spine_jntA
+    100118: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:spine_jntB
+    100120: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:spine_jntC
+    100122: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:spine_jntD
+    100124: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Tail_IK_Curve
+    100126: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:tail_jnt_A
+    100128: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:tail_jnt_B
+    100130: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:tail_jnt_C
+    100132: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:tail_jnt_D
+    100134: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:tail_jnt_E
+    100136: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:tail_jnt_F
+    100138: Pangolin
+    100140: scaleheadmerged
+    100142: //RootNode
+    400000: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleBack_jnt_LA
+    400002: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleBack_jnt_LA1
+    400004: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleBack_jnt_LB
+    400006: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleBack_jnt_LB1
+    400008: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleBack_jnt_LC
+    400010: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleBack_jnt_LC1
+    400012: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleFront_jnt_LA
+    400014: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleFront_jnt_LA1
+    400016: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleFront_jnt_LB
+    400018: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleFront_jnt_LB1
+    400020: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleFront_jnt_LC
+    400022: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:faceNoodleFront_jnt_LC1
+    400024: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LA
+    400026: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LA1
+    400028: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LB
+    400030: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LB1
+    400032: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LC
+    400034: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LC1
+    400036: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LD
+    400038: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LD1
+    400040: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LE
+    400042: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:foreLeg_jnt_LE1
+    400044: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Global_CTRL
+    400046: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:head_jnt
+    400048: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LA
+    400050: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LA1
+    400052: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LB
+    400054: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LB1
+    400056: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LC
+    400058: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LC1
+    400060: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LD
+    400062: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LD1
+    400064: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LE
+    400066: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LE1
+    400068: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LF
+    400070: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:hindLeg_jnt_SPRING_LF1
+    400072: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Left_Ear_Base_JNT
+    400074: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Left_Ear_Mid_JNT
+    400076: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Left_Ear_Tip_JNT
+    400078: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LA
+    400080: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LB
+    400082: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LC
+    400084: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LD
+    400086: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LE
+    400088: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LF
+    400090: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_LF 1
+    400092: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_RA
+    400094: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_RB
+    400096: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_RC
+    400098: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_RD
+    400100: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:midLeg_jnt_RE
+    400102: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:neck_jntA
+    400104: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:neckJnt_2
+    400106: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Pangolin_ReferenceFile:Pangolin
+    400108: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Right_Ear_Base_JNT
+    400110: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Right_Ear_Mid_JNT
+    400112: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Right_Ear_Tip_JNT
+    400114: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Root_jnt
+    400116: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:spine_jntA
+    400118: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:spine_jntB
+    400120: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:spine_jntC
+    400122: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:spine_jntD
+    400124: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Tail_IK_Curve
+    400126: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:tail_jnt_A
+    400128: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:tail_jnt_B
+    400130: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:tail_jnt_C
+    400132: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:tail_jnt_D
+    400134: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:tail_jnt_E
+    400136: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:tail_jnt_F
+    400138: Pangolin
+    400140: scaleheadmerged
+    400142: //RootNode
+    2100000: lambert1
+    2100002: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce_Pangolin_ReferenceFile_aiStandardSurface1
+    4300000: scaleheadmerged
+    4300002: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Pangolin_ReferenceFile:Pangolin
+    9500000: //RootNode
+    13700000: PangoAnimations_v8_Walk_Run_Attack_Idle_Idle_Bounce:Pangolin_ReferenceFile:Pangolin
+    13700002: scaleheadmerged
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

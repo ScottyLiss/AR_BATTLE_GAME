@@ -5,7 +5,7 @@
     <ID>1</ID>
     <Name>New Catalyst</Name>
     <Rarity>0</Rarity>
-    <Slot>2</Slot>
+    <Slot>0</Slot>
     <Stats-Adjustments>
       <Crit-Multiplier>5.238873</Crit-Multiplier>
     </Stats-Adjustments>
@@ -20,7 +20,7 @@
     <ID>2</ID>
     <Name>New Catalyst</Name>
     <Rarity>2</Rarity>
-    <Slot>2</Slot>
+    <Slot>1</Slot>
     <Stats-Adjustments>
       <Damage>11</Damage>
       <Crit-Multiplier>0.1242598</Crit-Multiplier>
