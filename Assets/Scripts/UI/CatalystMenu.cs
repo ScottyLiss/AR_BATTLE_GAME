@@ -156,5 +156,10 @@ public class CatalystMenu : MonoBehaviour
 		
 		// Set the modified array to the mesh renderer
 		variantSkinnedMeshRenderer.bones = boneArray;
+
+        // TODO: Remove the old catalyst
+
+        // Add the new catalyst
+        StaticVariables.petData.EquipCatalyst(catalystToLoad);
 	}
 }

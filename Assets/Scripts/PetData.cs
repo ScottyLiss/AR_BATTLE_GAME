@@ -36,21 +36,52 @@ public class PetData
 		switch (catalystToEquip.slot)
 		{
 			case PetBodySlot.Head:
+                UnequipCatalyst(headCatalyst);
 				headCatalyst = catalystToEquip;
 				break;
 			case PetBodySlot.Body:
-				bodyCatalyst = catalystToEquip;
+                UnequipCatalyst(bodyCatalyst);
+                bodyCatalyst = catalystToEquip;
 				break;
 			case PetBodySlot.Tail:
-				tailCatalyst = catalystToEquip;
+                UnequipCatalyst(tailCatalyst);
+                tailCatalyst = catalystToEquip;
 				break;
 			case PetBodySlot.Legs:
-				legsCatalyst = catalystToEquip;
+                UnequipCatalyst(legsCatalyst);
+                legsCatalyst = catalystToEquip;
 				break;
 		}
+
+        stats += catalystToEquip.statsAdjustment;
 		
 		StaticVariables.persistanceStoring.DeleteCatalystFromInventory(catalystToEquip.id);
 	}
+
+    public void UnequipCatalyst(Catalyst catalystToUnequip)
+    {
+        if (catalystToUnequip != null)
+        {
+            // Remove the catalyst to the appropriate slot
+            switch (catalystToUnequip.slot)
+            {
+                case PetBodySlot.Head:
+                    headCatalyst = null;
+                    break;
+                case PetBodySlot.Body:
+                    bodyCatalyst = null;
+                    break;
+                case PetBodySlot.Tail:
+                    tailCatalyst = null;
+                    break;
+                case PetBodySlot.Legs:
+                    legsCatalyst = null;
+                    break;
+            }
+
+            stats -= catalystToUnequip.statsAdjustment;
+        }
+    }
 
     public bool FeedPet(FoodQuantity foodQuantity)
     {
