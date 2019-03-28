@@ -2004,11 +2004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db0dd0567c3f754f97741c49b8fde06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plyPos: {x: 0, y: 0, z: 0}
-  worldPos: {x: 0, y: 0, z: 0}
-  player: {fileID: 2056503885}
-  coords: {fileID: 1086638711}
-  localPos: {fileID: 904588952}
+  map: {fileID: 1569310194}
   objectsToStore:
   - {fileID: 2056503885}
   - {fileID: 1979034641}
