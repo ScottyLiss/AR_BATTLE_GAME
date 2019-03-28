@@ -1987,7 +1987,7 @@ GameObject:
   - component: {fileID: 285229986}
   - component: {fileID: 285229985}
   m_Layer: 0
-  m_Name: ConversionTest
+  m_Name: PersistenceStoring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2008,7 +2008,6 @@ MonoBehaviour:
   worldPos: {x: 0, y: 0, z: 0}
   player: {fileID: 2056503885}
   coords: {fileID: 1086638711}
-  worldpos: {fileID: 2074857453}
   localPos: {fileID: 904588952}
   objectsToStore:
   - {fileID: 2056503885}
@@ -5878,12 +5877,12 @@ MonoBehaviour:
     stats:
       _health: 1000
       _stamina: 0
-      _maxStamina: 0
+      _maxStamina: 100
       _maxHealth: 1000
       _armour: 0
       _damage: 25
-      _critMultiplier: 0
-      _critChance: 0
+      _critMultiplier: 1.5
+      _critChance: 2
     traits: []
     hunger: 0
 --- !u!4 &769758379
@@ -14661,7 +14660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 40, y: -31}
+  m_AnchoredPosition: {x: 40, y: -32}
   m_SizeDelta: {x: 79, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1929955885
@@ -15952,7 +15951,7 @@ Prefab:
     - target: {fileID: 224955909917231084, guid: 87379b058c75ee8448768540a95f7377,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 97.60156
+      value: 98
       objectReference: {fileID: 0}
     - target: {fileID: 224955909917231084, guid: 87379b058c75ee8448768540a95f7377,
         type: 2}

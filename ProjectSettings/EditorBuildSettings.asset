@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/LoadingScene.unity
     guid: 1f189bd73e08e224f9074ed00c3d9259
   - enabled: 1
-    path: Assets/Scene_MAp/Scenes/test.unity
+    path: Assets/Scene_MAp/Scenes/testScott.unity
     guid: 6947a2af5736ba04e9e4bbdbef86c93f
   - enabled: 1
-    path: Assets/Scene_Combat/Scenes/Scenario 1.unity
+    path: Assets/Scene_Combat/Scenes/Scenario 1 Scott.unity
     guid: 5e875f237eb5014488c0c0999fdc4427
   - enabled: 1
-    path: Assets/Scene_Combat/Scenes/Scenario 2.unity
-    guid: 15816503398f6d449b3b7fd687e69e1e
+    path: Assets/Scene_Combat/Scenes/Scenario 3.unity
+    guid: 5470d5bb6eb78604aac0c651c85c4f8e
   m_configObjects: {}
