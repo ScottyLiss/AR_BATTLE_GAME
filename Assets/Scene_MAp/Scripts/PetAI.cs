@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PetAI : MonoBehaviour
 {
+    
+    // Persist the data when the application quits
+    public void OnApplicationQuit()
+    {
+        StaticVariables.persistanceStoring.SavePetData();
+    }
 
     //Variables
     protected float maxSpeed = 5.0f;
@@ -30,6 +36,8 @@ public class PetAI : MonoBehaviour
     private void Start()
     {
         StaticVariables.petAI = this;
+        
+        StaticVariables.persistanceStoring.LoadPetData(StaticVariables.petData);
 
         l_Elec = resources.r_Elec;
         l_Fire = resources.r_Fire;

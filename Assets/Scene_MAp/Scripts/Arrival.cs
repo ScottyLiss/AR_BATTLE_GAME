@@ -13,7 +13,12 @@ public class Arrival : AIBehaviour
     public GameObject player;
     public Vector3 targetPosition;
 
-	public override Vector3 UpdateBehaviour(PetAI steeringAgent)
+    private void Start()
+    {
+	    targetPosition = gameObject.transform.position;
+    }
+
+    public override Vector3 UpdateBehaviour(PetAI steeringAgent)
 	{
 
 		// Get the desired velocity for arrival and limit to maxSpeed

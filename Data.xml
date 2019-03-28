@@ -1,2 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Objects />
+<Data>
+  <Objects>
+    <Name>PlayerTarget</Name>
+    <Coordinate>(0.0, 0.0, 0.0)</Coordinate>
+    <Name>Pet</Name>
+    <Coordinate>(0.0, 0.0, -13.6)</Coordinate>
+  </Objects>
+  <Pet-Data>
+    <Stats>
+      <Health>1000</Health>
+      <Stamina>100</Stamina>
+      <Damage>25</Damage>
+      <Crit-Multiplier>6.738873</Crit-Multiplier>
+      <Crit-Chance>2</Crit-Chance>
+    </Stats>
+    <Catalysts>
+      <Body />
+      <Tail />
+      <Legs />
+      <Head>
+        <Catalyst>
+          <ID>1</ID>
+          <Name>New Catalyst</Name>
+          <Rarity>0</Rarity>
+          <Slot>0</Slot>
+          <Stats-Adjustments>
+            <Crit-Multiplier>5.238873</Crit-Multiplier>
+          </Stats-Adjustments>
+          <Effects>
+            <Effect>
+              <Type-Index>0</Type-Index>
+              <Rarity>0</Rarity>
+            </Effect>
+          </Effects>
+        </Catalyst>
+      </Head>
+    </Catalysts>
+    <Position>24.96666,60.19149</Position>
+  </Pet-Data>
+</Data>

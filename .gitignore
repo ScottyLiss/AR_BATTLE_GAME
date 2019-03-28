@@ -8,6 +8,8 @@
 [Aa]ssets/MapboxAR
 [Aa]ssets/UnityARInterface
 [Aa]ssets/UnityARKitPlugin
+[Aa]ssets/Plugins
+.idea
 obj/
 Assets/AssetStoreTools*
 

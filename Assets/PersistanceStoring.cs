@@ -15,25 +15,14 @@ using Mapbox.Unity.Location;
 using UnityEngine.UI;
 using System.Security.Permissions;
 using Mapbox.Unity.Map;
+using Mapbox.Utils;
 
 public class PersistanceStoring : MonoBehaviour
 {
 
     public event VoidDelegate CatalystsChanged;
-    
-    public Vector3 plyPos;
-    public Vector3 worldPos;
-
-
-    public GameObject player;
     public Location location;
-
-    public Text coords;
-    public Text worldpos;
-    public Text localPos;
-    // Int for zoom = 
-
-    private string filepath = "Assets/Resources/Data.xml";
+    public AbstractMap map;
 
     // Used to store all values that need to be stored
     public Dictionary<string, Vector3> coordinates = new Dictionary<string, Vector3>();
@@ -44,8 +33,6 @@ public class PersistanceStoring : MonoBehaviour
     public List<Vector3> tempListB = new List<Vector3>();
 
     XmlDocument mapDoc = new XmlDocument(); // An XmlDocument used to obtain methods like /load etc.. from it
-    XmlDocument inventoryDoc = new XmlDocument();
-
 
     ILocationProvider _locationprovider;
     ILocationProvider locationProvider
@@ -88,6 +75,25 @@ public class PersistanceStoring : MonoBehaviour
         InitialiseXmlFile();
         LoadLastCatalystId();
     }
+    
+    public static Vector3 StringToVector3(string sVector)
+    {
+        // Remove the parentheses
+        if (sVector.StartsWith ("(") && sVector.EndsWith (")")) {
+            sVector = sVector.Substring(1, sVector.Length-2);
+        }
+ 
+        // Split the items
+        string[] sArray = sVector.Split(',');
+ 
+        // Store as a Vector3
+        Vector3 result = new Vector3(
+            float.Parse(sArray[0]),
+            float.Parse(sArray[1]),
+            float.Parse(sArray[2]));
+ 
+        return result;
+    }
 
     private void InitialiseXmlFile()
     {
@@ -98,7 +104,7 @@ public class PersistanceStoring : MonoBehaviour
         if(File.Exists("Data.xml")) 
         {
             mapDoc.Load("Data.xml");
-            XmlNodeList nodelist = mapDoc.SelectNodes("Objects/Name");
+            XmlNodeList nodelist = mapDoc.SelectNodes("Data/Objects/Name");
 
             foreach (XmlNode node in nodelist)
             {
@@ -106,7 +112,7 @@ public class PersistanceStoring : MonoBehaviour
                 //Debug.Log(node.InnerText); // Displays the name of the object stored
             }
 
-            XmlNodeList nodelistB = mapDoc.SelectNodes("Objects/Coordinate");
+            XmlNodeList nodelistB = mapDoc.SelectNodes("Data/Objects/Coordinate");
             foreach (XmlNode node in nodelistB)
             {
                 string tArray;
@@ -126,6 +132,8 @@ public class PersistanceStoring : MonoBehaviour
 
             XmlWriter writer = XmlWriter.Create("Data.xml", settings);
             writer.WriteStartDocument();
+            
+            writer.WriteStartElement("Data");
             writer.WriteStartElement("Objects");
 
             foreach (KeyValuePair<string, Vector3> entry in coordinates)
@@ -138,6 +146,7 @@ public class PersistanceStoring : MonoBehaviour
                 writer.WriteEndElement();
             }
 
+            writer.WriteEndElement();
             writer.WriteEndElement();
             writer.WriteEndDocument();
 
@@ -307,6 +316,29 @@ public class PersistanceStoring : MonoBehaviour
 
         var catalystsElement = xmlDoc.Element("Catalysts");
         
+        // Generate the catalyst XML representation
+        var catalystElement = GenerateCatalystXMLNode(newCatalyst);
+
+        catalystsElement?.Add(catalystElement);
+        
+        // Adjust the last created ID for the catalysts
+        catalystsElement.SetElementValue("LastCreatedID", Catalyst.LastCreatedID);
+        
+        // Render and save the document
+        xmlDoc.Save("Catalysts.xml");
+        
+        // Notify the system that catalysts have changed
+        CatalystsChanged?.Invoke();
+    }
+
+    private XContainer GenerateCatalystXMLNode(Catalyst newCatalyst)
+    {
+        
+        // If there is no catalyst to generate, return null
+        if (newCatalyst == null)
+            return null;
+        
+        
         // Create elements for all of the catalyst fields we need to persist
         var catalystElement = new XElement("Catalyst");
         var catalystId = new XElement("ID", newCatalyst.id);
@@ -355,16 +387,7 @@ public class PersistanceStoring : MonoBehaviour
         // Add in all of the final elements
         catalystElement.Add(catalystEffects);
 
-        catalystsElement?.Add(catalystElement);
-        
-        // Adjust the last created ID for the catalysts
-        catalystsElement.SetElementValue("LastCreatedID", Catalyst.LastCreatedID);
-        
-        // Render and save the document
-        xmlDoc.Save("Catalysts.xml");
-        
-        // Notify the system that catalysts have changed
-        CatalystsChanged?.Invoke();
+        return catalystElement;
     }
 
     // Delete a given catalyst from the persistent inventory by ID
@@ -415,67 +438,196 @@ public class PersistanceStoring : MonoBehaviour
         // Generate the catalyst effects
         foreach (XElement catalystData in catalystsData)
         {
-            var catalystEffectsData = catalystData.Element("Effects")?.Elements("Effect");
             
-            // Create a holder for the catalyst effect
-            List<CatalystEffect> newCatalystEffects = new List<CatalystEffect>();
-
-            foreach (XElement catalystEffectData in catalystEffectsData)
-            {
-                int typeIndex = Convert.ToInt32(catalystEffectData.Element("Type-Index")?.Value);
-                Rarities rarity = (Rarities)Convert.ToInt32(catalystEffectData.Element("Rarity")?.Value);
-
-                newCatalystEffects.Add(CatalystFactory.CreateNewCatalystEffect(rarity, 0, typeIndex));
-            }
-
-            // Parse the catalyst data
-            uint newCatalystId = Convert.ToUInt32(catalystData.Element("ID").Value);
-            string newCatalystName = catalystData.Element("Name")?.Value;
-            Rarities newCatalystRarity = (Rarities)Convert.ToInt32(catalystData.Element("Rarity").Value);
-            PetBodySlot newCatalystSlot = (PetBodySlot)Convert.ToInt32(catalystData.Element("Slot").Value);
-
-            var catalystAttributesData = catalystData.Element("Stats-Adjustments");
-
-            var maxHealthData = catalystAttributesData?.Element("Health")?.Value;
-            var maxStaminaData = catalystAttributesData?.Element("Stamina")?.Value;
-            var damageData = catalystAttributesData?.Element("Damage")?.Value;
-            var critMultiplierData = catalystAttributesData?.Element("Crit-Multiplier")?.Value;
-            var critChanceData = catalystAttributesData?.Element("Crit-Chance")?.Value;
-            
-            // Create the stat adjustments
-            if (catalystAttributesData != null)
-            {
-                Stats newCatalystStatsAdjustments = new Stats()
-                {
-                    maxHealth = maxHealthData != null ? int.Parse(maxHealthData) : 0,
-                    maxStamina = maxStaminaData != null ? float.Parse(maxStaminaData, CultureInfo.InvariantCulture) : 0,
-                    damage = damageData != null ? int.Parse(damageData) : 0,
-                    critMultiplier = critMultiplierData != null ? float.Parse(critMultiplierData, CultureInfo.InvariantCulture) : 0,
-                    critChance = critChanceData != null ? int.Parse(critChanceData) : 0
-                };
-            
-                // Create the new catalyst
-                Catalyst newCatalyst = new Catalyst()
-                {
-                    id = newCatalystId,
-                    name = newCatalystName,
-                    rarity = newCatalystRarity,
-                    slot = newCatalystSlot,
-                
-                    effects = newCatalystEffects,
-                
-                    statsAdjustment = newCatalystStatsAdjustments
-                };
-            
-                // Add the catalyst to the list
-                catalystList.Add(newCatalyst);
-            }
+            // Generate a catalyst from the data and add it to the list
+            catalystList.Add(LoadCatalyst(catalystData));
         }
 
         return catalystList.ToArray();
     }
 
+    // Load a catalyst from an XElement
+    private Catalyst LoadCatalyst(XElement catalystData)
+    {
+        if (catalystData == null)
+            return null;
+        
+        var catalystEffectsData = catalystData.Element("Effects")?.Elements("Effect");
+            
+        // Create a holder for the catalyst effect
+        List<CatalystEffect> newCatalystEffects = new List<CatalystEffect>();
+
+        foreach (XElement catalystEffectData in catalystEffectsData)
+        {
+            int typeIndex = Convert.ToInt32(catalystEffectData.Element("Type-Index")?.Value);
+            Rarities rarity = (Rarities)Convert.ToInt32(catalystEffectData.Element("Rarity")?.Value);
+
+            newCatalystEffects.Add(CatalystFactory.CreateNewCatalystEffect(rarity, 0, typeIndex));
+        }
+
+        // Parse the catalyst data
+        uint newCatalystId = Convert.ToUInt32(catalystData.Element("ID").Value);
+        string newCatalystName = catalystData.Element("Name")?.Value;
+        Rarities newCatalystRarity = (Rarities)Convert.ToInt32(catalystData.Element("Rarity").Value);
+        PetBodySlot newCatalystSlot = (PetBodySlot)Convert.ToInt32(catalystData.Element("Slot").Value);
+
+        var catalystAttributesData = catalystData.Element("Stats-Adjustments");
+
+        var maxHealthData = catalystAttributesData?.Element("Health")?.Value;
+        var maxStaminaData = catalystAttributesData?.Element("Stamina")?.Value;
+        var damageData = catalystAttributesData?.Element("Damage")?.Value;
+        var critMultiplierData = catalystAttributesData?.Element("Crit-Multiplier")?.Value;
+        var critChanceData = catalystAttributesData?.Element("Crit-Chance")?.Value;
+        
+        // Create the stat adjustments
+        if (catalystAttributesData != null)
+        {
+            Stats newCatalystStatsAdjustments = new Stats()
+            {
+                maxHealth = maxHealthData != null ? int.Parse(maxHealthData) : 0,
+                maxStamina = maxStaminaData != null ? float.Parse(maxStaminaData, CultureInfo.InvariantCulture) : 0,
+                damage = damageData != null ? int.Parse(damageData) : 0,
+                critMultiplier = critMultiplierData != null ? float.Parse(critMultiplierData, CultureInfo.InvariantCulture) : 0,
+                critChance = critChanceData != null ? int.Parse(critChanceData) : 0
+            };
+        
+            // Create the new catalyst
+            Catalyst newCatalyst = new Catalyst()
+            {
+                id = newCatalystId,
+                name = newCatalystName,
+                rarity = newCatalystRarity,
+                slot = newCatalystSlot,
+            
+                effects = newCatalystEffects,
+            
+                statsAdjustment = newCatalystStatsAdjustments
+            };
+        
+            // Return the new catalyst
+            return newCatalyst;
+        }
+
+        return null;
+    }
+
     #endregion
+
+    #region Pet Saving and Loading
+    
+    // Save the pet data in the data xml
+    public void SavePetData()
+    {
+        // Save the XML document
+        var xmlDoc = XDocument.Load("Data.xml");
+        
+        // Save in the data root element
+        var rootElement = CheckAndCreateElement(xmlDoc, "Data");
+        
+        // Save in the pet data
+        var petDataElement =  CheckAndCreateElement(rootElement,"Pet-Data");
+        
+        // Save the pet position
+        CheckAndCreateElement(petDataElement, "Position", map.WorldToGeoPosition(StaticVariables.petAI.gameObject.transform.position));
+        
+        // Save in the stats
+        var petStats = CheckAndCreateElement(petDataElement, "Stats");
+        
+        // Save in the stats
+        CheckAndCreateElement(petStats, "Health",          StaticVariables.petData.stats.maxHealth);
+        CheckAndCreateElement(petStats, "Stamina",         StaticVariables.petData.stats.maxStamina);
+        CheckAndCreateElement(petStats, "Damage",          StaticVariables.petData.stats.damage);
+        CheckAndCreateElement(petStats, "Crit-Multiplier", StaticVariables.petData.stats.critMultiplier);
+        CheckAndCreateElement(petStats, "Crit-Chance",     StaticVariables.petData.stats.critChance);
+        
+        // Save in the catalyst holder
+        var catalystsElement = CheckAndCreateElement(petDataElement, "Catalysts");
+        
+        // Generate the XML elements for the catalysts
+        CheckAndCreateElement(catalystsElement, "Head", GenerateCatalystXMLNode(StaticVariables.petData.headCatalyst));
+        CheckAndCreateElement(catalystsElement, "Body", GenerateCatalystXMLNode(StaticVariables.petData.bodyCatalyst));
+        CheckAndCreateElement(catalystsElement, "Tail", GenerateCatalystXMLNode(StaticVariables.petData.tailCatalyst));
+        CheckAndCreateElement(catalystsElement, "Legs", GenerateCatalystXMLNode(StaticVariables.petData.legsCatalyst));
+        
+        // Render and save the document
+        xmlDoc.Save("Data.xml");
+        
+        // Notify the system that catalysts have changed
+        CatalystsChanged?.Invoke();
+    }
+
+    public void LoadPetData(PetData petData)
+    {
+        // Load the XML document
+        var xmlDoc = XDocument.Load("Data.xml");
+        
+        // Load in the data root element
+        var rootElement = CheckAndCreateElement(xmlDoc, "Data");
+        
+        // Load in the pet data
+        var petDataElement =  CheckAndCreateElement(rootElement,"Pet-Data");
+        
+        // Load in the pet position
+        string positionString = CheckAndCreateElement(petDataElement, "Position").Value;
+        
+        // Split the items
+        string[] positionSplit = positionString.Split(',');
+        
+        // Convert to Latitude and Longitude
+        Vector2d positionLatLong = new Vector2d(Convert.ToDouble(positionSplit[1]), Convert.ToDouble(positionSplit[0]));
+        
+        // Convert to world position and set
+        map.OnInitialized += () =>
+        {
+            StaticVariables.petAI.gameObject.transform.position = map.GeoToWorldPosition(positionLatLong);
+            StaticVariables.petAI.GetComponent<Arrival>().targetPosition = map.GeoToWorldPosition(positionLatLong);
+        };
+        
+        // Load the pet stats
+        var petStats = CheckAndCreateElement(petDataElement, "Stats");
+        
+        // Set the pet stats
+        petData.stats.maxHealth = Convert.ToInt32(CheckAndCreateElement(petStats, "Health").Value);
+        petData.stats.maxStamina = float.Parse(CheckAndCreateElement(petStats, "Stamina").Value);
+        petData.stats.damage = Convert.ToInt32(CheckAndCreateElement(petStats, "Damage").Value);
+        petData.stats.critChance = Convert.ToInt32(CheckAndCreateElement(petStats, "Crit-Chance").Value);
+        petData.stats.critMultiplier = float.Parse(CheckAndCreateElement(petStats, "Crit-Multiplier").Value);
+        
+        // Set the pet catalysts
+        petData.headCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Head")?.Element("Catalyst"));
+        petData.bodyCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Body")?.Element("Catalyst"));
+        petData.tailCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Tail")?.Element("Catalyst"));
+        petData.legsCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Legs")?.Element("Catalyst"));
+    }
+
+    #endregion
+    
+    private XElement CheckAndCreateElement(XContainer elementToCheck, string nodeName, object value = null)
+    {
+        
+        // Check if one does not exist and add it
+        if (elementToCheck.Element(nodeName) == null)
+        {
+            if (value == null)
+            {
+                elementToCheck.Add(new XElement(nodeName));
+            }
+
+            else
+            {
+                elementToCheck.Add(new XElement(nodeName, value));
+            }
+        }
+        
+        else if (elementToCheck.Element(nodeName) != null && value != null)
+        {
+            elementToCheck.Element(nodeName).Remove();
+            elementToCheck.Add(new XElement(nodeName, value));
+        }
+        
+        // Once it is created, return the new element
+        return elementToCheck.Element(nodeName);
+    }
     
 
     // Check Values to position in Unity, see whether it correlates 

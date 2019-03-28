@@ -88,7 +88,7 @@ public class PlayerScript : MonoBehaviour
     protected void Start()
     {
         breachCount = 0;
-        CallPet();
+        //CallPet();
         callingPet = false;
         petToPosition = this.transform.position;
 
