@@ -12,6 +12,8 @@ public class Breach : MonoBehaviour {
     
     private bool breachIsDefeated = false;
 
+    public CombatEncounter encounter;
+
     public bool BreachDefeated
     {
         get { return breachIsDefeated; }
@@ -47,7 +49,9 @@ public class Breach : MonoBehaviour {
         br_lvl = 1;
         timer = 0;
         BreachDefeated = false;
-	}
+
+        encounter = EncounterFactory.CreateCombatEncounter(StaticVariables.RandomInstance.Next(0, 2));
+    }
 
     void Update()
     {

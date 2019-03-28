@@ -108,6 +108,8 @@ public class SceneTransitionHandler : MonoBehaviour
 	{
 		if (!isLoadingSomething)
 		{
+			var encounterInfo = breach.encounter.encounterInfo;
+			
 			var ongoingOperation = SceneManager.LoadSceneAsync(sceneToLoadCombat, LoadSceneMode.Additive);
 			
 			TransitionScreen.SetActive(true);
@@ -126,6 +128,10 @@ public class SceneTransitionHandler : MonoBehaviour
 
 			SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneToLoadCombat));
 
+			GameObject newEnemy = Instantiate(encounterInfo.enemyPrefab, GameObject.Find("EnemyPlaceholder").transform);
+			newEnemy.GetComponent<EncounterImplementer>().encounterInfo = encounterInfo;
+			newEnemy.GetComponent<EncounterImplementer>().Implement();
+
 			Time.timeScale = 1;
 			
 			MapHolderGameObject.SetActive(false);
@@ -133,8 +139,6 @@ public class SceneTransitionHandler : MonoBehaviour
 			TransitionScreen.SetActive(false);
 
 			isLoadingSomething = false;
-
-			sceneToLoadCombat = 3; // Load Combat Scene 3?
 		}
 	}
 

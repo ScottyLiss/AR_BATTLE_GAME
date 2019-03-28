@@ -1,0 +1,51 @@
+{
+  "Combat": {
+    "Arsenal": {
+      "Base": {
+        "Health": 1000,
+        "Armour": 15,
+        "Damage": 200,
+        "AttackSpeed": 2.5,
+        "StaggerResist": 10
+      },
+      "Scaling": {
+        "Health": 25,
+        "Armour": 25,
+        "Damage": 10,
+        "AttackSpeed": 1,
+        "StaggerResist": 25
+      }
+    },
+    "ArsenalArms": {
+      "Base": {
+        "Health": 500,
+        "Armour": 5,
+        "Damage": 200,
+        "AttackSpeed": 2.5,
+        "StaggerResist": 10
+      },
+      "Scaling": {
+        "Health": 25,
+        "Armour": 25,
+        "Damage": 10,
+        "AttackSpeed": 1,
+        "StaggerResist": 25
+      }
+    },
+    "Swarm": {
+      "Base": {
+        "Health": 75,
+        "Armour": 5,
+        "Damage": 75,
+        "AttackSpeed": 2.5,
+        "StaggerResist": 5
+      },
+      "Scaling": {
+        "Health": 20,
+        "Armour": 20,
+        "Damage": 30,
+        "StaggerResist": 15
+      }
+    }
+  }
+}

@@ -63,15 +63,15 @@ public class PetAI : MonoBehaviour
 
         if (other.tag == "Robot")
         {
-            StaticVariables.sceneManager.TransitionToCombat();
+            //StaticVariables.sceneManager.TransitionToCombat();
 
             Destroy(other.gameObject);
         }
 
         if (other.tag == "Breach" && other.GetComponent<Breach>() && !other.GetComponent<Breach>().BreachDefeated)
         {
-            //StaticVariables.sceneManager.TransitionToCombat(other.GetComponent<Breach>());
-            SceneManager.LoadScene(Mathf.RoundToInt(Random.Range(1.6f, 3.4f)));
+            StaticVariables.sceneManager.TransitionToCombat(other.GetComponent<Breach>());
+            //SceneManager.LoadScene(Mathf.RoundToInt(Random.Range(1.6f, 3.4f)));
            // SceneManager.LoadScene(3);
         }
 

@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
+using System.Web;
 using System.Xml.Serialization;
 using System.Text;
 using UnityEngine;
@@ -14,6 +15,9 @@ using Mapbox.Unity.MeshGeneration.Data;
 using Mapbox.Unity.Location;
 using UnityEngine.UI;
 using System.Security.Permissions;
+using Mapbox.Json;
+using Mapbox.Json.Bson;
+using Mapbox.Json.Linq;
 using Mapbox.Unity.Map;
 using Mapbox.Utils;
 
@@ -598,6 +602,62 @@ public class PersistanceStoring : MonoBehaviour
         petData.bodyCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Body")?.Element("Catalyst"));
         petData.tailCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Tail")?.Element("Catalyst"));
         petData.legsCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Legs")?.Element("Catalyst"));
+    }
+
+    #endregion
+
+    #region Designer Definition Files Loading
+    
+    // Load in the base stat of a specific type of enemy
+    public EnemyStats LoadEnemyBaseStats(string enemyType)
+    {
+        // Load in the designer definitions file      
+        string definitionsString = File.ReadAllText(@".\\DesignerDefinitions.json", Encoding.UTF8);
+        
+        // Parse the text into an object
+        JObject definitionsObject = JObject.Parse(definitionsString);
+        
+        // Save the token with the relevant stats
+        JToken relevantEnemyStats = definitionsObject["Combat"][enemyType]["Base"];
+        
+        // Set all of the stats into a new object
+        EnemyStats newEnemyStats = new EnemyStats()
+        {
+            MaxHealth = Convert.ToInt32(relevantEnemyStats["Health"]),
+            Health = Convert.ToInt32(relevantEnemyStats["Health"]),
+            Armour = Convert.ToInt32(relevantEnemyStats["Armour"]),
+            Damage = Convert.ToInt32(relevantEnemyStats["Damage"]),
+            AttackSpeed = float.Parse(relevantEnemyStats["AttackSpeed"].ToString()),
+            StaggerResist = Convert.ToInt32(relevantEnemyStats["StaggerResist"]),
+        };
+
+        return newEnemyStats;
+    }
+    
+    // Load in the scaling of a specific type of enemy
+    public EnemyStats LoadEnemyScaling(string enemyType)
+    {
+        // Load in the designer definitions file      
+        string definitionsString = File.ReadAllText(@".\\DesignerDefinitions.json", Encoding.UTF8);
+        
+        // Parse the text into an object
+        JObject definitionsObject = JObject.Parse(definitionsString);
+        
+        // Save the token with the relevant stats
+        JToken relevantEnemyStats = definitionsObject["Combat"][enemyType]["Scaling"];
+        
+        // Set all of the stats into a new object
+        EnemyStats newEnemyStats = new EnemyStats()
+        {
+            MaxHealth = (int)(Convert.ToInt32(relevantEnemyStats["Health"]) * 0.01),
+            Health = (int)(Convert.ToInt32(relevantEnemyStats["Health"]) * 0.01),
+            Armour = (int)(Convert.ToInt32(relevantEnemyStats["Armour"])* 0.01),
+            Damage = (int)(Convert.ToInt32(relevantEnemyStats["Damage"])* 0.01),
+            AttackSpeed = float.Parse(relevantEnemyStats["AttackSpeed"].ToString()),
+            StaggerResist = (int)(Convert.ToInt32(relevantEnemyStats["StaggerResist"])* 0.01),
+        };
+
+        return newEnemyStats;
     }
 
     #endregion
