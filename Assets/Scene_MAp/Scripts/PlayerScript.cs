@@ -424,5 +424,38 @@ public class PlayerScript : MonoBehaviour
         Instantiate(breach, this.transform.position, Quaternion.identity);
     }
 
+    public void CheckJunkpile()
+    {
+        Ray ray;
+        RaycastHit hit;
+
+        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(0)) || (bDebug == true && Input.GetButtonDown("Fire1")))
+        {
+
+            Vector3 pos;
+            if (bDebug == true)
+            {
+                pos = Input.mousePosition;
+            }
+            else
+            {
+                pos = Input.GetTouch(0).position;
+            }
+
+            ray = Camera.main.ScreenPointToRay(pos);
+
+
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                // We've hit a part of an enemy
+                if (hit.collider.tag == "JunkPile")
+                {
+                    //Debug.Log("Hit Obj");
+                }
+            }
+        }
+    }
+
     #endregion
 }

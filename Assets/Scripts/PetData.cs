@@ -92,6 +92,7 @@ public class PetData
                 trait.Feed(foodQuantity);
             }
 
+            
             hunger += 10;
 
             return true;

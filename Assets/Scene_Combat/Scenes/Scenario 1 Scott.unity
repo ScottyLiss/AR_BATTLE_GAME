@@ -412,8 +412,8 @@ RectTransform:
   m_Father: {fileID: 1436481464}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -977,6 +977,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: de1aefc33468bbc4591b1b8777791eef, type: 3}
   health: 300
   damage: 30
+  armour: 5
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 3
@@ -1192,6 +1193,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: de1aefc33468bbc4591b1b8777791eef, type: 3}
   health: 300
   damage: 30
+  armour: 5
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 3
@@ -1456,6 +1458,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: de1aefc33468bbc4591b1b8777791eef, type: 3}
   health: 300
   damage: 30
+  armour: 5
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 3
@@ -1662,8 +1665,8 @@ RectTransform:
   m_Father: {fileID: 1871346860}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1732,7 +1735,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0, y: 0.5}
@@ -2287,6 +2290,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: de1aefc33468bbc4591b1b8777791eef, type: 3}
   health: 300
   damage: 30
+  armour: 5
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 3
@@ -2794,7 +2798,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0, y: 0.5}
@@ -3195,27 +3199,27 @@ Prefab:
     - target: {fileID: 224707089779237606, guid: 16c5410b25dcd4342bdd5ca4e8fb048a,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224707089779237606, guid: 16c5410b25dcd4342bdd5ca4e8fb048a,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224454587487755470, guid: 16c5410b25dcd4342bdd5ca4e8fb048a,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224454587487755470, guid: 16c5410b25dcd4342bdd5ca4e8fb048a,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224454587487755470, guid: 16c5410b25dcd4342bdd5ca4e8fb048a,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c5410b25dcd4342bdd5ca4e8fb048a, type: 2}
@@ -4927,6 +4931,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: de1aefc33468bbc4591b1b8777791eef, type: 3}
   health: 400
   damage: 0
+  armour: 5
   DamageTextPrefab: {fileID: 1380532261346932, guid: b45803715fea3804383f73c36eac9636,
     type: 2}
   fGapBetweenAttacks: 0

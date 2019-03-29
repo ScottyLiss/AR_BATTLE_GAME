@@ -11,11 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0bf29098c817d42a4f56ea3f6f41ba, type: 3}
   m_Name: AllData
   m_EditorClassIdentifier: 
-  r_Elec: 1
-  r_Fire: 1
-  r_Water: 0
-  r_Bio: 50
+  r_Elec: 26
+  r_Fire: 0
+  r_Water: 6
+  r_Bio: 73
   r_Ice: 0
-  r_Rock: 48
-  r_Metal: 48
-  r_Rad: 0
+  r_Rock: 78
+  r_Metal: 72
+  r_Rad: 26
+  r_Bonding: 12

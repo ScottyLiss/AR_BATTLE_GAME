@@ -5,14 +5,17 @@ using UnityEngine.UI;
 
 public class HungerUIUpdater : MonoBehaviour {
 
+    Slider slider;
+
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+    {
+        slider = gameObject.GetComponent<Slider>();	
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		gameObject.GetComponent<Slider>().value = StaticVariables.petData.hunger;
+		slider.value = StaticVariables.petData.hunger;
 	}
 }

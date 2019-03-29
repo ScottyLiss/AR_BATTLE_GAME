@@ -46,8 +46,11 @@ public class ButtonHandler : MonoBehaviour
     public void OpenTraits()
     {
         CloseInv();
-        traitMenu.SetActive(true);
         background.GetComponent<Image>().color = traitsBackgroundColor;
+
+        traitMenu.SetActive(true);
+        Debug.Log(traitMenu.activeSelf);
+
     }
 
     public void CloseTraits()
