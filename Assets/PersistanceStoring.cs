@@ -107,26 +107,26 @@ public class PersistanceStoring : MonoBehaviour
         // In other words, [0] in nodelist (name), has [0] in nodelistB (coords)
         if(File.Exists("Data.xml")) 
         {
-            mapDoc.Load("Data.xml");
-            XmlNodeList nodelist = mapDoc.SelectNodes("Data/Objects/Name");
-
-            foreach (XmlNode node in nodelist)
-            {
-                tempList.Add(node.InnerText);
-                //Debug.Log(node.InnerText); // Displays the name of the object stored
-            }
-
-            XmlNodeList nodelistB = mapDoc.SelectNodes("Data/Objects/Coordinate");
-            foreach (XmlNode node in nodelistB)
-            {
-                string tArray;
-                if (node.InnerText.StartsWith("(") && node.InnerText.EndsWith(")")) //By default the coords are noted as (x,y,z), here we remove the ( ) 
-                {
-                    tArray = node.InnerText.Substring(1, node.InnerText.Length - 2);
-                    string[] sArray = tArray.Split(','); // Here we remove the ',' between the numbers and pushing them into an array which allows us to create a single vector3 with all the numbers
-                    tempListB.Add(new Vector3(float.Parse(sArray[0]), float.Parse(sArray[1]), float.Parse(sArray[2])));
-                }
-            }
+//            mapDoc.Load("Data.xml");
+//            XmlNodeList nodelist = mapDoc.SelectNodes("Data/Objects/Name");
+//
+//            foreach (XmlNode node in nodelist)
+//            {
+//                tempList.Add(node.InnerText);
+//                //Debug.Log(node.InnerText); // Displays the name of the object stored
+//            }
+//
+//            XmlNodeList nodelistB = mapDoc.SelectNodes("Data/Objects/Coordinate");
+//            foreach (XmlNode node in nodelistB)
+//            {
+//                string tArray;
+//                if (node.InnerText.StartsWith("(") && node.InnerText.EndsWith(")")) //By default the coords are noted as (x,y,z), here we remove the ( ) 
+//                {
+//                    tArray = node.InnerText.Substring(1, node.InnerText.Length - 2);
+//                    string[] sArray = tArray.Split(','); // Here we remove the ',' between the numbers and pushing them into an array which allows us to create a single vector3 with all the numbers
+//                    tempListB.Add(new Vector3(float.Parse(sArray[0]), float.Parse(sArray[1]), float.Parse(sArray[2])));
+//                }
+//            }
             // Load Data 
         }
         else
@@ -578,7 +578,8 @@ public class PersistanceStoring : MonoBehaviour
         string[] positionSplit = positionString.Split(',');
         
         // Convert to Latitude and Longitude
-        Vector2d positionLatLong = new Vector2d(Convert.ToDouble(positionSplit[1]), Convert.ToDouble(positionSplit[0]));
+        Vector2d positionLatLong = new Vector2d(Convert.ToDouble(positionSplit[1], CultureInfo.InvariantCulture), Convert.ToDouble(positionSplit[0],
+            CultureInfo.InvariantCulture));
         
         // Convert to world position and set
         map.OnInitialized += () =>
@@ -592,10 +593,12 @@ public class PersistanceStoring : MonoBehaviour
         
         // Set the pet stats
         petData.stats.maxHealth = Convert.ToInt32(CheckAndCreateElement(petStats, "Health").Value);
-        petData.stats.maxStamina = float.Parse(CheckAndCreateElement(petStats, "Stamina").Value);
+        petData.stats.maxStamina = float.Parse(CheckAndCreateElement(petStats, "Stamina").Value,
+            CultureInfo.InvariantCulture);
         petData.stats.damage = Convert.ToInt32(CheckAndCreateElement(petStats, "Damage").Value);
         petData.stats.critChance = Convert.ToInt32(CheckAndCreateElement(petStats, "Crit-Chance").Value);
-        petData.stats.critMultiplier = float.Parse(CheckAndCreateElement(petStats, "Crit-Multiplier").Value);
+        petData.stats.critMultiplier = float.Parse(CheckAndCreateElement(petStats, "Crit-Multiplier").Value,
+            CultureInfo.InvariantCulture);
         
         // Set the pet catalysts
         petData.headCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Head")?.Element("Catalyst"));

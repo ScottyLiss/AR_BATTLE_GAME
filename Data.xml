@@ -11,7 +11,7 @@
       <Health>1000</Health>
       <Stamina>100</Stamina>
       <Damage>25</Damage>
-      <Crit-Multiplier>6.738873</Crit-Multiplier>
+      <Crit-Multiplier>1.5</Crit-Multiplier>
       <Crit-Chance>2</Crit-Chance>
     </Stats>
     <Catalysts>
@@ -36,6 +36,6 @@
         </Catalyst>
       </Head>
     </Catalysts>
-    <Position>24.96823,60.19195</Position>
+    <Position>24.96849,60.19187</Position>
   </Pet-Data>
 </Data>
