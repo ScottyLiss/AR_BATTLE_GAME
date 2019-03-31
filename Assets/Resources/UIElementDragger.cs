@@ -5,6 +5,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEditor;
 
+// ------------------------- //
+// Script is no longer used! //
+// ------------------------- //              
+
 public class UIElementDragger : MonoBehaviour {
 
     public const string DRAGGABLE_TAG = "UIDraggable";
@@ -21,8 +25,8 @@ public class UIElementDragger : MonoBehaviour {
     private UpdateResources updateResourcesScript;
     private bool bDebug;
 
-
     List<RaycastResult> hitObjects = new List<RaycastResult>();
+
 
     // Use this for initialization
     void Start ()
@@ -33,11 +37,11 @@ public class UIElementDragger : MonoBehaviour {
              bDebug = false;
          #endif
         
-         draggedObject.SetActive(false);
+         //draggedObject.SetActive(false);
     }
-	
+
 	// Update is called once per frame
-	void Update () {
+/*	void Update () {
 
         if((Input.GetMouseButtonDown(0)) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
             !EventSystem.current.IsPointerOverGameObject(0)))
@@ -103,6 +107,7 @@ public class UIElementDragger : MonoBehaviour {
         }
 
     }
+    */
 
     private GameObject GetObjectUnderMouse()
     {
