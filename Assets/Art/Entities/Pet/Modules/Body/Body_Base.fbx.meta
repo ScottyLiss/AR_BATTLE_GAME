@@ -1,0 +1,634 @@
+fileFormatVersion: 2
+guid: f4b9d753a216e624d81ab8e828b8cb60
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Armature.001
+    100004: Armature.002
+    100006: //RootNode
+    100008: Camera
+    100010: faceNoodleBack_jnt_LA
+    100012: faceNoodleBack_jnt_LA 1
+    100014: faceNoodleBack_jnt_LA 2
+    100016: faceNoodleBack_jnt_LA1
+    100018: faceNoodleBack_jnt_LA1 1
+    100020: faceNoodleBack_jnt_LA1 2
+    100022: faceNoodleBack_jnt_LB
+    100024: faceNoodleBack_jnt_LB 1
+    100026: faceNoodleBack_jnt_LB 2
+    100028: faceNoodleBack_jnt_LB1
+    100030: faceNoodleBack_jnt_LB1 1
+    100032: faceNoodleBack_jnt_LB1 2
+    100034: faceNoodleBack_jnt_LC
+    100036: faceNoodleBack_jnt_LC 1
+    100038: faceNoodleBack_jnt_LC 2
+    100040: faceNoodleBack_jnt_LC1
+    100042: faceNoodleBack_jnt_LC1 1
+    100044: faceNoodleBack_jnt_LC1 2
+    100046: faceNoodleBack_jnt_LC1_end
+    100048: faceNoodleBack_jnt_LC1_end 1
+    100050: faceNoodleBack_jnt_LC1_end 2
+    100052: faceNoodleBack_jnt_LC_end
+    100054: faceNoodleBack_jnt_LC_end 1
+    100056: faceNoodleBack_jnt_LC_end 2
+    100058: faceNoodleFront_jnt_LA
+    100060: faceNoodleFront_jnt_LA 1
+    100062: faceNoodleFront_jnt_LA 2
+    100064: faceNoodleFront_jnt_LA1
+    100066: faceNoodleFront_jnt_LA1 1
+    100068: faceNoodleFront_jnt_LA1 2
+    100070: faceNoodleFront_jnt_LB
+    100072: faceNoodleFront_jnt_LB 1
+    100074: faceNoodleFront_jnt_LB 2
+    100076: faceNoodleFront_jnt_LB1
+    100078: faceNoodleFront_jnt_LB1 1
+    100080: faceNoodleFront_jnt_LB1 2
+    100082: faceNoodleFront_jnt_LC
+    100084: faceNoodleFront_jnt_LC 1
+    100086: faceNoodleFront_jnt_LC 2
+    100088: faceNoodleFront_jnt_LC1
+    100090: faceNoodleFront_jnt_LC1 1
+    100092: faceNoodleFront_jnt_LC1 2
+    100094: faceNoodleFront_jnt_LC1_end
+    100096: faceNoodleFront_jnt_LC1_end 1
+    100098: faceNoodleFront_jnt_LC1_end 2
+    100100: faceNoodleFront_jnt_LC_end
+    100102: faceNoodleFront_jnt_LC_end 1
+    100104: faceNoodleFront_jnt_LC_end 2
+    100106: foreLeg_jnt_LA
+    100108: foreLeg_jnt_LA 1
+    100110: foreLeg_jnt_LA 2
+    100112: foreLeg_jnt_LA1
+    100114: foreLeg_jnt_LA1 1
+    100116: foreLeg_jnt_LA1 2
+    100118: foreLeg_jnt_LB
+    100120: foreLeg_jnt_LB 1
+    100122: foreLeg_jnt_LB 2
+    100124: foreLeg_jnt_LB1
+    100126: foreLeg_jnt_LB1 1
+    100128: foreLeg_jnt_LB1 2
+    100130: foreLeg_jnt_LC
+    100132: foreLeg_jnt_LC 1
+    100134: foreLeg_jnt_LC 2
+    100136: foreLeg_jnt_LC1
+    100138: foreLeg_jnt_LC1 1
+    100140: foreLeg_jnt_LC1 2
+    100142: foreLeg_jnt_LD
+    100144: foreLeg_jnt_LD 1
+    100146: foreLeg_jnt_LD 2
+    100148: foreLeg_jnt_LD1
+    100150: foreLeg_jnt_LD1 1
+    100152: foreLeg_jnt_LD1 2
+    100154: foreLeg_jnt_LE
+    100156: foreLeg_jnt_LE 1
+    100158: foreLeg_jnt_LE 2
+    100160: foreLeg_jnt_LE1
+    100162: foreLeg_jnt_LE1 1
+    100164: foreLeg_jnt_LE1 2
+    100166: foreLeg_jnt_LE1_end
+    100168: foreLeg_jnt_LE1_end 1
+    100170: foreLeg_jnt_LE1_end 2
+    100172: foreLeg_jnt_LE_end
+    100174: foreLeg_jnt_LE_end 1
+    100176: foreLeg_jnt_LE_end 2
+    100178: Global_CTRL
+    100180: head_jnt
+    100182: head_jnt 1
+    100184: head_jnt 2
+    100186: hindLeg_jnt_SPRING_LA
+    100188: hindLeg_jnt_SPRING_LA 1
+    100190: hindLeg_jnt_SPRING_LA 2
+    100192: hindLeg_jnt_SPRING_LA1
+    100194: hindLeg_jnt_SPRING_LA1 1
+    100196: hindLeg_jnt_SPRING_LA1 2
+    100198: hindLeg_jnt_SPRING_LB
+    100200: hindLeg_jnt_SPRING_LB 1
+    100202: hindLeg_jnt_SPRING_LB 2
+    100204: hindLeg_jnt_SPRING_LB1
+    100206: hindLeg_jnt_SPRING_LB1 1
+    100208: hindLeg_jnt_SPRING_LB1 2
+    100210: hindLeg_jnt_SPRING_LC
+    100212: hindLeg_jnt_SPRING_LC 1
+    100214: hindLeg_jnt_SPRING_LC 2
+    100216: hindLeg_jnt_SPRING_LC1
+    100218: hindLeg_jnt_SPRING_LC1 1
+    100220: hindLeg_jnt_SPRING_LC1 2
+    100222: hindLeg_jnt_SPRING_LD
+    100224: hindLeg_jnt_SPRING_LD 1
+    100226: hindLeg_jnt_SPRING_LD 2
+    100228: hindLeg_jnt_SPRING_LD1
+    100230: hindLeg_jnt_SPRING_LD1 1
+    100232: hindLeg_jnt_SPRING_LD1 2
+    100234: hindLeg_jnt_SPRING_LE
+    100236: hindLeg_jnt_SPRING_LE 1
+    100238: hindLeg_jnt_SPRING_LE 2
+    100240: hindLeg_jnt_SPRING_LE1
+    100242: hindLeg_jnt_SPRING_LE1 1
+    100244: hindLeg_jnt_SPRING_LE1 2
+    100246: hindLeg_jnt_SPRING_LF
+    100248: hindLeg_jnt_SPRING_LF 1
+    100250: hindLeg_jnt_SPRING_LF 2
+    100252: hindLeg_jnt_SPRING_LF1
+    100254: hindLeg_jnt_SPRING_LF1 1
+    100256: hindLeg_jnt_SPRING_LF1 2
+    100258: hindLeg_jnt_SPRING_LF1_end
+    100260: hindLeg_jnt_SPRING_LF1_end 1
+    100262: hindLeg_jnt_SPRING_LF1_end 2
+    100264: hindLeg_jnt_SPRING_LF_end
+    100266: hindLeg_jnt_SPRING_LF_end 1
+    100268: hindLeg_jnt_SPRING_LF_end 2
+    100270: Lamp
+    100272: Left_Ear_Base_JNT
+    100274: Left_Ear_Base_JNT 1
+    100276: Left_Ear_Base_JNT 2
+    100278: Left_Ear_Mid_JNT
+    100280: Left_Ear_Mid_JNT 1
+    100282: Left_Ear_Mid_JNT 2
+    100284: Left_Ear_Tip_JNT
+    100286: Left_Ear_Tip_JNT 1
+    100288: Left_Ear_Tip_JNT 2
+    100290: Left_Ear_Tip_JNT_end
+    100292: Left_Ear_Tip_JNT_end 1
+    100294: Left_Ear_Tip_JNT_end 2
+    100296: midLeg_jnt_LA
+    100298: midLeg_jnt_LA 1
+    100300: midLeg_jnt_LA 2
+    100302: midLeg_jnt_LB
+    100304: midLeg_jnt_LB 1
+    100306: midLeg_jnt_LB 2
+    100308: midLeg_jnt_LC
+    100310: midLeg_jnt_LC 1
+    100312: midLeg_jnt_LC 2
+    100314: midLeg_jnt_LD
+    100316: midLeg_jnt_LD 1
+    100318: midLeg_jnt_LD 2
+    100320: midLeg_jnt_LE
+    100322: midLeg_jnt_LE 1
+    100324: midLeg_jnt_LE 2
+    100326: midLeg_jnt_LF
+    100328: midLeg_jnt_LF 1
+    100330: midLeg_jnt_LF 2
+    100332: midLeg_jnt_LF.001
+    100334: midLeg_jnt_LF.001 1
+    100336: midLeg_jnt_LF.001 2
+    100338: midLeg_jnt_LF.001_end
+    100340: midLeg_jnt_LF.001_end 1
+    100342: midLeg_jnt_LF.001_end 2
+    100344: midLeg_jnt_LF1
+    100346: midLeg_jnt_LF1 1
+    100348: midLeg_jnt_LF1_end
+    100350: midLeg_jnt_LF1_end 1
+    100352: midLeg_jnt_LF2
+    100354: midLeg_jnt_LF2 1
+    100356: midLeg_jnt_LF2_end
+    100358: midLeg_jnt_LF2_end 1
+    100360: midLeg_jnt_LF_end
+    100362: midLeg_jnt_LF_end 1
+    100364: midLeg_jnt_LF_end 2
+    100366: midLeg_jnt_RA
+    100368: midLeg_jnt_RA 1
+    100370: midLeg_jnt_RA 2
+    100372: midLeg_jnt_RB
+    100374: midLeg_jnt_RB 1
+    100376: midLeg_jnt_RB 2
+    100378: midLeg_jnt_RC
+    100380: midLeg_jnt_RC 1
+    100382: midLeg_jnt_RC 2
+    100384: midLeg_jnt_RD
+    100386: midLeg_jnt_RD 1
+    100388: midLeg_jnt_RD 2
+    100390: midLeg_jnt_RE
+    100392: midLeg_jnt_RE 1
+    100394: midLeg_jnt_RE 2
+    100396: neck_jntA
+    100398: neck_jntA 1
+    100400: neck_jntA 2
+    100402: neckJnt_2
+    100404: neckJnt_2 1
+    100406: neckJnt_2 2
+    100408: PangoFinBack
+    100410: PangoFinBack.001
+    100412: Pangolin
+    100414: Pangolin1
+    100416: Pangolin_ReferenceFile:Pangolin
+    100418: polySurface1
+    100420: polySurface1.001
+    100422: Right_Ear_Base_JNT
+    100424: Right_Ear_Base_JNT 1
+    100426: Right_Ear_Base_JNT 2
+    100428: Right_Ear_Mid_JNT
+    100430: Right_Ear_Mid_JNT 1
+    100432: Right_Ear_Mid_JNT 2
+    100434: Right_Ear_Tip_JNT
+    100436: Right_Ear_Tip_JNT 1
+    100438: Right_Ear_Tip_JNT 2
+    100440: Right_Ear_Tip_JNT_end
+    100442: Right_Ear_Tip_JNT_end 1
+    100444: Right_Ear_Tip_JNT_end 2
+    100446: Root_jnt
+    100448: Root_jnt 1
+    100450: Root_jnt 2
+    100452: spine_jntA
+    100454: spine_jntA 1
+    100456: spine_jntA 2
+    100458: spine_jntB
+    100460: spine_jntB 1
+    100462: spine_jntB 2
+    100464: spine_jntC
+    100466: spine_jntC 1
+    100468: spine_jntC 2
+    100470: spine_jntD
+    100472: spine_jntD 1
+    100474: spine_jntD 2
+    100476: Tail_IK_Curve
+    100478: Tail_IK_Curve.001
+    100480: tail_jnt_A
+    100482: tail_jnt_A 1
+    100484: tail_jnt_A 2
+    100486: tail_jnt_B
+    100488: tail_jnt_B 1
+    100490: tail_jnt_B 2
+    100492: tail_jnt_C
+    100494: tail_jnt_C 1
+    100496: tail_jnt_C 2
+    100498: tail_jnt_D
+    100500: tail_jnt_D 1
+    100502: tail_jnt_D 2
+    100504: tail_jnt_E
+    100506: tail_jnt_E 1
+    100508: tail_jnt_E 2
+    100510: tail_jnt_F
+    100512: tail_jnt_F 1
+    100514: tail_jnt_F 2
+    100516: tail_jnt_F_end
+    100518: tail_jnt_F_end 1
+    100520: tail_jnt_F_end 2
+    100522: transform1
+    100524: transform2
+    400000: Armature
+    400002: Armature.001
+    400004: Armature.002
+    400006: //RootNode
+    400008: Camera
+    400010: faceNoodleBack_jnt_LA
+    400012: faceNoodleBack_jnt_LA 1
+    400014: faceNoodleBack_jnt_LA 2
+    400016: faceNoodleBack_jnt_LA1
+    400018: faceNoodleBack_jnt_LA1 1
+    400020: faceNoodleBack_jnt_LA1 2
+    400022: faceNoodleBack_jnt_LB
+    400024: faceNoodleBack_jnt_LB 1
+    400026: faceNoodleBack_jnt_LB 2
+    400028: faceNoodleBack_jnt_LB1
+    400030: faceNoodleBack_jnt_LB1 1
+    400032: faceNoodleBack_jnt_LB1 2
+    400034: faceNoodleBack_jnt_LC
+    400036: faceNoodleBack_jnt_LC 1
+    400038: faceNoodleBack_jnt_LC 2
+    400040: faceNoodleBack_jnt_LC1
+    400042: faceNoodleBack_jnt_LC1 1
+    400044: faceNoodleBack_jnt_LC1 2
+    400046: faceNoodleBack_jnt_LC1_end
+    400048: faceNoodleBack_jnt_LC1_end 1
+    400050: faceNoodleBack_jnt_LC1_end 2
+    400052: faceNoodleBack_jnt_LC_end
+    400054: faceNoodleBack_jnt_LC_end 1
+    400056: faceNoodleBack_jnt_LC_end 2
+    400058: faceNoodleFront_jnt_LA
+    400060: faceNoodleFront_jnt_LA 1
+    400062: faceNoodleFront_jnt_LA 2
+    400064: faceNoodleFront_jnt_LA1
+    400066: faceNoodleFront_jnt_LA1 1
+    400068: faceNoodleFront_jnt_LA1 2
+    400070: faceNoodleFront_jnt_LB
+    400072: faceNoodleFront_jnt_LB 1
+    400074: faceNoodleFront_jnt_LB 2
+    400076: faceNoodleFront_jnt_LB1
+    400078: faceNoodleFront_jnt_LB1 1
+    400080: faceNoodleFront_jnt_LB1 2
+    400082: faceNoodleFront_jnt_LC
+    400084: faceNoodleFront_jnt_LC 1
+    400086: faceNoodleFront_jnt_LC 2
+    400088: faceNoodleFront_jnt_LC1
+    400090: faceNoodleFront_jnt_LC1 1
+    400092: faceNoodleFront_jnt_LC1 2
+    400094: faceNoodleFront_jnt_LC1_end
+    400096: faceNoodleFront_jnt_LC1_end 1
+    400098: faceNoodleFront_jnt_LC1_end 2
+    400100: faceNoodleFront_jnt_LC_end
+    400102: faceNoodleFront_jnt_LC_end 1
+    400104: faceNoodleFront_jnt_LC_end 2
+    400106: foreLeg_jnt_LA
+    400108: foreLeg_jnt_LA 1
+    400110: foreLeg_jnt_LA 2
+    400112: foreLeg_jnt_LA1
+    400114: foreLeg_jnt_LA1 1
+    400116: foreLeg_jnt_LA1 2
+    400118: foreLeg_jnt_LB
+    400120: foreLeg_jnt_LB 1
+    400122: foreLeg_jnt_LB 2
+    400124: foreLeg_jnt_LB1
+    400126: foreLeg_jnt_LB1 1
+    400128: foreLeg_jnt_LB1 2
+    400130: foreLeg_jnt_LC
+    400132: foreLeg_jnt_LC 1
+    400134: foreLeg_jnt_LC 2
+    400136: foreLeg_jnt_LC1
+    400138: foreLeg_jnt_LC1 1
+    400140: foreLeg_jnt_LC1 2
+    400142: foreLeg_jnt_LD
+    400144: foreLeg_jnt_LD 1
+    400146: foreLeg_jnt_LD 2
+    400148: foreLeg_jnt_LD1
+    400150: foreLeg_jnt_LD1 1
+    400152: foreLeg_jnt_LD1 2
+    400154: foreLeg_jnt_LE
+    400156: foreLeg_jnt_LE 1
+    400158: foreLeg_jnt_LE 2
+    400160: foreLeg_jnt_LE1
+    400162: foreLeg_jnt_LE1 1
+    400164: foreLeg_jnt_LE1 2
+    400166: foreLeg_jnt_LE1_end
+    400168: foreLeg_jnt_LE1_end 1
+    400170: foreLeg_jnt_LE1_end 2
+    400172: foreLeg_jnt_LE_end
+    400174: foreLeg_jnt_LE_end 1
+    400176: foreLeg_jnt_LE_end 2
+    400178: Global_CTRL
+    400180: head_jnt
+    400182: head_jnt 1
+    400184: head_jnt 2
+    400186: hindLeg_jnt_SPRING_LA
+    400188: hindLeg_jnt_SPRING_LA 1
+    400190: hindLeg_jnt_SPRING_LA 2
+    400192: hindLeg_jnt_SPRING_LA1
+    400194: hindLeg_jnt_SPRING_LA1 1
+    400196: hindLeg_jnt_SPRING_LA1 2
+    400198: hindLeg_jnt_SPRING_LB
+    400200: hindLeg_jnt_SPRING_LB 1
+    400202: hindLeg_jnt_SPRING_LB 2
+    400204: hindLeg_jnt_SPRING_LB1
+    400206: hindLeg_jnt_SPRING_LB1 1
+    400208: hindLeg_jnt_SPRING_LB1 2
+    400210: hindLeg_jnt_SPRING_LC
+    400212: hindLeg_jnt_SPRING_LC 1
+    400214: hindLeg_jnt_SPRING_LC 2
+    400216: hindLeg_jnt_SPRING_LC1
+    400218: hindLeg_jnt_SPRING_LC1 1
+    400220: hindLeg_jnt_SPRING_LC1 2
+    400222: hindLeg_jnt_SPRING_LD
+    400224: hindLeg_jnt_SPRING_LD 1
+    400226: hindLeg_jnt_SPRING_LD 2
+    400228: hindLeg_jnt_SPRING_LD1
+    400230: hindLeg_jnt_SPRING_LD1 1
+    400232: hindLeg_jnt_SPRING_LD1 2
+    400234: hindLeg_jnt_SPRING_LE
+    400236: hindLeg_jnt_SPRING_LE 1
+    400238: hindLeg_jnt_SPRING_LE 2
+    400240: hindLeg_jnt_SPRING_LE1
+    400242: hindLeg_jnt_SPRING_LE1 1
+    400244: hindLeg_jnt_SPRING_LE1 2
+    400246: hindLeg_jnt_SPRING_LF
+    400248: hindLeg_jnt_SPRING_LF 1
+    400250: hindLeg_jnt_SPRING_LF 2
+    400252: hindLeg_jnt_SPRING_LF1
+    400254: hindLeg_jnt_SPRING_LF1 1
+    400256: hindLeg_jnt_SPRING_LF1 2
+    400258: hindLeg_jnt_SPRING_LF1_end
+    400260: hindLeg_jnt_SPRING_LF1_end 1
+    400262: hindLeg_jnt_SPRING_LF1_end 2
+    400264: hindLeg_jnt_SPRING_LF_end
+    400266: hindLeg_jnt_SPRING_LF_end 1
+    400268: hindLeg_jnt_SPRING_LF_end 2
+    400270: Lamp
+    400272: Left_Ear_Base_JNT
+    400274: Left_Ear_Base_JNT 1
+    400276: Left_Ear_Base_JNT 2
+    400278: Left_Ear_Mid_JNT
+    400280: Left_Ear_Mid_JNT 1
+    400282: Left_Ear_Mid_JNT 2
+    400284: Left_Ear_Tip_JNT
+    400286: Left_Ear_Tip_JNT 1
+    400288: Left_Ear_Tip_JNT 2
+    400290: Left_Ear_Tip_JNT_end
+    400292: Left_Ear_Tip_JNT_end 1
+    400294: Left_Ear_Tip_JNT_end 2
+    400296: midLeg_jnt_LA
+    400298: midLeg_jnt_LA 1
+    400300: midLeg_jnt_LA 2
+    400302: midLeg_jnt_LB
+    400304: midLeg_jnt_LB 1
+    400306: midLeg_jnt_LB 2
+    400308: midLeg_jnt_LC
+    400310: midLeg_jnt_LC 1
+    400312: midLeg_jnt_LC 2
+    400314: midLeg_jnt_LD
+    400316: midLeg_jnt_LD 1
+    400318: midLeg_jnt_LD 2
+    400320: midLeg_jnt_LE
+    400322: midLeg_jnt_LE 1
+    400324: midLeg_jnt_LE 2
+    400326: midLeg_jnt_LF
+    400328: midLeg_jnt_LF 1
+    400330: midLeg_jnt_LF 2
+    400332: midLeg_jnt_LF.001
+    400334: midLeg_jnt_LF.001 1
+    400336: midLeg_jnt_LF.001 2
+    400338: midLeg_jnt_LF.001_end
+    400340: midLeg_jnt_LF.001_end 1
+    400342: midLeg_jnt_LF.001_end 2
+    400344: midLeg_jnt_LF1
+    400346: midLeg_jnt_LF1 1
+    400348: midLeg_jnt_LF1_end
+    400350: midLeg_jnt_LF1_end 1
+    400352: midLeg_jnt_LF2
+    400354: midLeg_jnt_LF2 1
+    400356: midLeg_jnt_LF2_end
+    400358: midLeg_jnt_LF2_end 1
+    400360: midLeg_jnt_LF_end
+    400362: midLeg_jnt_LF_end 1
+    400364: midLeg_jnt_LF_end 2
+    400366: midLeg_jnt_RA
+    400368: midLeg_jnt_RA 1
+    400370: midLeg_jnt_RA 2
+    400372: midLeg_jnt_RB
+    400374: midLeg_jnt_RB 1
+    400376: midLeg_jnt_RB 2
+    400378: midLeg_jnt_RC
+    400380: midLeg_jnt_RC 1
+    400382: midLeg_jnt_RC 2
+    400384: midLeg_jnt_RD
+    400386: midLeg_jnt_RD 1
+    400388: midLeg_jnt_RD 2
+    400390: midLeg_jnt_RE
+    400392: midLeg_jnt_RE 1
+    400394: midLeg_jnt_RE 2
+    400396: neck_jntA
+    400398: neck_jntA 1
+    400400: neck_jntA 2
+    400402: neckJnt_2
+    400404: neckJnt_2 1
+    400406: neckJnt_2 2
+    400408: PangoFinBack
+    400410: PangoFinBack.001
+    400412: Pangolin
+    400414: Pangolin1
+    400416: Pangolin_ReferenceFile:Pangolin
+    400418: polySurface1
+    400420: polySurface1.001
+    400422: Right_Ear_Base_JNT
+    400424: Right_Ear_Base_JNT 1
+    400426: Right_Ear_Base_JNT 2
+    400428: Right_Ear_Mid_JNT
+    400430: Right_Ear_Mid_JNT 1
+    400432: Right_Ear_Mid_JNT 2
+    400434: Right_Ear_Tip_JNT
+    400436: Right_Ear_Tip_JNT 1
+    400438: Right_Ear_Tip_JNT 2
+    400440: Right_Ear_Tip_JNT_end
+    400442: Right_Ear_Tip_JNT_end 1
+    400444: Right_Ear_Tip_JNT_end 2
+    400446: Root_jnt
+    400448: Root_jnt 1
+    400450: Root_jnt 2
+    400452: spine_jntA
+    400454: spine_jntA 1
+    400456: spine_jntA 2
+    400458: spine_jntB
+    400460: spine_jntB 1
+    400462: spine_jntB 2
+    400464: spine_jntC
+    400466: spine_jntC 1
+    400468: spine_jntC 2
+    400470: spine_jntD
+    400472: spine_jntD 1
+    400474: spine_jntD 2
+    400476: Tail_IK_Curve
+    400478: Tail_IK_Curve.001
+    400480: tail_jnt_A
+    400482: tail_jnt_A 1
+    400484: tail_jnt_A 2
+    400486: tail_jnt_B
+    400488: tail_jnt_B 1
+    400490: tail_jnt_B 2
+    400492: tail_jnt_C
+    400494: tail_jnt_C 1
+    400496: tail_jnt_C 2
+    400498: tail_jnt_D
+    400500: tail_jnt_D 1
+    400502: tail_jnt_D 2
+    400504: tail_jnt_E
+    400506: tail_jnt_E 1
+    400508: tail_jnt_E 2
+    400510: tail_jnt_F
+    400512: tail_jnt_F 1
+    400514: tail_jnt_F 2
+    400516: tail_jnt_F_end
+    400518: tail_jnt_F_end 1
+    400520: tail_jnt_F_end 2
+    400522: transform1
+    400524: transform2
+    2000000: Camera
+    2100000: Material.002
+    2100002: Pangolin_ReferenceFile_aiStandardSurface1.001
+    2100004: Default_Material
+    2100006: Pangolin_ReferenceFile_aiStandardSurface1
+    2300000: transform1
+    3300000: transform1
+    4300000: PangoFinBack.001
+    4300002: PangoFinBack
+    4300004: Pangolin_ReferenceFile:Pangolin
+    4300006: transform1
+    4300008: polySurface1.001
+    4300010: polySurface1
+    9500000: //RootNode
+    10800000: Lamp
+    13700000: PangoFinBack
+    13700002: PangoFinBack.001
+    13700004: Pangolin_ReferenceFile:Pangolin
+    13700006: polySurface1
+    13700008: polySurface1.001
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

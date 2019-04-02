@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be6b9ba9b06e9c46a20fda22ce5c0ea, type: 3}
+  m_Name: Resistant Chameleon Trait
+  m_EditorClassIdentifier: 
+  HasBeenUnlockedBefore: 0
+  layer: 2
+  activationPoints: 0
+  IsActive: 0
+  effects:
+  - {fileID: 11400000, guid: 5f537e19ab8a42646a2b42c7fac00572, type: 2}
+  - {fileID: 11400000, guid: 823f2ffb48a996947aa437857a6cda04, type: 2}
+  traitRequirements:
+  - {fileID: 11400000, guid: e0ae4bda81277b54f9ff048c0ed3ca0c, type: 2}
+  - {fileID: 11400000, guid: 651cec11ccee507439cc9bc46994dcaa, type: 2}
+  traitDependents: []
+  activationThreshold: 5
+  deactivationThreshold: 2
+  activationFood: 9
+  detrimentalFood: 5

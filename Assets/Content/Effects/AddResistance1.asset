@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabcd4e39be3c8f47937279beb14c961, type: 3}
+  m_Name: AddResistance1
+  m_EditorClassIdentifier: 
+  statsAdjustment:
+    _health: 0
+    _maxHealth: 0
+    _resistance: 50
+    _damage: 0
+    _iceDamage: 0
+    _fireDamage: 0
+    _electricDamage: 0
+    _critMultiplier: 0
+    _critChance: 0
+    _dodgeChance: 0
+    _criticalSweetSpotDuration: 0
+  isTrigger: 0
+  description: 

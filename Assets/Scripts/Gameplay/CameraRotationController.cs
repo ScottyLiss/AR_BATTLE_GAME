@@ -22,10 +22,19 @@ public class CameraRotationController : MonoBehaviour
 		int layerMask = 0;
 		layerMask = 1 << 12;
 
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved &&
+		if (((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) || (Input.GetAxis("Horizontal") != 0)) &&
 		    Physics.Raycast(ray, out hit, 1000, layerMask))
 		{
-			gameObject.transform.RotateAround(virtualCamera.Follow.position, Vector3.up, -0.15f * Input.GetTouch(0).deltaPosition.x);
+
+			float angle = Input.touchCount > 0 ? -0.15f * Input.GetTouch(0).deltaPosition.x : 0;
+			
+			#if UNITY_EDITOR
+				angle = Input.GetAxis("Horizontal");
+			#endif
+			
+			
+			
+			gameObject.transform.RotateAround(virtualCamera.Follow.position, Vector3.up, angle);
 		}
 	}
 }

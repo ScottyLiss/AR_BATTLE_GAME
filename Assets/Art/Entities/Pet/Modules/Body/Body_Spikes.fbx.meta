@@ -1,0 +1,234 @@
+fileFormatVersion: 2
+guid: b36bb3cf54eaab54dbb15464bcc00caa
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Body_Spikes
+    100004: faceNoodleBack_jnt_LA
+    100006: faceNoodleBack_jnt_LA1
+    100008: faceNoodleBack_jnt_LB
+    100010: faceNoodleBack_jnt_LB1
+    100012: faceNoodleBack_jnt_LC
+    100014: faceNoodleBack_jnt_LC1
+    100016: faceNoodleFront_jnt_LA
+    100018: faceNoodleFront_jnt_LA1
+    100020: faceNoodleFront_jnt_LB
+    100022: faceNoodleFront_jnt_LB1
+    100024: faceNoodleFront_jnt_LC
+    100026: faceNoodleFront_jnt_LC1
+    100028: foreLeg_jnt_LA
+    100030: foreLeg_jnt_LA1
+    100032: foreLeg_jnt_LB
+    100034: foreLeg_jnt_LB1
+    100036: foreLeg_jnt_LC
+    100038: foreLeg_jnt_LC1
+    100040: foreLeg_jnt_LD
+    100042: foreLeg_jnt_LD1
+    100044: foreLeg_jnt_LE
+    100046: foreLeg_jnt_LE1
+    100048: Global_CTRL
+    100050: head_jnt
+    100052: hindLeg_jnt_SPRING_LA
+    100054: hindLeg_jnt_SPRING_LA1
+    100056: hindLeg_jnt_SPRING_LB
+    100058: hindLeg_jnt_SPRING_LB1
+    100060: hindLeg_jnt_SPRING_LC
+    100062: hindLeg_jnt_SPRING_LC1
+    100064: hindLeg_jnt_SPRING_LD
+    100066: hindLeg_jnt_SPRING_LD1
+    100068: hindLeg_jnt_SPRING_LE
+    100070: hindLeg_jnt_SPRING_LE1
+    100072: hindLeg_jnt_SPRING_LF
+    100074: hindLeg_jnt_SPRING_LF1
+    100076: Left_Ear_Base_JNT
+    100078: Left_Ear_Mid_JNT
+    100080: Left_Ear_Tip_JNT
+    100082: midLeg_jnt_LA
+    100084: midLeg_jnt_LB
+    100086: midLeg_jnt_LC
+    100088: midLeg_jnt_LD
+    100090: midLeg_jnt_LE
+    100092: midLeg_jnt_LF
+    100094: midLeg_jnt_LF 1
+    100096: midLeg_jnt_RA
+    100098: midLeg_jnt_RB
+    100100: midLeg_jnt_RC
+    100102: midLeg_jnt_RD
+    100104: midLeg_jnt_RE
+    100106: neck_jntA
+    100108: neckJnt_2
+    100110: Pangolin
+    100112: Right_Ear_Base_JNT
+    100114: Right_Ear_Mid_JNT
+    100116: Right_Ear_Tip_JNT
+    100118: Root_jnt
+    100120: spine_jntA
+    100122: spine_jntB
+    100124: spine_jntC
+    100126: spine_jntD
+    100128: Tail_IK_Curve
+    100130: tail_jnt_A
+    100132: tail_jnt_B
+    100134: tail_jnt_C
+    100136: tail_jnt_D
+    100138: tail_jnt_E
+    100140: tail_jnt_F
+    400000: //RootNode
+    400002: Body_Spikes
+    400004: faceNoodleBack_jnt_LA
+    400006: faceNoodleBack_jnt_LA1
+    400008: faceNoodleBack_jnt_LB
+    400010: faceNoodleBack_jnt_LB1
+    400012: faceNoodleBack_jnt_LC
+    400014: faceNoodleBack_jnt_LC1
+    400016: faceNoodleFront_jnt_LA
+    400018: faceNoodleFront_jnt_LA1
+    400020: faceNoodleFront_jnt_LB
+    400022: faceNoodleFront_jnt_LB1
+    400024: faceNoodleFront_jnt_LC
+    400026: faceNoodleFront_jnt_LC1
+    400028: foreLeg_jnt_LA
+    400030: foreLeg_jnt_LA1
+    400032: foreLeg_jnt_LB
+    400034: foreLeg_jnt_LB1
+    400036: foreLeg_jnt_LC
+    400038: foreLeg_jnt_LC1
+    400040: foreLeg_jnt_LD
+    400042: foreLeg_jnt_LD1
+    400044: foreLeg_jnt_LE
+    400046: foreLeg_jnt_LE1
+    400048: Global_CTRL
+    400050: head_jnt
+    400052: hindLeg_jnt_SPRING_LA
+    400054: hindLeg_jnt_SPRING_LA1
+    400056: hindLeg_jnt_SPRING_LB
+    400058: hindLeg_jnt_SPRING_LB1
+    400060: hindLeg_jnt_SPRING_LC
+    400062: hindLeg_jnt_SPRING_LC1
+    400064: hindLeg_jnt_SPRING_LD
+    400066: hindLeg_jnt_SPRING_LD1
+    400068: hindLeg_jnt_SPRING_LE
+    400070: hindLeg_jnt_SPRING_LE1
+    400072: hindLeg_jnt_SPRING_LF
+    400074: hindLeg_jnt_SPRING_LF1
+    400076: Left_Ear_Base_JNT
+    400078: Left_Ear_Mid_JNT
+    400080: Left_Ear_Tip_JNT
+    400082: midLeg_jnt_LA
+    400084: midLeg_jnt_LB
+    400086: midLeg_jnt_LC
+    400088: midLeg_jnt_LD
+    400090: midLeg_jnt_LE
+    400092: midLeg_jnt_LF
+    400094: midLeg_jnt_LF 1
+    400096: midLeg_jnt_RA
+    400098: midLeg_jnt_RB
+    400100: midLeg_jnt_RC
+    400102: midLeg_jnt_RD
+    400104: midLeg_jnt_RE
+    400106: neck_jntA
+    400108: neckJnt_2
+    400110: Pangolin
+    400112: Right_Ear_Base_JNT
+    400114: Right_Ear_Mid_JNT
+    400116: Right_Ear_Tip_JNT
+    400118: Root_jnt
+    400120: spine_jntA
+    400122: spine_jntB
+    400124: spine_jntC
+    400126: spine_jntD
+    400128: Tail_IK_Curve
+    400130: tail_jnt_A
+    400132: tail_jnt_B
+    400134: tail_jnt_C
+    400136: tail_jnt_D
+    400138: tail_jnt_E
+    400140: tail_jnt_F
+    2100000: lambert1
+    4300000: Body_Spikes
+    9500000: //RootNode
+    13700000: Body_Spikes
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
