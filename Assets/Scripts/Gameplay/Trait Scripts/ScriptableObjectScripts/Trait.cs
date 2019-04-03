@@ -288,5 +288,6 @@ public enum Food
 	Fire,
 	Ice,
 	Electric,
-	Radioactive
+	Radioactive,
+	Bonding
 }

@@ -284,14 +284,6 @@ public class PlayerScript : MonoBehaviour
 
     #endregion
 
-    #region PetMethods (Scene)
-    public void TransitionToInventory()
-    {
-        petMenu.GetComponent<UpdateResources>().UpdateValues();
-        petMenu.SetActive(true);
-    }
-    #endregion
-
     #region JunkPile
 
     public void CheckIfPileInRange() // Check if the player is in range to interact with the junk pile

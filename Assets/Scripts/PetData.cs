@@ -100,4 +100,30 @@ public class PetData
 
         return false;
     }
+    
+    public bool FeedPet(Food food)
+    {
+        FoodQuantity foodQuantity = new FoodQuantity()
+        {
+            foodQuantity = 1,
+            foodType = food
+        };
+        
+        if (hunger < 100)
+        {
+            foreach (Trait trait in StaticVariables.traitManager.allTraits.OrderBy(trait => trait.GetLayer()))
+            {
+                trait.Feed(foodQuantity);
+            }
+
+            
+            hunger += 10;
+            
+            FoodsMenu.UpdateResource(food);
+
+            return true;
+        }
+
+        return false;
+    }
 }

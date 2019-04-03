@@ -12,7 +12,7 @@ public class PetMenu : SimpleMenu<PetMenu>
 
     public void OnPressMapButton()
     {
-        Close();
+        MenuManager.Instance.BackToRoot();
     }
 
     public void OnPressTraitsButton()

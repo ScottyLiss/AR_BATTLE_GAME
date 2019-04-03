@@ -11,6 +11,15 @@ public class UIDraggingResource : MonoBehaviour, IDragHandler, IEndDragHandler {
 
     List<RaycastResult> hitObjects = new List<RaycastResult>();
 
+    private static Dictionary<string, Food> foodMap = new Dictionary<string, Food>()
+    {
+        { "Water", Food.Water},
+        { "Bio", Food.Biomass},
+        { "Rock", Food.Rock},
+        { "Metal", Food.Metal},
+        { "Radioactive", Food.Radioactive}
+    };
+
     #region Dragging Methods
 
     public void OnDrag(PointerEventData eventData) // While the user drags their item, do the following
@@ -46,36 +55,10 @@ public class UIDraggingResource : MonoBehaviour, IDragHandler, IEndDragHandler {
     
     private void SwitchDragStatement(string objName) // Ensures we grab the right method of feeding
     {
+        // Decrement the relevant property
+        StoreAllResources.Instance.SetResource(foodMap[objName], StoreAllResources.Instance.GetResource(foodMap[objName]) - 1);
         
-        switch (objName)
-        {
-            case "Electricity":
-                StaticVariables.updateResourcesScript.Feed_Elec();
-                break;
-            case "Fire":
-                StaticVariables.updateResourcesScript.Feed_Fire();
-                break;
-            case "Water":
-                StaticVariables.updateResourcesScript.Feed_Water();
-                break;
-            case "Bio":
-                StaticVariables.updateResourcesScript.Feed_Bio();
-                break;
-            case "Ice":
-                StaticVariables.updateResourcesScript.Feed_Ice();
-                break;
-            case "Rock":
-                StaticVariables.updateResourcesScript.Feed_Rock();
-                break;
-            case "Metal":
-                StaticVariables.updateResourcesScript.Feed_Metal();
-                break;
-            case "Radioactive":
-                StaticVariables.updateResourcesScript.Feed_Rad();
-                break;
-            default:
-                //            iDraggedElement = -1;
-                break;
-        }
+        // Feed the pet the appropriate food
+        StaticVariables.petData.FeedPet(foodMap[objName]);
     }
 }

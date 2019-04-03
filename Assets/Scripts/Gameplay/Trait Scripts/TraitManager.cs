@@ -3,6 +3,8 @@
 public class TraitManager: MonoBehaviour
 {
 	public Trait[] allTraits;
+	
+	
 
 	private void Start()
 	{

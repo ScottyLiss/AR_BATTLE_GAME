@@ -25,7 +25,6 @@ public static class StaticVariables
 	public static PetData petData;
 	public static PlayerData playerData;
 	public static int BombsInPlay { get; set; }
-	public static UpdateResources updateResourcesScript { get; set; }
 
 	public static int iAttackingLoopID = 0;
     public static int iRobotAttackLanePosition = 0;

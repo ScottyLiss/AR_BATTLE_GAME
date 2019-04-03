@@ -29,10 +29,6 @@ public class PetAI : MonoBehaviour
     public float l_Rad;
     public float l_Bonding;
 
-    public UpdateResources updateRS;
-
-
-
     private void Start()
     {
         StaticVariables.petAI = this;
