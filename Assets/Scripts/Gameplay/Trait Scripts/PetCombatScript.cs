@@ -389,13 +389,13 @@ public class PetCombatScript : MonoBehaviour
     // DEBUG
     public void FeedPetFood(Food foodType)
     {
-        foreach (Trait trait in StaticVariables.traitManager.allTraits)
+        foreach (var traitValuePair in StaticVariables.traitManager.allTraits)
         {
             FoodQuantity foodQuantity = new FoodQuantity();
             foodQuantity.foodType = foodType;
             foodQuantity.foodQuantity = 1;
 
-            trait.Feed(foodQuantity);
+            traitValuePair.Value.Feed(foodQuantity);
         }
     }
 

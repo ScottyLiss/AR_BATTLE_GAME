@@ -15,6 +15,7 @@ public class PetData
     public Catalyst bodyCatalyst;
     public Catalyst tailCatalyst;
     public Catalyst legsCatalyst;
+    public int level = 1;
 
     public Catalyst[] catalysts
     {
@@ -87,11 +88,10 @@ public class PetData
     {
         if (hunger < 100)
         {
-            foreach (Trait trait in StaticVariables.traitManager.allTraits.OrderBy(trait => trait.GetLayer()))
+            foreach (var traitValuePair in StaticVariables.traitManager.allTraits.OrderByDescending(valuePair => valuePair.Value.GetLayer()))
             {
-                trait.Feed(foodQuantity);
+                traitValuePair.Value.Feed(foodQuantity);
             }
-
             
             hunger += 10;
 
@@ -111,9 +111,9 @@ public class PetData
         
         if (hunger < 100)
         {
-            foreach (Trait trait in StaticVariables.traitManager.allTraits.OrderBy(trait => trait.GetLayer()))
+            foreach (var traitValuePair in StaticVariables.traitManager.allTraits.OrderByDescending(valuePair => valuePair.Value.GetLayer()))
             {
-                trait.Feed(foodQuantity);
+                traitValuePair.Value.Feed(foodQuantity);
             }
 
             

@@ -11,8 +11,8 @@ public class EnemyComponent : HittableObject
     public AudioClip[] impactSounds;
 	[NonSerialized] public bool markedForDestruction;
 
-	public int health = 300;
-	public int damage = 30;
+	public float health = 300;
+	public float damage = 30;
     public float armour = 5;
 	//public float hitRate = 1.5f;
 
@@ -67,9 +67,9 @@ public class EnemyComponent : HittableObject
 
 			if (damageToApply == null)
 			{
-				health -= StaticVariables.petData.stats.damage - (int)armour;
+				health -= StaticVariables.petData.stats.damage - armour;
 
-				ShowDamageNumber(StaticVariables.petData.stats.damage - (int)armour, positionHit);
+				ShowDamageNumber((int)(StaticVariables.petData.stats.damage - armour), positionHit);
 			}
 			else
 			{
@@ -82,7 +82,7 @@ public class EnemyComponent : HittableObject
 		}
 	}
 
-	protected void ShowDamageNumber(int damageDone, Vector3 positionHit)
+	protected void ShowDamageNumber(float damageDone, Vector3 positionHit)
 	{
 		// Instantiate at point of impact
 		GameObject damageTextCanvas = Instantiate(DamageTextPrefab);

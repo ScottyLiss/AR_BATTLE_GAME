@@ -17,7 +17,7 @@ public class Trait : ScriptableObject
 #endif
 
 	// The activation points for this trait
-	[NonSerialized] private int activationPoints = 0;
+	[NonSerialized] public int activationPoints = 0;
 
 	// Whether this trait is currently active on the pet
 	public bool IsActive;
@@ -27,7 +27,7 @@ public class Trait : ScriptableObject
 	{
 		get
 		{
-			bool unlocked = traitComparer.Compare(traitDependents.ToArray());
+			bool unlocked = traitComparer.Compare(traitRequirements.ToArray());
 
 			return unlocked;
 		}
