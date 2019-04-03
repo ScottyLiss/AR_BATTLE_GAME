@@ -25,7 +25,7 @@
           "Health": 0.1
         }
       },
-	  "Precise New": {
+	  "Precise": {
         "PositiveCost": 5,
         "PositiveElement": "Radio",
         "NegativeElement": "None",
@@ -38,7 +38,7 @@
         }
       },
 	  "Persistent": {
-        "PositiveCost": 15,
+        "PositiveCost": 5,
         "PositiveElement": "Water",
         "NegativeElement": "None",
         "BondingCost": 0,
@@ -57,7 +57,7 @@
 
         "Icon": "traits-power",
         
-        "Dependency": "Precise New",
+        "Dependency": "Precise",
         
         "StatAdjustmentsScaling": {
           "CritChance": 0.2,
@@ -86,7 +86,7 @@
 
         "Icon": "traits-strike",
         
-        "Dependency": "Persistent || Precise New",
+        "Dependency": "Persistent || Precise",
         
         "StatAdjustmentsScaling": {
           "Damage": 0.1

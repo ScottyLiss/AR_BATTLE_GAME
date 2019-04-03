@@ -38,7 +38,7 @@ MonoBehaviour:
     _staminaRegen: 0
   traitRequirements:
   - {fileID: 11400000, guid: df3627a115220014ab36459860bb6c59, type: 2}
-  - {fileID: 11400000, guid: 21fb287a4ad1f264b905f46286d91c7c, type: 2}
+  - {fileID: 11400000, guid: b2d11aa03a6311e45ba17da19bf28a70, type: 2}
   traitDependents: []
   activationThreshold: 7
   deactivationThreshold: 0

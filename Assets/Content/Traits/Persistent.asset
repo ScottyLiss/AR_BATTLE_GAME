@@ -38,7 +38,7 @@ MonoBehaviour:
     _staminaRegen: 0
   traitRequirements: []
   traitDependents: []
-  activationThreshold: 15
+  activationThreshold: 5
   deactivationThreshold: 0
   activationFood: 5
   detrimentalFood: 0
