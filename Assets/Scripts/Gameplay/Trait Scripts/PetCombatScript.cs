@@ -307,6 +307,25 @@ public class PetCombatScript : MonoBehaviour
                         break;
                 }
             }
+
+            if (StaticVariables.bSwarmAttackTriggered)
+            {
+                foreach (int a in StaticVariables.lanesActive)
+                {
+                    switch (a)
+                    {
+                        case 0:
+                            attackingFeedback1.gameObject.SetActive(true);
+                            break;
+                        case 1:
+                            attackingFeedback2.gameObject.SetActive(true);
+                            break;
+                        case 2:
+                            attackingFeedback3.gameObject.SetActive(true);
+                            break;
+                    }
+                }
+            }
             else
             {
                 attackingFeedback1.gameObject.SetActive(false);

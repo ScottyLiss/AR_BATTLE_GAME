@@ -9,18 +9,13 @@ public class TheSwarm : MonoBehaviour
     private int _LaneID;
     public List<GameObject> swarm;
 
-    public Slider swarmHealth;
-
     public bool SwarmAlive = true;
 
-    public int health = 10;
     public float timer = 3;
     public int randomPerct;
     public int[] action = new int[3]; //Action 0 = Focus / Action 1 = Split / Action 2 = Random Lanes
 
     public bool performingAction = false;
-
-    public GameObject[] warningSigns;
 
     // Central Mind
     // Command swarm
@@ -29,6 +24,7 @@ public class TheSwarm : MonoBehaviour
 
     private void Start()
     {
+        StaticVariables.swarmHealth = 10;
         StartCoroutine("Choice");
     }
 
@@ -45,11 +41,11 @@ public class TheSwarm : MonoBehaviour
                 StartCoroutine("Choice");
                 timer = 4;
             }
-            if (health <= 0)
+            if (StaticVariables.swarmHealth <= 0)
             {
                 SwarmAlive = false;
                 StartCoroutine("WaitBeforeExit");
-                //StaticVariables.sceneManager.TransitionOutOfCombat();
+                StaticVariables.sceneManager.TransitionOutOfCombat();
             }
         }
     }
@@ -65,16 +61,13 @@ public class TheSwarm : MonoBehaviour
         {
             case 0: // Supposedly 40% chance
                 MoveToLaneID(); //Focus
-                Debug.Log("Focus");
                 break;
 
             case 1: // Supposedly 20% chance
-                Debug.Log("Split up!");
                 SplitToLaneIDs(); // Split to two different lanes
                 break;
 
             case 2: // Supposedly 40% chance
-                Debug.Log("Random Split");
                 RandomSplitUp(); // Random place
                 break;
 
@@ -111,8 +104,7 @@ public class TheSwarm : MonoBehaviour
 
     public virtual void RegisterSwarmUnitDeath()
     {
-        health--;
-        swarmHealth.value -= 10;
+        StaticVariables.swarmHealth--;
     }
 
 
@@ -123,7 +115,7 @@ public class TheSwarm : MonoBehaviour
     {
         if(!performingAction)
         {
-            if(health > 1)
+            if(StaticVariables.swarmHealth > 1)
             {
                 int a = RandomLaneID();
                 int b = RandomLaneID();
@@ -147,8 +139,8 @@ public class TheSwarm : MonoBehaviour
                 currentLaneA = a;
                 currentLaneB = b;
 
-                warningSigns[currentLaneA].SetActive(true);
-                warningSigns[currentLaneB].SetActive(true);
+                StaticVariables.lanesActive[0] = a;
+                StaticVariables.lanesActive[1] = b;
 
                 int x = 0;
                 foreach (GameObject g in swarm)
@@ -171,7 +163,7 @@ public class TheSwarm : MonoBehaviour
             else
             {
                 currentLaneA = RandomLaneID();
-                warningSigns[currentLaneA].SetActive(true);
+                StaticVariables.lanesActive[0] = currentLaneA;
                 foreach (GameObject g in swarm)
                 {
                     g.GetComponent<Swarm>().MoveTowardsLane(currentLaneA);
@@ -194,15 +186,19 @@ public class TheSwarm : MonoBehaviour
             g.GetComponent<Swarm>().Shoot();
         }
 
-        warningSigns[0].SetActive(false);
-        warningSigns[1].SetActive(false);
-        warningSigns[2].SetActive(false);
+
+        for(int i = 0; i < 3; i++)
+        {
+            StaticVariables.lanesActive[i] = -1;
+        }
 
         performingAction = false;
+        StaticVariables.bSwarmAttackTriggered = false;
     }
     
     public virtual void Assault(int lanes)
     {
+        StaticVariables.bSwarmAttackTriggered = true;
         performingAction = true;
         StartCoroutine(Warning(lanes));
     }
@@ -210,7 +206,8 @@ public class TheSwarm : MonoBehaviour
     public virtual void MoveToLaneID() //Focus
     {
         currentLaneA = Mathf.RoundToInt(Random.Range(-0.4f, 2.4f));
-        warningSigns[currentLaneA].SetActive(true);
+        StaticVariables.lanesActive[0] = currentLaneA;
+
         foreach (GameObject g in swarm)
         {
             g.GetComponent<Swarm>().MoveTowardsLane(currentLaneA);
@@ -222,11 +219,11 @@ public class TheSwarm : MonoBehaviour
     {
 
 
-        if(health > 3)
+        if(StaticVariables.swarmHealth > 3)
         {
             for (int i = 0; i < 3; i++)
             {
-                warningSigns[i].SetActive(true);
+                StaticVariables.lanesActive[i] = i;
             }
 
             foreach (GameObject g in swarm)
@@ -235,10 +232,11 @@ public class TheSwarm : MonoBehaviour
             }
             Assault(3); // 3 lanes
         }
-        else if ( health == 1)
+        else if (StaticVariables.swarmHealth == 1)
         {
             int x = RandomLaneID();
-            warningSigns[x].SetActive(true);
+
+            StaticVariables.lanesActive[0] = x;
             foreach (GameObject g in swarm)
             {
                 g.GetComponent<Swarm>().MoveTowardsLane(x);
@@ -249,8 +247,10 @@ public class TheSwarm : MonoBehaviour
         {
             int x = RandomLaneID();
             int y = RandomLaneID();
-            warningSigns[x].SetActive(true);
-            warningSigns[y].SetActive(true);
+
+            StaticVariables.lanesActive[1] = x;
+            StaticVariables.lanesActive[2] = y;
+
             int b = 0;
             foreach (GameObject g in swarm)
             {

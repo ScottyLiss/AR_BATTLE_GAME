@@ -52,11 +52,18 @@ public class EnemyMainComponentScript : EnemyComponent
 
 		HealthSlider.value = health;
 
-		if (health < 0)
-		{
-			StaticVariables.EnemyComponents = new List<EnemyComponent>();
-            SceneManager.LoadScene(1);
-		}
+        if (health < 0)
+        {
+            if (this.gameObject.name == "Swarm__Final_:Root")
+            {
+                StaticVariables.swarmHealth--;
+            }
+            else
+            {
+                StaticVariables.EnemyComponents = new List<EnemyComponent>();
+                SceneManager.LoadScene(0);
+            }
+        }
 	}
 
 	public void RotateOnDamage(Vector3 positionHit)

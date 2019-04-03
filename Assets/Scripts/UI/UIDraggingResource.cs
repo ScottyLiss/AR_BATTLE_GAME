@@ -38,6 +38,10 @@ public class UIDraggingResource : MonoBehaviour, IDragHandler, IEndDragHandler {
                 Destroy(movingObject);
                 movingItem = false;
             }
+            else
+            {
+                Destroy(movingObject);
+            }
         }
     }
 
@@ -46,7 +50,6 @@ public class UIDraggingResource : MonoBehaviour, IDragHandler, IEndDragHandler {
     
     private void SwitchDragStatement(string objName) // Ensures we grab the right method of feeding
     {
-        
         switch (objName)
         {
             case "Electricity":

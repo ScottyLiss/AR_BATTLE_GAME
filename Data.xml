@@ -12,11 +12,10 @@
       <Stamina>100</Stamina>
       <Damage>25</Damage>
       <Crit-Multiplier>1.5</Crit-Multiplier>
-      <Crit-Chance>2</Crit-Chance>
+      <Crit-Chance>6</Crit-Chance>
     </Stats>
     <Catalysts>
       <Body />
-      <Tail />
       <Legs />
       <Head>
         <Catalyst>
@@ -35,6 +34,23 @@
           </Effects>
         </Catalyst>
       </Head>
+      <Tail>
+        <Catalyst>
+          <ID>7</ID>
+          <Name>New Catalyst</Name>
+          <Rarity>0</Rarity>
+          <Slot>2</Slot>
+          <Stats-Adjustments>
+            <Crit-Chance>4</Crit-Chance>
+          </Stats-Adjustments>
+          <Effects>
+            <Effect>
+              <Type-Index>0</Type-Index>
+              <Rarity>0</Rarity>
+            </Effect>
+          </Effects>
+        </Catalyst>
+      </Tail>
     </Catalysts>
     <Position>24.96759,60.19184</Position>
   </Pet-Data>

@@ -31,3 +31,17 @@ public class ArsenalEncounterInfo : CombatEncounterInfo
 	public EnemyStats upperRightArmStats;
 	public EnemyStats lowerRightArmStats;
 }
+
+public class SwarmEncounterInfo : CombatEncounterInfo
+{
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        enemyPrefab = Resources.Load<GameObject>("Combat/Prefabs/Swarm");
+        enemyPrefab.GetComponent<SwarmEncounterImplementer>().encounterInfo = this;
+    }
+
+    // Stats
+    public EnemyStats mainBodyStats;
+}

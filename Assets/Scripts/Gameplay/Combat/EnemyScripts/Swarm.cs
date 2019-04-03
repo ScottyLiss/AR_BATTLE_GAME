@@ -5,26 +5,26 @@ using UnityEngine.UI;
 
 public class Swarm : MonoBehaviour
 {
+
+    // Four values that get set by the SwarmEnouncterImplementer
     public float health; //Option to hit 3 times to defeat one, they're fast but nimble 
+    public float armour;
+    public Slider HealthSlider;
+    public float damage;
+
+
+
     public bool alive = true;
     public bool moveLane;
-    public bool hit;
-    public int _laneID;
+
+    private int _laneID;
 
     public Animator animator;
 
-    public AudioClip audio;
-
     public TheSwarm theSwarm;
-
-    public PetCombatScript pet;
-
-    public Image damage;
 
     public Vector3[] lanesCoords = new Vector3[3];
     private Vector3 laneCoordToGo;
-
-    public GameObject body;
 
     private Vector3 startPos;
     private Vector3 endPos;
@@ -35,7 +35,6 @@ public class Swarm : MonoBehaviour
 
     public void Start()
     {
-        health = 75;
         alive = true;
     }
 
@@ -53,52 +52,35 @@ public class Swarm : MonoBehaviour
                 Dodge();
             }
         }
-
     }
 
     #region Actions (Natural Reactions)
 
     public void Shoot() // Charge up a shot, fire at the player 
     {
-        if(pet.iPetLanePosition == _laneID)
+        if(StaticVariables.combatPet.iPetLanePosition == _laneID)
         {
             animator.SetInteger("Value", 3);
-            pet.HealthSlider.value -= 25f;
-            StartCoroutine("Damageflash");
+            StaticVariables.combatPet.GetHit(damage);
         }
-        //Debug.Log("Shooting!");
     }
 
-
-    IEnumerator Damageflash()
-    {
-        damage.color = new Color(255, 255, 255, 1);
-        yield return new WaitForSeconds(0.15f);
-        damage.color = new Color(255, 255, 255, 0);
-
-    }
     private void Dodge() //Once hit, move!
     {
         dodging = true;
-        Debug.Log("hit");
         animator.SetInteger("Value", 1);
     }
 
     private void Death()
     {
         animator.SetInteger("Value", 2);
-        this.GetComponent<AudioSource>().PlayOneShot(audio);
         theSwarm.RegisterSwarmUnitDeath();
-        body.GetComponent<Rigidbody>().useGravity = true;
-        //body.SetActive(false);
         alive = false;
         this.tag = "Dead";
-        //this.GetComponent<Collider>().enabled = false;
-
-        StartCoroutine("deathsEnd");
+        StartCoroutine("DeathsEnd");
     }
 
-    IEnumerator deathsEnd()
+    IEnumerator DeathsEnd()
     {
         yield return new WaitForSeconds(1.0f);
         animator.SetInteger("Value", 4);
@@ -111,10 +93,10 @@ public class Swarm : MonoBehaviour
         if(moveLane && !dodging)
         {
 
-            if(body.transform.position != laneCoordToGo)
+            if(this.transform.position != laneCoordToGo)
             {
                 fraction += Time.deltaTime * speed;
-                body.transform.position = Vector3.Lerp(startPos, laneCoordToGo, fraction);
+                this.transform.position = Vector3.Lerp(startPos, laneCoordToGo, fraction);
                 animator.SetInteger("Value", 0);
             }
             else
@@ -122,6 +104,7 @@ public class Swarm : MonoBehaviour
 
                 fraction = 0;
                 moveLane = false;
+
                 //Timer for 1 second, then shoot
                 Shoot();
             }
@@ -140,7 +123,6 @@ public class Swarm : MonoBehaviour
         }
     }
 
-
     #region Abilities (Commanded by The Swarm Mind)
 
     public void MoveTowardsLane(int laneID)
@@ -156,4 +138,5 @@ public class Swarm : MonoBehaviour
     }
 
     #endregion
+
 }
