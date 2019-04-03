@@ -6,30 +6,18 @@ using UnityEngine.UI;
 
 public class UIDraggingResource : MonoBehaviour, IDragHandler, IEndDragHandler {
 
-    public UpdateResources updateResourcesScript;
-
-    public GameObject masterObj;
-    public GameObject duplicateResource;
     private GameObject movingObject;
     private bool movingItem = false;
 
-
     List<RaycastResult> hitObjects = new List<RaycastResult>();
 
-
-    // Use this for initialization
-    void Start()
-    {
-        updateResourcesScript = masterObj.GetComponent<UpdateResources>();
-    }
     #region Dragging Methods
 
     public void OnDrag(PointerEventData eventData) // While the user drags their item, do the following
     {
         if (!movingItem && StaticVariables.petData.hunger < 100)
         {
-            movingObject = Instantiate(duplicateResource, Input.mousePosition, Quaternion.identity, masterObj.transform);
-            movingObject.GetComponent<Image>().sprite = this.GetComponent<Image>().sprite;
+            movingObject = Instantiate(gameObject, Input.mousePosition, Quaternion.identity, gameObject.transform.parent);
             movingItem = true;
         }
 
@@ -62,28 +50,28 @@ public class UIDraggingResource : MonoBehaviour, IDragHandler, IEndDragHandler {
         switch (objName)
         {
             case "Electricity":
-                updateResourcesScript.Feed_Elec();
+                StaticVariables.updateResourcesScript.Feed_Elec();
                 break;
             case "Fire":
-                updateResourcesScript.Feed_Fire();
+                StaticVariables.updateResourcesScript.Feed_Fire();
                 break;
             case "Water":
-                updateResourcesScript.Feed_Water();
+                StaticVariables.updateResourcesScript.Feed_Water();
                 break;
             case "Bio":
-                updateResourcesScript.Feed_Bio();
+                StaticVariables.updateResourcesScript.Feed_Bio();
                 break;
             case "Ice":
-                updateResourcesScript.Feed_Ice();
+                StaticVariables.updateResourcesScript.Feed_Ice();
                 break;
             case "Rock":
-                updateResourcesScript.Feed_Rock();
+                StaticVariables.updateResourcesScript.Feed_Rock();
                 break;
             case "Metal":
-                updateResourcesScript.Feed_Metal();
+                StaticVariables.updateResourcesScript.Feed_Metal();
                 break;
             case "Radioactive":
-                updateResourcesScript.Feed_Rad();
+                StaticVariables.updateResourcesScript.Feed_Rad();
                 break;
             default:
                 //            iDraggedElement = -1;

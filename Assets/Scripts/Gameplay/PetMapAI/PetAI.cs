@@ -49,7 +49,7 @@ public class PetAI : MonoBehaviour
         l_Rad = resources.r_Rad;
         l_Bonding = resources.r_Bonding;
 
-        updateRS.UpdateValues();
+        //updateRS.UpdateValues();
     }
 
     void OnTriggerEnter(Collider other)

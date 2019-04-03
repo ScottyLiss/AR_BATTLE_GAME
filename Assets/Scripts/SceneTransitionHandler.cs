@@ -90,7 +90,7 @@ public class SceneTransitionHandler : MonoBehaviour
 
 		float deltaTime = 0;
 		
-		AlertText.SetActive(true);
+		HealthWarningPopup.Show();
 
 		while (deltaTime < time)
 		{
@@ -99,7 +99,7 @@ public class SceneTransitionHandler : MonoBehaviour
 			deltaTime += Time.deltaTime;
 		}
 
-		AlertText.SetActive(false);
+		HealthWarningPopup.Hide();
 
 		showingAlert = false;
 	}

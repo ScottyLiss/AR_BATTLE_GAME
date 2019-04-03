@@ -12,6 +12,10 @@ public class Trait : ScriptableObject
 	public bool HasBeenUnlockedBefore = false;
 	[SerializeField] private int layer = 0;
 
+#if UNITY_EDITOR
+	public string icon;
+#endif
+
 	// The activation points for this trait
 	[NonSerialized] private int activationPoints = 0;
 
@@ -23,22 +27,7 @@ public class Trait : ScriptableObject
 	{
 		get
 		{
-			bool unlocked = true;
-
-			// Check to see if the traits are applied to the pet
-			foreach (Trait traitRequirement in traitRequirements)
-			{
-				if (!traitRequirement.IsActive)
-				{
-					unlocked = false;
-					break;
-				}
-			}
-
-			if (unlocked)
-			{
-				HasBeenUnlockedBefore = true;
-			}
+			bool unlocked = traitComparer.Compare(traitDependents.ToArray());
 
 			return unlocked;
 		}
@@ -92,12 +81,21 @@ public class Trait : ScriptableObject
 
 	// The effects of the trait
 	public GenericEffect[] effects;
+	
+	// The stat adjustment to apply 
+	public Stats statsAdjustment;
+	
+	// The stat scaling based on bonding level
+	public Stats statsAdjustmentScaling;
 
 	// The traits required for this trait to progress
-	public Trait[] traitRequirements;
+	public List<Trait> traitRequirements;
+	
+	// The method of comparing the trait requirements
+	public TraitComparer traitComparer = new AndComparer();
 
 	// The traits that depend on this trait
-	public List<Trait> traitDependents;
+	public List<Trait> traitDependents = new List<Trait>();
 
 	// The activation threshold for this trait
 	public int activationThreshold;
@@ -115,12 +113,15 @@ public class Trait : ScriptableObject
     public void Start()
     {
 	    traitDependents = new List<Trait>();
+	    traitRequirements = new List<Trait>();
 
-		foreach (GenericEffect effect in effects)
-		{
-			StaticVariables.petData.stats += effect.statsAdjustment;
-			effect.Start();
-		}
+	    StaticVariables.petData.stats += statsAdjustment;
+
+//		foreach (GenericEffect effect in effects)
+//		{
+//			StaticVariables.petData.stats += effect.statsAdjustment;
+//			effect.Start();
+//		}
 
 		foreach (Trait traitRequirement in traitRequirements)
 		{
@@ -131,11 +132,13 @@ public class Trait : ScriptableObject
 	// Remove is called when this trait is removed from the pet
 	public void Remove()
 	{
-		foreach (GenericEffect effect in effects)
-		{
-			StaticVariables.petData.stats -= effect.statsAdjustment;
-			effect.Remove();
-		}
+//		foreach (GenericEffect effect in effects)
+//		{
+//			StaticVariables.petData.stats -= effect.statsAdjustment;
+//			effect.Remove();
+//		}
+
+		StaticVariables.petData.stats -= statsAdjustment;
 
 		StaticVariables.petData.traits.Remove(this);
 		
@@ -201,7 +204,7 @@ public class Trait : ScriptableObject
 
 	public int GetLayer()
 	{
-		if (this.traitRequirements.Length == 0)
+		if (this.traitRequirements.Count == 0)
 		{
 			layer = 1;
 			return 1;
@@ -222,6 +225,49 @@ public class Trait : ScriptableObject
 
 	// Action to fire when removed
 	public event ChangedActivationPointsDelegate ChangedActivationPoints;
+}
+
+public abstract class TraitComparer
+{
+	public abstract bool Compare(Trait[] traits);
+}
+
+public class AndComparer : TraitComparer
+{
+	public override bool Compare(Trait[] traits)
+	{
+		bool result = true;
+
+		foreach (var trait in traits)
+		{
+			if (!trait.IsActive)
+			{
+				result = false;
+			}
+		}
+
+		return result;
+	}
+}
+
+
+public class OrComparer : TraitComparer
+{
+	public override bool Compare(Trait[] traits)
+	{
+		bool result = false;
+
+		foreach (var trait in traits)
+		{
+			if (trait.IsActive)
+			{
+				result = true;
+				break;
+			}
+		}
+
+		return result;
+	}
 }
 
 [Serializable]

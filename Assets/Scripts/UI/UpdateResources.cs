@@ -38,6 +38,11 @@ public class UpdateResources : MonoBehaviour
         r_Rad.text = pet.l_Rad.ToString();
     }
 
+    private void Awake()
+    {
+        StaticVariables.updateResourcesScript = this;
+    }
+
 
     public void Feed_Item(Food foodType) // Idea to grab input and use input to change value of resource.
                                             // Example: pet.l_Elec --> pet.itemName = 1

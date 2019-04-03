@@ -7,6 +7,7 @@ public class PetMenu : SimpleMenu<PetMenu>
 {
 
     public Slider HealthBar;
+    public GameObject FeedButton;
     public Text BondingText;
 
     public void OnPressMapButton()
@@ -26,7 +27,10 @@ public class PetMenu : SimpleMenu<PetMenu>
     
     public void OnPressFeedButton()
     {
-        CatalystsMenu.Show();
+        if (FoodsMenu.Instance == null)
+            FoodsMenu.Show(FeedButton);
+        else
+            FoodsMenu.Close();
     }
     
     public void OnPressHealButton()

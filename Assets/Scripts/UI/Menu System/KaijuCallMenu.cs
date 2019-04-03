@@ -48,6 +48,9 @@ public abstract class KaijuCallMenu : MonoBehaviour
 
 	[Tooltip("Disable menus that are under this one in the stack")]
 	public bool DisableMenusUnderneath = true;
+	
+	[Tooltip("Whether this menu item is supposed to be added to the stack (set to false for pop up menus)")]
+	public bool AddToStack = true;
 
 	public abstract void OnBackPressed();
 }

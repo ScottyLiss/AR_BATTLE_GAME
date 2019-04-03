@@ -2284,7 +2284,7 @@ GameObject:
   - component: {fileID: 114048245868768134}
   - component: {fileID: 114163977264915108}
   m_Layer: 5
-  m_Name: PetScreen
+  m_Name: PetScreenOld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

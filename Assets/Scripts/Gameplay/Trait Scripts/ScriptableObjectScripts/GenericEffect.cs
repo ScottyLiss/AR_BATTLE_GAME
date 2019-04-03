@@ -6,7 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Effect", menuName = "Trait Effect", order = 1)]
 public class GenericEffect : ScriptableObject
 {
-	public Stats statsAdjustment;
 
 	public bool isTrigger;
 
@@ -155,6 +154,20 @@ public class Stats
         }
 	}
 	
+	public float staminaRegen 
+	{
+		get
+		{
+			return _staminaRegen;
+		}
+		
+		set
+		{
+			_staminaRegen = value;
+			OnStatsChanged?.Invoke();
+		}
+	}
+	
 	public int _health;
     public float _stamina;
     public float _maxStamina;
@@ -163,6 +176,7 @@ public class Stats
 	public int _damage;
 	public float _critMultiplier;
 	public int _critChance;
+	public float _staminaRegen;
 
 	public static Stats operator + (Stats stats1, Stats stats2)
 	{

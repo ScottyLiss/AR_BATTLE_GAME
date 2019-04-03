@@ -74,14 +74,4 @@ public class ButtonHandler : MonoBehaviour
     {
         //SceneManager.LoadScene(4);
     }
-
-    public void OpenCatalystsMenu()
-    {
-        catalystMenu.GetComponent<CatalystMenu>().EnableMenu();
-    }
-
-    public void CloseCatalystsMenu()
-    {
-        catalystMenu.GetComponent<CatalystMenu>().DisableMenu();
-    }
 }

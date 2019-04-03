@@ -410,6 +410,7 @@ MonoBehaviour:
   invMenu: {fileID: 0}
   traitMenu: {fileID: 0}
   background: {fileID: 1922010207589618}
+  catalystMenu: {fileID: 0}
 --- !u!114 &114436473168043588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -919,6 +920,8 @@ MonoBehaviour:
   r_Rock: {fileID: 0}
   r_Metal: {fileID: 0}
   r_Rad: {fileID: 0}
+  resourcePos: []
+  iDraggedElement: 0
 --- !u!114 &114988315132459244
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ public class MenuManager : MonoBehaviour
 	public CatalystsMenu CatalystsMenuPrefab;
 	public TraitsMenu TraitsMenuPrefab;
 	public PetMenu PetMenuPrefab;
+	public FoodsMenu FoodsMenuPrefab;
+
+	public HealthWarningPopup HealthWarningPopupPrefab;
 
     private Stack<KaijuCallMenu> menuStack = new Stack<KaijuCallMenu>();
 
@@ -53,8 +57,9 @@ public class MenuManager : MonoBehaviour
             var previousCanvas = menuStack.Peek().GetComponent<Canvas>();
 			topCanvas.sortingOrder = previousCanvas.sortingOrder + 1;
         }
-
-        menuStack.Push(instance);
+		
+        if (instance.AddToStack)
+			menuStack.Push(instance);
     }
 
     private T GetPrefab<T>() where T : KaijuCallMenu
@@ -74,42 +79,49 @@ public class MenuManager : MonoBehaviour
         throw new MissingReferenceException("Prefab not found for type " + typeof(T));
     }
 	
-	public void CloseMenu(KaijuCallMenu menu)
+	public void CloseMenu(KaijuCallMenu menuToClose)
 	{
+		
 		if (menuStack.Count == 0)
 		{
-			Debug.LogErrorFormat(menu, "{0} cannot be closed because menu stack is empty", menu.GetType());
+			Debug.LogErrorFormat(menuToClose, "{0} cannot be closed because menu stack is empty", menuToClose.GetType());
 			return;
 		}
-
-		if (menuStack.Peek() != menu)
-		{
-			Debug.LogErrorFormat(menu, "{0} cannot be closed because it is not on top of stack", menu.GetType());
-			return;
-		}
-
-		CloseTopMenu();
-	}
-
-	public void CloseTopMenu()
-    {
-        var instance = menuStack.Pop();
+		
+		// The menu is not outside of the stack and not on top of it, so we cannot remove it
+		if (menuToClose.AddToStack && menuStack.Peek() != menuToClose)
+			throw new Exception("Trying to remove a menu that is in the stack is unsupported");
+		
+		// The menu is safe to remove
+		var instance = menuToClose.AddToStack ? menuStack.Pop() : menuToClose;
 
 		if (instance.DestroyWhenClosed)
-        	Destroy(instance.gameObject);
+			Destroy(instance.gameObject);
 		else
 			instance.gameObject.SetActive(false);
 
-        // Re-activate top menu
+		// Re-activate top menu
 		// If a re-activated menu is an overlay we need to activate the menu under it
+		if (!instance.DisableMenusUnderneath) return;
+		
 		foreach (var menu in menuStack)
 		{
-            menu.gameObject.SetActive(true);
+			menu.gameObject.SetActive(true);
 
 			if (menu.DisableMenusUnderneath)
 				break;
 		}
-    }
+	}
+
+	public void BackToRoot()
+	{
+		while (menuStack.Count > 1)
+		{
+			var menu = menuStack.Peek(); 
+			
+			CloseMenu(menu);
+		}
+	}
 
     private void Update()
     {
