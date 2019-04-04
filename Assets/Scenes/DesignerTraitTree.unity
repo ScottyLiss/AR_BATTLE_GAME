@@ -117,8 +117,8 @@ NavMeshSettings:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224508531640390324, guid: 90edba9365ad45843bf6fdbae1b0b625,
     type: 2}
-  m_PrefabInternal: {fileID: 1024019639}
---- !u!1001 &1024019639
+  m_PrefabInternal: {fileID: 694926764}
+--- !u!1001 &694926764
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -214,6 +214,11 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224771495437173822, guid: 90edba9365ad45843bf6fdbae1b0b625,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224771495437173822, guid: 90edba9365ad45843bf6fdbae1b0b625,
         type: 2}

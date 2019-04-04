@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3be6b9ba9b06e9c46a20fda22ce5c0ea, type: 3}
-  m_Name: Precise New
+  m_Name: Persistent
   m_EditorClassIdentifier: 
   HasBeenUnlockedBefore: 0
   layer: 0
-  icon: traits-power
+  icon: traits-temp
   IsActive: 0
   effects: []
   statsAdjustment:
@@ -26,19 +26,23 @@ MonoBehaviour:
     _critMultiplier: 0
     _critChance: 0
     _staminaRegen: 0
+    _staminaDelay: 0
+    _staminaCostScaling: 0
   statsAdjustmentScaling:
     _health: 0
     _stamina: 0
-    _maxStamina: 0
+    _maxStamina: 0.1
     _maxHealth: 0
     _armour: 0
     _damage: 0
     _critMultiplier: 0
-    _critChance: 10
+    _critChance: 0
     _staminaRegen: 0
+    _staminaDelay: 0
+    _staminaCostScaling: 0
   traitRequirements: []
   traitDependents: []
   activationThreshold: 5
   deactivationThreshold: 0
-  activationFood: 9
+  activationFood: 5
   detrimentalFood: 0

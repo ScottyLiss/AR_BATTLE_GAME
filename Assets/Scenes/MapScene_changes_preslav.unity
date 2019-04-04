@@ -598,47 +598,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _measurements: 5
---- !u!1 &484243188
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 484243190}
-  - component: {fileID: 484243189}
-  m_Layer: 0
-  m_Name: DragAndDropHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &484243189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 484243188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfdee5e89435edf4ababec44c7830b3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
---- !u!4 &484243190
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 484243188}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 602, y: 403, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &491869504
 GameObject:
   m_ObjectHideFlags: 3
@@ -1682,8 +1641,11 @@ MonoBehaviour:
       _critMultiplier: 1.5
       _critChance: 2
       _staminaRegen: 0
+      _staminaDelay: 0
+      _staminaCostScaling: 0
     traits: []
     hunger: 0
+    level: 1
 --- !u!4 &769758379
 Transform:
   m_ObjectHideFlags: 0
@@ -1708,30 +1670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8480028b2facc4bb86fa864f658a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allTraits:
-  - {fileID: 11400000, guid: e0ae4bda81277b54f9ff048c0ed3ca0c, type: 2}
-  - {fileID: 11400000, guid: 3f064d43d651b68489461dc1f22e0724, type: 2}
-  - {fileID: 11400000, guid: 651cec11ccee507439cc9bc46994dcaa, type: 2}
-  - {fileID: 11400000, guid: 91efc39fe72be234abb5749de8108d82, type: 2}
-  - {fileID: 11400000, guid: c97c680882aa40945a2ac819a7f35044, type: 2}
-  - {fileID: 11400000, guid: 8c64701acab1c1f4a92e4c5a248495e7, type: 2}
-  - {fileID: 11400000, guid: db9b2b9129b8b3c439349d91c1b83d8d, type: 2}
-  - {fileID: 11400000, guid: f452e803c77ff654ab58ed30a572301b, type: 2}
-  - {fileID: 11400000, guid: bc24275746aaf81489a7d09b4e997faf, type: 2}
-  - {fileID: 11400000, guid: 0e6e03a90effabd4880a25aeeb8002bf, type: 2}
-  - {fileID: 11400000, guid: df90af0c03d3b044f874c0c5ed6a6e3b, type: 2}
-  - {fileID: 11400000, guid: 8971efdc9292e4f4688e04324eee7355, type: 2}
-  - {fileID: 11400000, guid: 8f007ed08285eaa4bac31e0cbffc994d, type: 2}
-  - {fileID: 11400000, guid: 8c83e6741c84ed24199da9d4b16ada54, type: 2}
-  - {fileID: 11400000, guid: 2926c86db65be7242a0de62a244a55b7, type: 2}
-  - {fileID: 11400000, guid: 9b7c41592fc847544afa4b021b844428, type: 2}
-  - {fileID: 11400000, guid: a0ab67a341e438a4aa6ff8641c227b02, type: 2}
-  - {fileID: 11400000, guid: 5811102b6d7733144b0d8c2800aaa3c9, type: 2}
-  - {fileID: 11400000, guid: 415bc4c32755c8743bdb705d4d76fbbf, type: 2}
-  - {fileID: 11400000, guid: 71aa2186a11e23f44a783fea81215380, type: 2}
-  - {fileID: 11400000, guid: cd390a116058b354689ad16ce25ad0b2, type: 2}
-  - {fileID: 11400000, guid: 9a3629b69d208564f9118f7d1c62b2b2, type: 2}
-  - {fileID: 11400000, guid: 708c4ff8cce13b04bba6cad5c081bc4b, type: 2}
+  allTraits: []
 --- !u!114 &769758381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3993,7 +3932,6 @@ MonoBehaviour:
   l_Metal: 0
   l_Rad: 0
   l_Bonding: 0
-  updateRS: {fileID: 0}
 --- !u!114 &1979034645
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1094,6 +1094,11 @@ MonoBehaviour:
   DestroyWhenClosed: 1
   DisableMenusUnderneath: 0
   AddToStack: 1
+  RockResource: {fileID: 114225590773593940}
+  BioResource: {fileID: 114039386931109576}
+  WaterResource: {fileID: 114426917712003002}
+  MetalResource: {fileID: 114764322434624374}
+  RadioResource: {fileID: 114055943184794466}
 --- !u!114 &114485743220139540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2181,9 +2186,9 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1852375920566858}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0966, y: 1.0966, z: 1.0966}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224763447882156056}
   - {fileID: 224700491819044496}
@@ -2198,11 +2203,11 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 34, y: 80}
-  m_SizeDelta: {x: 366, y: 161.1}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 209.5}
+  m_SizeDelta: {x: -100, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224476604630066422
 RectTransform:
   m_ObjectHideFlags: 1

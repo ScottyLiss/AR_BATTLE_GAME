@@ -43,7 +43,7 @@ public class TraitsMenuEditor : Editor
 		traitBadgePrefab = (GameObject)EditorGUIUtility.Load("TraitBadge");
 		
 		// Remove the old traits
-		string[] oldTraits = AssetDatabase.FindAssets("t:trait", new string[] {"Assets/Content/Traits"})
+		string[] oldTraits = AssetDatabase.FindAssets("t:trait", new string[] {"Assets/Resources/Traits"})
 			.Select(guid => AssetDatabase.GUIDToAssetPath(guid)).ToArray();
 		
 		foreach (string oldTrait in oldTraits)
@@ -125,13 +125,13 @@ public class TraitsMenuEditor : Editor
 
 			Stats newStatAdjustments = new Stats()
 			{
-				maxHealth = (int?)(maxHealth * 100) ?? 0,
-				maxStamina = maxStamina * 100 ?? 0,
-				staminaRegen = staminaRegen * 100 ?? 0,
-				damage = (int?)(damage * 100) ?? 0,
-				critChance = (int?)(critChance * 100) ?? 0,
-				critMultiplier = critMultiplier * 100 ?? 0,
-				armour = armour * 100 ?? 0
+				maxHealth = maxHealth ?? 0,
+				maxStamina = maxStamina ?? 0,
+				staminaRegen = staminaRegen ?? 0,
+				damage = damage ?? 0,
+				critChance = critChance ?? 0,
+				critMultiplier = critMultiplier ?? 0,
+				armour = armour ?? 0
 			};
 
 			if (traitRequirementDescription != null)
@@ -181,8 +181,7 @@ public class TraitsMenuEditor : Editor
 		
 		foreach (KeyValuePair<string,Trait> trait in traits)
 		{
-
-			AssetDatabase.CreateAsset (trait.Value, "Assets/Content/Traits/" + trait.Key + ".asset");
+			AssetDatabase.CreateAsset (trait.Value, "Assets/Resources/Traits/" + trait.Key + ".asset");
  
 			AssetDatabase.SaveAssets ();
 			AssetDatabase.Refresh();
@@ -204,8 +203,12 @@ public class TraitsMenuEditor : Editor
 		
 		foreach (Transform child in content)
 		{
-			oldPositions.Add(child.gameObject.name, child.position);
-			objectsToDelete.Push(child.gameObject);
+
+			if (child.name != "Lines")
+			{
+				oldPositions.Add(child.gameObject.name, child.position);
+				objectsToDelete.Push(child.gameObject);
+			}
 		}
 
 		while (objectsToDelete.Count > 0)

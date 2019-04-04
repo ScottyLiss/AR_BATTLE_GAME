@@ -357,18 +357,7 @@ public class PersistanceStoring : MonoBehaviour
         catalystElement.Add(catalystSlot);
         
         // Create and store the stats adjustments
-        var catalystStatsAdjustments = new XElement("Stats-Adjustments");
-
-        if (newCatalyst.statsAdjustment.damage != 0)
-            catalystStatsAdjustments.Add(new XElement("Damage", newCatalyst.statsAdjustment.damage.ToString()));
-        if (newCatalyst.statsAdjustment.maxHealth != 0)
-            catalystStatsAdjustments.Add(new XElement("Health", newCatalyst.statsAdjustment.maxHealth.ToString()));
-        if (newCatalyst.statsAdjustment.maxStamina != 0)
-            catalystStatsAdjustments.Add(new XElement("Stamina", newCatalyst.statsAdjustment.maxStamina.ToString(CultureInfo.InvariantCulture)));
-        if (newCatalyst.statsAdjustment.critChance != 0)
-            catalystStatsAdjustments.Add(new XElement("Crit-Chance", newCatalyst.statsAdjustment.critChance.ToString()));
-        if (newCatalyst.statsAdjustment.critMultiplier != 0)
-            catalystStatsAdjustments.Add(new XElement("Crit-Multiplier", newCatalyst.statsAdjustment.critMultiplier.ToString(CultureInfo.InvariantCulture)));
+        var catalystStatsAdjustments = GenerateStatsXMLElement(newCatalyst.statsAdjustment);
         
         // Add the stats adjustments to the catalyst element
         catalystElement.Add(catalystStatsAdjustments);
@@ -517,6 +506,74 @@ public class PersistanceStoring : MonoBehaviour
 
     #endregion
 
+    #region Traits Saving and Loading
+
+    private XContainer GenerateTraitXMLElement(Trait trait)
+    {
+        
+        // Generate the info
+        var traitElement = new XElement("Trait");
+        
+        var name = new XElement("Name", trait.name);
+        var activationPoints = new XElement("Activation-Points", trait.ActivationPoints);
+        //var bondingCost = new XElement("Bonding-Cost", (int)trait.bondingCost);
+        
+        
+        // Add the fields to the newly created catalyst element
+        traitElement.Add(name);
+        traitElement.Add(activationPoints);
+        traitElement.Add(GenerateStatsXMLElement(trait.statsAdjustment));
+
+        return traitElement;
+    }
+
+    private XElement GenerateStatsXMLElement(Stats statsAdjustment)
+    {
+        // Create and store the stats adjustments
+        var statsAdjustments = new XElement("Stats-Adjustments");
+
+        if (statsAdjustment.damage != 0)
+            statsAdjustments.Add(new XElement("Damage", statsAdjustment.damage.ToString()));
+        if (statsAdjustment.maxHealth != 0)
+            statsAdjustments.Add(new XElement("Health", statsAdjustment.maxHealth.ToString()));
+        if (statsAdjustment.maxStamina != 0)
+            statsAdjustments.Add(new XElement("Stamina", statsAdjustment.maxStamina.ToString(CultureInfo.InvariantCulture)));
+        if (statsAdjustment.critChance != 0)
+            statsAdjustments.Add(new XElement("Crit-Chance", statsAdjustment.critChance.ToString()));
+        if (statsAdjustment.critMultiplier != 0)
+            statsAdjustments.Add(new XElement("Crit-Multiplier", statsAdjustment.critMultiplier.ToString(CultureInfo.InvariantCulture)));
+        if (statsAdjustment.armour != 0)
+            statsAdjustments.Add(new XElement("Armour", statsAdjustment.armour.ToString(CultureInfo.InvariantCulture)));
+        if (statsAdjustment.staminaRegen != 0)
+            statsAdjustments.Add(new XElement("Stamina-Regen", statsAdjustment.staminaRegen.ToString(CultureInfo.InvariantCulture)));
+        if (statsAdjustment.staminaDelay != 0)
+            statsAdjustments.Add(new XElement("Stamina-Delay", statsAdjustment.staminaDelay.ToString(CultureInfo.InvariantCulture)));
+        if (statsAdjustment.staminaCostScaling != 0)
+            statsAdjustments.Add(new XElement("Stamina-Cost", statsAdjustment.staminaCostScaling.ToString(CultureInfo.InvariantCulture)));
+
+        return statsAdjustments;
+    }
+    
+    private Stats LoadStatsXMLElement(XElement statsAdjustmentData)
+    {
+        // Create and store the stats adjustments
+        Stats statsAdjustments = new Stats();
+
+        statsAdjustments.damage = float.Parse(statsAdjustmentData.Element("Damage")?.Value ?? "0", CultureInfo.InvariantCulture);
+        statsAdjustments.maxHealth = float.Parse(statsAdjustmentData.Element("Health")?.Value ?? "0", CultureInfo.InvariantCulture);
+        statsAdjustments.maxStamina = float.Parse(statsAdjustmentData.Element("Stamina")?.Value ?? "0", CultureInfo.InvariantCulture);
+        statsAdjustments.critChance = float.Parse(statsAdjustmentData.Element("Crit-Chance")?.Value ?? "0", CultureInfo.InvariantCulture);
+        statsAdjustments.critMultiplier = float.Parse(statsAdjustmentData.Element("Crit-Multiplier")?.Value ?? "0", CultureInfo.InvariantCulture);
+        statsAdjustments.armour = float.Parse(statsAdjustmentData.Element("Armour")?.Value ?? "0", CultureInfo.InvariantCulture);
+        statsAdjustments.staminaRegen = float.Parse(statsAdjustmentData.Element("Stamina-Regen")?.Value ?? "0", CultureInfo.InvariantCulture);
+        statsAdjustments.staminaDelay = float.Parse(statsAdjustmentData.Element("Stamina-Delay")?.Value ?? "0", CultureInfo.InvariantCulture);
+        statsAdjustments.staminaCostScaling = float.Parse(statsAdjustmentData.Element("Stamina-Cost")?.Value ?? "0", CultureInfo.InvariantCulture);
+
+        return statsAdjustments;
+    }
+
+    #endregion
+
     #region Pet Saving and Loading
     
     // Save the pet data in the data xml
@@ -552,6 +609,18 @@ public class PersistanceStoring : MonoBehaviour
         CheckAndCreateElement(catalystsElement, "Body", GenerateCatalystXMLNode(StaticVariables.petData.bodyCatalyst));
         CheckAndCreateElement(catalystsElement, "Tail", GenerateCatalystXMLNode(StaticVariables.petData.tailCatalyst));
         CheckAndCreateElement(catalystsElement, "Legs", GenerateCatalystXMLNode(StaticVariables.petData.legsCatalyst));
+        
+        // Save in the traits holder
+        var traitsElement = CheckAndCreateElement(petDataElement, "Traits");
+        
+        // Clear the previous trait state
+        traitsElement.RemoveAll();
+        
+        // Load in all of the traits
+        foreach ( var traitValuePair in StaticVariables.traitManager.allTraits)
+        {
+            traitsElement.Add(GenerateTraitXMLElement(traitValuePair.Value));
+        }
         
         // Render and save the document
         xmlDoc.Save("Data.xml");
@@ -607,9 +676,83 @@ public class PersistanceStoring : MonoBehaviour
         petData.legsCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Legs")?.Element("Catalyst"));
     }
 
+    public Trait LoadTraitData(XElement traitData)
+    {
+        Trait newTrait = ScriptableObject.CreateInstance<Trait>();
+
+        newTrait.name = traitData.Element("Name")?.Value;
+        newTrait.activationPoints = Convert.ToInt32(traitData.Element("Activation-Points")?.Value);
+        newTrait.statsAdjustment = LoadStatsXMLElement(traitData.Element("Stats-Adjustments"));
+
+        return newTrait;
+    }
+
+    public void LoadTraitsData(Dictionary<string, Trait> traits)
+    {
+        // Load the XML document
+        var xmlDoc = XDocument.Load("Data.xml");
+        
+        // Load in the data root element
+        var rootElement = CheckAndCreateElement(xmlDoc, "Data");
+        
+        // Load in the data root element
+        var petDataElement = CheckAndCreateElement(rootElement, "Pet-Data");
+        
+        // Load in the traits element
+        var traitsDataElement = CheckAndCreateElement(petDataElement, "Traits");
+        
+        // Check if we have traits
+        if (traitsDataElement.Element("Trait") == null)
+        {
+            return;
+        }
+        
+        // Load in all of the traits
+        var traitsElements = traitsDataElement.Elements("Trait");
+        
+        foreach (XElement traitsElement in traitsElements)
+        {
+            Trait trait = traits[traitsElement.Element("Name")?.Value];
+
+            trait.activationPoints = Convert.ToInt32(traitsElement.Element("Activation-Points")?.Value);
+            trait.statsAdjustment = LoadStatsXMLElement(traitsElement.Element("Stats-Adjustments"));
+        }
+    }
+
     #endregion
 
     #region Designer Definition Files Loading
+    
+    // Load in the base stats for the pet
+    public Stats LoadPetBaseStats()
+    {
+        // Load in the designer definitions file      
+        string definitionsString = File.ReadAllText(@".\\DesignerDefinitions.json", Encoding.UTF8);
+        
+        // Parse the text into an object
+        JObject definitionsObject = JObject.Parse(definitionsString);
+        
+        // Save the token with the relevant stats
+        JToken relevantPetStats = definitionsObject["PetData"]["Base-Stats"];
+        
+        // Set all of the stats into a new object
+        Stats newPetBaseStats = new Stats()
+        {
+            maxHealth = relevantPetStats["Health"].Value<int>(),
+            health = relevantPetStats["Health"].Value<int>(),
+            armour = relevantPetStats["Armour"].Value<float>(),
+            damage = relevantPetStats["Damage"].Value<int>(),
+            critChance = relevantPetStats["CritChance"].Value<int>(),
+            critMultiplier = relevantPetStats["CritMulti"].Value<float>(),
+            maxStamina = relevantPetStats["StaminaMax"].Value<float>(),
+            staminaRegen = relevantPetStats["StaminaRegen"].Value<float>(),
+            stamina = relevantPetStats["StaminaMax"].Value<float>(),
+            staminaDelay = relevantPetStats["StaminaRegenDelay"].Value<float>(),
+            staminaCostScaling = relevantPetStats["StaminacostScaling"].Value<float>(),
+        };
+
+        return newPetBaseStats;
+    }
     
     // Load in the base stat of a specific type of enemy
     public EnemyStats LoadEnemyBaseStats(string enemyType)

@@ -53,7 +53,9 @@ public class UpdateResources : MonoBehaviour
     #region Feeding Methods
 
     public void Feed_Elec()
-    {   
+    {
+
+        
         if (pet.l_Elec > 0)
         {
             if (StaticVariables.petData.FeedPet(new FoodQuantity()

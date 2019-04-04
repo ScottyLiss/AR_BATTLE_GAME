@@ -25,12 +25,12 @@ public class TraitRendererEditor : Editor
 			}
 
 			// Load in all traits
-			GameObject.Find("SceneManager").GetComponent<TraitManager>().allTraits.OrderBy(trait => trait.GetLayer()).ToList().ForEach(trait =>
+			GameObject.Find("SceneManager").GetComponent<TraitManager>().allTraits.OrderBy(traitValuePair => traitValuePair.Value.GetLayer()).ToList().ForEach(traitValuePair =>
 			{
 				GameObject newGameObject = Instantiate(myScript.TraitUITemplate, myScript.gameObject.transform);
-				newGameObject.name = $"TraitBadge: {trait.name}";
-				newGameObject.transform.Find("TraitDescription").GetComponent<Text>().text = trait.name;
-				newGameObject.GetComponent<TraitUIScript>().AssociatedTrait = trait;
+				newGameObject.name = $"TraitBadge: {traitValuePair.Value.name}";
+				newGameObject.transform.Find("TraitDescription").GetComponent<Text>().text = traitValuePair.Value.name;
+				newGameObject.GetComponent<TraitUIScript>().AssociatedTrait = traitValuePair.Value;
 
 //				if (trait.traitRequirements.Length > 0)
 //				{

@@ -49,7 +49,7 @@ public class GenericEffect : ScriptableObject
 [Serializable]
 public class Stats
 {
-	public int health 
+	public float health 
 	{
 		get
 		{
@@ -62,7 +62,7 @@ public class Stats
 			OnStatsChanged?.Invoke();
         }
 	}
-	public int maxHealth 
+	public float maxHealth 
 	{
 		get
 		{
@@ -114,7 +114,7 @@ public class Stats
 			OnStatsChanged?.Invoke();
         }
 	}
-	public int damage 
+	public float damage 
 	{
 		get
 		{
@@ -140,7 +140,7 @@ public class Stats
 			OnStatsChanged?.Invoke();
         }
 	}
-	public int critChance 
+	public float critChance 
 	{
 		get
 		{
@@ -167,16 +167,44 @@ public class Stats
 			OnStatsChanged?.Invoke();
 		}
 	}
-	
-	public int _health;
+
+	public float staminaDelay
+	{
+		get
+		{
+			return _staminaDelay;
+		}
+		set
+		{
+			_staminaDelay = value;
+			OnStatsChanged?.Invoke();
+		}
+	}
+
+	public float staminaCostScaling
+	{
+		get
+		{
+			return _staminaCostScaling;
+		}
+		set
+		{
+			_staminaCostScaling = value;
+			OnStatsChanged?.Invoke();
+		}
+	}
+
+	public float _health;
     public float _stamina;
     public float _maxStamina;
-    public int _maxHealth;
+    public float _maxHealth;
 	public float _armour;
-	public int _damage;
+	public float _damage;
 	public float _critMultiplier;
-	public int _critChance;
+	public float _critChance;
 	public float _staminaRegen;
+	public float _staminaDelay;
+	public float _staminaCostScaling;
 
 	public static Stats operator + (Stats stats1, Stats stats2)
 	{
@@ -192,6 +220,9 @@ public class Stats
 		newStats._damage = stats1.damage + stats2.damage;
 		newStats._critMultiplier = stats1.critMultiplier + stats2.critMultiplier;
 		newStats._critChance = stats1.critChance + stats2.critChance;
+		newStats._staminaRegen = stats1.staminaRegen + stats2.staminaRegen;
+		newStats._staminaDelay = stats1.staminaDelay + stats2.staminaDelay;
+		newStats._staminaCostScaling = stats1.staminaCostScaling + stats2.staminaCostScaling;
 
 		OnStatsChanged?.Invoke();
 
@@ -206,6 +237,9 @@ public class Stats
         newStats._health = Mathf.Clamp(stats1.health - stats2.health, 0, newStats.maxHealth);
         newStats._maxStamina = stats1.maxStamina - stats2.maxStamina;
         newStats._stamina = Mathf.Clamp(stats1.stamina - stats2.stamina, 0, newStats.maxStamina);
+        newStats._staminaRegen = stats1.staminaRegen - stats2.staminaRegen;
+        newStats._staminaDelay = stats1.staminaDelay - stats2.staminaDelay;
+        newStats._staminaCostScaling = stats1.staminaCostScaling - stats2.staminaCostScaling;
 
         newStats._armour = stats1.armour - stats2.armour;
 
@@ -214,6 +248,54 @@ public class Stats
         newStats._critChance = stats1.critChance - stats2.critChance;
 
         OnStatsChanged?.Invoke();
+
+		return newStats;
+	}
+	
+	public static Stats operator *(Stats stats1, Stats stats2)
+	{
+		Stats newStats = new Stats();
+
+		newStats._maxHealth = stats1.maxHealth * stats2.maxHealth;
+		newStats._health = Mathf.Clamp(stats1.health * stats2.health, 0, newStats.maxHealth);
+		newStats._maxStamina = stats1.maxStamina * stats2.maxStamina;
+		newStats._stamina = Mathf.Clamp(stats1.stamina * stats2.stamina, 0, newStats.maxStamina);
+
+		newStats._armour = stats1.armour * stats2.armour;
+
+		newStats._damage = stats1.damage * stats2.damage;
+		newStats._critMultiplier = stats1.critMultiplier * stats2.critMultiplier;
+		newStats._critChance = stats1.critChance * stats2.critChance;
+		
+		newStats._staminaRegen = stats1.staminaRegen * stats2.staminaRegen;
+		newStats._staminaDelay = stats1.staminaDelay * stats2.staminaDelay;
+		newStats._staminaCostScaling = stats1.staminaCostScaling * stats2.staminaCostScaling;
+
+		OnStatsChanged?.Invoke();
+
+		return newStats;
+	}
+	
+	public static Stats operator *(Stats stats1, float stats2)
+	{
+		Stats newStats = new Stats();
+
+		newStats._maxHealth = stats1.maxHealth * stats2;
+		newStats._health = Mathf.Clamp(stats1.health * stats2, 0, newStats.maxHealth);
+		newStats._maxStamina = stats1.maxStamina * stats2;
+		newStats._stamina = Mathf.Clamp(stats1.stamina * stats2, 0, newStats.maxStamina);
+
+		newStats._armour = stats1.armour * stats2;
+
+		newStats._damage = stats1.damage * stats2;
+		newStats._critMultiplier = stats1.critMultiplier * stats2;
+		newStats._critChance = stats1.critChance * stats2;
+		
+		newStats._staminaRegen = stats1.staminaRegen * stats2;
+		newStats._staminaDelay = stats1.staminaDelay * stats2;
+		newStats._staminaCostScaling = stats1.staminaCostScaling * stats2;
+
+		OnStatsChanged?.Invoke();
 
 		return newStats;
 	}

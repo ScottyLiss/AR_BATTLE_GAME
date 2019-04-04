@@ -8,7 +8,7 @@
   </Objects>
   <Pet-Data>
     <Stats>
-      <Health>1000</Health>
+      <Health>1100</Health>
       <Stamina>100</Stamina>
       <Damage>25</Damage>
       <Crit-Multiplier>1.5</Crit-Multiplier>
@@ -52,6 +52,164 @@
         </Catalyst>
       </Tail>
     </Catalysts>
-    <Position>24.96759,60.19184</Position>
+    <Traits>
+      <Trait>
+        <Name>Consuming Power</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Health>-100</Health>
+          <Stamina-Regen>12</Stamina-Regen>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Crusing Blows</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Damage>2.5</Damage>
+          <Crit-Multiplier>0.2</Crit-Multiplier>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Deadly Aim</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Crit-Multiplier>0.2</Crit-Multiplier>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Dense Muscle Fiber</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Damage>2.5</Damage>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Glass Cannon</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Damage>5</Damage>
+          <Armour>-5</Armour>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Good Shot</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Crit-Multiplier>0.2</Crit-Multiplier>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Hardier</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Health>100</Health>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Hardy</Name>
+        <Activation-Points>2</Activation-Points>
+        <Stats-Adjustments>
+          <Health>100</Health>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Large Build</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Health>200</Health>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Nimble</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Health>-100</Health>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Persistent</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Stamina>10</Stamina>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Precise</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments />
+      </Trait>
+      <Trait>
+        <Name>Recovering</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Stamina-Regen>6</Stamina-Regen>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Resilient</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Health>100</Health>
+          <Armour>5</Armour>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Sharp Claws</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Damage>2.5</Damage>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Slow but Steady</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Crit-Multiplier>-0.2</Crit-Multiplier>
+          <Armour>10</Armour>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Superpowered</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Damage>2.5</Damage>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Tanky</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Damage>-2.5</Damage>
+          <Armour>10</Armour>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Thick Hide</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Armour>5</Armour>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Tier up</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments />
+      </Trait>
+      <Trait>
+        <Name>Tough Scales</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Armour>5</Armour>
+        </Stats-Adjustments>
+      </Trait>
+      <Trait>
+        <Name>Unyielding</Name>
+        <Activation-Points>0</Activation-Points>
+        <Stats-Adjustments>
+          <Stamina>10</Stamina>
+        </Stats-Adjustments>
+      </Trait>
+    </Traits>
+    <Position>24.96858,60.19151</Position>
   </Pet-Data>
 </Data>
