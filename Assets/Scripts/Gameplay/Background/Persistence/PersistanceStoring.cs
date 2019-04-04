@@ -813,7 +813,23 @@ public class PersistanceStoring : MonoBehaviour
     public Stats LoadPetBaseStats()
     {
         // Load in the designer definitions file      
-        string definitionsString = File.ReadAllText(Application.streamingAssetsPath + @"/DesignerDefinitions.json", Encoding.UTF8);
+        string definitionsString;
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            string filePath = Application.streamingAssetsPath + @"/DesignerDefinitions.json";
+        
+            WWW reader = new WWW(filePath);
+            while (!reader.isDone) { }
+     
+            definitionsString = reader.text;
+        }
+
+        else
+        {
+            definitionsString = File.ReadAllText(Application.streamingAssetsPath + @"/DesignerDefinitions.json", Encoding.UTF8);
+        }
+            
         
         // Parse the text into an object
         JObject definitionsObject = JObject.Parse(definitionsString);
@@ -844,7 +860,22 @@ public class PersistanceStoring : MonoBehaviour
     public EnemyStats LoadEnemyBaseStats(string enemyType)
     {
         // Load in the designer definitions file      
-        string definitionsString = File.ReadAllText(Application.streamingAssetsPath + @"/DesignerDefinitions.json", Encoding.UTF8);
+        string definitionsString;
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            string filePath = Application.streamingAssetsPath + @"/DesignerDefinitions.json";
+        
+            WWW reader = new WWW(filePath);
+            while (!reader.isDone) { }
+     
+            definitionsString = reader.text;
+        }
+
+        else
+        {
+            definitionsString = File.ReadAllText(Application.streamingAssetsPath + @"/DesignerDefinitions.json", Encoding.UTF8);
+        }
         
         // Parse the text into an object
         JObject definitionsObject = JObject.Parse(definitionsString);
@@ -870,7 +901,22 @@ public class PersistanceStoring : MonoBehaviour
     public EnemyStats LoadEnemyScaling(string enemyType)
     {
         // Load in the designer definitions file      
-        string definitionsString = File.ReadAllText(Application.streamingAssetsPath + @"/DesignerDefinitions.json", Encoding.UTF8);
+        string definitionsString;
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            string filePath = Application.streamingAssetsPath + @"/DesignerDefinitions.json";
+        
+            WWW reader = new WWW(filePath);
+            while (!reader.isDone) { }
+     
+            definitionsString = reader.text;
+        }
+
+        else
+        {
+            definitionsString = File.ReadAllText(Application.streamingAssetsPath + @"/DesignerDefinitions.json", Encoding.UTF8);
+        }
         
         // Parse the text into an object
         JObject definitionsObject = JObject.Parse(definitionsString);

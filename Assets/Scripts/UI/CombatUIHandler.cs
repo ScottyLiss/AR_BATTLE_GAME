@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIHandler: MonoBehaviour
+public class CombatUIHandler: MonoBehaviour
 {
 
 	public Image damageFlash;
@@ -10,7 +10,7 @@ public class UIHandler: MonoBehaviour
 
 	private void Start()
 	{
-		StaticVariables.uiHandler = this;
+		StaticVariables.CombatUiHandler = this;
 	}
 
 	public void PlayerGotHit()

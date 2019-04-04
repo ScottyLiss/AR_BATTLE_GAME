@@ -17,7 +17,7 @@ public static class StaticVariables
 
 	public static List<EnemyComponent> EnemyComponents = new List<EnemyComponent>();
 	public static BattleInputHandler battleHandler;
-	public static UIHandler uiHandler;
+	public static CombatUIHandler CombatUiHandler;
 	public static PersistanceManagerScript persistanceManager;
 	public static SceneTransitionHandler sceneManager;
 	public static PetAI petAI;
