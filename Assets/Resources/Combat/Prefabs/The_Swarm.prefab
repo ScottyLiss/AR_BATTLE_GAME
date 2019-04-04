@@ -9238,7 +9238,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1920920491341084}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.12, y: 0.014994154, z: 1.117}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9254,7 +9254,7 @@ Transform:
   - {fileID: 4526233588747382}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4888047321576804
 Transform:
   m_ObjectHideFlags: 1
@@ -11427,15 +11427,10 @@ MonoBehaviour:
   - {fileID: 1970911448604578}
   - {fileID: 1927147757885452}
   SwarmAlive: 1
-  health: 10
   timer: 3
   randomPerct: 0
   action: 000000000100000002000000
   performingAction: 0
-  warningSigns:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   currentLaneA: 0
   currentLaneB: 0
 --- !u!114 &114074676833705410

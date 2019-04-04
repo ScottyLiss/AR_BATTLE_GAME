@@ -12,135 +12,147 @@ using UnityEngine.UI;
 public class SceneTransitionHandler : MonoBehaviour
 {
 
-	public GameObject MapHolderGameObject;
+    public GameObject MapHolderGameObject;
 
-	public GameObject TransitionScreen;
+    public GameObject TransitionScreen;
 
-	public GameObject AlertText;
+    public GameObject AlertText;
 
-	private bool showingAlert = false;
+    private bool showingAlert = false;
 
-	private static int sceneToLoadCombat = 2; //Default scene to load first
-	private static bool isLoadingSomething = false;
+    private static int sceneToLoadCombat = 1; //Default scene to load first
+    private static bool isLoadingSomething = false;
 
-	void Awake()
-	{
-		if (!StaticVariables.sceneManager)
-		{
-			GameObject.DontDestroyOnLoad(gameObject);
+    void Awake()
+    {
+        if (!StaticVariables.sceneManager)
+        {
+            GameObject.DontDestroyOnLoad(gameObject);
 
-			StaticVariables.sceneManager = this;
-		}
+            StaticVariables.sceneManager = this;
+        }
 
-		else
-		{
-			Destroy(gameObject);
-		}
-	}
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
-	public void TransitionOutOfCombat()
-	{
-		StartCoroutine(TransitionOutOfCombatCoroutine());
-	}
+    public void TransitionOutOfCombat()
+    {
+        StartCoroutine(TransitionOutOfCombatCoroutine());
+    }
 
-	private IEnumerator TransitionOutOfCombatCoroutine()
-	{
-		if (!isLoadingSomething)
-		{
-			var ongoingOperation = SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+    private IEnumerator TransitionOutOfCombatCoroutine()
+    {
+        if (!isLoadingSomething)
+        {
+            var ongoingOperation = SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
 
-			TransitionScreen.SetActive(true);
+            TransitionScreen.SetActive(true);
 
-			while (!ongoingOperation.isDone)
-			{
-				isLoadingSomething = true;
+            while (!ongoingOperation.isDone)
+            {
+                isLoadingSomething = true;
 
-				yield return new WaitForEndOfFrame();
-			}
+                yield return new WaitForEndOfFrame();
+            }
 
-			SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(1)); // Transition Combat --> Map
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(0)); // Transition Combat --> Map
 
-			MapHolderGameObject.SetActive(true);
+            MapHolderGameObject.SetActive(true);
 
-			TransitionScreen.SetActive(false);
+            TransitionScreen.SetActive(false);
 
-			isLoadingSomething = false;
-		}
-	}
+            isLoadingSomething = false;
+        }
+    }
 
-	public void TransitionToCombat(Breach breach = null)
-	{
-		// TODO: Set it up to save the map data
-		//StaticVariables.persistanceManager.SaveMapData();
+    public void TransitionToCombat(Breach breach = null)
+    {
+        // TODO: Set it up to save the map data
+        //StaticVariables.persistanceManager.SaveMapData();
 
-		if (!isLoadingSomething && StaticVariables.petData.stats.health > 0)
-		{
-			StartCoroutine(TransitionToCombatCoroutine(breach));
-		}
-		
-		else if (StaticVariables.petData.stats.health == 0 && !showingAlert)
-		{
-			StartCoroutine(ShowAlertText(5f));
-		}
-	}
+        if (!isLoadingSomething && StaticVariables.petData.stats.health > 0)
+        {
+            StartCoroutine(TransitionToCombatCoroutine(breach));
+        }
 
-	private IEnumerator ShowAlertText(float time)
-	{
-		showingAlert = true;
+        else if (StaticVariables.petData.stats.health == 0 && !showingAlert)
+        {
+            StartCoroutine(ShowAlertText(5f));
+        }
+    }
 
-		float deltaTime = 0;
-		
-		HealthWarningPopup.Show();
+    private IEnumerator ShowAlertText(float time)
+    {
+        showingAlert = true;
 
-		while (deltaTime < time)
-		{
-			yield return new WaitForEndOfFrame();
+        float deltaTime = 0;
 
-			deltaTime += Time.deltaTime;
-		}
+        HealthWarningPopup.Show();
 
-		HealthWarningPopup.Hide();
+        while (deltaTime < time)
+        {
+            yield return new WaitForEndOfFrame();
 
-		showingAlert = false;
-	}
+            deltaTime += Time.deltaTime;
+        }
 
-	private IEnumerator TransitionToCombatCoroutine(Breach breach = null)
-	{
-		if (!isLoadingSomething)
-		{
-			var encounterInfo = breach.encounter.encounterInfo;
-			
-			var ongoingOperation = SceneManager.LoadSceneAsync(sceneToLoadCombat, LoadSceneMode.Additive);
-			
-			TransitionScreen.SetActive(true);
+        HealthWarningPopup.Hide();
 
-			Time.timeScale = 0;
+        showingAlert = false;
+    }
 
-			while (!ongoingOperation.isDone)
-			{
-				isLoadingSomething = true;
-				
-				yield return new WaitForEndOfFrame();
-			}
-			
-			if (breach)
-				breach.BreachDefeated = true;
+    private IEnumerator TransitionToCombatCoroutine(Breach breach = null)
+    {
+        if (!isLoadingSomething)
+        {
+            var encounterInfo = breach.encounter.encounterInfo;
 
-			SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneToLoadCombat));
+            var ongoingOperation = SceneManager.LoadSceneAsync(sceneToLoadCombat, LoadSceneMode.Additive);
 
-			GameObject newEnemy = Instantiate(encounterInfo.enemyPrefab, GameObject.Find("EnemyPlaceholder").transform);
-			newEnemy.GetComponent<EncounterImplementer>().encounterInfo = encounterInfo;
-			newEnemy.GetComponent<EncounterImplementer>().Implement();
+            TransitionScreen.SetActive(true);
 
-			Time.timeScale = 1;
-			
-			MapHolderGameObject.SetActive(false);
+            Time.timeScale = 0;
 
-			TransitionScreen.SetActive(false);
+            while (!ongoingOperation.isDone)
+            {
+                isLoadingSomething = true;
 
-			isLoadingSomething = false;
-		}
-	}
+                yield return new WaitForEndOfFrame();
+            }
+
+            if (breach)
+                breach.BreachDefeated = true;
+
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneToLoadCombat));
+
+            GameObject newEnemy = Instantiate(encounterInfo.enemyPrefab, GameObject.Find("EnemyPlaceholder").transform);
+            if (newEnemy.name == "Arsenal")
+            {
+                newEnemy.GetComponent<EncounterImplementer>().encounterInfo = encounterInfo; // Issue here
+                newEnemy.GetComponent<EncounterImplementer>().Implement();
+            }
+            else if (newEnemy.name == "The_Swarm")
+            {
+                foreach (GameObject a in newEnemy.GetComponent<TheSwarm>().swarm)
+                {
+                    a.GetComponent<EncounterImplementer>().encounterInfo = encounterInfo;
+                    a.GetComponent<EncounterImplementer>().Implement();
+                }
+            }
+
+
+            Time.timeScale = 1;
+
+            MapHolderGameObject.SetActive(false);
+
+            TransitionScreen.SetActive(false);
+
+            isLoadingSomething = false;
+        }
+    }
 
 }
 

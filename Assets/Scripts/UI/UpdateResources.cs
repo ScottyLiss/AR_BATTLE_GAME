@@ -45,17 +45,15 @@ public class UpdateResources : MonoBehaviour
 
 
     public void Feed_Item(Food foodType) // Idea to grab input and use input to change value of resource.
-                                            // Example: pet.l_Elec --> pet.itemName = 1
+                                         // Example: pet.l_Elec --> pet.itemName = 1
     {
-        
+
     }
 
     #region Feeding Methods
 
     public void Feed_Elec()
     {
-
-        
         if (pet.l_Elec > 0)
         {
             if (StaticVariables.petData.FeedPet(new FoodQuantity()
@@ -64,7 +62,7 @@ public class UpdateResources : MonoBehaviour
                 foodType = Food.Electric
             }))
             {
-                resources.r_Elec--;
+               // resources.r_Elec--;
                 pet.l_Elec--;
                 r_Elec.text = pet.l_Elec.ToString();
             }
@@ -81,7 +79,7 @@ public class UpdateResources : MonoBehaviour
                 foodType = Food.Fire
             }))
             {
-                resources.r_Fire--;
+                //resources.r_Fire--;
                 pet.l_Fire--;
                 r_Fire.text = pet.l_Fire.ToString();
             }
@@ -132,7 +130,7 @@ public class UpdateResources : MonoBehaviour
                 foodType = Food.Ice
             }))
             {
-                resources.r_Ice--;
+               // resources.r_Ice--;
                 pet.l_Ice--;
                 r_Ice.text = pet.l_Ice.ToString();
             }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3152376, g: 0.67285776, b: 1.0545124, a: 1}
+  m_IndirectSpecularColor: {r: 0.3155098, g: 0.6716677, b: 1.0535346, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1683,7 +1683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapHolderGameObject: {fileID: 1522759914}
-  TransitionScreen: {fileID: 0}
+  TransitionScreen: {fileID: 649710620}
   AlertText: {fileID: 0}
 --- !u!1 &781102747
 GameObject:

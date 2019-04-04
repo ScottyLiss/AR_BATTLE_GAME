@@ -3,33 +3,45 @@ using UnityEngine;
 
 public class MainScreen : SimpleMenu<MainScreen>
 {
-	public void OnCallPet()
-	{
-		StaticVariables.playerScript.CallPet();
-	}
+    // Temp Shit Thing
+    public GameObject player;
+
+    void Start()
+    {
+        player = GameObject.Find("PlayerTarget");
+    }
+
+    public void OnCallPet()
+    {
+        StaticVariables.playerScript.CallPet();
+    }
 
     public void OnPlaceBeacon()
     {
-	    StaticVariables.playerScript.PlaceBeacon();
-	}
+        StaticVariables.playerScript.PlaceBeacon();
+    }
 
     public void OnPressBreach()
     {
-	    BreachesMenu.Show();
+        StaticVariables.playerData.AddBreach();
+        StaticVariables.playerData.BreachDepolyed(1);
+
+        Instantiate(Resources.Load<GameObject>("Breach"), player.transform.position, Quaternion.identity);
+        //BreachesMenu.Show();
     }
 
     public void OnPressPetMenu()
     {
-	    PetMenu.Show();
+        PetMenu.Show();
     }
 
     public void OnPressSettings()
     {
-	    throw new Exception("Settings Menu not implemented yet");
+        throw new Exception("Settings Menu not implemented yet");
     }
 
-	public override void OnBackPressed()
-	{
-		Application.Quit();
-	}
+    public override void OnBackPressed()
+    {
+        Application.Quit();
+    }
 }

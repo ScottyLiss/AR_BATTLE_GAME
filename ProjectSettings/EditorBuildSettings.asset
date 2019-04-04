@@ -6,12 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/LoadingScene.unity
-    guid: 1f189bd73e08e224f9074ed00c3d9259
+    path: Assets/Scenes/MapScene_changes_preslav.unity
+    guid: 776d8b6a0ad9b2c459c1ab71e74b6c0b
   - enabled: 1
-    path: Assets/Scene_MAp/Scenes/testScott.unity
-    guid: 6947a2af5736ba04e9e4bbdbef86c93f
-  - enabled: 1
-    path: Assets/Scene_Combat/Scenes/GenericCombatScene.unity
+    path: Assets/Scenes/GenericCombatScene.unity
     guid: 39f976ff8344f924e86f92f88a949368
   m_configObjects: {}

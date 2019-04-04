@@ -30,7 +30,7 @@ public class TheSwarm : MonoBehaviour
 
     private void Update()
     {
-        if(SwarmAlive)
+        if (SwarmAlive)
         {
             if (timer >= 0)
             {
@@ -80,11 +80,11 @@ public class TheSwarm : MonoBehaviour
     int GetRandomValue()
     {
         float rand = Random.value;
-        if(rand <= .2f) //20%
+        if (rand <= .2f) //20%
         {
             return 1;
         }
-        if(rand > .2f && rand <= .6f) // 40%
+        if (rand > .2f && rand <= .6f) // 40%
         {
             return 0;
         }
@@ -93,13 +93,13 @@ public class TheSwarm : MonoBehaviour
             return 2;
         }
     }
-          
+
     private int RandomLaneID() // For Action 2
     {
-        int x = Mathf.RoundToInt(Random.Range(-0.49f,2.49f)); // The range is -0.49f so that there's an increased chance of having left lane, same for 2.49f, for right lane 
+        int x = Mathf.RoundToInt(Random.Range(-0.49f, 2.49f)); // The range is -0.49f so that there's an increased chance of having left lane, same for 2.49f, for right lane 
         return x;
     }
- 
+
 
 
     public virtual void RegisterSwarmUnitDeath()
@@ -113,9 +113,9 @@ public class TheSwarm : MonoBehaviour
 
     public virtual void SplitToLaneIDs() // Action 1 - Split
     {
-        if(!performingAction)
+        if (!performingAction)
         {
-            if(StaticVariables.swarmHealth > 1)
+            if (StaticVariables.swarmHealth > 1)
             {
                 int a = RandomLaneID();
                 int b = RandomLaneID();
@@ -175,19 +175,19 @@ public class TheSwarm : MonoBehaviour
 
             Assault(1); // 2 lanes (0,1)
         }
-        
+
     }
 
     IEnumerator Warning(int lanes)
     {
-       yield return new WaitForSeconds(1.5f);
-        foreach(GameObject g in swarm)
+        yield return new WaitForSeconds(1.5f);
+        foreach (GameObject g in swarm)
         {
             g.GetComponent<Swarm>().Shoot();
         }
 
 
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
             StaticVariables.lanesActive[i] = -1;
         }
@@ -195,7 +195,7 @@ public class TheSwarm : MonoBehaviour
         performingAction = false;
         StaticVariables.bSwarmAttackTriggered = false;
     }
-    
+
     public virtual void Assault(int lanes)
     {
         StaticVariables.bSwarmAttackTriggered = true;
@@ -219,7 +219,7 @@ public class TheSwarm : MonoBehaviour
     {
 
 
-        if(StaticVariables.swarmHealth > 3)
+        if (StaticVariables.swarmHealth > 3)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -243,7 +243,7 @@ public class TheSwarm : MonoBehaviour
             }
             Assault(1);
         }
-        else 
+        else
         {
             int x = RandomLaneID();
             int y = RandomLaneID();
@@ -254,7 +254,7 @@ public class TheSwarm : MonoBehaviour
             int b = 0;
             foreach (GameObject g in swarm)
             {
-                if(b == 0)
+                if (b == 0)
                 {
                     g.GetComponent<Swarm>().MoveTowardsLane(x);
                     b++;
