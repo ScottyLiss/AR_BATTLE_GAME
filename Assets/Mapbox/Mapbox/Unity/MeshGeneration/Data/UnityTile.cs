@@ -325,7 +325,7 @@ namespace Mapbox.Unity.MeshGeneration.Data
                 }
 
                 //Spread the junk pile items on the map
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 2; i++)
                 {
                     GameObject instance = Resources.Load("Junk_pile 1", typeof(GameObject)) as GameObject;
                     instance.layer = 12;

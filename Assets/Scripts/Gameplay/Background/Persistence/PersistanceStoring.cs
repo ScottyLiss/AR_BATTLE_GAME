@@ -105,7 +105,7 @@ public class PersistanceStoring : MonoBehaviour
         //Note to anyone
         // Current way is a bit of a dire way, it's currently putting both names / coords in different lists, which will be in the same order
         // In other words, [0] in nodelist (name), has [0] in nodelistB (coords)
-        if(File.Exists("Data.xml")) 
+        if(File.Exists(Application.persistentDataPath + "/Data.xml")) 
         {
 //            mapDoc.Load("Data.xml");
 //            XmlNodeList nodelist = mapDoc.SelectNodes("Data/Objects/Name");
@@ -134,7 +134,7 @@ public class PersistanceStoring : MonoBehaviour
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
 
-            XmlWriter writer = XmlWriter.Create("Data.xml", settings);
+            XmlWriter writer = XmlWriter.Create(Application.persistentDataPath + "/Data.xml", settings);
             writer.WriteStartDocument();
             
             writer.WriteStartElement("Data");
@@ -161,13 +161,16 @@ public class PersistanceStoring : MonoBehaviour
         // Initialize the inventory files
         
         // There is no file to store breaches in the inventory, so create one
-        if (!File.Exists("Breaches.xml"))
+        if (!File.Exists(Application.persistentDataPath + "/Breaches.xml"))
         {
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
 
-            XmlWriter writer = XmlWriter.Create("Breaches.xml", settings);
+            XmlWriter writer = XmlWriter.Create(Application.persistentDataPath + "/Breaches.xml", settings);
             writer.WriteStartDocument();
+            
+            writer.WriteStartElement("Breaches");
+            writer.WriteEndElement();
             
             writer.WriteEndDocument();
 
@@ -176,12 +179,12 @@ public class PersistanceStoring : MonoBehaviour
         }
         
         // No file exists for storing catalysts, so create one
-        if (!File.Exists("Catalysts.xml"))
+        if (!File.Exists(Application.persistentDataPath + "/Catalysts.xml"))
         {
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
 
-            XmlWriter writer = XmlWriter.Create("Catalysts.xml", settings);
+            XmlWriter writer = XmlWriter.Create(Application.persistentDataPath + "/Catalysts.xml", settings);
             writer.WriteStartDocument();
 
             writer.WriteStartElement("Catalysts");
@@ -201,7 +204,7 @@ public class PersistanceStoring : MonoBehaviour
         else
         {
             XmlDocument catalystDocument = new XmlDocument();
-            catalystDocument.Load("Catalysts.xml");
+            catalystDocument.Load(Application.persistentDataPath + "/Catalysts.xml");
             XmlNode lastCreatedIdNode = catalystDocument.SelectSingleNode("LastCreatedID");
             
             // Set the last created ID
@@ -210,21 +213,57 @@ public class PersistanceStoring : MonoBehaviour
         }
         
         // No file exists to store the materials, so create one
-        if (!File.Exists("Materials.xml"))
+        if (!File.Exists(Application.persistentDataPath + "/Materials.xml"))
         {
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
 
-            XmlWriter writer = XmlWriter.Create("Materials.xml", settings);
+            XmlWriter writer = XmlWriter.Create(Application.persistentDataPath + "/Materials.xml", settings);
             writer.WriteStartDocument();
-
+            
+            writer.WriteStartElement("Materials");
+            
+            writer.WriteStartElement("Biomass");
+            writer.WriteString("0");
+            writer.WriteEndElement();
+            
+            writer.WriteStartElement("Metal");
+            writer.WriteString("0");
+            writer.WriteEndElement();
+            
+            writer.WriteStartElement("Bonding");
+            writer.WriteString("0");
+            writer.WriteEndElement();
+            
+            writer.WriteStartElement("Rock");
+            writer.WriteString("0");
+            writer.WriteEndElement();
+            
+            writer.WriteStartElement("Water");
+            writer.WriteString("0");
+            writer.WriteEndElement();
+            
+            writer.WriteStartElement("Radioactive");
+            writer.WriteString("0");
+            writer.WriteEndElement();
+            
+            writer.WriteEndElement();
+            
             writer.WriteEndDocument();
 
             writer.Flush();
             writer.Close();
+            
+            SaveMaterials(new Dictionary<Food, int>()
+            {
+                { Food.Biomass, 0},
+                { Food.Metal, 0},
+                { Food.Rock, 0},
+                { Food.Water, 0},
+                { Food.Radioactive, 0},
+                { Food.Bonding, 0},
+            });
         }
-
-
 
         #region Old Code
         /*
@@ -316,7 +355,7 @@ public class PersistanceStoring : MonoBehaviour
     {
         
         // Load the XML document
-        var xmlDoc = XDocument.Load("Catalysts.xml");
+        var xmlDoc = XDocument.Load(Application.persistentDataPath + "/Catalysts.xml");
 
         var catalystsElement = xmlDoc.Element("Catalysts");
         
@@ -329,7 +368,7 @@ public class PersistanceStoring : MonoBehaviour
         catalystsElement.SetElementValue("LastCreatedID", Catalyst.LastCreatedID);
         
         // Render and save the document
-        xmlDoc.Save("Catalysts.xml");
+        xmlDoc.Save(Application.persistentDataPath + "/Catalysts.xml");
         
         // Notify the system that catalysts have changed
         CatalystsChanged?.Invoke();
@@ -386,7 +425,7 @@ public class PersistanceStoring : MonoBehaviour
     // Delete a given catalyst from the persistent inventory by ID
     public void DeleteCatalystFromInventory(uint catalystId)
     {
-        mapDoc.Load("Catalysts.xml");
+        mapDoc.Load(Application.persistentDataPath + "/Catalysts.xml");
         XmlNodeList nodelist = mapDoc.SelectNodes("Catalyst");
 
         if (nodelist != null)
@@ -400,7 +439,7 @@ public class PersistanceStoring : MonoBehaviour
                 }
             }
         
-        mapDoc.Save("Catalysts.xml");
+        mapDoc.Save(Application.persistentDataPath + "/Catalysts.xml");
 
         // Notify the system that catalysts have changed
         CatalystsChanged?.Invoke();
@@ -409,7 +448,7 @@ public class PersistanceStoring : MonoBehaviour
     // Extract the last used ID from the catalysts
     public void LoadLastCatalystId()
     {
-        var xmlDoc = XDocument.Load("Catalysts.xml");
+        var xmlDoc = XDocument.Load(Application.persistentDataPath + "/Catalysts.xml");
 
         var lastCatalystId = xmlDoc.Element("Catalysts")?.Element("LastCreatedID")?.Value;
 
@@ -420,7 +459,7 @@ public class PersistanceStoring : MonoBehaviour
     {
         
         // Load the xml document
-        var xmlDoc = XDocument.Load("Catalysts.xml");
+        var xmlDoc = XDocument.Load(Application.persistentDataPath + "/Catalysts.xml");
         
         // The list of catalysts
         List<Catalyst> catalystList = new List<Catalyst>();
@@ -580,7 +619,7 @@ public class PersistanceStoring : MonoBehaviour
     public void SavePetData()
     {
         // Save the XML document
-        var xmlDoc = XDocument.Load("Data.xml");
+        var xmlDoc = XDocument.Load(Application.persistentDataPath + "/Data.xml");
         
         // Save in the data root element
         var rootElement = CheckAndCreateElement(xmlDoc, "Data");
@@ -623,7 +662,7 @@ public class PersistanceStoring : MonoBehaviour
         }
         
         // Render and save the document
-        xmlDoc.Save("Data.xml");
+        xmlDoc.Save(Application.persistentDataPath + "/Data.xml");
         
         // Notify the system that catalysts have changed
         CatalystsChanged?.Invoke();
@@ -632,7 +671,7 @@ public class PersistanceStoring : MonoBehaviour
     public void LoadPetData(PetData petData)
     {
         // Load the XML document
-        var xmlDoc = XDocument.Load("Data.xml");
+        var xmlDoc = XDocument.Load(Application.persistentDataPath + "/Data.xml");
         
         // Load in the data root element
         var rootElement = CheckAndCreateElement(xmlDoc, "Data");
@@ -690,7 +729,7 @@ public class PersistanceStoring : MonoBehaviour
     public void LoadTraitsData(Dictionary<string, Trait> traits)
     {
         // Load the XML document
-        var xmlDoc = XDocument.Load("Data.xml");
+        var xmlDoc = XDocument.Load(Application.persistentDataPath + "/Data.xml");
         
         // Load in the data root element
         var rootElement = CheckAndCreateElement(xmlDoc, "Data");
@@ -716,7 +755,54 @@ public class PersistanceStoring : MonoBehaviour
 
             trait.activationPoints = Convert.ToInt32(traitsElement.Element("Activation-Points")?.Value);
             trait.statsAdjustment = LoadStatsXMLElement(traitsElement.Element("Stats-Adjustments"));
+
+            trait.CheckActive();
         }
+    }
+
+    #endregion
+
+    #region Materials Saving and Loading
+
+    public void SaveMaterials(Dictionary<Food, int> resources)
+    {
+        // Load the XML document
+        var xmlDoc = XDocument.Load(Application.persistentDataPath + "/Materials.xml");
+        
+        // Save in the data root element
+        var rootElement = CheckAndCreateElement(xmlDoc, "Materials");
+        
+        // Load in the values
+        CheckAndCreateElement(rootElement, "Biomass", resources[Food.Biomass]);
+        CheckAndCreateElement(rootElement, "Water", resources[Food.Water]);
+        CheckAndCreateElement(rootElement, "Metal", resources[Food.Metal]);
+        CheckAndCreateElement(rootElement, "Radioactive", resources[Food.Radioactive]);
+        CheckAndCreateElement(rootElement, "Rock", resources[Food.Rock]);
+        CheckAndCreateElement(rootElement, "Bonding", resources[Food.Bonding]);
+        
+        xmlDoc.Save(Application.persistentDataPath + "/Materials.xml");
+    }
+
+    public Dictionary<Food, int> LoadMaterials()
+    {
+        
+        Dictionary<Food, int> foodDictionary = new Dictionary<Food, int>();
+        
+        // Load the XML document
+        var xmlDoc = XDocument.Load(Application.persistentDataPath + "/Materials.xml");
+        
+        // Save in the data root element
+        var rootElement = CheckAndCreateElement(xmlDoc, "Materials");
+        
+        // Load in the values
+        foodDictionary.Add(Food.Biomass, Convert.ToInt32(rootElement.Element("Biomass").Value));
+        foodDictionary.Add(Food.Water, Convert.ToInt32(rootElement.Element("Water").Value));
+        foodDictionary.Add(Food.Metal, Convert.ToInt32(rootElement.Element("Metal").Value));
+        foodDictionary.Add(Food.Radioactive, Convert.ToInt32(rootElement.Element("Radioactive").Value));
+        foodDictionary.Add(Food.Rock, Convert.ToInt32(rootElement.Element("Rock").Value));
+        foodDictionary.Add(Food.Bonding, Convert.ToInt32(rootElement.Element("Bonding").Value));
+
+        return foodDictionary;
     }
 
     #endregion
@@ -727,7 +813,7 @@ public class PersistanceStoring : MonoBehaviour
     public Stats LoadPetBaseStats()
     {
         // Load in the designer definitions file      
-        string definitionsString = File.ReadAllText(@".\\DesignerDefinitions.json", Encoding.UTF8);
+        string definitionsString = File.ReadAllText(Application.streamingAssetsPath + @"/DesignerDefinitions.json", Encoding.UTF8);
         
         // Parse the text into an object
         JObject definitionsObject = JObject.Parse(definitionsString);
@@ -758,7 +844,7 @@ public class PersistanceStoring : MonoBehaviour
     public EnemyStats LoadEnemyBaseStats(string enemyType)
     {
         // Load in the designer definitions file      
-        string definitionsString = File.ReadAllText(@".\\DesignerDefinitions.json", Encoding.UTF8);
+        string definitionsString = File.ReadAllText(Application.streamingAssetsPath + @"/DesignerDefinitions.json", Encoding.UTF8);
         
         // Parse the text into an object
         JObject definitionsObject = JObject.Parse(definitionsString);
@@ -784,7 +870,7 @@ public class PersistanceStoring : MonoBehaviour
     public EnemyStats LoadEnemyScaling(string enemyType)
     {
         // Load in the designer definitions file      
-        string definitionsString = File.ReadAllText(@".\\DesignerDefinitions.json", Encoding.UTF8);
+        string definitionsString = File.ReadAllText(Application.streamingAssetsPath + @"/DesignerDefinitions.json", Encoding.UTF8);
         
         // Parse the text into an object
         JObject definitionsObject = JObject.Parse(definitionsString);

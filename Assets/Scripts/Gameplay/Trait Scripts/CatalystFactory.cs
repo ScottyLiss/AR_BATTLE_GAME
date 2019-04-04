@@ -81,6 +81,10 @@ public static class CatalystFactory {
             armour = (float)(1 * level * (1 + StaticVariables.RandomInstance.NextDouble() * 0.5) * statsModifiers[4]),
         };
 
+        PetBodySlot catalystSlot = (PetBodySlot)StaticVariables.RandomInstance.Next(0, 4);
+        int modelVariant = StaticVariables.RandomInstance.Next(0, 2);
+        
+
         // Create the final Catalyst object
         return new Catalyst()
         {
@@ -88,6 +92,8 @@ public static class CatalystFactory {
             rarity = newRarity,
             statsAdjustment = newStatAdjustment,
             effects = new List<CatalystEffect>() { CreateNewCatalystEffect(newRarity, level) },
+            slot = catalystSlot,
+            modelVariantIndex = modelVariant
         };
     }
 

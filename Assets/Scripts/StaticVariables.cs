@@ -31,6 +31,7 @@ public static class StaticVariables
     public static bool bRobotAttackTriggered = false;
 	public static PersistanceStoring persistanceStoring;
 	public static PlayerScript playerScript;
+	public static PetComposer petComposer;
 
 	public delegate void AttackDelegate();
 

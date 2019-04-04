@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class StoreAllResources : ScriptableObject
 {
@@ -19,25 +20,50 @@ public class StoreAllResources : ScriptableObject
 
         set
         {
-            if (instance != null)
-            {
-                Destroy(instance);
-            }
 
             instance = value;
         }
     }
     
-    private void OnEnable()
+    public void Enable()
     {
         Instance = this;
+        
+        if (StaticVariables.persistanceStoring != null)
+            LoadMaterials();
     }
 
-    public float r_Elec; // Yes
-    public float r_Fire; //Yes 
+    public void LoadMaterials()
+    {
+        var newValues = StaticVariables.persistanceStoring.LoadMaterials();
+        
+        r_Bio = newValues[Food.Biomass];
+        r_Water = newValues[Food.Water];
+        r_Metal = newValues[Food.Metal];
+        r_Rad = newValues[Food.Radioactive];
+        r_Rock = newValues[Food.Rock];
+        r_Bonding = newValues[Food.Bonding];
+    }
+
+    public void Disable()
+    {
+        Instance = null;
+        
+        Dictionary<Food, int> resources = new Dictionary<Food, int>()
+        {
+            { Food.Biomass, (int) r_Bio },
+            { Food.Water, (int) r_Water },
+            { Food.Metal, (int) r_Metal },
+            { Food.Radioactive, (int) r_Rad },
+            { Food.Rock, (int) r_Rock },
+            { Food.Bonding, (int) r_Bonding },
+        };
+        
+        StaticVariables.persistanceStoring.SaveMaterials(resources);
+    }
+
     public float r_Water; //Yes 
     public float r_Bio; // Yes
-    public float r_Ice; // Yes
     public float r_Rock; //Yes 
     public float r_Metal; //Yes
     public float r_Rad; // Yes
