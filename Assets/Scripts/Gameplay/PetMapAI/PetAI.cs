@@ -34,18 +34,23 @@ public class PetAI : MonoBehaviour
         StaticVariables.petAI = this;
         
         StaticVariables.persistanceStoring.LoadPetData(StaticVariables.petData);
+        //StaticVariables.persistanceStoring.LoadMaterials();
+        
+        resources.Enable();
 
-        l_Elec = resources.r_Elec;
-        l_Fire = resources.r_Fire;
         l_Water = resources.r_Water;
         l_Bio = resources.r_Bio;
-        l_Ice = resources.r_Ice;
         l_Rock = resources.r_Rock;
         l_Metal = resources.r_Metal;
         l_Rad = resources.r_Rad;
         l_Bonding = resources.r_Bonding;
 
         //updateRS.UpdateValues();
+    }
+
+    private void OnDestroy()
+    {
+        resources.Disable();
     }
 
     void OnTriggerEnter(Collider other)

@@ -22,6 +22,14 @@ public class Trait : ScriptableObject
 	// Whether this trait is currently active on the pet
 	public bool IsActive;
 
+	public void CheckActive()
+	{
+		if (ActivationPoints == activationThreshold)
+		{
+			IsActive = true;
+		}
+	}
+
 	// Whether this trait can progress with its food requirements
 	public bool IsUnlocked
 	{
