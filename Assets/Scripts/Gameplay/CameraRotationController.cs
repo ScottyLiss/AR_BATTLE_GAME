@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraRotationController : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class CameraRotationController : MonoBehaviour
 		layerMask = 1 << 12;
 
 		if (((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) || (Input.GetAxis("Horizontal") != 0)) &&
-		    Physics.Raycast(ray, out hit, 1000, layerMask))
+		    !EventSystem.current.IsPointerOverGameObject(0) && Physics.Raycast(ray, out hit, 1000, layerMask))
 		{
 
 			float angle = Input.touchCount > 0 ? -0.15f * Input.GetTouch(0).deltaPosition.x : 0;

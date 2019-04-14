@@ -287,15 +287,11 @@ public class FoodQuantity
 
 public enum Food
 {
-	None,
 	Biomass,
 	Metal,
 	Rock,
-	Plastic,
 	Water,
-	Fire,
-	Ice,
-	Electric,
 	Radioactive,
-	Bonding
+	Bonding,
+	None
 }

@@ -1,64 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.EventSystems;
 using UnityEngine;
-using UnityEditor;
 
-public class JunkPile : MonoBehaviour
-{
-    private bool bDebug;
+public class JunkPile {
+	
+	// The rarity of the junk pile
+	public Rarities rarity;
 
-    // Use this for initialization
-    void Start()
-    {
-//        bDebug = EditorApplication.isPlaying;
-
-        #if UNITY_EDITOR
-            bDebug = true;
-        #else
-            bDebug = false;
-        #endif
-    }
-    
-    // TODO: Move this to evented logic
-    // Update is called once per frame
-    void Update()
-    {
-
-        Ray ray;
-        RaycastHit hit;
-
-        //If fire button is pressed 
-        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
-            !EventSystem.current.IsPointerOverGameObject(0)) ||
-            (bDebug == true && Input.GetButtonDown("Fire1")))
-        {
-
-            //Debug.Log("1");
-
-            //Raycast "fires" in the mouse direction
-            Vector3 pos;
-            if (bDebug == true)
-            {
-                pos = Input.mousePosition;
-            }
-            else
-            {
-                pos = Input.GetTouch(0).position;
-            }
-
-            ray = Camera.main.ScreenPointToRay(pos);
-
-
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-                // We've hit a part of an enemy
-                if (hit.collider.tag == "JunkPile")
-                {
-                    //Debug.Log("ok");
-                }
-            }
-        }
-    }
+	// The list of the rewards this pile should give
+	public List<Reward> rewards = new List<Reward>();
 }

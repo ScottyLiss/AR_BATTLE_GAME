@@ -63,7 +63,7 @@ public class EnemyMainComponentScript : EnemyComponent
             else
             {
                 StaticVariables.EnemyComponents = new List<EnemyComponent>();
-                SceneManager.LoadScene(0);
+                StaticVariables.currentEncounter.ConcludeCombat(true);
             }
         }
     }

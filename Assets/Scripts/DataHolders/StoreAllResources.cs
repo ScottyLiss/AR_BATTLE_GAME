@@ -17,17 +17,10 @@ public class StoreAllResources : ScriptableObject
 
             return instance;
         }
-
-        set
-        {
-
-            instance = value;
-        }
     }
     
     public void Enable()
     {
-        Instance = this;
         
         if (StaticVariables.persistanceStoring != null)
             LoadMaterials();
@@ -47,7 +40,6 @@ public class StoreAllResources : ScriptableObject
 
     public void Disable()
     {
-        Instance = null;
         
         Dictionary<Food, int> resources = new Dictionary<Food, int>()
         {

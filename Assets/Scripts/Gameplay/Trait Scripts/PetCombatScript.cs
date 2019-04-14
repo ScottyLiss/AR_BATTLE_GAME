@@ -1,14 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEditor;
-
-public delegate void IntReferenceDelegate(ref int intRef);
-public delegate void FloatReferenceDelegate(ref float intRef);
 
 public class PetCombatScript : MonoBehaviour
 {
@@ -32,14 +27,18 @@ public class PetCombatScript : MonoBehaviour
     private bool isRunningDamageCoroutine = false;
     private float timeSinceLastHit = 0;
 
+    private Animator animator;
+
     // Event handlers for all pet actions
-    public event FloatReferenceDelegate CalculatingBaseDamage;
-    public event FloatReferenceDelegate CalculatingDamageStaminaCost;
-    public event FloatReferenceDelegate CalculatingLowStaminaMultiplier;
-    public event FloatReferenceDelegate CalculatingDamageMultiplier; 
-    public event FloatReferenceDelegate OnPetHit;
-    public event FloatReferenceDelegate OnPetHitArmourCalculation;
-    public event VoidDelegate PetChangedLane;
+    public event GenericVoidDelegate.RefDelegate<float> CalculatingBaseDamage;
+    public event GenericVoidDelegate.RefDelegate<float> CalculatingDamageStaminaCost;
+    public event GenericVoidDelegate.RefDelegate<float> CalculatingLowStaminaMultiplier;
+    public event GenericVoidDelegate.RefDelegate<float> CalculatingDamageMultiplier;
+
+    public event GenericDelegate<float>.RefDelegate<HittableTypes> CalculateComponentSpecificDamageMultiplier;
+    public event GenericVoidDelegate.RefDelegate<float> OnPetHit;
+    public event GenericVoidDelegate.RefDelegate<float> OnPetHitArmourCalculation;
+    public event GenericVoidDelegate.ParamlessDelegate PetChangedLane;
 
     private Vector3 fp;   //First touch position
     private Vector3 lp;   //Last touch position
@@ -48,6 +47,8 @@ public class PetCombatScript : MonoBehaviour
     public Transform[] petPositions = new Transform[3];
 
     private int _iPetLanePosition = 1;
+    
+    private static readonly int Attack = Animator.StringToHash("Attack");
 
     public int iPetLanePosition
     {
@@ -72,6 +73,8 @@ public class PetCombatScript : MonoBehaviour
         attackingFeedback1.gameObject.SetActive(false);
         attackingFeedback2.gameObject.SetActive(false);
         attackingFeedback3.gameObject.SetActive(false);
+
+        animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
 
         //bDebug = EditorApplication.isPlaying;
         
@@ -184,9 +187,6 @@ public class PetCombatScript : MonoBehaviour
 
             timeSinceLastAttack = 0;
 
-            //Raycast "fires" in the mouse direction
-            //Vector3 pos = Input.touchCount > 0 ? (Vector3)Input.GetTouch(0).position : Input.mousePosition;
-            //Raycast "fires" in the mouse direction
             Vector3 pos;
             if (bDebug == true)
             {
@@ -205,51 +205,16 @@ public class PetCombatScript : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
             {
-                // We've hit a part of an enemy
-                if (hit.collider != null)
+                
+                // Hittable
+                HittableObject hittable = hit.collider != null ? (hit.collider.gameObject.GetComponent<HittableObject>() ??
+                                           hit.collider.gameObject.GetComponentInParent<HittableObject>()) : null;
+
+                if (hittable != null)
                 {
-
-                    // Lower the stamina
-                    float newAttackStaminaCost = attackStaminaCost;
-
-                    CalculatingDamageStaminaCost?.Invoke(ref newAttackStaminaCost);
-
-                    StaticVariables.petData.stats.stamina -= newAttackStaminaCost;
-                    StaminaSlider.value = StaticVariables.petData.stats.stamina;
-
-                    // Handle the hit if it's a hittable object
-                    if (hit.collider.gameObject.GetComponent<HittableObject>())
-                    {
-                        float lowStaminaMultiplier = 0.5f;
-
-                        CalculatingLowStaminaMultiplier?.Invoke(ref lowStaminaMultiplier);
-
-                        float damageToDeal = StaticVariables.petData.stats.damage * Mathf.Lerp(lowStaminaMultiplier, 1f, StaticVariables.petData.stats.stamina / 100f);
-
-                        // Run all of the modifications
-                        CalculatingBaseDamage?.Invoke(ref damageToDeal);
-
-                        float damageMultiplier = StaticVariables.RandomInstance.Next(0, 100) < StaticVariables.petData.stats.critChance ? StaticVariables.petData.stats.critMultiplier : 1;
-
-                        // Run all of the modifications
-                        CalculatingDamageMultiplier?.Invoke(ref damageMultiplier);
-
-                        float baseDamage = damageToDeal * damageMultiplier;
-
-                        //float resolvedDamage = this.ResolveDamage(baseDamage, hit.collider.gameObject.GetComponent<HittableObject>());
-
-                        hit.collider.gameObject.GetComponent<HittableObject>().OnHit(hit.point, damageToDeal * damageMultiplier);
-
-                        gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Attack");
-                    }
-
-                    // Handle the hit if it's a hittable object
-                    else if (hit.collider.gameObject.GetComponentInParent<HittableObject>())
-                    {
-                        hit.collider.gameObject.GetComponentInParent<HittableObject>().OnHit(hit.point);
-
-                        gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Attack");
-                    }
+                    
+                    // If we did hit a hittable object, run the hit logic
+                    AttackHittable(hittable, hit.point);
                 }
             }
         }
@@ -259,7 +224,8 @@ public class PetCombatScript : MonoBehaviour
         {
             trait.CombatUpdate();
         }
-
+        
+        // Check for death
         if (StaticVariables.petData.stats.health < 0)
         {
             StaticVariables.EnemyComponents = new List<EnemyComponent>();
@@ -277,8 +243,57 @@ public class PetCombatScript : MonoBehaviour
                 }
             }
 
-            StaticVariables.sceneManager.TransitionOutOfCombat();
+            StaticVariables.currentEncounter.ConcludeCombat(false);
         }
+    }
+
+    public void AttackHittable(HittableObject hittableObject, Vector3 pointHit)
+    {
+
+        // Lower the stamina
+        float newAttackStaminaCost = attackStaminaCost;
+
+        CalculatingDamageStaminaCost?.Invoke(ref newAttackStaminaCost);
+
+        StaticVariables.petData.stats.stamina -= newAttackStaminaCost;
+        StaminaSlider.value = StaticVariables.petData.stats.stamina;
+        
+        
+        /*------------------
+         * Start Calculation
+         -----------------*/
+        
+        
+        float lowStaminaMultiplier = 0.5f;
+
+        CalculatingLowStaminaMultiplier?.Invoke(ref lowStaminaMultiplier);
+
+        float baseDamage = StaticVariables.petData.stats.damage * Mathf.Lerp(lowStaminaMultiplier, 1f, StaticVariables.petData.stats.stamina / 100f);
+
+        // Run all of the modifications
+        CalculatingBaseDamage?.Invoke(ref baseDamage);
+
+        float damageMultiplier = StaticVariables.RandomInstance.Next(0, 100) < StaticVariables.petData.stats.critChance ? StaticVariables.petData.stats.critMultiplier : 1;
+
+        // Run all of the modifications
+        CalculatingDamageMultiplier?.Invoke(ref damageMultiplier);
+
+        float damageToDeal = baseDamage * damageMultiplier;
+
+        float componentDamageModulation = 1;
+
+        if (CalculateComponentSpecificDamageMultiplier != null)
+            componentDamageModulation += CalculateComponentSpecificDamageMultiplier(ref hittableObject.HittableType);
+
+        damageToDeal *= componentDamageModulation;
+        
+        /*------------------
+         * End Calculation
+         -----------------*/
+
+        hittableObject.OnHit(pointHit, damageToDeal);
+
+        animator.SetTrigger(Attack);
     }
 
     public void HitFeedbackUpdate()
@@ -367,7 +382,7 @@ public class PetCombatScript : MonoBehaviour
 
             OnPetHitArmourCalculation?.Invoke(ref armour);
 
-            StaticVariables.petData.stats.health -= (int)damage - (int)armour;
+            StaticVariables.petData.stats.health = StaticVariables.petData.stats.health - Mathf.Clamp((int) damage - (int) armour, damage / 10, int.MaxValue);
 
             this.HealthSlider.value = StaticVariables.petData.stats.health;
 

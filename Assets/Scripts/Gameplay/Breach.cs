@@ -1,83 +1,118 @@
-using System.Collections;
+
 using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
 
-public class Breach : MonoBehaviour
+public class Breach
 {
-
-    //Note:
-    // - Combat needs to be linked that the breach that was activated, will be set as defeated after a successful player engagement
-    // - Otherwise, return and refuse resources
-
-    public int br_lvl;
-
-    private bool breachIsDefeated = false;
-
-    public CombatEncounter encounter;
-
-    public bool BreachDefeated
+    
+    // The cooldown to add to a breach when it is fought (seconds * minutes
+    public const float COOLDOWN_TO_ADD = 60 * 10;
+    
+    // The last id assigned to a breach
+    public static uint LastCreatedID = 0;
+    
+    // The id of the breach
+    public uint id = 0;
+    
+    // The breach name
+    public string Name = "New Breach";
+    
+    // The rarity of the breach
+    public Rarities Rarity;
+    
+    // TODO: The modifiers applied to this breach
+    //public Modifier[] combatModifiers;
+    
+    // The tiers of this breach
+    public List<BreachTier> BreachTiers = new List<BreachTier>();
+    
+    // Difficulty level
+    public int Level;
+    
+    // The current index of the active tier
+    public int CurrentTierIndex = 0;
+    
+    // The time to wait until attempting again
+    public float Cooldown = 0;
+    
+    // Whether the breach can be fought
+    public bool Active = true;
+    
+    // Get the encounter to fight
+    public void StartEncounter()
     {
-        get { return breachIsDefeated; }
-
-        set
+        // Get the appropriate encounter
+        if (CurrentTierIndex < BreachTiers.Count)
         {
-            breachIsDefeated = value;
+            CombatEncounter combatEncounter = BreachTiers[CurrentTierIndex].Encounter;
 
-            if (value)
-            {
-                timer = 300;
-                gameObject.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
-            }
-
-            else
-            {
-                br_lvl++;
-                gameObject.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
-            }
+            // Subscribe to the encounter's completion event
+            combatEncounter.CombatConcluded += OnCombatCompletion;
+        
+            // Transition to combat
+            StaticVariables.sceneManager.TransitionToCombat(combatEncounter);
         }
     }
-
-
-    public float timer = 600;
-    public GameObject robot;
-
-    // Use this for initialization
-    void Start()
+    
+    // What to do when combat concludes
+    public void OnCombatCompletion(params bool[] combatResult)
     {
-        var robotGameObject = Instantiate(robot, gameObject.transform);
-        robotGameObject.transform.position = new Vector3(this.transform.position.x, robot.transform.position.y,
-            this.transform.position.z);
-        br_lvl = 1;
-        timer = 0;
-        BreachDefeated = false;
-
-        encounter = EncounterFactory.CreateCombatEncounter(StaticVariables.RandomInstance.Next(0, 2));
-    }
-
-    void Update()
-    {
-        if (!BreachDefeated)
+        
+        // The player lost, so run the loss logic
+        if (!combatResult[0])
         {
-
+            TierFailed();
         }
+
+        // The player won, so handle the win logic
         else
         {
-            if (timer >= 0)
-            {
-                timer -= Time.deltaTime;
-            }
-            else
-            {
-                BreachDefeated = false;
-            }
+            TierDefeated();
         }
     }
-
-}
-
-public enum BreachState
-{
-    Regular,
-    Fortified,
-    Rich
+    
+    // What to do when the breach is defeated
+    public void TierDefeated()
+    {
+        
+        // Reward the current tier
+        BreachTiers[CurrentTierIndex].OnSuccess();
+        
+        // Increment the current index
+        CurrentTierIndex++;
+        
+        // Get the last tier and complete it, then remove it from the list
+        if (CurrentTierIndex >= BreachTiers.Count)
+        {
+            // There are no more tiers, so complete the whole breach
+            BreachCompleted?.Invoke();
+            
+            // Escape any further logic
+            return;
+        }
+        
+        // Set the Cooldown
+        Cooldown += COOLDOWN_TO_ADD;
+        Active = false;
+        
+        // Run the event for breach fighting
+        BreachFought?.Invoke();
+    }
+    
+    // What to do when the breach is fought unsuccessfully
+    public void TierFailed()
+    {
+        // Set the Cooldown
+        Cooldown += COOLDOWN_TO_ADD;
+        Active = false;
+        
+        // Run the event for breach fighting
+        BreachFought?.Invoke();
+    }
+    
+    // The event to run when the breach has been fought
+    public event GenericVoidDelegate.ParamlessDelegate BreachFought; 
+    
+    // The event to run when the breach is complete
+    public event GenericVoidDelegate.ParamlessDelegate BreachCompleted;
 }

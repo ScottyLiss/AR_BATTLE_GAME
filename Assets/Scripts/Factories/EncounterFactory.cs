@@ -72,10 +72,10 @@ public static class EncounterFactory
     private static CombatEncounterInfo SwarmGeneration(int level)
     {
         // The base stats of the enemy
-        EnemyStats enemyBaseStats = StaticVariables.persistanceStoring.LoadEnemyBaseStats("Arsenal");
+        EnemyStats enemyBaseStats = StaticVariables.persistanceStoring.LoadEnemyBaseStats("Swarm");
 
         // The scaling factor to apply 
-        EnemyStats enemyScaling = StaticVariables.persistanceStoring.LoadEnemyScaling("Arsenal");
+        EnemyStats enemyScaling = StaticVariables.persistanceStoring.LoadEnemyScaling("Swarm");
 
         // The actual stats we're going to use
         EnemyStats newStats = StatsCalculation(enemyBaseStats, enemyScaling, level);

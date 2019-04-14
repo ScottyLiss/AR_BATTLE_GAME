@@ -45,7 +45,7 @@ public class TheSwarm : MonoBehaviour
             {
                 SwarmAlive = false;
                 StartCoroutine("WaitBeforeExit");
-                StaticVariables.sceneManager.TransitionOutOfCombat();
+                StaticVariables.currentEncounter.ConcludeCombat(true);
             }
         }
     }

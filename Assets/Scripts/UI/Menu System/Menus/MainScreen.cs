@@ -23,11 +23,11 @@ public class MainScreen : SimpleMenu<MainScreen>
 
     public void OnPressBreach()
     {
-        StaticVariables.playerData.AddBreach();
-        StaticVariables.playerData.BreachDepolyed(1);
+        //StaticVariables.playerData.AddBreach();
+        //StaticVariables.playerData.BreachDepolyed(1);
 
-        Instantiate(Resources.Load<GameObject>("Breach"), player.transform.position, Quaternion.identity);
-        //BreachesMenu.Show();
+        //Instantiate(Resources.Load<GameObject>("Breach"), player.transform.position, Quaternion.identity);
+        BreachesMenu.Show();
     }
 
     public void OnPressPetMenu()

@@ -8,7 +8,31 @@ public class TraitManager: MonoBehaviour
 
 	#if UNITY_EDITOR
 		public List<Trait> debugTraits = new List<Trait>();
-	#endif
+		
+#endif
+	
+	public bool ReadyForLevelUp
+	{
+		get
+		{
+			// Go through all of the traits, and check if one of the end nodes is reached
+			foreach (var keyValuePair in allTraits)
+			{
+				Trait trait = keyValuePair.Value;
+					
+				// Check if the trait is a dependency of the levelup trait
+				var levelUpTraitDependents =
+					trait.traitDependents.Where(traitDependent => traitDependent.name == "Tier up" && trait.activationPoints >= trait.activationThreshold);
+
+				if (levelUpTraitDependents.Any())
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
+	}
 
 	private void Start()
 	{
@@ -27,12 +51,14 @@ public class TraitManager: MonoBehaviour
 		StaticVariables.persistanceStoring.LoadTraitsData(allTraits);
 	}
 
-	private void GenerateTraits(int level)
+	public void GenerateTraits(int level)
 	{
 		// Load in the trait definitions (these are not used for actual gameplay)
 		Trait[] traitDefinitions = Resources.LoadAll<Trait>("Traits");
 
 		Stats baseStats = StaticVariables.persistanceStoring.LoadPetBaseStats();
+		
+		allTraits = new Dictionary<string, Trait>();
 		
 		// Create a new instance of every definition, and assign appropriate level based adjustments
 		foreach (Trait traitDefinition in traitDefinitions)
@@ -53,6 +79,7 @@ public class TraitManager: MonoBehaviour
 			foreach (Trait traitRequirement in trait.traitRequirements)
 			{
 				newRequirements.Add(allTraits[traitRequirement.name]);
+				allTraits[traitRequirement.name].traitDependents.Add(trait);
 			}
 
 			trait.traitRequirements = newRequirements;

@@ -7,14 +7,16 @@ public class LastStand : CatalystEffect {
     // The amount of seconds to wait
     private readonly float amountOfSecondsToWait = 3;
 
+    public override bool[] supportedRarities => new[] { false, false, false, true };
+
+    public override string name => "Last Stand";
+    
+    public override string catalystName => "Last Stand";
+    
+    public override string description => @"When the pet falls below 10% health, attacks cost no stamina for 3 seconds.";
+
     // Whether the effect can be activated again this encounter
     private bool canBeActivated = false;
-
-    public LastStand()
-    {
-        supportedRarities = new bool[] { false, false, false, true };
-        name = "Last Stand";
-    }
 
     // Subscribe events on combat start
     public override void CombatStart()
@@ -33,8 +35,9 @@ public class LastStand : CatalystEffect {
     // Recalculate whether the effect should proc
     private void CheckHealthCondition(ref float damage)
     {
-        if (StaticVariables.petData.stats.health - damage < StaticVariables.petData.stats.maxHealth *0.1f)
+        if (StaticVariables.petData.stats.health - damage < StaticVariables.petData.stats.maxHealth *0.1f && canBeActivated)
         {
+            canBeActivated = false;
             StaticVariables.combatPet.StartCoroutine(RunEffect());
         }
     }
@@ -50,7 +53,7 @@ public class LastStand : CatalystEffect {
     }
 
     // The effect aplication method
-    private void ApplyEffect(ref float staminaCost)
+    private static void ApplyEffect(ref float staminaCost)
     {
         staminaCost = 0;
     }

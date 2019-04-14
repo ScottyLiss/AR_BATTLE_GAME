@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatalystEffect : GenericEffect {
+public abstract class CatalystEffect : GenericEffect {
 
     // The name of the catalyst effect
-    public new string name = "Generic Name (Please Override)";
+    public new abstract string name { get; }
+    
+    // The name of the catalyst effect
+    public new abstract string catalystName { get; }
+    
+    // The name of the catalyst effect
+    public new abstract string description { get; }
 
     // The rarities supported by the effect
-    public bool[] supportedRarities = new bool[] { true, true, true, true, true };
+    public new abstract bool[] supportedRarities { get; }
 
     // The rarity of the instantiated catalyst effect
     private Rarities _rarity;

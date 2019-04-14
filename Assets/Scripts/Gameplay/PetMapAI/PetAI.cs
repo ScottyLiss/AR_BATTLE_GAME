@@ -7,9 +7,11 @@ public class PetAI : MonoBehaviour
 {
 
     // Persist the data when the application quits
-    public void OnApplicationQuit()
+    public void OnApplicationPause(bool pauseStatus)
     {
+        if (!pauseStatus) return;
         StaticVariables.persistanceStoring.SavePetData();
+        resources.Disable();
     }
 
     //Variables
@@ -19,11 +21,8 @@ public class PetAI : MonoBehaviour
     private List<AIBehaviour> aiBehaviours = new List<AIBehaviour>();
     public StoreAllResources resources;
 
-    public float l_Elec;
-    public float l_Fire;
     public float l_Water;
     public float l_Bio;
-    public float l_Ice;
     public float l_Rock;
     public float l_Metal;
     public float l_Rad;
@@ -49,40 +48,39 @@ public class PetAI : MonoBehaviour
         //updateRS.UpdateValues();
     }
 
-    private void OnDestroy()
-    {
-        resources.Disable();
-    }
-
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Resources")
+        if (other.CompareTag("Resources"))
         {
             UpdateRespectiveResource(other.name); // Checks what resource it is and updates the scriptable object to store the values
 
             Destroy(other.gameObject); // Check what object it is, update it repsectively
         }
 
-        if (other.tag == "Robot")
+        if (other.CompareTag("Robot"))
         {
             //StaticVariables.sceneManager.TransitionToCombat();
 
             Destroy(other.gameObject);
         }
 
-        if (other.tag == "Breach" && other.GetComponent<Breach>() && !other.GetComponent<Breach>().BreachDefeated)
+        BreachBehaviour otherBehaviour = other.GetComponent<BreachBehaviour>();
+
+        if (other.CompareTag("Breach") && otherBehaviour != null)
         {
-            StaticVariables.sceneManager.TransitionToCombat(other.GetComponent<Breach>());
-            other.gameObject.SetActive(false);
+            //StaticVariables.sceneManager.TransitionToCombat(other.GetComponent<Breach>());
+            //other.gameObject.SetActive(false);
             //SceneManager.LoadScene(Mathf.RoundToInt(Random.Range(1.6f, 3.4f)));
             // SceneManager.LoadScene(3);
+            
+            otherBehaviour.OnCollision();
         }
 
-        if (other.tag == "BreachCollect")
-        {
-            StaticVariables.playerData.AddBreach();
-            Destroy(other.gameObject);
-        }
+//        if (other.CompareTag("BreachCollect"))
+//        {
+//            StaticVariables.playerData.AddBreach();
+//            Destroy(other.gameObject);
+//        }
 
     }
 
@@ -97,31 +95,31 @@ public class PetAI : MonoBehaviour
             case "Crystal0(Clone)":
                 resources.r_Bio += 1;
                 l_Bio += 1;
-                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger - 3, 0, 100);
 
                 break;
             case "Crystal1(Clone)":
                 resources.r_Rock += 1;
                 l_Rock += 1;
-                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger - 3, 0, 100);
 
                 break;
             case "Crystal2(Clone)":
                 resources.r_Rad += 1;
                 l_Rad += 1;
-                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger - 3, 0, 100);
 
                 break;
             case "Crystal3(Clone)":
                 resources.r_Metal += 1;
                 l_Metal += 1;
-                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger - 3, 0, 100);
 
                 break;
             case "Crystal4(Clone)":
                 resources.r_Water += 1;
                 l_Water += 1;
-                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger + 3, 0, 100);
+                StaticVariables.petData.hunger = Mathf.Clamp(StaticVariables.petData.hunger - 3, 0, 100);
                 break;
             default:
                 break;
@@ -169,6 +167,9 @@ public class PetAI : MonoBehaviour
         CooperativeArbitration();
         UpdatePosition();
         UpdateDirection();
+
+        StaticVariables.petData.hunger =
+            Mathf.Clamp(StaticVariables.petData.hunger - (StaticVariables.petData.hungerDecayRate * Time.deltaTime), 0, int.MaxValue);
     }
 
     protected virtual void CooperativeArbitration() //Keeps checking through steering behaviours, for when we need more

@@ -35,6 +35,11 @@ public class Swarm : MonoBehaviour
 
     public bool dodging = false;
 
+    private void Awake()
+    {
+        HealthSlider = GetComponentInChildren<Slider>();
+    }
+
     public void Start()
     {
         alive = true;

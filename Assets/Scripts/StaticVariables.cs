@@ -10,7 +10,6 @@ public static class StaticVariables
 	public static Material defaultPetMaterial;
 	public static Material damagedMaterial;
 	public static TraitManager traitManager;
-	public static TraitRendererScript traitRenderer;
 	public static bool isInBattle;
 
 	public static System.Random RandomInstance = new System.Random();
@@ -39,6 +38,7 @@ public static class StaticVariables
     public static PersistanceStoring persistanceStoring;
 	public static PlayerScript playerScript;
 	public static PetComposer petComposer;
+	public static CombatEncounter currentEncounter;
 
 	public delegate void AttackDelegate();
 

@@ -112,7 +112,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4657343434389384}
   - component: {fileID: 65354739903496448}
-  - component: {fileID: 114284100088233978}
   m_Layer: 12
   m_Name: Junk_pile 1
   m_TagString: JunkPile
@@ -561,14 +560,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.3620796, y: 6.6, z: 2.7512448}
   m_Center: {x: -0.008844376, y: 1.984623, z: 0.061912656}
---- !u!114 &114284100088233978
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1423166238063922}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c3856960778f7141a2bed8d81c3992a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

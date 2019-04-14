@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -76,13 +77,21 @@ public class CatalystsMenu : SimpleMenu<CatalystsMenu> {
 
                 // Set its position
                 newButtonBackground.GetComponent<Image>().rectTransform.anchoredPosition =
-                    newButtonBackground.GetComponent<Image>().rectTransform.anchoredPosition - new Vector2(0, 90 * i);
+                    newButtonBackground.GetComponent<Image>().rectTransform.anchoredPosition - new Vector2(0, 85 * i);
 
                 // Instantiate the content
                 GameObject newButtonContent = Instantiate(buttonContent, newButtonBackground.transform);
 
                 // Set the catalyst
                 newButtonContent.GetComponent<InventoryCatalyst>().catalystAssociated = catalysts[i];
+                GameObject buttonName = newButtonContent.transform.Find("Name").gameObject;
+
+                buttonName.GetComponent<TextMeshProUGUI>().text = catalysts[i].name;
+                buttonName.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "lvl." + catalysts[i].level.ToString();
+                buttonName.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color =
+	                catalysts[i].level > StaticVariables.petData.level
+		                ? new Color32(255, 0, 0, 255)
+		                : new Color32(255, 255, 255, 255);
 
                 // Create a new event trigger for the button and hook up the logic
                 EventTrigger trigger = newButtonContent.GetComponent<EventTrigger>();

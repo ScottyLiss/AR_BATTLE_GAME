@@ -4,12 +4,16 @@ using UnityEngine;
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Mapbox.Unity.Map;
 
 public class PersistanceManagerScript : MonoBehaviour
 {
 
 	public PetData petData;
 	public PlayerData playerData;
+
+	public GameObject mapHolder;
+	public AbstractMap map;
 
 	// Make sure the persistence manager is always active
 	void Awake()
@@ -35,6 +39,18 @@ public class PersistanceManagerScript : MonoBehaviour
 
 		LoadPetData();
 		LoadPlayerData();
+
+		map.OnInitialized += OnMapInitialized;
+	}
+
+	private void OnMapInitialized()
+	{
+		var mapBreaches = StaticVariables.persistanceStoring.LoadMapBreaches();
+		
+		foreach (var mapBreach in mapBreaches)
+		{
+			mapBreach.transform.SetParent(mapHolder.transform);
+		}
 	}
 
 	private void LoadPetData()

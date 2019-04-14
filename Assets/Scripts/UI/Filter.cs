@@ -81,9 +81,6 @@ public class Filter : MonoBehaviour
 			{ Food.Rock, RockSprite },
 			{ Food.Metal, MetalSprite },
 			{ Food.Water, WaterSprite },
-			{ Food.Electric, ElectricitySprite },
-			{ Food.Ice, IceSprite },
-			{ Food.Fire, FireSprite },
 			{ Food.Radioactive, RadioactiveSprite },
 		};
 
@@ -93,9 +90,6 @@ public class Filter : MonoBehaviour
 			{Food.Rock, RockMaterial},
 			{Food.Metal, MetalMaterial},
 			{Food.Water, WaterMaterial},
-			{Food.Electric, ElectricityMaterial},
-			{Food.Ice, IceMaterial},
-			{Food.Fire, FireMaterial},
 			{Food.Radioactive, RadioactiveMaterial},
 		};
 	}
@@ -123,21 +117,6 @@ public class Filter : MonoBehaviour
 	public void SetToWater()
 	{
 		FoodToFilter = Food.Water;
-	}
-
-	public void SetToElectric()
-	{
-		FoodToFilter = Food.Electric;
-	}
-
-	public void SetToIce()
-	{
-		FoodToFilter = Food.Ice;
-	}
-
-	public void SetToFire()
-	{
-		FoodToFilter = Food.Fire;
 	}
 
 	public void SetToRadioactive()

@@ -28,6 +28,9 @@ public class Catalyst {
     
     // The slot this catalyst fits into
     public PetBodySlot slot;
+    
+    // The level required for this catalyst to be equipped
+    public int level;
 }
 
 public enum PetBodySlot

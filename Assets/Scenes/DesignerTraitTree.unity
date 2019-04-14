@@ -113,12 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!224 &606371497 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224508531640390324, guid: 90edba9365ad45843bf6fdbae1b0b625,
-    type: 2}
-  m_PrefabInternal: {fileID: 694926764}
---- !u!1001 &694926764
+--- !u!1001 &487130670
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -233,6 +228,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90edba9365ad45843bf6fdbae1b0b625, type: 2}
   m_IsPrefabAsset: 0
+--- !u!224 &606371497 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224508531640390324, guid: 90edba9365ad45843bf6fdbae1b0b625,
+    type: 2}
+  m_PrefabInternal: {fileID: 487130670}
 --- !u!1 &1294134581
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,13 +7,17 @@ public class PetComposer : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		StaticVariables.petComposer = this;
+		if (StaticVariables.petComposer == null)
+			StaticVariables.petComposer = this;
 
 		//StaticVariables.persistanceStoring.SaveNewCatalyst(CatalystFactory.CreateNewCatalyst(1));
+
+		gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMesh = null;
 		
-		AssignModel(PetBodySlot.Head, 1);
+		AssignModel(PetBodySlot.Head, 2);
 		AssignModel(PetBodySlot.Body, 2);
 		AssignModel(PetBodySlot.Tail, 2);
+		AssignModel(PetBodySlot.Legs, 2);
 	}
 	
 	public void AssignModel(PetBodySlot slot, int variant)
@@ -22,10 +26,10 @@ public class PetComposer : MonoBehaviour {
 		GameObject modelVariant = Resources.Load<GameObject>("Variants/" + slot + "/" + variant);
 
 		// Instantiate the model variant as a child of the pangolin
-		GameObject modelVariantInstance = Instantiate(modelVariant, StaticVariables.petAI.transform);
+		GameObject modelVariantInstance = Instantiate(modelVariant, gameObject.transform);
 		
 		// Remove previous variants of the same type and rename this one
-		GameObject oldVariant = StaticVariables.petAI.transform.Find(slot.ToString())?.gameObject;
+		GameObject oldVariant = gameObject.transform.Find(slot.ToString())?.gameObject;
 		
 		if (oldVariant) 
 			Destroy(oldVariant);
@@ -34,7 +38,7 @@ public class PetComposer : MonoBehaviour {
 		
 		// Save references to the skinned meshes of the variant and pangolin base
 		SkinnedMeshRenderer variantSkinnedMeshRenderer = modelVariantInstance.GetComponentInChildren<SkinnedMeshRenderer>();
-		SkinnedMeshRenderer pangolinSkinnedMeshRenderer = StaticVariables.petAI.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
+		SkinnedMeshRenderer pangolinSkinnedMeshRenderer = gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
 
 		variantSkinnedMeshRenderer.gameObject.layer = 11;
 		

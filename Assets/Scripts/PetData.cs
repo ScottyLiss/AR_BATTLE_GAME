@@ -7,15 +7,36 @@ using System.Threading.Tasks;
 [Serializable]
 public class PetData
 {
+    public float BASE_HUNGER_DECAY_RATE = 0.0004f;
+    
     public Stats stats;
     public List<Trait> traits;
-    public int hunger = 0;
+    public float hunger = 0;
 
     public Catalyst headCatalyst;
     public Catalyst bodyCatalyst;
     public Catalyst tailCatalyst;
     public Catalyst legsCatalyst;
     public int level = 1;
+    public List<Breach> breachesInventoryTemp = new List<Breach>();
+    public float hungerDecayRate = 0.0004f;
+
+    public Catalyst GetCatalystInSlot(PetBodySlot slot)
+    {
+        switch (slot)
+        {
+            case PetBodySlot.Head:
+                return headCatalyst;
+            case PetBodySlot.Body:
+                return bodyCatalyst;
+            case PetBodySlot.Legs:
+                return legsCatalyst;
+            case PetBodySlot.Tail:
+                return tailCatalyst;
+        }
+
+        return headCatalyst;
+    }
 
     public Catalyst[] catalysts
     {
@@ -31,7 +52,11 @@ public class PetData
         }
     }
 
-	public void EquipCatalyst(Catalyst catalystToEquip)
+    private float BASE_HEALTH_REGENERATION_FRACTION = 0.02f;
+
+    public float BASE_HEALTH_REGENERATION => BASE_HEALTH_REGENERATION_FRACTION * stats.maxHealth;
+
+    public void EquipCatalyst(Catalyst catalystToEquip)
 	{
 		// Add the catalyst to the appropriate slot
 		switch (catalystToEquip.slot)

@@ -10,6 +10,5 @@ public class BreachMapData : DataHolder
 	private Vector3 breachPosition;
 	private int breachDifficulty;
 	private DateTime breachStateChanged;
-	private BreachState lastBreachState;
 }
 

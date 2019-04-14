@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using UnityEngine.Serialization;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class PlayerScript : MonoBehaviour
 
     #region Breach
     public GameObject breach;
+    public GameObject mapHolder;
     public PlayerData playerdata;
     public bool breachPlaceable = true;
     public int breachCount = 0;
@@ -73,10 +75,7 @@ public class PlayerScript : MonoBehaviour
     #region JunkPile
     private bool bDebug;
     private bool bPileSystemStatus;
-    public int iInteractionCounter;
     private RaycastHit hit;
-    public GameObject PileUI;
-    public GameObject PileObject;
     #endregion
     //--------------------------------------------------------------------------------------------------------------------//
     //                                        END OF VARIABLE DEFINING                                                    //
@@ -84,6 +83,8 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     public GameObject test21;
+
+    public LayerMask layersToInteractWith;
 
     protected void Start()
     {
@@ -140,7 +141,8 @@ public class PlayerScript : MonoBehaviour
         //If fire button is pressed 
         if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
             !EventSystem.current.IsPointerOverGameObject(0)) ||
-            (bDebug == true && Input.GetButtonDown("Fire1")))
+            (bDebug == true && Input.GetButtonDown("Fire1") &&
+             !EventSystem.current.IsPointerOverGameObject(0)))
         {
             //Raycast "fires" in the mouse direction
             Vector3 pos;
@@ -155,7 +157,7 @@ public class PlayerScript : MonoBehaviour
 
             ray = Camera.main.ScreenPointToRay(pos);
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layersToInteractWith))
             {
                 // if we have hit the beacon
                 if (hit.collider.tag == "Beacon")
@@ -301,7 +303,8 @@ public class PlayerScript : MonoBehaviour
         //If fire button is pressed 
         if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
             !EventSystem.current.IsPointerOverGameObject(0)) ||
-            (bDebug == true && Input.GetButtonDown("Fire1")))
+            (bDebug == true && Input.GetButtonDown("Fire1") &&
+             !EventSystem.current.IsPointerOverGameObject(0)))
         {
 
             //Debug.Log("1");
@@ -321,7 +324,7 @@ public class PlayerScript : MonoBehaviour
 
 
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layersToInteractWith))
             {
                 // We've hit a part of an enemy
                 if (hit.collider.tag == "JunkPile")
@@ -330,47 +333,17 @@ public class PlayerScript : MonoBehaviour
 
                     if (distance < 30)
                     {
-                        PileObject = hit.collider.gameObject;
-                        //Debug.Log("ok");
-                        PileUI.SetActive(true);
-                        iInteractionCounter = 0;
+                        JunkPileMenu.Show(hit.collider.gameObject);
+                        Destroy(hit.collider.gameObject);
                     }
-
-
+                }
+                
+                // We've hit a breach, so display its information on the screen
+                if (hit.collider.CompareTag("Breach"))
+                {
+                    BreachViewMenu.Show(hit.collider.GetComponent<BreachBehaviour>().BreachToRepresent);
                 }
             }
-        }
-
-    }
-
-    public void PilePopping()
-    {
-        iInteractionCounter++;
-
-        if (iInteractionCounter >= 4)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                //Debug.Log(i.ToString());
-                GameObject instance = Resources.Load("Crystal" + Mathf.RoundToInt(UnityEngine.Random.Range(0, 5)), typeof(GameObject)) as GameObject;
-                catalysts.Add(CatalystFactory.CreateNewCatalyst(10));
-                instance.layer = 12;
-                Instantiate(instance, PileObject.transform.position + new Vector3(0, 1.584367f, 0), Quaternion.identity);
-            }
-
-            //Debug.Log(i.ToString());
-            GameObject instance2 = Resources.Load("BreachCollect", typeof(GameObject)) as GameObject;
-            instance2.layer = 12;
-            Instantiate(instance2, PileObject.transform.position + new Vector3(0, 1.584367f, 0), Quaternion.identity);
-
-            Destroy(PileObject);
-            PileUI.transform.localScale = new Vector3(6.0f, 6.0f, 6.0f);
-            PileUI.SetActive(false);
-
-        }
-        else
-        {
-            PileUI.transform.localScale -= new Vector3(1.0f, 1.0f, 1.0f);
         }
     }
 
@@ -389,64 +362,21 @@ public class PlayerScript : MonoBehaviour
 
     #region PlayerMethods (Scene)
 
-    public void TransitionToPlayerInventory()
+    public void SpawnBreach(Breach breach)
     {
-        StaticVariables.playerData.LoadBreachesOnInventory(playerMenu);
-        playerMenu.SetActive(true);
-    }
+        GameObject breachGameObject = Resources.Load<GameObject>("Breach");
+        
+        // Spawn the breach at the player position
+        GameObject newBreach = GameObject.Instantiate(breachGameObject, mapHolder.transform);
 
-    public void SelectBreachA()
-    {
-        if (StaticVariables.playerData.CheckIfBreachAvailable(1))
-            iSelectedBreach = 1;// Breach A
-        else
-            iSelectedBreach = 0;
-    }
+        newBreach.transform.position = gameObject.transform.position;
 
-    public void SelectBreachB()
-    {
-        if (StaticVariables.playerData.CheckIfBreachAvailable(2))
-            iSelectedBreach = 2;// Breach B
-        else
-            iSelectedBreach = 0;
-    }
-
-    public void TempSpawnBreach()
-    {
-        Instantiate(breach, this.transform.position, Quaternion.identity);
-    }
-
-    public void CheckJunkpile()
-    {
-        Ray ray;
-        RaycastHit hit;
-
-        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(0)) || (bDebug == true && Input.GetButtonDown("Fire1")))
-        {
-
-            Vector3 pos;
-            if (bDebug == true)
-            {
-                pos = Input.mousePosition;
-            }
-            else
-            {
-                pos = Input.GetTouch(0).position;
-            }
-
-            ray = Camera.main.ScreenPointToRay(pos);
-
-
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-                // We've hit a part of an enemy
-                if (hit.collider.tag == "JunkPile")
-                {
-                    //Debug.Log("Hit Obj");
-                }
-            }
-        }
+        newBreach.GetComponent<BreachBehaviour>().BreachToRepresent = breach;
+        newBreach.GetComponent<BreachBehaviour>().Initialize();
+        
+        MenuManager.Instance.BackToRoot();
+        
+        StaticVariables.persistanceStoring.DeleteBreachFromInventory(breach);
     }
 
     #endregion

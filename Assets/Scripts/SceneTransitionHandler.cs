@@ -63,19 +63,23 @@ public class SceneTransitionHandler : MonoBehaviour
             MapHolderGameObject.SetActive(true);
 
             TransitionScreen.SetActive(false);
+            
+            StaticVariables.currentEncounter.UpdateEncounterConclusion();
+            StaticVariables.currentEncounter = null;
 
             isLoadingSomething = false;
         }
     }
 
-    public void TransitionToCombat(Breach breach = null)
+    public void TransitionToCombat(CombatEncounter combatEncounter)
     {
         // TODO: Set it up to save the map data
         //StaticVariables.persistanceManager.SaveMapData();
 
         if (!isLoadingSomething && StaticVariables.petData.stats.health > 0)
         {
-            StartCoroutine(TransitionToCombatCoroutine(breach));
+            StaticVariables.currentEncounter = combatEncounter;
+            StartCoroutine(TransitionToCombatCoroutine(combatEncounter));
         }
 
         else if (StaticVariables.petData.stats.health == 0 && !showingAlert)
@@ -104,11 +108,11 @@ public class SceneTransitionHandler : MonoBehaviour
         showingAlert = false;
     }
 
-    private IEnumerator TransitionToCombatCoroutine(Breach breach = null)
+    private IEnumerator TransitionToCombatCoroutine(CombatEncounter combatEncounter)
     {
         if (!isLoadingSomething)
         {
-            var encounterInfo = breach.encounter.encounterInfo;
+            var encounterInfo = combatEncounter.encounterInfo;
 
             var ongoingOperation = SceneManager.LoadSceneAsync(sceneToLoadCombat, LoadSceneMode.Additive);
 
@@ -123,18 +127,15 @@ public class SceneTransitionHandler : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
 
-            if (breach)
-                breach.BreachDefeated = true;
-
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneToLoadCombat));
 
             GameObject newEnemy = Instantiate(encounterInfo.enemyPrefab, GameObject.Find("EnemyPlaceholder").transform);
-            if (newEnemy.name == "Arsenal")
+            if (combatEncounter.enemyType == EncounterType.Arsenal)
             {
                 newEnemy.GetComponent<EncounterImplementer>().encounterInfo = encounterInfo; // Issue here
                 newEnemy.GetComponent<EncounterImplementer>().Implement();
             }
-            else if (newEnemy.name == "The_Swarm")
+            else if (combatEncounter.enemyType == EncounterType.Swarm)
             {
                 foreach (GameObject a in newEnemy.GetComponent<TheSwarm>().swarm)
                 {

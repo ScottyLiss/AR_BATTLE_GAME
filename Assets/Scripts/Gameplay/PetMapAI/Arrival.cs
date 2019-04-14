@@ -27,13 +27,23 @@ public class Arrival : AIBehaviour
 		desiredVelocity.Normalize();
 
 		if(distance < arrivalRadius)
-		{
-                desiredVelocity *= steeringAgent.MaxSpeed * (distance / arrivalRadius);
+		{			
+            desiredVelocity *= steeringAgent.MaxSpeed * (distance / arrivalRadius);
+            
+            StaticVariables.petData.hungerDecayRate = StaticVariables.petData.BASE_HUNGER_DECAY_RATE;
+
 		}
 		else
 		{
 			desiredVelocity *= 65;
+			
+			StaticVariables.petData.hungerDecayRate = StaticVariables.petData.BASE_HUNGER_DECAY_RATE * 50;
 		}
+		
+		
+		StaticVariables.petData.stats.health = Mathf.Clamp(StaticVariables.petData.stats.health +
+		                                                   desiredVelocity.magnitude * Time.deltaTime *
+		                                                   StaticVariables.petData.BASE_HEALTH_REGENERATION, 0, StaticVariables.petData.stats.maxHealth);
 
 		// Calculate steering velocity
 		steeringVelocity = desiredVelocity - steeringAgent.CurrentVelocity;

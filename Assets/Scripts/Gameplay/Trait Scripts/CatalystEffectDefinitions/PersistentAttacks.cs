@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PersistentAttacks : CatalystEffect {
+    
+    public override bool[] supportedRarities => new[] { true, true, true, false };
 
-    public PersistentAttacks()
-    {
-        supportedRarities = new bool[] { true, true, true, false };
-        name = "Persistent Attacks";
-    }
+    public override string name => "Persistent Attacks";
+    
+    public override string catalystName => "Persistent";
+    
+    public override string description => @"When the pet is out of stamina, its attacks deal " + (multipliers[(int)rarity] * 100) + "% damage instead of just 50%." ;
 
     // The multipliers based on rarity
-    private float[] multipliers =
+    private static float[] multipliers =
     {
         0.55f,
         0.60f,

@@ -13,8 +13,20 @@ public class TraitsMenu : SimpleMenu<TraitsMenu>
         Hide();
     }
 
-    private void Start()
+    public void OnPressLevelUp()
     {
-        //throw new System.NotImplementedException();
+        // Check if the pet is ready for levelup
+        if (StaticVariables.traitManager.ReadyForLevelUp)
+        {
+            
+            // We need to increment the pet level
+            StaticVariables.petData.level++;
+            
+            // Regenerate the traits
+            StaticVariables.traitManager.GenerateTraits(StaticVariables.petData.level);
+            
+            // Hide the traits menu
+            Hide();
+        }
     }
 }

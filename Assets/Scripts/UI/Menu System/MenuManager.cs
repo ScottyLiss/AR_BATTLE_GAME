@@ -9,8 +9,10 @@ public class MenuManager : MonoBehaviour
 	public BreachesMenu BreachesMenuPrefab;
 	public CatalystsMenu CatalystsMenuPrefab;
 	public TraitsMenu TraitsMenuPrefab;
+	public JunkPileMenu JunkPileMenuPrefab;
 	public PetMenu PetMenuPrefab;
 	public FoodsMenu FoodsMenuPrefab;
+	public BreachViewMenu BreachViewMenuPrefab;
 
 	public HealthWarningPopup HealthWarningPopupPrefab;
 

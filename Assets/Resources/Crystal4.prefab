@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4162492556318280}
   - component: {fileID: 212630279568726248}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4640469172808398}
   - component: {fileID: 33526742674733628}
   - component: {fileID: 23217805535631246}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

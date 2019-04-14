@@ -24,9 +24,9 @@ public class UIDraggingResource : MonoBehaviour, IDragHandler, IEndDragHandler {
 
     public void OnDrag(PointerEventData eventData) // While the user drags their item, do the following
     {
-        if (!movingItem && StaticVariables.petData.hunger < 100)
+        if (!movingItem && StaticVariables.petData.hunger < 90)
         {
-            movingObject = Instantiate(gameObject, Input.mousePosition, Quaternion.identity, gameObject.transform.parent);
+            movingObject = Instantiate(gameObject, Input.mousePosition, Quaternion.identity, gameObject.transform.parent.parent);
             movingItem = true;
         }
 

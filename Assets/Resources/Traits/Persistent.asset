@@ -44,5 +44,5 @@ MonoBehaviour:
   traitDependents: []
   activationThreshold: 5
   deactivationThreshold: 0
-  activationFood: 5
-  detrimentalFood: 0
+  activationFood: 3
+  detrimentalFood: 6
