@@ -49,8 +49,8 @@ public class EnemyMainComponentScript : EnemyComponent
         base.OnHit(positionHit, damageDealt);
 
         RotateOnDamage(positionHit);
-
         HealthSlider.value = health;
+
 
         if (health < 0)
         {
@@ -63,7 +63,7 @@ public class EnemyMainComponentScript : EnemyComponent
             else
             {
                 StaticVariables.EnemyComponents = new List<EnemyComponent>();
-                SceneManager.LoadScene(0);
+                StaticVariables.sceneManager.TransitionOutOfCombat();
             }
         }
     }
@@ -120,6 +120,10 @@ public class EnemyMainComponentScript : EnemyComponent
         if (this.name == "Swarm__Final_:Root")
         {
 
+        }
+        else if (this.name == "Wasp")
+        {
+            
         }
         else
         {

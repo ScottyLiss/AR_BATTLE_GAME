@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3704a8ecbe994844ca95a0c04d0fadcb
+guid: d512c0f9148cc0c4096fa58faf7472ec
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -470,17 +470,7 @@ ModelImporter:
     13700134: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere8
     13700136: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere9
     13700138: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Scorpion_Body
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Scorpion__With_Reference__Animation_Ready_Scorpion_v6__UV__Engine_initialShadingGroup1
-    second: {fileID: 2100000, guid: 7332ed97134e1474f9090ec498f93bde, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: ea23b51a846631e498423e69cb0855d8, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -530,8 +520,8 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
-    previousCalculatedGlobalScale: 1
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60

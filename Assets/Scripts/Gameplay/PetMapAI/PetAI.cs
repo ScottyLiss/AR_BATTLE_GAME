@@ -72,6 +72,7 @@ public class PetAI : MonoBehaviour
 
         if (other.tag == "Breach" && other.GetComponent<Breach>() && !other.GetComponent<Breach>().BreachDefeated)
         {
+            Debug.Log("Triggered");
             StaticVariables.sceneManager.TransitionToCombat(other.GetComponent<Breach>());
             other.gameObject.SetActive(false);
             //SceneManager.LoadScene(Mathf.RoundToInt(Random.Range(1.6f, 3.4f)));

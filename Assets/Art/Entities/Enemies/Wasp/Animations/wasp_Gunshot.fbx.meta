@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: d8abb9ad4d96e9f439c2063243271581
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: antenna_L_Jnt
+    100002: antenna_R_Jnt
+    100004: arm_End_L_Jnt
+    100006: arm_End_R_Jnt
+    100008: back_Jnt
+    100010: Controllers
+    100012: elbow_L_Jnt
+    100014: elbow_R_Jnt
+    100016: end_Jnt
+    100018: global_CTRL
+    100020: head_CTRL
+    100022: head_jnt
+    100024: joint1
+    100026: joint2
+    100028: mid_Jnt
+    100030: neck_Jnt
+    100032: root_Jnt
+    100034: shoulder_L_Jnt_01
+    100036: shoulder_L_Jnt_01 1
+    100038: shoulder_R_Jnt_01
+    100040: shoulder_R_Jnt_01 1
+    100042: torso_CTRL
+    100044: //RootNode
+    100046: waspModel_RefFromHere:Wasp_1_5:Mesh
+    100048: wing_Bottom_L_Jnt
+    100050: wing_Bottom_R_Jnt
+    100052: wing_Config_L_Jnt
+    100054: wing_Config_R_Jnt
+    100056: wing_Mid_L_Jnt
+    100058: wing_Mid_R_Jnt
+    100060: wing_Top_L_jnt
+    100062: wing_Top_R_jnt
+    400000: antenna_L_Jnt
+    400002: antenna_R_Jnt
+    400004: arm_End_L_Jnt
+    400006: arm_End_R_Jnt
+    400008: back_Jnt
+    400010: Controllers
+    400012: elbow_L_Jnt
+    400014: elbow_R_Jnt
+    400016: end_Jnt
+    400018: global_CTRL
+    400020: head_CTRL
+    400022: head_jnt
+    400024: joint1
+    400026: joint2
+    400028: mid_Jnt
+    400030: neck_Jnt
+    400032: root_Jnt
+    400034: shoulder_L_Jnt_01
+    400036: shoulder_L_Jnt_01 1
+    400038: shoulder_R_Jnt_01
+    400040: shoulder_R_Jnt_01 1
+    400042: torso_CTRL
+    400044: //RootNode
+    400046: waspModel_RefFromHere:Wasp_1_5:Mesh
+    400048: wing_Bottom_L_Jnt
+    400050: wing_Bottom_R_Jnt
+    400052: wing_Config_L_Jnt
+    400054: wing_Config_R_Jnt
+    400056: wing_Mid_L_Jnt
+    400058: wing_Mid_R_Jnt
+    400060: wing_Top_L_jnt
+    400062: wing_Top_R_jnt
+    2100000: waspModel_RefFromHere_aiStandardSurface1
+    4300000: waspModel_RefFromHere:Wasp_1_5:Mesh
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: waspModel_RefFromHere:Wasp_1_5:Mesh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

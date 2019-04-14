@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +10,7 @@ public static class EncounterFactory
     private static Dictionary<EncounterType, Func<int, CombatEncounterInfo>> generationMethods = new Dictionary<EncounterType, Func<int, CombatEncounterInfo>>()
     {
         { EncounterType.Arsenal, ArsenalGeneration },
+        { EncounterType.Scorpion, ScorpionGeneration }, // = nr 3
         { EncounterType.Swarm, SwarmGeneration }
     };
 
@@ -17,7 +18,7 @@ public static class EncounterFactory
     public static CombatEncounter CreateCombatEncounter(int level)
     {
         // Roll a random enemy TODO: add the rest of the enemies
-        EncounterType enemyType = (EncounterType)Mathf.RoundToInt(UnityEngine.Random.Range(-0.4f,1f));
+        EncounterType enemyType = (EncounterType)3;//Mathf.RoundToInt(UnityEngine.Random.Range(-0.4f,1f));
 
         // Generate the information needed
         CombatEncounterInfo encounterInfo = generationMethods[enemyType](level);
@@ -60,6 +61,42 @@ public static class EncounterFactory
             upperRightArmStats = armStats,
             lowerLeftArmStats = armStats,
             lowerRightArmStats = armStats,
+            mainBodyStats = newStats
+        };
+
+        // Initialize the info
+        newInfo.Initialize();
+
+        return newInfo;
+    }
+
+
+    private static CombatEncounterInfo ScorpionGeneration(int level)
+    {
+        // The base stats of the enemy
+        EnemyStats enemyBaseStats = StaticVariables.persistanceStoring.LoadEnemyBaseStats("Arsenal");
+
+        // The scaling factor to apply 
+        EnemyStats enemyScaling = StaticVariables.persistanceStoring.LoadEnemyScaling("Arsenal");
+
+        // The base stats of the arms
+        EnemyStats tailBaseStats = StaticVariables.persistanceStoring.LoadEnemyBaseStats("Arsenal");
+
+        // The scaling factor for the arms
+        EnemyStats tailScaling = StaticVariables.persistanceStoring.LoadEnemyScaling("Arsenal");
+
+        // The actual stats we're going to use
+        EnemyStats newStats = StatsCalculation(enemyBaseStats, enemyScaling, level);
+
+        // The arm stats we're going to use
+        EnemyStats tailStats = StatsCalculation(tailBaseStats, tailScaling, level);
+
+        // Generate a new encounter info
+        ScorpionEncounterInfo newInfo = new ScorpionEncounterInfo()
+        {
+            firstTailStats = tailStats,
+            secondTailStats = tailStats,
+            thirdTailStats = tailStats,
             mainBodyStats = newStats
         };
 

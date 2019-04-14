@@ -62,8 +62,8 @@ public class EnemyComponent : HittableObject
 	{
 		if (this.enabled)
 		{
-			AudioClip randomClip = impactSounds[StaticVariables.RandomInstance.Next(0, impactSounds.Length)];
-			GetComponent<AudioSource>().PlayOneShot(randomClip);
+			//AudioClip randomClip = impactSounds[StaticVariables.RandomInstance.Next(0, impactSounds.Length)];
+			//GetComponent<AudioSource>().PlayOneShot(randomClip);
 
 			if (damageToApply == null)
 			{

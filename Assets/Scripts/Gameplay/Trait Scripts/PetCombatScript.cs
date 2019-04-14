@@ -69,9 +69,9 @@ public class PetCombatScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attackingFeedback1.gameObject.SetActive(false);
-        attackingFeedback2.gameObject.SetActive(false);
-        attackingFeedback3.gameObject.SetActive(false);
+        //attackingFeedback1.gameObject.SetActive(false);
+        //attackingFeedback2.gameObject.SetActive(false);
+        //attackingFeedback3.gameObject.SetActive(false);
 
         //bDebug = EditorApplication.isPlaying;
         
@@ -182,6 +182,8 @@ public class PetCombatScript : MonoBehaviour
         && StaticVariables.petData.stats.stamina > attackStaminaCost)
         {
 
+            
+
             timeSinceLastAttack = 0;
 
             //Raycast "fires" in the mouse direction
@@ -208,7 +210,7 @@ public class PetCombatScript : MonoBehaviour
                 // We've hit a part of an enemy
                 if (hit.collider != null)
                 {
-
+                    Debug.Log("Hit");
                     // Lower the stamina
                     float newAttackStaminaCost = attackStaminaCost;
 
@@ -284,75 +286,79 @@ public class PetCombatScript : MonoBehaviour
     public void HitFeedbackUpdate()
     {
         Scene m_scene = SceneManager.GetActiveScene();
-        if(m_scene.name != "Scenario 3")
-        {
-            if (StaticVariables.bRobotAttackTriggered)
-            {
-                switch (StaticVariables.iRobotAttackLanePosition)
-                {
-                    case 0:
-                        attackingFeedback1.gameObject.SetActive(true);
-                        attackingFeedback2.gameObject.SetActive(false);
-                        attackingFeedback3.gameObject.SetActive(false);
-                        break;
-                    case 1:
-                        attackingFeedback1.gameObject.SetActive(false);
-                        attackingFeedback2.gameObject.SetActive(true);
-                        attackingFeedback3.gameObject.SetActive(false);
-                        break;
-                    case 2:
-                        attackingFeedback1.gameObject.SetActive(false);
-                        attackingFeedback2.gameObject.SetActive(false);
-                        attackingFeedback3.gameObject.SetActive(true);
-                        break;
-                }
-            }
+        /*  
 
-            if (StaticVariables.bSwarmAttackTriggered)
-            {
-                foreach (int a in StaticVariables.lanesActive)
+                         if(m_scene.name != "Scenario 3")
                 {
-                    switch (a)
+                    if (StaticVariables.bRobotAttackTriggered)
                     {
-                        case 0:
-                            attackingFeedback1.gameObject.SetActive(true);
-                            break;
-                        case 1:
-                            attackingFeedback2.gameObject.SetActive(true);
-                            break;
-                        case 2:
-                            attackingFeedback3.gameObject.SetActive(true);
-                            break;
+                        switch (StaticVariables.iRobotAttackLanePosition)
+                        {
+                            case 0:
+                                attackingFeedback1.gameObject.SetActive(true);
+                                attackingFeedback2.gameObject.SetActive(false);
+                                attackingFeedback3.gameObject.SetActive(false);
+                                break;
+                            case 1:
+                                attackingFeedback1.gameObject.SetActive(false);
+                                attackingFeedback2.gameObject.SetActive(true);
+                                attackingFeedback3.gameObject.SetActive(false);
+                                break;
+                            case 2:
+                                attackingFeedback1.gameObject.SetActive(false);
+                                attackingFeedback2.gameObject.SetActive(false);
+                                attackingFeedback3.gameObject.SetActive(true);
+                                break;
+                        }
+                    }
+
+                    else if (StaticVariables.bSwarmAttackTriggered)
+                    {
+                        foreach (int a in StaticVariables.lanesActive)
+                        {
+                            switch (a)
+                            {
+                                case 0:
+                                    attackingFeedback1.gameObject.SetActive(true);
+                                    break;
+                                case 1:
+                                    attackingFeedback2.gameObject.SetActive(true);
+                                    break;
+                                case 2:
+                                    attackingFeedback3.gameObject.SetActive(true);
+                                    break;
+                            }
+                        }
+                    }
+
+                    else if (StaticVariables.bRobotAttackTriggered && StaticVariables.swarmHealth > 3)
+                    {
+                        foreach (int a in StaticVariables.lanesActive)
+                        {
+                            switch (a)
+                            {
+                                case 0:
+                                    attackingFeedback1.gameObject.SetActive(true);
+                                    break;
+                                case 1:
+                                    attackingFeedback2.gameObject.SetActive(true);
+                                    break;
+                                case 2:
+                                    attackingFeedback3.gameObject.SetActive(true);
+                                    break;
+                            }
+                        }
+                    }
+
+                    else
+                    {
+                        attackingFeedback1.gameObject.SetActive(false);
+                        attackingFeedback2.gameObject.SetActive(false);
+                        attackingFeedback3.gameObject.SetActive(false);
                     }
                 }
-            }
-            
-            else if (StaticVariables.bRobotAttackTriggered)
-            {
-                foreach (int a in StaticVariables.lanesActive)
-                {
-                    switch (a)
-                    {
-                        case 0:
-                            attackingFeedback1.gameObject.SetActive(true);
-                            break;
-                        case 1:
-                            attackingFeedback2.gameObject.SetActive(true);
-                            break;
-                        case 2:
-                            attackingFeedback3.gameObject.SetActive(true);
-                            break;
-                    }
-                }
-            }
-            
-            else
-            {
-                attackingFeedback1.gameObject.SetActive(false);
-                attackingFeedback2.gameObject.SetActive(false);
-                attackingFeedback3.gameObject.SetActive(false);
-            }
-        }
+
+                 */
 
     }
 

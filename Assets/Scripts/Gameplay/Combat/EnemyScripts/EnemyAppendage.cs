@@ -37,13 +37,17 @@ public class EnemyAppendage : EnemyComponent {
   //To move in the enemy Component
   public override void Attack()
 	{
+        if(this.gameObject.tag != "Scorpion")
+        {
+            enemyMainComponentScript.gameObject.transform.parent.GetComponent<Animator>().SetTrigger(AnimationTrigger);    
+        }
 
-        enemyMainComponentScript.gameObject.transform.parent.GetComponent<Animator>().SetTrigger(AnimationTrigger);
         StaticVariables.iRobotAttackLanePosition = StaticVariables.combatPet.iPetLanePosition;
         StaticVariables.bRobotAttackTriggered = true;
 
-		StaticVariables.AttackCallbacks += AttackDealDamage;
-	}
+        StaticVariables.AttackCallbacks += AttackDealDamage;
+
+    }
 
   //To move in the enemy Component
 	private void AttackDealDamage()

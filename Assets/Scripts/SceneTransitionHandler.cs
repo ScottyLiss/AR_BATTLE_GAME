@@ -128,19 +128,29 @@ public class SceneTransitionHandler : MonoBehaviour
 
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneToLoadCombat));
 
+            
             GameObject newEnemy = Instantiate(encounterInfo.enemyPrefab, GameObject.Find("EnemyPlaceholder").transform);
+            Debug.Log(newEnemy.name);
             if (newEnemy.name == "Arsenal")
             {
+                Debug.Log("111");
                 newEnemy.GetComponent<EncounterImplementer>().encounterInfo = encounterInfo; // Issue here
                 newEnemy.GetComponent<EncounterImplementer>().Implement();
             }
             else if (newEnemy.name == "The_Swarm")
             {
+                Debug.Log("222");
                 foreach (GameObject a in newEnemy.GetComponent<TheSwarm>().swarm)
                 {
                     a.GetComponent<EncounterImplementer>().encounterInfo = encounterInfo;
                     a.GetComponent<EncounterImplementer>().Implement();
                 }
+            }
+            else if (newEnemy.name == "Scorpion(Clone)")
+            {
+                Debug.Log("333");
+                newEnemy.GetComponent<EncounterImplementer>().encounterInfo = encounterInfo; // Issue here
+                newEnemy.GetComponent<EncounterImplementer>().Implement();
             }
 
 

@@ -51,7 +51,7 @@ public class Breach : MonoBehaviour
         timer = 0;
         BreachDefeated = false;
 
-        encounter = EncounterFactory.CreateCombatEncounter(StaticVariables.RandomInstance.Next(0, 2));
+       encounter = EncounterFactory.CreateCombatEncounter(2); //StaticVariables.RandomInstance.Next(0, 2)
     }
 
     void Update()
