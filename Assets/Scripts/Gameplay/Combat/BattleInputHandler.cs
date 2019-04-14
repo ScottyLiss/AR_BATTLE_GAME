@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using Cinemachine;
@@ -23,7 +23,9 @@ public class BattleInputHandler : MonoBehaviour
 
 	private Ray ray;
     private RaycastHit hit;
-    
+
+    public GameObject pet;
+
     public Slider playerHealth;
     public Slider enemyHealth;
     public Slider SwipeAttackRecharge;
@@ -90,6 +92,7 @@ public class BattleInputHandler : MonoBehaviour
 	    StaticVariables.defaultPetMaterial = this.defaultPetMaterial;
 	    StaticVariables.damagedMaterial = this.damagedMaterial;
 	    StaticVariables.battleHandler = this;
+        StaticVariables.laneIndication = gameObject.GetComponent<LaneIndication>();
 
 		fDefaultSecondsToDamageEnemy = fSecondsToDamageEnemy;
         fDefaultSecondsToDamagePlayer = fSecondsToDamagePlayer;

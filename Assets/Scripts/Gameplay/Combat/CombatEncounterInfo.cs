@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,6 +33,23 @@ public class ArsenalEncounterInfo : CombatEncounterInfo
     public EnemyStats lowerRightArmStats;
 }
 
+public class ScorpionEncounterInfo : CombatEncounterInfo
+{
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        enemyPrefab = Resources.Load<GameObject>("Combat/Prefabs/Scorpion");
+        enemyPrefab.GetComponent<ScorpionEncounterImplementer>().encounterInfo = this;
+    }
+
+    // Stats
+    public EnemyStats mainBodyStats;
+    public EnemyStats firstTailStats;
+    public EnemyStats secondTailStats;
+    public EnemyStats thirdTailStats;
+}
+
 public class SwarmEncounterInfo : CombatEncounterInfo
 {
     public override void Initialize()
@@ -44,6 +61,20 @@ public class SwarmEncounterInfo : CombatEncounterInfo
         {
             a.GetComponent<SwarmEncounterImplementer>().encounterInfo = this;
         }
+    }
+
+    // Stats
+    public EnemyStats mainBodyStats;
+}
+
+public class WaspEncounterInfo : CombatEncounterInfo
+{
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        enemyPrefab = Resources.Load<GameObject>("Combat/Prefabs/Wasp");
+        enemyPrefab.GetComponent<WaspEncounterImplementer>().encounterInfo = this;
     }
 
     // Stats

@@ -977,6 +977,17 @@ public class PersistanceStoring : MonoBehaviour
             encounter.encounterInfo = newInfo;
         }
         
+        else if (encounterType == EncounterType.Scorpion)
+        {
+            
+            throw new NotImplementedException("Scorpion Encounter Persistence Hasn't Been Implemented Yet");
+        }
+        
+        else if (encounterType == EncounterType.Wasp)
+        {
+            throw new NotImplementedException("Wasp Encounter Persistence Hasn't Been Implemented Yet");
+        }
+        
         encounter.encounterInfo.Initialize();
 
         return encounter;
@@ -1034,6 +1045,17 @@ public class PersistanceStoring : MonoBehaviour
             var statsAdjustment = GenerateEnemyStatsXMLElement(newInfo.mainBodyStats);
             
             encounterElement.Add(statsAdjustment);
+        }
+        
+        else if (combatEncounter.enemyType == EncounterType.Scorpion)
+        {
+            
+            throw new NotImplementedException("Scorpion Encounter Persistence Hasn't Been Implemented Yet");
+        }
+        
+        else if (combatEncounter.enemyType == EncounterType.Wasp)
+        {
+            throw new NotImplementedException("Wasp Encounter Persistence Hasn't Been Implemented Yet");
         }
 
         return encounterElement;

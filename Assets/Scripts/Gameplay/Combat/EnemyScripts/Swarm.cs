@@ -152,7 +152,7 @@ public class Swarm : MonoBehaviour
         {
             _laneID = laneID;
             startPos = this.transform.position;
-            laneCoordToGo = lanesCoords[_laneID] + new Vector3(Random.Range(-0.33f, 0.56f), Random.Range(-0.7f, 1.65f), Random.Range(-0.5f, 0.5f));
+            laneCoordToGo = lanesCoords[_laneID] + new Vector3(Random.Range(-0.2f, 0.25f), Random.Range(-0.7f, 1.5f), Random.Range(-0.5f, 1.3f));
             moveLane = true;
         }
 

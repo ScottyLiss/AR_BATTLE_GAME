@@ -23,17 +23,20 @@ public static class StaticVariables
 	public static GameObject map;
 	public static PetData petData;
 	public static PlayerData playerData;
+    public static LaneIndication laneIndication;
 	public static int BombsInPlay { get; set; }
 
     public static UpdateResources updateResourcesScript { get; set; }
 
     public static int iAttackingLoopID = 0;
-    public static int iRobotAttackLanePosition = 0;
+    public static int iRobotAttackLanePosition = 2;
     public static bool bRobotAttackTriggered = false;
+
+    public static bool bWaspAttackTriggered = false;
 
     public static bool bSwarmAttackTriggered = false;
     public static int[] lanesActive = new int[3];
-    public static int swarmHealth = 10;
+    public static int swarmHealth = 0;
 
     public static PersistanceStoring persistanceStoring;
 	public static PlayerScript playerScript;

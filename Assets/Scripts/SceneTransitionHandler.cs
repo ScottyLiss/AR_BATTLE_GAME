@@ -132,16 +132,24 @@ public class SceneTransitionHandler : MonoBehaviour
             GameObject newEnemy = Instantiate(encounterInfo.enemyPrefab, GameObject.Find("EnemyPlaceholder").transform);
             if (combatEncounter.enemyType == EncounterType.Arsenal)
             {
+                Debug.Log("111");
                 newEnemy.GetComponent<EncounterImplementer>().encounterInfo = encounterInfo; // Issue here
                 newEnemy.GetComponent<EncounterImplementer>().Implement();
             }
             else if (combatEncounter.enemyType == EncounterType.Swarm)
             {
+                Debug.Log("222");
                 foreach (GameObject a in newEnemy.GetComponent<TheSwarm>().swarm)
                 {
                     a.GetComponent<EncounterImplementer>().encounterInfo = encounterInfo;
                     a.GetComponent<EncounterImplementer>().Implement();
                 }
+            }
+            else if (combatEncounter.enemyType == EncounterType.Scorpion)
+            {
+                Debug.Log("333");
+                newEnemy.GetComponent<EncounterImplementer>().encounterInfo = encounterInfo; // Issue here
+                newEnemy.GetComponent<EncounterImplementer>().Implement();
             }
 
 

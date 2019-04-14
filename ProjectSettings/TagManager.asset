@@ -13,6 +13,8 @@ TagManager:
   - Beacon
   - JunkPile
   - UIDraggable
+  - Swarm
+  - Scorpion
   layers:
   - Default
   - TransparentFX

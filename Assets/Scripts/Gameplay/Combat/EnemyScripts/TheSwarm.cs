@@ -52,7 +52,7 @@ public class TheSwarm : MonoBehaviour
     IEnumerator WaitBeforeExit()
     {
         yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene(1);
+        StaticVariables.sceneManager.TransitionOutOfCombat();
     }
 
     IEnumerator Choice()
