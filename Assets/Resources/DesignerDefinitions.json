@@ -376,6 +376,38 @@
         "AttackSpeed": 1,
         "StaggerResist": 15
       }
+    },
+    "Wasp": {
+      "Base": {
+        "Health": 1000,
+        "Armour": 15,
+        "Damage": 200,
+        "AttackSpeed": 2.5,
+        "StaggerResist": 10
+      },
+      "Scaling": {
+        "Health": 25,
+        "Armour": 25,
+        "Damage": 10,
+        "AttackSpeed": 1,
+        "StaggerResist": 25
+      }
+    },
+    "Scorpion": {
+      "Base": {
+        "Health": 1000,
+        "Armour": 15,
+        "Damage": 200,
+        "AttackSpeed": 2.5,
+        "StaggerResist": 10
+      },
+      "Scaling": {
+        "Health": 25,
+        "Armour": 25,
+        "Damage": 10,
+        "AttackSpeed": 1,
+        "StaggerResist": 25
+      }
     }
   }
 

@@ -980,7 +980,23 @@ public class PersistanceStoring : MonoBehaviour
         else if (encounterType == EncounterType.Scorpion)
         {
             
-            throw new NotImplementedException("Scorpion Encounter Persistence Hasn't Been Implemented Yet");
+            // Translate the info
+            ScorpionEncounterInfo newInfo = new ScorpionEncounterInfo();
+            
+            // Create stat elements for the parts
+            var mainBodyStatsElement = encounterElement.Element("Main-Body-Stats");
+            newInfo.mainBodyStats = LoadEnemyStatsXMLElement(mainBodyStatsElement);
+            
+            var firstTailStatsElement = encounterElement.Element("First-Tail-Stats");
+            newInfo.firstTailStats = LoadEnemyStatsXMLElement(firstTailStatsElement);
+            
+            var secondTailStatsElement = encounterElement.Element("Second-Tail-Stats");
+            newInfo.secondTailStats = LoadEnemyStatsXMLElement(secondTailStatsElement);
+            
+            var thirdTailStatsElement = encounterElement.Element("Third-Tail-Stats");
+            newInfo.thirdTailStats = LoadEnemyStatsXMLElement(thirdTailStatsElement);
+
+            encounter.encounterInfo = newInfo;
         }
         
         else if (encounterType == EncounterType.Wasp)
@@ -1052,13 +1068,37 @@ public class PersistanceStoring : MonoBehaviour
         
         else if (combatEncounter.enemyType == EncounterType.Scorpion)
         {
+        
+            // Translate the info
+            ScorpionEncounterInfo newInfo = (ScorpionEncounterInfo) combatEncounter.encounterInfo;
             
-            throw new NotImplementedException("Scorpion Encounter Persistence Hasn't Been Implemented Yet");
+            // Create stat elements for the parts
+            var mainBodyStatsElement = new XElement("Main-Body-Stats");
+            mainBodyStatsElement.Add(GenerateEnemyStatsXMLElement(newInfo.mainBodyStats));
+            
+            var firstTailStatsElement = new XElement("First-Tail-Stats");
+            firstTailStatsElement.Add(GenerateEnemyStatsXMLElement(newInfo.firstTailStats));
+            
+            var secondTailStatsElement = new XElement("Second-Tail-Stats");
+            secondTailStatsElement.Add(GenerateEnemyStatsXMLElement(newInfo.secondTailStats));
+            
+            var thirdTailStatsElement = new XElement("Third-Tail-Stats");
+            thirdTailStatsElement.Add(GenerateEnemyStatsXMLElement(newInfo.thirdTailStats));
+                     
+            // Add the elements to the encounter element
+            encounterElement.Add(mainBodyStatsElement);
+            encounterElement.Add(firstTailStatsElement);
+            encounterElement.Add(secondTailStatsElement);
+            encounterElement.Add(thirdTailStatsElement);
         }
         
         else if (combatEncounter.enemyType == EncounterType.Wasp)
         {
-            throw new NotImplementedException("Wasp Encounter Persistence Hasn't Been Implemented Yet");
+            WaspEncounterInfo newInfo = (WaspEncounterInfo) combatEncounter.encounterInfo;
+
+            var statsAdjustment = GenerateEnemyStatsXMLElement(newInfo.mainBodyStats);
+            
+            encounterElement.Add(statsAdjustment);
         }
 
         return encounterElement;

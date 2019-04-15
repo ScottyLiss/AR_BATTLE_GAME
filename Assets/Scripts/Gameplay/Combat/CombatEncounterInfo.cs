@@ -73,8 +73,9 @@ public class WaspEncounterInfo : CombatEncounterInfo
     {
         base.Initialize();
 
-        enemyPrefab = Resources.Load<GameObject>("Combat/Prefabs/Wasp");
-        enemyPrefab.GetComponent<WaspEncounterImplementer>().encounterInfo = this;
+        enemyPrefab = Resources.Load<GameObject>("Combat/Prefabs/Wasp_Main");
+        
+        enemyPrefab.GetComponentInChildren<WaspEncounterImplementer>().encounterInfo = this;
     }
 
     // Stats

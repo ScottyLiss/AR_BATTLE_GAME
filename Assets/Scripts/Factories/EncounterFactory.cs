@@ -11,14 +11,15 @@ public static class EncounterFactory
     {
         { EncounterType.Arsenal, ArsenalGeneration },
         { EncounterType.Scorpion, ScorpionGeneration }, // = nr 3
-        { EncounterType.Swarm, SwarmGeneration }
+        { EncounterType.Swarm, SwarmGeneration },
+        { EncounterType.Wasp, WaspGeneration }
     };
 
     // Create a new combat encounter
     public static CombatEncounter CreateCombatEncounter(int level)
     {
         // Roll a random enemy TODO: add the rest of the enemies
-        EncounterType enemyType = (EncounterType)3;//Mathf.RoundToInt(UnityEngine.Random.Range(-0.4f,1f));
+        EncounterType enemyType = (EncounterType) StaticVariables.RandomInstance.Next(0, generationMethods.Count);
 
         // Generate the information needed
         CombatEncounterInfo encounterInfo = generationMethods[enemyType](level);
@@ -74,16 +75,16 @@ public static class EncounterFactory
     private static CombatEncounterInfo ScorpionGeneration(int level)
     {
         // The base stats of the enemy
-        EnemyStats enemyBaseStats = StaticVariables.persistanceStoring.LoadEnemyBaseStats("Arsenal");
+        EnemyStats enemyBaseStats = StaticVariables.persistanceStoring.LoadEnemyBaseStats("Scorpion");
 
         // The scaling factor to apply 
-        EnemyStats enemyScaling = StaticVariables.persistanceStoring.LoadEnemyScaling("Arsenal");
+        EnemyStats enemyScaling = StaticVariables.persistanceStoring.LoadEnemyScaling("Scorpion");
 
         // The base stats of the arms
-        EnemyStats tailBaseStats = StaticVariables.persistanceStoring.LoadEnemyBaseStats("Arsenal");
+        EnemyStats tailBaseStats = StaticVariables.persistanceStoring.LoadEnemyBaseStats("Scorpion");
 
         // The scaling factor for the arms
-        EnemyStats tailScaling = StaticVariables.persistanceStoring.LoadEnemyScaling("Arsenal");
+        EnemyStats tailScaling = StaticVariables.persistanceStoring.LoadEnemyScaling("Scorpion");
 
         // The actual stats we're going to use
         EnemyStats newStats = StatsCalculation(enemyBaseStats, enemyScaling, level);
@@ -119,6 +120,29 @@ public static class EncounterFactory
 
         // Generate a new encounter info
         SwarmEncounterInfo newInfo = new SwarmEncounterInfo()
+        {
+            mainBodyStats = newStats
+        };
+
+        // Initialize the info
+        newInfo.Initialize();
+
+        return newInfo;
+    }
+    
+    private static CombatEncounterInfo WaspGeneration(int level)
+    {
+        // The base stats of the enemy
+        EnemyStats enemyBaseStats = StaticVariables.persistanceStoring.LoadEnemyBaseStats("Wasp");
+
+        // The scaling factor to apply 
+        EnemyStats enemyScaling = StaticVariables.persistanceStoring.LoadEnemyScaling("Wasp");
+
+        // The actual stats we're going to use
+        EnemyStats newStats = StatsCalculation(enemyBaseStats, enemyScaling, level);
+
+        // Generate a new encounter info
+        WaspEncounterInfo newInfo = new WaspEncounterInfo()
         {
             mainBodyStats = newStats
         };
