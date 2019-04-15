@@ -59,8 +59,7 @@ public class Wasp : MonoBehaviour
             if (arrived && !attacking) // If we arrived and we're not moving anymore
             {
                 attacking = true;
-
-                //Splash();
+                
                 StaticVariables.bRobotAttackTriggered = true;
                 StaticVariables.iRobotAttackLanePosition = StaticVariables.combatPet.iPetLanePosition;
                 GetRandomAction();
@@ -96,7 +95,7 @@ public class Wasp : MonoBehaviour
         }
         else
         {
-            //StaticVariables.sceneManager.TransitionOutOfCombat();
+            StaticVariables.sceneManager.TransitionOutOfCombat();
         }
     }
     void SwitchCheckPos(string tagName)
@@ -134,7 +133,6 @@ public class Wasp : MonoBehaviour
         animator.SetInteger("Animation", 5);
         for (int i = 0; i < quantity; i++)
         {
-            StaticVariables.laneIndication.Shrink(0.5f, StaticVariables.iRobotAttackLanePosition);
             yield return new WaitForSeconds(0.5f);
             StaticVariables.combatPet.GetHit(damage * 0.5f);
         }
@@ -167,7 +165,8 @@ public class Wasp : MonoBehaviour
         for (int i = 0; i < x; i++)
         {
             StaticVariables.iRobotAttackLanePosition = 2 - i;
-            StaticVariables.laneIndication.Shrink(0.5f, StaticVariables.iRobotAttackLanePosition);
+            StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].timer = 0.5f;
+            StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].doneShrinking = false;
             yield return new WaitForSeconds(0.5f);
             if (CheckIfSameLane())
             {
@@ -195,7 +194,7 @@ public class Wasp : MonoBehaviour
 
     IEnumerator SplashDamage()
     {
-        StaticVariables.laneIndication.Shrink(0.5f, StaticVariables.iRobotAttackLanePosition);
+
         yield return new WaitForSeconds(0.5f);
         if (!spawnedAcid)
         {
@@ -235,10 +234,14 @@ public class Wasp : MonoBehaviour
         }
         else if (rand > .5f && rand <= .8f) // 40%
         {
+            StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].timer = 0.5f;
+            StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].doneShrinking = false;
             BurstDamage(); // Method 1
         }
         else // 20% of being above 0.8
         {
+            StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].timer = 0.5f;
+            StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].doneShrinking = false;
             Splash(); // Method 3
         }
     }

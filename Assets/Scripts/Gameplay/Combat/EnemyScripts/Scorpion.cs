@@ -12,7 +12,7 @@ public class Scorpion : MonoBehaviour
     public bool alive = true;
     public bool hit;
     public float damage;
-
+    private float values;
     public Animator animator;
 
     public AudioClip audio;
@@ -21,7 +21,7 @@ public class Scorpion : MonoBehaviour
 
     
 
-    public float timer = 3;
+    public float timer = 4;
     private float fraction = 0;
     public float speed = 0.5f;
 
@@ -78,16 +78,20 @@ public class Scorpion : MonoBehaviour
         switch (GetRandomValue())
         {
             case 0: // Supposedly 15% chance
+
                 Burrow(); //Burrow
+
                 Debug.Log("Burrow");
                 break;
 
             case 1: // Supposedly 80% chance             
+
                 TailAttack(true); // Single Tail Attack
                 Debug.Log("Single attack");
                 break;
 
             case 2: // Supposedly 5% chance
+
                 TailAttack(false);
                 Debug.Log("Double attack");
                 break;
@@ -117,6 +121,7 @@ public class Scorpion : MonoBehaviour
 
     #region Actions
 
+
     //the scorpion goes underground to make a surprise attack
     void Burrow()
     {
@@ -128,23 +133,12 @@ public class Scorpion : MonoBehaviour
         //Scorpion takes 1.5s to burrow
         StartCoroutine("WaitBurrow");
 
-        coroutine = WaitForXSec(fSeconds - 1.0f);
-        StartCoroutine(coroutine);
-
         //Save the current pet lane position
         StaticVariables.iRobotAttackLanePosition = StaticVariables.combatPet.iPetLanePosition;
 
-        coroutine = WaitForXSec(1.0f);
-        StartCoroutine(coroutine);
-       
+        values = fSeconds;
         //Start the animation to unburrow
-        animator.SetInteger("Value", 6);
-
-        //If the player is in the same lane as the saved one, deal the damage
-        if (StaticVariables.iRobotAttackLanePosition == StaticVariables.combatPet.iPetLanePosition)
-        {
-            StaticVariables.combatPet.GetHit(damage);
-        }
+        StartCoroutine(WaitBurrow());
     }
 
     //uses one tail on one lane, to use one of the attacks between laser, circle saw and poison needle attack
@@ -154,31 +148,32 @@ public class Scorpion : MonoBehaviour
         
         //Select randomly between which type of attack to perform
         int iRandom = (int)UnityEngine.Random.Range(1.0f, 3.0f);
+        Debug.Log(iRandom);
 
-       
+        //Save the current pet lane position
+        StaticVariables.iRobotAttackLanePosition = StaticVariables.combatPet.iPetLanePosition;
+
 
         switch (iRandom)
         {
             case 1:
 
-                //Save the current pet lane position
-                StaticVariables.iRobotAttackLanePosition = StaticVariables.combatPet.iPetLanePosition;
 
+
+                StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].doneShrinking = false;
+                StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].timer = 0.5f;
                 //Shoot attack animation
                 fCurrentTime = Time.time;
                 animator.SetInteger("Value", 2);//2
-              
-                coroutine = WaitForXSec(1.0f);
-                StartCoroutine(coroutine);
 
                 //If the player is in the same lane as the saved one, deal the damage
                 if (StaticVariables.iRobotAttackLanePosition == StaticVariables.combatPet.iPetLanePosition)
                 {
-                    StaticVariables.combatPet.GetHit(damage);
+                    WaitForXSec(1.5f, 1);
                 }
-                else if(!bSingleTail)
+                else if (!bSingleTail)
                 {
-                    
+
                     //Select randomly between which lane to attack
                     iRandom = (int)UnityEngine.Random.Range(1.0f, 3.0f);
                     while (iRandom != StaticVariables.iRobotAttackLanePosition)
@@ -189,9 +184,8 @@ public class Scorpion : MonoBehaviour
 
                     if (iRandom == StaticVariables.combatPet.iPetLanePosition)
                     {
-                        StaticVariables.combatPet.GetHit(damage);
+                        WaitForXSec(0, 1);
                     }
-                    
 
                 }
 
@@ -207,15 +201,13 @@ public class Scorpion : MonoBehaviour
                 //The attack is performed 3 times in quick succession
                 for(int iCount = 0; iCount < 3; iCount++)
                 {
-                    //Save the current pet lane position
-                    StaticVariables.iRobotAttackLanePosition = StaticVariables.combatPet.iPetLanePosition;
-
-                    coroutine = WaitForXSec(0.3f);
-                    StartCoroutine(coroutine);
+                    StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].doneShrinking = false;
+                    StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].timer = 0.5f;
 
                     //If the player is in the same lane as the saved one, deal the damage
                     if (StaticVariables.iRobotAttackLanePosition == StaticVariables.combatPet.iPetLanePosition)
                     {
+                        StartCoroutine(WaitForXSec(0.5f, 2));
                         StaticVariables.combatPet.GetHit(damage/2);
                     }
                     else if (!bSingleTail)
@@ -247,8 +239,8 @@ public class Scorpion : MonoBehaviour
                 //needle attack animation
                 animator.SetInteger("Value", 4);//2
 
-                coroutine = WaitForXSec(1.0f);
-                StartCoroutine(coroutine);
+                StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].doneShrinking = false;
+                StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].timer = 0.5f;
 
                 //If the player is in the same lane as the saved one, deal the damage
                 if (StaticVariables.iRobotAttackLanePosition == StaticVariables.combatPet.iPetLanePosition)
@@ -258,10 +250,7 @@ public class Scorpion : MonoBehaviour
                     //The attack is performed 5 times every second
                     for (int iCount = 0; iCount < 5; iCount++)
                     {
-                        coroutine = WaitForXSec(1.0f);
-                        StartCoroutine(coroutine);
-
-                        StaticVariables.combatPet.GetHit(damage / 5);
+                        StartCoroutine(WaitForXSec(1.0f, 5));
                     }
                 }
                 else if (!bSingleTail)
@@ -277,24 +266,21 @@ public class Scorpion : MonoBehaviour
 
                     if (iRandom == StaticVariables.combatPet.iPetLanePosition)
                     {
-                        StaticVariables.combatPet.GetHit(damage/2);
+                        //StaticVariables.combatPet.GetHit(damage/2);
 
                         //The attack is performed 5 times every second
                         for (int iCount = 0; iCount < 5; iCount++)
                         {
-                            coroutine = WaitForXSec(1.0f);
-                            StartCoroutine(coroutine);
-
-                            StaticVariables.combatPet.GetHit(damage / 5);
+                            StartCoroutine(WaitForXSec(1.0f, 5));
                         }
                     }
-                    
 
                 }
 
                 break;
+            default:
+                break;
         }
-
         
     }
 
@@ -305,17 +291,15 @@ public class Scorpion : MonoBehaviour
     {
         //Save the current pet lane position
         StaticVariables.iRobotAttackLanePosition = StaticVariables.combatPet.iPetLanePosition;
-
-        coroutine = WaitForXSec(1.0f);
-        StartCoroutine(coroutine);
-
+ 
         //Body slam animation
         animator.SetInteger("Value", 10);//3
+
 
         //If the player is in the same lane as the saved one, deal the damage
         if (StaticVariables.iRobotAttackLanePosition == StaticVariables.combatPet.iPetLanePosition)
         {
-            StaticVariables.combatPet.GetHit(damage / 2);
+            StartCoroutine(WaitForXSec(1.0f, 2));
         }
     }
 
@@ -335,13 +319,20 @@ public class Scorpion : MonoBehaviour
     IEnumerator WaitBurrow()
     {
         yield return new WaitForSeconds(1.5f);
+        animator.SetInteger("Value", 6);
+        //If the player is in the same lane as the saved one, deal the damage
+        if (StaticVariables.iRobotAttackLanePosition == StaticVariables.combatPet.iPetLanePosition)
+        {
+            StartCoroutine(WaitForXSec(values - 1.0f, 1));
+        }
     }
 
 
 
-    IEnumerator WaitForXSec(float fSeconds)
-    {
+    IEnumerator WaitForXSec(float fSeconds, int damageReduction)
+    { 
         yield return new WaitForSeconds(fSeconds);
+        StaticVariables.combatPet.GetHit(damage / damageReduction);
     }
 
 

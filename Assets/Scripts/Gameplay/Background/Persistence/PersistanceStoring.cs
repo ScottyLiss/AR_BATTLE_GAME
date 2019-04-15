@@ -985,7 +985,10 @@ public class PersistanceStoring : MonoBehaviour
         
         else if (encounterType == EncounterType.Wasp)
         {
-            throw new NotImplementedException("Wasp Encounter Persistence Hasn't Been Implemented Yet");
+            WaspEncounterInfo newInfo = new WaspEncounterInfo();
+            newInfo.mainBodyStats = LoadEnemyStatsXMLElement(encounterElement);
+
+            encounter.encounterInfo = newInfo;
         }
         
         encounter.encounterInfo.Initialize();

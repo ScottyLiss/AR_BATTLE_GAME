@@ -181,6 +181,17 @@ public class TheSwarm : MonoBehaviour
     IEnumerator Warning(int lanes)
     {
         yield return new WaitForSeconds(1.5f);
+        foreach(int i in StaticVariables.lanesActive)
+        {
+            if(i != -1)
+            {
+                StaticVariables.laneIndication.shrinklane[i].timer = 0.5f;
+                StaticVariables.laneIndication.shrinklane[i].doneShrinking = false;
+            }
+        }
+
+
+        yield return new WaitForSeconds(0.5f);
         foreach (GameObject g in swarm)
         {
             g.GetComponent<Swarm>().Shoot();

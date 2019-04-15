@@ -243,7 +243,7 @@ public class PetCombatScript : MonoBehaviour
                 }
             }
 
-            StaticVariables.currentEncounter.ConcludeCombat(false);
+//            StaticVariables.currentEncounter.ConcludeCombat(false);
         }
     }
 

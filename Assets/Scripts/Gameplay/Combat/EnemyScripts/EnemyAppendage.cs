@@ -43,6 +43,7 @@ public class EnemyAppendage : EnemyComponent {
         }
 
         StaticVariables.iRobotAttackLanePosition = StaticVariables.combatPet.iPetLanePosition;
+
         StaticVariables.bRobotAttackTriggered = true;
 
         StaticVariables.AttackCallbacks += AttackDealDamage;
@@ -52,15 +53,24 @@ public class EnemyAppendage : EnemyComponent {
   //To move in the enemy Component
 	private void AttackDealDamage()
 	{
-    StaticVariables.bRobotAttackTriggered = false;
-    if (StaticVariables.iRobotAttackLanePosition == StaticVariables.combatPet.iPetLanePosition)
+        StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].doneShrinking = false;
+        StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].timer = 0.5f;
+        StaticVariables.bRobotAttackTriggered = false;
+        StartCoroutine(DelayAttack());
+	}
+
+    IEnumerator DelayAttack()
+    {
+        yield return new WaitForSeconds(0.3f);
+
+        if (StaticVariables.iRobotAttackLanePosition == StaticVariables.combatPet.iPetLanePosition)
         {
             base.Attack();
 
             if (AttackAudioClip)
                 GetComponent<AudioSource>().PlayOneShot(AttackAudioClip);
         }
-	}
+    }
 
 	public override void OnHit(Vector3 positionHit, float? damageToApply = null)
 	{
