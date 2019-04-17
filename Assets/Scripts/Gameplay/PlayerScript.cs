@@ -217,6 +217,8 @@ public class PlayerScript : MonoBehaviour
 
         if (CTM.resources.Count > 0)
         {
+
+            GameObject enemyRepresentation = Resources.Load<GameObject>("EnemyMapRepresentation");
             Instantiate(robot, new Vector3(this.transform.position.x, robot.transform.position.y, this.transform.position.z), Quaternion.identity);
         }
 

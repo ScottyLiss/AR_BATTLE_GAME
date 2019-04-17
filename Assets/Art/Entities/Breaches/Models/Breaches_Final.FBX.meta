@@ -1,38 +1,98 @@
 fileFormatVersion: 2
 guid: e8febcd75dfc1d248abc9a38d78876d4
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Breaches_Bottom_001
-    100002: Breaches_Bottom_002
-    100004: //RootNode
-    100006: Breaches_Top_001
-    400000: Breaches_Bottom_001
-    400002: Breaches_Bottom_002
-    400004: //RootNode
-    400006: Breaches_Top_001
-    2100000: 'Material #48'
-    2100002: 'Material #59'
-    2100004: 'Material #94'
-    2100006: 'Material #52'
-    2100008: 'Material #51'
-    2100010: 'Material #53'
-    2100012: 'Material #50'
-    2100014: 'Material #25'
-    2100016: 'Material #54'
-    2100018: 'Material #38'
-    2100020: 'Material #41'
-    2100022: 'Material #40'
-    2100024: 'Material #42'
-    2300000: Breaches_Bottom_001
-    2300002: Breaches_Bottom_002
-    2300004: Breaches_Top_001
-    3300000: Breaches_Bottom_001
-    3300002: Breaches_Bottom_002
-    3300004: Breaches_Top_001
-    4300000: Breaches_Top_001
-    4300002: Breaches_Bottom_002
-    4300004: Breaches_Bottom_001
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Breaches_Bottom_001
+  - first:
+      1: 100002
+    second: Breaches_Bottom_002
+  - first:
+      1: 100004
+    second: //RootNode
+  - first:
+      1: 100006
+    second: Breaches_Top_001
+  - first:
+      4: 400000
+    second: Breaches_Bottom_001
+  - first:
+      4: 400002
+    second: Breaches_Bottom_002
+  - first:
+      4: 400004
+    second: //RootNode
+  - first:
+      4: 400006
+    second: Breaches_Top_001
+  - first:
+      21: 2100000
+    second: 'Material #48'
+  - first:
+      21: 2100002
+    second: 'Material #59'
+  - first:
+      21: 2100004
+    second: 'Material #94'
+  - first:
+      21: 2100006
+    second: 'Material #52'
+  - first:
+      21: 2100008
+    second: 'Material #51'
+  - first:
+      21: 2100010
+    second: 'Material #53'
+  - first:
+      21: 2100012
+    second: 'Material #50'
+  - first:
+      21: 2100014
+    second: 'Material #25'
+  - first:
+      21: 2100016
+    second: 'Material #54'
+  - first:
+      21: 2100018
+    second: 'Material #38'
+  - first:
+      21: 2100020
+    second: 'Material #41'
+  - first:
+      21: 2100022
+    second: 'Material #40'
+  - first:
+      21: 2100024
+    second: 'Material #42'
+  - first:
+      23: 2300000
+    second: Breaches_Bottom_001
+  - first:
+      23: 2300002
+    second: Breaches_Bottom_002
+  - first:
+      23: 2300004
+    second: Breaches_Top_001
+  - first:
+      33: 3300000
+    second: Breaches_Bottom_001
+  - first:
+      33: 3300002
+    second: Breaches_Bottom_002
+  - first:
+      33: 3300004
+    second: Breaches_Top_001
+  - first:
+      43: 4300000
+    second: Breaches_Top_001
+  - first:
+      43: 4300002
+    second: Breaches_Bottom_002
+  - first:
+      43: 4300004
+    second: Breaches_Bottom_001
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -64,9 +124,10 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 10
+    globalScale: 15
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -74,27 +135,32 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -104,8 +170,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 0.38099998
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

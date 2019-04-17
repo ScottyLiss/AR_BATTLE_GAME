@@ -16,10 +16,7 @@ public class Wasp : MonoBehaviour
     private bool spawnedAcid = false;
 
     // Four values that get set by the SwarmEnouncterImplementer
-    public float health = 10; //Option to hit 3 times to defeat one, they're fast but nimble 
-    public float armour;
-    public Slider HealthSlider;
-    public float damage = 0;
+    public EnemyMainComponentScript mainComponentScript;
 
     public GameObject[] lanePos;
     
@@ -54,7 +51,7 @@ public class Wasp : MonoBehaviour
 
     void Update()
     {
-        if (health > 0)
+        if (mainComponentScript.health > 0)
         {
             if (arrived && !attacking) // If we arrived and we're not moving anymore
             {
@@ -134,7 +131,7 @@ public class Wasp : MonoBehaviour
         for (int i = 0; i < quantity; i++)
         {
             yield return new WaitForSeconds(0.5f);
-            StaticVariables.combatPet.GetHit(damage * 0.5f);
+            StaticVariables.combatPet.GetHit(mainComponentScript.damage * 0.5f);
         }
 
 
@@ -171,7 +168,7 @@ public class Wasp : MonoBehaviour
             if (CheckIfSameLane())
             {
                 Debug.Log("Damage");
-                StaticVariables.combatPet.GetHit(damage);
+                StaticVariables.combatPet.GetHit(mainComponentScript.damage);
             }
 
         }

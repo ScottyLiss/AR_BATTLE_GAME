@@ -60,9 +60,13 @@ public class CatalystsMenu : SimpleMenu<CatalystsMenu> {
         {
             // Load in all of the catalysts
             var catalysts = StaticVariables.persistanceStoring.LoadCatalystInventory();
+            
+            // Calculate the description button height
+            float buttonHeight = buttonBackground.GetComponent<RectTransform>().rect.height;
+            float buttonBottomPadding = 10;
 
             // Calculate the content holder's height
-            int endHeight = (catalysts.Length - 1) * 90;
+            float endHeight = (catalysts.Length) * (buttonHeight + buttonBottomPadding);
 
             // Set the content container height (this allows scrolling the inventory properly
             ContentContainer.GetComponent<RectTransform>()
@@ -77,7 +81,8 @@ public class CatalystsMenu : SimpleMenu<CatalystsMenu> {
 
                 // Set its position
                 newButtonBackground.GetComponent<Image>().rectTransform.anchoredPosition =
-                    newButtonBackground.GetComponent<Image>().rectTransform.anchoredPosition - new Vector2(0, 85 * i);
+                    newButtonBackground.GetComponent<Image>().rectTransform.anchoredPosition - new Vector2(0,
+	                    (buttonHeight + buttonBottomPadding) * i);
 
                 // Instantiate the content
                 GameObject newButtonContent = Instantiate(buttonContent, newButtonBackground.transform);
@@ -85,10 +90,11 @@ public class CatalystsMenu : SimpleMenu<CatalystsMenu> {
                 // Set the catalyst
                 newButtonContent.GetComponent<InventoryCatalyst>().catalystAssociated = catalysts[i];
                 GameObject buttonName = newButtonContent.transform.Find("Name").gameObject;
+                GameObject buttonLevel = newButtonContent.transform.Find("Level").gameObject;
 
                 buttonName.GetComponent<TextMeshProUGUI>().text = catalysts[i].name;
-                buttonName.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "lvl." + catalysts[i].level.ToString();
-                buttonName.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color =
+                buttonLevel.GetComponent<TextMeshProUGUI>().text = "lvl." + catalysts[i].level.ToString();
+                buttonLevel.GetComponent<TextMeshProUGUI>().color =
 	                catalysts[i].level > StaticVariables.petData.level
 		                ? new Color32(255, 0, 0, 255)
 		                : new Color32(255, 255, 255, 255);

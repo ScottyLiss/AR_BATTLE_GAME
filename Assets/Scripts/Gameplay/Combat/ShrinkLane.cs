@@ -7,6 +7,8 @@ public class ShrinkLane : MonoBehaviour
     public bool doneShrinking = true;
     public float timer;
 
+    public Texture2D textureToUse;
+
     void Start()
     {
         doneShrinking = true;

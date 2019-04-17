@@ -20,7 +20,7 @@ public class ScorpionEncounterImplementer : EncounterImplementer
 
         mainComponent.health = formattedEncounterInfo.mainBodyStats.Health;
         mainComponent.armour = formattedEncounterInfo.mainBodyStats.Armour;
-        mainComponent.damage = 0;// TODO: fix formattedEncounterInfo.mainBodyStats.Damage;
+        mainComponent.damage = formattedEncounterInfo.mainBodyStats.Damage;
         mainComponent.HealthSlider.maxValue = formattedEncounterInfo.mainBodyStats.MaxHealth;
 
         FirstTail.health = formattedEncounterInfo.firstTailStats.Health;

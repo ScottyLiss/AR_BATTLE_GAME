@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "New Effect", menuName = "Trait Special Effects/Critical Strike Effect", order = 3)]
@@ -38,7 +39,7 @@ public class CriticalStrikeEffect : GenericEffect
 			// Instantiate
 			if (instantiatedCriticalEffectUI == null)
 			{
-				instantiatedCriticalEffectUI = Instantiate(CriticalEffectGameObject, GameObject.Find("Canvas").transform);
+				instantiatedCriticalEffectUI = Object.Instantiate(CriticalEffectGameObject, GameObject.Find("Canvas").transform);
 				instantiatedCriticalEffectOuterRing = instantiatedCriticalEffectUI.transform.Find("OuterRing").gameObject;
 				instantiatedCriticalEffectInnerRing = instantiatedCriticalEffectUI.transform.Find("InnerRing").gameObject;
 			}

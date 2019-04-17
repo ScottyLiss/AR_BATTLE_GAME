@@ -11,11 +11,11 @@ public class WaspEncounterImplementer : EncounterImplementer
     // Implement the info into the encounter
     public override void Implement()
     {
-        ArsenalEncounterInfo formattedEncounterInfo = (ArsenalEncounterInfo)encounterInfo;
+        WaspEncounterInfo formattedEncounterInfo = (WaspEncounterInfo)encounterInfo;
 
         mainComponent.health = formattedEncounterInfo.mainBodyStats.Health;
         mainComponent.armour = formattedEncounterInfo.mainBodyStats.Armour;
-        mainComponent.damage = 0;// TODO: fix formattedEncounterInfo.mainBodyStats.Damage;
+        mainComponent.damage = formattedEncounterInfo.mainBodyStats.Damage;
         mainComponent.HealthSlider.maxValue = formattedEncounterInfo.mainBodyStats.MaxHealth;
     }
 

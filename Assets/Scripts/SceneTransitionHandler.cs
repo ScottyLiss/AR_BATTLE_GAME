@@ -130,6 +130,7 @@ public class SceneTransitionHandler : MonoBehaviour
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneToLoadCombat));
 
             GameObject newEnemy = Instantiate(encounterInfo.enemyPrefab, GameObject.Find("EnemyPlaceholder").transform);
+            
             if (combatEncounter.enemyType == EncounterType.Arsenal)
             {
                 Debug.Log("111");
@@ -150,6 +151,12 @@ public class SceneTransitionHandler : MonoBehaviour
                 Debug.Log("333");
                 newEnemy.GetComponent<EncounterImplementer>().encounterInfo = encounterInfo; // Issue here
                 newEnemy.GetComponent<EncounterImplementer>().Implement();
+            }
+            else if (combatEncounter.enemyType == EncounterType.Wasp)
+            {
+                Debug.Log("444");
+                newEnemy.GetComponentInChildren<EncounterImplementer>().encounterInfo = encounterInfo; // Issue here
+                newEnemy.GetComponentInChildren<EncounterImplementer>().Implement();
             }
 
 

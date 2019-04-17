@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LaneRightOverride
+  m_Controller: {fileID: 9100000, guid: cd6f0c0894d21c54299e3e236be05c1a, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 05f2e19a00fc6a54795602d2dbc4741f, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: c4fc5a4e85d8786498d48ee64a168645, type: 2}

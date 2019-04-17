@@ -10,17 +10,13 @@ public class StoreAllResources : ScriptableObject
     {
         get
         {
-            if (instance == null)
-            {
-                instance = ScriptableObject.CreateInstance<StoreAllResources>();
-            }
-
             return instance;
         }
     }
     
     public void Enable()
     {
+        instance = this;
         
         if (StaticVariables.persistanceStoring != null)
             LoadMaterials();

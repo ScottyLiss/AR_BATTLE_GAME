@@ -1,10 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class BreachBehaviour : MonoBehaviour
 {
+    
+    // The map of prefabs
+    private Dictionary<EncounterType, string> enemyPrefabPaths = new Dictionary<EncounterType, string>()
+    {
+        {EncounterType.Arsenal, "Combat/Prefabs/Shells/Arsenal"},
+        {EncounterType.Wasp, "Combat/Prefabs/Shells/Wasp_Main"},
+        {EncounterType.Swarm, "Combat/Prefabs/Shells/The_Swarm"},
+        {EncounterType.Scorpion, "Combat/Prefabs/Shells/Scorpion"},
+    };
     
     // The cooldown circle
     public Image cooldownCircle;
@@ -12,6 +22,15 @@ public class BreachBehaviour : MonoBehaviour
     // The breach to represent
     public Breach BreachToRepresent;
     
+    // The animator for the breach
+    public Animator breachAnimator;
+    
+    // The object that should represent the robot
+    public GameObject robotPlaceholder;
+    
+    // Create a reference to the states
+    private static readonly int Active = Animator.StringToHash("Active");
+
     // Set up the event listeners
     public void Initialize()
     {
@@ -24,6 +43,16 @@ public class BreachBehaviour : MonoBehaviour
         // If we have a cooldown set, start the coroutine
         if (BreachToRepresent.Cooldown > 0)
             StartCoroutine(BreachCooldownCoroutine());
+        
+        // Determine the breach state
+        breachAnimator.SetBool(Active, BreachToRepresent.Active);
+        
+        // Spawn the proper representation
+        GameObject representation = Resources.Load<GameObject>(
+            enemyPrefabPaths[BreachToRepresent.BreachTiers[BreachToRepresent.CurrentTierIndex].Encounter.enemyType]);
+        
+        GameObject newRepresentation = Instantiate(representation, robotPlaceholder.transform);
+        newRepresentation.transform.localPosition = Vector3.zero;
     }
 
     // What to do when this object is collided with
@@ -61,6 +90,9 @@ public class BreachBehaviour : MonoBehaviour
         
         // Start the countdown coroutine
         StartCoroutine(BreachCooldownCoroutine());
+        
+        // Close the breach
+        breachAnimator.SetBool(Active, BreachToRepresent.Active);
     }
 
     private void DeleteFromMap()
@@ -71,6 +103,11 @@ public class BreachBehaviour : MonoBehaviour
     private void OnApplicationPause(bool pauseStatus)
     {
         if (!pauseStatus) return;
+        StaticVariables.persistanceStoring.SaveNewBreachMap(BreachToRepresent, gameObject);
+    }
+    
+    private void OnApplicationQuit()
+    {
         StaticVariables.persistanceStoring.SaveNewBreachMap(BreachToRepresent, gameObject);
     }
 
@@ -93,5 +130,8 @@ public class BreachBehaviour : MonoBehaviour
         // Done with the cooldown, so set it back to enabled and neutralize the leftover cooldown result
         BreachToRepresent.Active = true;
         BreachToRepresent.Cooldown = 0;
+        
+        // Open the breach
+        breachAnimator.SetBool(Active, BreachToRepresent.Active);
     }
 }

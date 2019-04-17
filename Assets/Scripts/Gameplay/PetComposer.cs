@@ -41,6 +41,7 @@ public class PetComposer : MonoBehaviour {
 		SkinnedMeshRenderer pangolinSkinnedMeshRenderer = gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
 
 		variantSkinnedMeshRenderer.gameObject.layer = 11;
+		variantSkinnedMeshRenderer.updateWhenOffscreen = true;
 		
 		// Set up the bones dictionary
 		Dictionary<string, Transform> boneMap = new Dictionary<string, Transform>();
@@ -69,11 +70,6 @@ public class PetComposer : MonoBehaviour {
 				Debug.LogError("failed to get bone: " + boneName);
 				Debug.Break();
 			}
-
-            else
-            {
-                Debug.Log(boneName);
-            }
 		}
 		
 		// Set the modified array to the mesh renderer

@@ -406,6 +406,7 @@ public class PersistanceStoring : MonoBehaviour
         var catalystElement = new XElement("Catalyst");
         var catalystId = new XElement("ID", newCatalyst.id);
         var catalystLevel = new XElement("Level", newCatalyst.level);
+        var catalystModelVariant = new XElement("Model-Variant", newCatalyst.modelVariantIndex);
         var catalystName = new XElement("Name", newCatalyst.name);
         var catalystRarity = new XElement("Rarity", (int) newCatalyst.rarity);
         var catalystSlot = new XElement("Slot", (int) newCatalyst.slot);
@@ -413,6 +414,7 @@ public class PersistanceStoring : MonoBehaviour
         // Add the fields to the newly created catalyst element
         catalystElement.Add(catalystId);
         catalystElement.Add(catalystLevel);
+        catalystElement.Add(catalystModelVariant);
         catalystElement.Add(catalystName);
         catalystElement.Add(catalystRarity);
         catalystElement.Add(catalystSlot);
@@ -525,6 +527,7 @@ public class PersistanceStoring : MonoBehaviour
         string newCatalystName = catalystData.Element("Name")?.Value;
         Rarities newCatalystRarity = (Rarities)Convert.ToInt32(catalystData.Element("Rarity").Value);
         PetBodySlot newCatalystSlot = (PetBodySlot)Convert.ToInt32(catalystData.Element("Slot").Value);
+        int newModelVariantIndex = Convert.ToInt32(catalystData.Element("Model-Variant")?.Value);
 
         var catalystAttributesData = catalystData.Element("Stats-Adjustments");
 
@@ -558,6 +561,8 @@ public class PersistanceStoring : MonoBehaviour
                 name = newCatalystName,
                 rarity = newCatalystRarity,
                 slot = newCatalystSlot,
+                
+                modelVariantIndex = newModelVariantIndex,
             
                 effects = newCatalystEffects,
             
@@ -1318,7 +1323,8 @@ public class PersistanceStoring : MonoBehaviour
             petData.stats.maxHealth = Convert.ToInt32(CheckAndCreateElement(petStats, "Max-Health").Value);
             petData.stats.health = float.Parse(CheckAndCreateElement(petStats, "Health").Value,
                 CultureInfo.InvariantCulture);
-            petData.stats.armour = Convert.ToInt32(CheckAndCreateElement(petStats, "Armour").Value);
+            petData.stats.armour = float.Parse(CheckAndCreateElement(petStats, "Armour").Value,
+                CultureInfo.InvariantCulture);
             petData.stats.maxStamina = float.Parse(CheckAndCreateElement(petStats, "Stamina").Value,
                 CultureInfo.InvariantCulture);
             petData.stats.stamina = float.Parse(CheckAndCreateElement(petStats, "Stamina").Value,
@@ -1361,6 +1367,13 @@ public class PersistanceStoring : MonoBehaviour
         petData.bodyCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Body")?.Element("Catalyst"));
         petData.tailCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Tail")?.Element("Catalyst"));
         petData.legsCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Legs")?.Element("Catalyst"));
+        
+        // Set the models
+        foreach (var petDataCatalyst in petData.catalysts)
+        {
+            if (petDataCatalyst != null)
+                StaticVariables.petComposer.AssignModel(petDataCatalyst.slot, petDataCatalyst.modelVariantIndex);
+        }
     }
 
     public Trait LoadTraitData(XElement traitData)

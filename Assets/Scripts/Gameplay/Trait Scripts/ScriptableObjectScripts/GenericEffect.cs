@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Effect", menuName = "Trait Effect", order = 1)]
-public class GenericEffect : ScriptableObject
+public class GenericEffect
 {
 
 	public bool isTrigger;

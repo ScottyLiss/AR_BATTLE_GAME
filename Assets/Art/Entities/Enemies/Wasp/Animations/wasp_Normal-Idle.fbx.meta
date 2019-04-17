@@ -1,77 +1,215 @@
 fileFormatVersion: 2
 guid: 2eb77bd8fbc2079438fbe0ab509232a9
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: antenna_L_Jnt
-    100002: antenna_R_Jnt
-    100004: arm_End_L_Jnt
-    100006: arm_End_R_Jnt
-    100008: back_Jnt
-    100010: Controllers
-    100012: elbow_L_Jnt
-    100014: elbow_R_Jnt
-    100016: end_Jnt
-    100018: global_CTRL
-    100020: head_CTRL
-    100022: head_jnt
-    100024: joint1
-    100026: joint2
-    100028: mid_Jnt
-    100030: neck_Jnt
-    100032: root_Jnt
-    100034: shoulder_L_Jnt_01
-    100036: shoulder_L_Jnt_01 1
-    100038: shoulder_R_Jnt_01
-    100040: shoulder_R_Jnt_01 1
-    100042: torso_CTRL
-    100044: //RootNode
-    100046: waspModel_RefFromHere:Wasp_1_5:Mesh
-    100048: wing_Bottom_L_Jnt
-    100050: wing_Bottom_R_Jnt
-    100052: wing_Config_L_Jnt
-    100054: wing_Config_R_Jnt
-    100056: wing_Mid_L_Jnt
-    100058: wing_Mid_R_Jnt
-    100060: wing_Top_L_jnt
-    100062: wing_Top_R_jnt
-    400000: antenna_L_Jnt
-    400002: antenna_R_Jnt
-    400004: arm_End_L_Jnt
-    400006: arm_End_R_Jnt
-    400008: back_Jnt
-    400010: Controllers
-    400012: elbow_L_Jnt
-    400014: elbow_R_Jnt
-    400016: end_Jnt
-    400018: global_CTRL
-    400020: head_CTRL
-    400022: head_jnt
-    400024: joint1
-    400026: joint2
-    400028: mid_Jnt
-    400030: neck_Jnt
-    400032: root_Jnt
-    400034: shoulder_L_Jnt_01
-    400036: shoulder_L_Jnt_01 1
-    400038: shoulder_R_Jnt_01
-    400040: shoulder_R_Jnt_01 1
-    400042: torso_CTRL
-    400044: //RootNode
-    400046: waspModel_RefFromHere:Wasp_1_5:Mesh
-    400048: wing_Bottom_L_Jnt
-    400050: wing_Bottom_R_Jnt
-    400052: wing_Config_L_Jnt
-    400054: wing_Config_R_Jnt
-    400056: wing_Mid_L_Jnt
-    400058: wing_Mid_R_Jnt
-    400060: wing_Top_L_jnt
-    400062: wing_Top_R_jnt
-    2100000: waspModel_RefFromHere_aiStandardSurface1
-    4300000: waspModel_RefFromHere:Wasp_1_5:Mesh
-    7400000: Take 001
-    9500000: //RootNode
-    13700000: waspModel_RefFromHere:Wasp_1_5:Mesh
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: antenna_L_Jnt
+  - first:
+      1: 100002
+    second: antenna_R_Jnt
+  - first:
+      1: 100004
+    second: arm_End_L_Jnt
+  - first:
+      1: 100006
+    second: arm_End_R_Jnt
+  - first:
+      1: 100008
+    second: back_Jnt
+  - first:
+      1: 100010
+    second: Controllers
+  - first:
+      1: 100012
+    second: elbow_L_Jnt
+  - first:
+      1: 100014
+    second: elbow_R_Jnt
+  - first:
+      1: 100016
+    second: end_Jnt
+  - first:
+      1: 100018
+    second: global_CTRL
+  - first:
+      1: 100020
+    second: head_CTRL
+  - first:
+      1: 100022
+    second: head_jnt
+  - first:
+      1: 100024
+    second: joint1
+  - first:
+      1: 100026
+    second: joint2
+  - first:
+      1: 100028
+    second: mid_Jnt
+  - first:
+      1: 100030
+    second: neck_Jnt
+  - first:
+      1: 100032
+    second: root_Jnt
+  - first:
+      1: 100034
+    second: shoulder_L_Jnt_01
+  - first:
+      1: 100036
+    second: shoulder_L_Jnt_01 1
+  - first:
+      1: 100038
+    second: shoulder_R_Jnt_01
+  - first:
+      1: 100040
+    second: shoulder_R_Jnt_01 1
+  - first:
+      1: 100042
+    second: torso_CTRL
+  - first:
+      1: 100044
+    second: //RootNode
+  - first:
+      1: 100046
+    second: waspModel_RefFromHere:Wasp_1_5:Mesh
+  - first:
+      1: 100048
+    second: wing_Bottom_L_Jnt
+  - first:
+      1: 100050
+    second: wing_Bottom_R_Jnt
+  - first:
+      1: 100052
+    second: wing_Config_L_Jnt
+  - first:
+      1: 100054
+    second: wing_Config_R_Jnt
+  - first:
+      1: 100056
+    second: wing_Mid_L_Jnt
+  - first:
+      1: 100058
+    second: wing_Mid_R_Jnt
+  - first:
+      1: 100060
+    second: wing_Top_L_jnt
+  - first:
+      1: 100062
+    second: wing_Top_R_jnt
+  - first:
+      4: 400000
+    second: antenna_L_Jnt
+  - first:
+      4: 400002
+    second: antenna_R_Jnt
+  - first:
+      4: 400004
+    second: arm_End_L_Jnt
+  - first:
+      4: 400006
+    second: arm_End_R_Jnt
+  - first:
+      4: 400008
+    second: back_Jnt
+  - first:
+      4: 400010
+    second: Controllers
+  - first:
+      4: 400012
+    second: elbow_L_Jnt
+  - first:
+      4: 400014
+    second: elbow_R_Jnt
+  - first:
+      4: 400016
+    second: end_Jnt
+  - first:
+      4: 400018
+    second: global_CTRL
+  - first:
+      4: 400020
+    second: head_CTRL
+  - first:
+      4: 400022
+    second: head_jnt
+  - first:
+      4: 400024
+    second: joint1
+  - first:
+      4: 400026
+    second: joint2
+  - first:
+      4: 400028
+    second: mid_Jnt
+  - first:
+      4: 400030
+    second: neck_Jnt
+  - first:
+      4: 400032
+    second: root_Jnt
+  - first:
+      4: 400034
+    second: shoulder_L_Jnt_01
+  - first:
+      4: 400036
+    second: shoulder_L_Jnt_01 1
+  - first:
+      4: 400038
+    second: shoulder_R_Jnt_01
+  - first:
+      4: 400040
+    second: shoulder_R_Jnt_01 1
+  - first:
+      4: 400042
+    second: torso_CTRL
+  - first:
+      4: 400044
+    second: //RootNode
+  - first:
+      4: 400046
+    second: waspModel_RefFromHere:Wasp_1_5:Mesh
+  - first:
+      4: 400048
+    second: wing_Bottom_L_Jnt
+  - first:
+      4: 400050
+    second: wing_Bottom_R_Jnt
+  - first:
+      4: 400052
+    second: wing_Config_L_Jnt
+  - first:
+      4: 400054
+    second: wing_Config_R_Jnt
+  - first:
+      4: 400056
+    second: wing_Mid_L_Jnt
+  - first:
+      4: 400058
+    second: wing_Mid_R_Jnt
+  - first:
+      4: 400060
+    second: wing_Top_L_jnt
+  - first:
+      4: 400062
+    second: wing_Top_R_jnt
+  - first:
+      21: 2100000
+    second: waspModel_RefFromHere_aiStandardSurface1
+  - first:
+      43: 4300000
+    second: waspModel_RefFromHere:Wasp_1_5:Mesh
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: waspModel_RefFromHere:Wasp_1_5:Mesh
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -99,13 +237,43 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 7400000
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -113,27 +281,32 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -143,8 +316,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 0.01
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

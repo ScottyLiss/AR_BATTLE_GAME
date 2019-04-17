@@ -99,7 +99,10 @@ public static class CatalystFactory {
         };
 
         PetBodySlot catalystSlot = (PetBodySlot)StaticVariables.RandomInstance.Next(0, 4);
-        int modelVariant = StaticVariables.RandomInstance.Next(0, 2);
+
+        int catalystSlotVariants = Resources.LoadAll("Variants/" + catalystSlot).Length;
+        
+        int modelVariant = StaticVariables.RandomInstance.Next(1, catalystSlotVariants + 1);
         
 
         // Create the final Catalyst object

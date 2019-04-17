@@ -39,8 +39,6 @@ public class Scorpion : MonoBehaviour
         damage = 100;
 
         StaticVariables.iRobotAttackLanePosition = -1;
-
-        StartCoroutine("Choice");
     }
 	
 	// Update is called once per frame

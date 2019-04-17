@@ -1,475 +1,1391 @@
 fileFormatVersion: 2
 guid: d512c0f9148cc0c4096fa58faf7472ec
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Scorpion__Animation_Ready_
-    100004: Scorpion__With_Reference__Animation_Ready:BallJoint
-    100006: Scorpion__With_Reference__Animation_Ready:BallJoint 1
-    100008: Scorpion__With_Reference__Animation_Ready:BallJoint 2
-    100010: Scorpion__With_Reference__Animation_Ready:BallJoint 3
-    100012: Scorpion__With_Reference__Animation_Ready:BallJoint 4
-    100014: Scorpion__With_Reference__Animation_Ready:BallJoint 5
-    100016: Scorpion__With_Reference__Animation_Ready:BallJoint1
-    100018: Scorpion__With_Reference__Animation_Ready:BallJoint1 1
-    100020: Scorpion__With_Reference__Animation_Ready:BallJoint1 2
-    100022: Scorpion__With_Reference__Animation_Ready:BallJoint1 3
-    100024: Scorpion__With_Reference__Animation_Ready:BallJoint1 4
-    100026: Scorpion__With_Reference__Animation_Ready:BallJoint1 5
-    100028: Scorpion__With_Reference__Animation_Ready:Body_Ctrl
-    100030: Scorpion__With_Reference__Animation_Ready:Ctrl_Grp
-    100032: Scorpion__With_Reference__Animation_Ready:Foot
-    100034: Scorpion__With_Reference__Animation_Ready:Foot 1
-    100036: Scorpion__With_Reference__Animation_Ready:Foot 2
-    100038: Scorpion__With_Reference__Animation_Ready:Foot 3
-    100040: Scorpion__With_Reference__Animation_Ready:Foot 4
-    100042: Scorpion__With_Reference__Animation_Ready:Foot 5
-    100044: Scorpion__With_Reference__Animation_Ready:Gun_Tail_Ctrl
-    100046: Scorpion__With_Reference__Animation_Ready:L_Leg_Back
-    100048: Scorpion__With_Reference__Animation_Ready:L_Leg_Front
-    100050: Scorpion__With_Reference__Animation_Ready:L_Leg_Middle
-    100052: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_1
-    100054: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_2
-    100056: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_2 1
-    100058: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_3
-    100060: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_3 1
-    100062: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_end
-    100064: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_end 1
-    100066: Scorpion__With_Reference__Animation_Ready:left_front_leg_jnt_1
-    100068: Scorpion__With_Reference__Animation_Ready:Left_Leg_Grp
-    100070: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_1
-    100072: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_2
-    100074: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_3
-    100076: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_end
-    100078: Scorpion__With_Reference__Animation_Ready:LegPiston1
-    100080: Scorpion__With_Reference__Animation_Ready:LegPiston1 1
-    100082: Scorpion__With_Reference__Animation_Ready:LegPiston1 2
-    100084: Scorpion__With_Reference__Animation_Ready:LegPiston1 3
-    100086: Scorpion__With_Reference__Animation_Ready:LegPiston1 4
-    100088: Scorpion__With_Reference__Animation_Ready:LegPiston1 5
-    100090: Scorpion__With_Reference__Animation_Ready:LegPiston2
-    100092: Scorpion__With_Reference__Animation_Ready:LegPiston2 1
-    100094: Scorpion__With_Reference__Animation_Ready:LegPiston2 2
-    100096: Scorpion__With_Reference__Animation_Ready:LegPiston2 3
-    100098: Scorpion__With_Reference__Animation_Ready:LegPiston2 4
-    100100: Scorpion__With_Reference__Animation_Ready:LegPiston2 5
-    100102: Scorpion__With_Reference__Animation_Ready:Needle_Tail_Ctrl
-    100104: Scorpion__With_Reference__Animation_Ready:R_Leg_Back
-    100106: Scorpion__With_Reference__Animation_Ready:R_Leg_Front
-    100108: Scorpion__With_Reference__Animation_Ready:R_Leg_Middle
-    100110: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_1
-    100112: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_2
-    100114: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_3
-    100116: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_end
-    100118: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_1
-    100120: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_2
-    100122: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_3
-    100124: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_end
-    100126: Scorpion__With_Reference__Animation_Ready:Right_Leg_Grp
-    100128: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_1
-    100130: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_2
-    100132: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_3
-    100134: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_end
-    100136: Scorpion__With_Reference__Animation_Ready:RotateJoint
-    100138: Scorpion__With_Reference__Animation_Ready:RotateJoint 1
-    100140: Scorpion__With_Reference__Animation_Ready:RotateJoint 2
-    100142: Scorpion__With_Reference__Animation_Ready:RotateJoint 3
-    100144: Scorpion__With_Reference__Animation_Ready:RotateJoint 4
-    100146: Scorpion__With_Reference__Animation_Ready:RotateJoint 5
-    100148: Scorpion__With_Reference__Animation_Ready:Saw_Tail_Ctrl
-    100150: Scorpion__With_Reference__Animation_Ready:Scorpion__UV_
-    100152: Scorpion__With_Reference__Animation_Ready:Scorpion__UV_locator
-    100154: Scorpion__With_Reference__Animation_Ready:scorpion_head_jnt
-    100156: Scorpion__With_Reference__Animation_Ready:scorpion_root_jnt
-    100158: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Body_Grp
-    100160: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube1
-    100162: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube2
-    100164: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tubes_grp
-    100166: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Engine:polySurface1
-    100168: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Gun
-    100170: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head
-    100172: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head_Grp
-    100174: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head_Hood
-    100176: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Left_Eyes
-    100178: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Left_Legs
-    100180: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Middle_Eyes
-    100182: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Needle
-    100184: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCone1
-    100186: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube1
-    100188: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube2
-    100190: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder17
-    100192: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder18
-    100194: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder19
-    100196: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder21
-    100198: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder22
-    100200: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder23
-    100202: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder24
-    100204: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder25
-    100206: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder26
-    100208: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10
-    100210: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10 1
-    100212: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11
-    100214: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11 1
-    100216: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12
-    100218: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12 1
-    100220: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13
-    100222: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13 1
-    100224: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere14
-    100226: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5
-    100228: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5 1
-    100230: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere6
-    100232: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7
-    100234: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7 1
-    100236: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere8
-    100238: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere9
-    100240: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Right_Eyes
-    100242: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Right_Legs
-    100244: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Robot
-    100246: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Saw_Blade
-    100248: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Scorpion_Body
-    100250: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Tail_Base
-    100252: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Tail_Tubes
-    100254: Scorpion__With_Reference__Animation_Ready:tail_base_jnt_1
-    100256: Scorpion__With_Reference__Animation_Ready:Tail_Ctrl
-    100258: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_1
-    100260: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_2
-    100262: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_3
-    100264: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_4
-    100266: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_5
-    100268: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_6
-    100270: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_7
-    100272: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_8
-    100274: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_9
-    100276: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_end
-    100278: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_1
-    100280: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_2
-    100282: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_3
-    100284: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_4
-    100286: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_5
-    100288: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_6
-    100290: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_7
-    100292: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_8
-    100294: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_9
-    100296: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_end
-    100298: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_1
-    100300: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_2
-    100302: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_3
-    100304: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_4
-    100306: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_5
-    100308: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_6
-    100310: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_7
-    100312: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_8
-    100314: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_9
-    100316: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_end
-    400000: //RootNode
-    400002: Scorpion__Animation_Ready_
-    400004: Scorpion__With_Reference__Animation_Ready:BallJoint
-    400006: Scorpion__With_Reference__Animation_Ready:BallJoint 1
-    400008: Scorpion__With_Reference__Animation_Ready:BallJoint 2
-    400010: Scorpion__With_Reference__Animation_Ready:BallJoint 3
-    400012: Scorpion__With_Reference__Animation_Ready:BallJoint 4
-    400014: Scorpion__With_Reference__Animation_Ready:BallJoint 5
-    400016: Scorpion__With_Reference__Animation_Ready:BallJoint1
-    400018: Scorpion__With_Reference__Animation_Ready:BallJoint1 1
-    400020: Scorpion__With_Reference__Animation_Ready:BallJoint1 2
-    400022: Scorpion__With_Reference__Animation_Ready:BallJoint1 3
-    400024: Scorpion__With_Reference__Animation_Ready:BallJoint1 4
-    400026: Scorpion__With_Reference__Animation_Ready:BallJoint1 5
-    400028: Scorpion__With_Reference__Animation_Ready:Body_Ctrl
-    400030: Scorpion__With_Reference__Animation_Ready:Ctrl_Grp
-    400032: Scorpion__With_Reference__Animation_Ready:Foot
-    400034: Scorpion__With_Reference__Animation_Ready:Foot 1
-    400036: Scorpion__With_Reference__Animation_Ready:Foot 2
-    400038: Scorpion__With_Reference__Animation_Ready:Foot 3
-    400040: Scorpion__With_Reference__Animation_Ready:Foot 4
-    400042: Scorpion__With_Reference__Animation_Ready:Foot 5
-    400044: Scorpion__With_Reference__Animation_Ready:Gun_Tail_Ctrl
-    400046: Scorpion__With_Reference__Animation_Ready:L_Leg_Back
-    400048: Scorpion__With_Reference__Animation_Ready:L_Leg_Front
-    400050: Scorpion__With_Reference__Animation_Ready:L_Leg_Middle
-    400052: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_1
-    400054: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_2
-    400056: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_2 1
-    400058: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_3
-    400060: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_3 1
-    400062: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_end
-    400064: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_end 1
-    400066: Scorpion__With_Reference__Animation_Ready:left_front_leg_jnt_1
-    400068: Scorpion__With_Reference__Animation_Ready:Left_Leg_Grp
-    400070: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_1
-    400072: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_2
-    400074: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_3
-    400076: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_end
-    400078: Scorpion__With_Reference__Animation_Ready:LegPiston1
-    400080: Scorpion__With_Reference__Animation_Ready:LegPiston1 1
-    400082: Scorpion__With_Reference__Animation_Ready:LegPiston1 2
-    400084: Scorpion__With_Reference__Animation_Ready:LegPiston1 3
-    400086: Scorpion__With_Reference__Animation_Ready:LegPiston1 4
-    400088: Scorpion__With_Reference__Animation_Ready:LegPiston1 5
-    400090: Scorpion__With_Reference__Animation_Ready:LegPiston2
-    400092: Scorpion__With_Reference__Animation_Ready:LegPiston2 1
-    400094: Scorpion__With_Reference__Animation_Ready:LegPiston2 2
-    400096: Scorpion__With_Reference__Animation_Ready:LegPiston2 3
-    400098: Scorpion__With_Reference__Animation_Ready:LegPiston2 4
-    400100: Scorpion__With_Reference__Animation_Ready:LegPiston2 5
-    400102: Scorpion__With_Reference__Animation_Ready:Needle_Tail_Ctrl
-    400104: Scorpion__With_Reference__Animation_Ready:R_Leg_Back
-    400106: Scorpion__With_Reference__Animation_Ready:R_Leg_Front
-    400108: Scorpion__With_Reference__Animation_Ready:R_Leg_Middle
-    400110: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_1
-    400112: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_2
-    400114: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_3
-    400116: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_end
-    400118: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_1
-    400120: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_2
-    400122: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_3
-    400124: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_end
-    400126: Scorpion__With_Reference__Animation_Ready:Right_Leg_Grp
-    400128: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_1
-    400130: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_2
-    400132: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_3
-    400134: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_end
-    400136: Scorpion__With_Reference__Animation_Ready:RotateJoint
-    400138: Scorpion__With_Reference__Animation_Ready:RotateJoint 1
-    400140: Scorpion__With_Reference__Animation_Ready:RotateJoint 2
-    400142: Scorpion__With_Reference__Animation_Ready:RotateJoint 3
-    400144: Scorpion__With_Reference__Animation_Ready:RotateJoint 4
-    400146: Scorpion__With_Reference__Animation_Ready:RotateJoint 5
-    400148: Scorpion__With_Reference__Animation_Ready:Saw_Tail_Ctrl
-    400150: Scorpion__With_Reference__Animation_Ready:Scorpion__UV_
-    400152: Scorpion__With_Reference__Animation_Ready:Scorpion__UV_locator
-    400154: Scorpion__With_Reference__Animation_Ready:scorpion_head_jnt
-    400156: Scorpion__With_Reference__Animation_Ready:scorpion_root_jnt
-    400158: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Body_Grp
-    400160: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube1
-    400162: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube2
-    400164: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tubes_grp
-    400166: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Engine:polySurface1
-    400168: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Gun
-    400170: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head
-    400172: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head_Grp
-    400174: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head_Hood
-    400176: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Left_Eyes
-    400178: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Left_Legs
-    400180: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Middle_Eyes
-    400182: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Needle
-    400184: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCone1
-    400186: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube1
-    400188: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube2
-    400190: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder17
-    400192: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder18
-    400194: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder19
-    400196: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder21
-    400198: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder22
-    400200: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder23
-    400202: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder24
-    400204: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder25
-    400206: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder26
-    400208: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10
-    400210: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10 1
-    400212: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11
-    400214: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11 1
-    400216: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12
-    400218: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12 1
-    400220: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13
-    400222: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13 1
-    400224: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere14
-    400226: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5
-    400228: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5 1
-    400230: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere6
-    400232: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7
-    400234: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7 1
-    400236: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere8
-    400238: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere9
-    400240: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Right_Eyes
-    400242: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Right_Legs
-    400244: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Robot
-    400246: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Saw_Blade
-    400248: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Scorpion_Body
-    400250: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Tail_Base
-    400252: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Tail_Tubes
-    400254: Scorpion__With_Reference__Animation_Ready:tail_base_jnt_1
-    400256: Scorpion__With_Reference__Animation_Ready:Tail_Ctrl
-    400258: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_1
-    400260: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_2
-    400262: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_3
-    400264: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_4
-    400266: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_5
-    400268: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_6
-    400270: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_7
-    400272: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_8
-    400274: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_9
-    400276: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_end
-    400278: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_1
-    400280: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_2
-    400282: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_3
-    400284: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_4
-    400286: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_5
-    400288: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_6
-    400290: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_7
-    400292: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_8
-    400294: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_9
-    400296: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_end
-    400298: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_1
-    400300: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_2
-    400302: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_3
-    400304: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_4
-    400306: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_5
-    400308: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_6
-    400310: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_7
-    400312: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_8
-    400314: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_9
-    400316: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_end
-    2100000: lambert1
-    2100002: Scorpion__With_Reference__Animation_Ready_Scorpion_v6__UV__Engine_initialShadingGroup1
-    4300000: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere6
-    4300002: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere8
-    4300004: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere9
-    4300006: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head_Hood
-    4300008: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head
-    4300010: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13
-    4300012: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11
-    4300014: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10
-    4300016: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7
-    4300018: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5
-    4300020: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12
-    4300022: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13
-    4300024: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11
-    4300026: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10
-    4300028: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7
-    4300030: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5
-    4300032: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12
-    4300034: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder21
-    4300036: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder22
-    4300038: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder23
-    4300040: Scorpion__With_Reference__Animation_Ready:RotateJoint
-    4300042: Scorpion__With_Reference__Animation_Ready:LegPiston1
-    4300044: Scorpion__With_Reference__Animation_Ready:LegPiston2
-    4300046: Scorpion__With_Reference__Animation_Ready:BallJoint1
-    4300048: Scorpion__With_Reference__Animation_Ready:BallJoint
-    4300050: Scorpion__With_Reference__Animation_Ready:Foot
-    4300052: Scorpion__With_Reference__Animation_Ready:RotateJoint
-    4300054: Scorpion__With_Reference__Animation_Ready:LegPiston1
-    4300056: Scorpion__With_Reference__Animation_Ready:LegPiston2
-    4300058: Scorpion__With_Reference__Animation_Ready:BallJoint1
-    4300060: Scorpion__With_Reference__Animation_Ready:BallJoint
-    4300062: Scorpion__With_Reference__Animation_Ready:Foot
-    4300064: Scorpion__With_Reference__Animation_Ready:RotateJoint
-    4300066: Scorpion__With_Reference__Animation_Ready:LegPiston1
-    4300068: Scorpion__With_Reference__Animation_Ready:LegPiston2
-    4300070: Scorpion__With_Reference__Animation_Ready:BallJoint1
-    4300072: Scorpion__With_Reference__Animation_Ready:BallJoint
-    4300074: Scorpion__With_Reference__Animation_Ready:Foot
-    4300076: Scorpion__With_Reference__Animation_Ready:RotateJoint
-    4300078: Scorpion__With_Reference__Animation_Ready:LegPiston1
-    4300080: Scorpion__With_Reference__Animation_Ready:LegPiston2
-    4300082: Scorpion__With_Reference__Animation_Ready:BallJoint1
-    4300084: Scorpion__With_Reference__Animation_Ready:BallJoint
-    4300086: Scorpion__With_Reference__Animation_Ready:Foot
-    4300088: Scorpion__With_Reference__Animation_Ready:RotateJoint
-    4300090: Scorpion__With_Reference__Animation_Ready:LegPiston1
-    4300092: Scorpion__With_Reference__Animation_Ready:LegPiston2
-    4300094: Scorpion__With_Reference__Animation_Ready:BallJoint1
-    4300096: Scorpion__With_Reference__Animation_Ready:BallJoint
-    4300098: Scorpion__With_Reference__Animation_Ready:Foot
-    4300100: Scorpion__With_Reference__Animation_Ready:RotateJoint
-    4300102: Scorpion__With_Reference__Animation_Ready:LegPiston1
-    4300104: Scorpion__With_Reference__Animation_Ready:LegPiston2
-    4300106: Scorpion__With_Reference__Animation_Ready:BallJoint1
-    4300108: Scorpion__With_Reference__Animation_Ready:BallJoint
-    4300110: Scorpion__With_Reference__Animation_Ready:Foot
-    4300112: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder24
-    4300114: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCone1
-    4300116: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube1
-    4300118: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder25
-    4300120: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder26
-    4300122: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere14
-    4300124: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube2
-    4300126: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder19
-    4300128: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder18
-    4300130: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder17
-    4300132: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Engine:polySurface1
-    4300134: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Scorpion_Body
-    4300136: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube1
-    4300138: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube2
-    9500000: //RootNode
-    13700000: Scorpion__With_Reference__Animation_Ready:BallJoint
-    13700002: Scorpion__With_Reference__Animation_Ready:BallJoint 1
-    13700004: Scorpion__With_Reference__Animation_Ready:BallJoint 2
-    13700006: Scorpion__With_Reference__Animation_Ready:BallJoint 3
-    13700008: Scorpion__With_Reference__Animation_Ready:BallJoint 4
-    13700010: Scorpion__With_Reference__Animation_Ready:BallJoint 5
-    13700012: Scorpion__With_Reference__Animation_Ready:BallJoint1
-    13700014: Scorpion__With_Reference__Animation_Ready:BallJoint1 1
-    13700016: Scorpion__With_Reference__Animation_Ready:BallJoint1 2
-    13700018: Scorpion__With_Reference__Animation_Ready:BallJoint1 3
-    13700020: Scorpion__With_Reference__Animation_Ready:BallJoint1 4
-    13700022: Scorpion__With_Reference__Animation_Ready:BallJoint1 5
-    13700024: Scorpion__With_Reference__Animation_Ready:Foot
-    13700026: Scorpion__With_Reference__Animation_Ready:Foot 1
-    13700028: Scorpion__With_Reference__Animation_Ready:Foot 2
-    13700030: Scorpion__With_Reference__Animation_Ready:Foot 3
-    13700032: Scorpion__With_Reference__Animation_Ready:Foot 4
-    13700034: Scorpion__With_Reference__Animation_Ready:Foot 5
-    13700036: Scorpion__With_Reference__Animation_Ready:LegPiston1
-    13700038: Scorpion__With_Reference__Animation_Ready:LegPiston1 1
-    13700040: Scorpion__With_Reference__Animation_Ready:LegPiston1 2
-    13700042: Scorpion__With_Reference__Animation_Ready:LegPiston1 3
-    13700044: Scorpion__With_Reference__Animation_Ready:LegPiston1 4
-    13700046: Scorpion__With_Reference__Animation_Ready:LegPiston1 5
-    13700048: Scorpion__With_Reference__Animation_Ready:LegPiston2
-    13700050: Scorpion__With_Reference__Animation_Ready:LegPiston2 1
-    13700052: Scorpion__With_Reference__Animation_Ready:LegPiston2 2
-    13700054: Scorpion__With_Reference__Animation_Ready:LegPiston2 3
-    13700056: Scorpion__With_Reference__Animation_Ready:LegPiston2 4
-    13700058: Scorpion__With_Reference__Animation_Ready:LegPiston2 5
-    13700060: Scorpion__With_Reference__Animation_Ready:RotateJoint
-    13700062: Scorpion__With_Reference__Animation_Ready:RotateJoint 1
-    13700064: Scorpion__With_Reference__Animation_Ready:RotateJoint 2
-    13700066: Scorpion__With_Reference__Animation_Ready:RotateJoint 3
-    13700068: Scorpion__With_Reference__Animation_Ready:RotateJoint 4
-    13700070: Scorpion__With_Reference__Animation_Ready:RotateJoint 5
-    13700072: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube1
-    13700074: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube2
-    13700076: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Engine:polySurface1
-    13700078: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head
-    13700080: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head_Hood
-    13700082: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCone1
-    13700084: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube1
-    13700086: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube2
-    13700088: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder17
-    13700090: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder18
-    13700092: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder19
-    13700094: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder21
-    13700096: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder22
-    13700098: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder23
-    13700100: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder24
-    13700102: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder25
-    13700104: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder26
-    13700106: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10
-    13700108: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10
-      1
-    13700110: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11
-    13700112: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11
-      1
-    13700114: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12
-    13700116: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12
-      1
-    13700118: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13
-    13700120: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13
-      1
-    13700122: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere14
-    13700124: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5
-    13700126: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5
-      1
-    13700128: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere6
-    13700130: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7
-    13700132: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7
-      1
-    13700134: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere8
-    13700136: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere9
-    13700138: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Scorpion_Body
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Scorpion__Animation_Ready_
+  - first:
+      1: 100004
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint
+  - first:
+      1: 100006
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 1
+  - first:
+      1: 100008
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 2
+  - first:
+      1: 100010
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 3
+  - first:
+      1: 100012
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 4
+  - first:
+      1: 100014
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 5
+  - first:
+      1: 100016
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1
+  - first:
+      1: 100018
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 1
+  - first:
+      1: 100020
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 2
+  - first:
+      1: 100022
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 3
+  - first:
+      1: 100024
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 4
+  - first:
+      1: 100026
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 5
+  - first:
+      1: 100028
+    second: Scorpion__With_Reference__Animation_Ready:Body_Ctrl
+  - first:
+      1: 100030
+    second: Scorpion__With_Reference__Animation_Ready:Ctrl_Grp
+  - first:
+      1: 100032
+    second: Scorpion__With_Reference__Animation_Ready:Foot
+  - first:
+      1: 100034
+    second: Scorpion__With_Reference__Animation_Ready:Foot 1
+  - first:
+      1: 100036
+    second: Scorpion__With_Reference__Animation_Ready:Foot 2
+  - first:
+      1: 100038
+    second: Scorpion__With_Reference__Animation_Ready:Foot 3
+  - first:
+      1: 100040
+    second: Scorpion__With_Reference__Animation_Ready:Foot 4
+  - first:
+      1: 100042
+    second: Scorpion__With_Reference__Animation_Ready:Foot 5
+  - first:
+      1: 100044
+    second: Scorpion__With_Reference__Animation_Ready:Gun_Tail_Ctrl
+  - first:
+      1: 100046
+    second: Scorpion__With_Reference__Animation_Ready:L_Leg_Back
+  - first:
+      1: 100048
+    second: Scorpion__With_Reference__Animation_Ready:L_Leg_Front
+  - first:
+      1: 100050
+    second: Scorpion__With_Reference__Animation_Ready:L_Leg_Middle
+  - first:
+      1: 100052
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_1
+  - first:
+      1: 100054
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_2
+  - first:
+      1: 100056
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_2 1
+  - first:
+      1: 100058
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_3
+  - first:
+      1: 100060
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_3 1
+  - first:
+      1: 100062
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_end
+  - first:
+      1: 100064
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_end 1
+  - first:
+      1: 100066
+    second: Scorpion__With_Reference__Animation_Ready:left_front_leg_jnt_1
+  - first:
+      1: 100068
+    second: Scorpion__With_Reference__Animation_Ready:Left_Leg_Grp
+  - first:
+      1: 100070
+    second: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_1
+  - first:
+      1: 100072
+    second: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_2
+  - first:
+      1: 100074
+    second: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_3
+  - first:
+      1: 100076
+    second: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_end
+  - first:
+      1: 100078
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1
+  - first:
+      1: 100080
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 1
+  - first:
+      1: 100082
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 2
+  - first:
+      1: 100084
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 3
+  - first:
+      1: 100086
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 4
+  - first:
+      1: 100088
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 5
+  - first:
+      1: 100090
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2
+  - first:
+      1: 100092
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 1
+  - first:
+      1: 100094
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 2
+  - first:
+      1: 100096
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 3
+  - first:
+      1: 100098
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 4
+  - first:
+      1: 100100
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 5
+  - first:
+      1: 100102
+    second: Scorpion__With_Reference__Animation_Ready:Needle_Tail_Ctrl
+  - first:
+      1: 100104
+    second: Scorpion__With_Reference__Animation_Ready:R_Leg_Back
+  - first:
+      1: 100106
+    second: Scorpion__With_Reference__Animation_Ready:R_Leg_Front
+  - first:
+      1: 100108
+    second: Scorpion__With_Reference__Animation_Ready:R_Leg_Middle
+  - first:
+      1: 100110
+    second: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_1
+  - first:
+      1: 100112
+    second: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_2
+  - first:
+      1: 100114
+    second: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_3
+  - first:
+      1: 100116
+    second: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_end
+  - first:
+      1: 100118
+    second: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_1
+  - first:
+      1: 100120
+    second: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_2
+  - first:
+      1: 100122
+    second: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_3
+  - first:
+      1: 100124
+    second: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_end
+  - first:
+      1: 100126
+    second: Scorpion__With_Reference__Animation_Ready:Right_Leg_Grp
+  - first:
+      1: 100128
+    second: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_1
+  - first:
+      1: 100130
+    second: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_2
+  - first:
+      1: 100132
+    second: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_3
+  - first:
+      1: 100134
+    second: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_end
+  - first:
+      1: 100136
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint
+  - first:
+      1: 100138
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 1
+  - first:
+      1: 100140
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 2
+  - first:
+      1: 100142
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 3
+  - first:
+      1: 100144
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 4
+  - first:
+      1: 100146
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 5
+  - first:
+      1: 100148
+    second: Scorpion__With_Reference__Animation_Ready:Saw_Tail_Ctrl
+  - first:
+      1: 100150
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion__UV_
+  - first:
+      1: 100152
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion__UV_locator
+  - first:
+      1: 100154
+    second: Scorpion__With_Reference__Animation_Ready:scorpion_head_jnt
+  - first:
+      1: 100156
+    second: Scorpion__With_Reference__Animation_Ready:scorpion_root_jnt
+  - first:
+      1: 100158
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Body_Grp
+  - first:
+      1: 100160
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube1
+  - first:
+      1: 100162
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube2
+  - first:
+      1: 100164
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tubes_grp
+  - first:
+      1: 100166
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Engine:polySurface1
+  - first:
+      1: 100168
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Gun
+  - first:
+      1: 100170
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head
+  - first:
+      1: 100172
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head_Grp
+  - first:
+      1: 100174
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head_Hood
+  - first:
+      1: 100176
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Left_Eyes
+  - first:
+      1: 100178
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Left_Legs
+  - first:
+      1: 100180
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Middle_Eyes
+  - first:
+      1: 100182
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Needle
+  - first:
+      1: 100184
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCone1
+  - first:
+      1: 100186
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube1
+  - first:
+      1: 100188
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube2
+  - first:
+      1: 100190
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder17
+  - first:
+      1: 100192
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder18
+  - first:
+      1: 100194
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder19
+  - first:
+      1: 100196
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder21
+  - first:
+      1: 100198
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder22
+  - first:
+      1: 100200
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder23
+  - first:
+      1: 100202
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder24
+  - first:
+      1: 100204
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder25
+  - first:
+      1: 100206
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder26
+  - first:
+      1: 100208
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10
+  - first:
+      1: 100210
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10 1
+  - first:
+      1: 100212
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11
+  - first:
+      1: 100214
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11 1
+  - first:
+      1: 100216
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12
+  - first:
+      1: 100218
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12 1
+  - first:
+      1: 100220
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13
+  - first:
+      1: 100222
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13 1
+  - first:
+      1: 100224
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere14
+  - first:
+      1: 100226
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5
+  - first:
+      1: 100228
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5 1
+  - first:
+      1: 100230
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere6
+  - first:
+      1: 100232
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7
+  - first:
+      1: 100234
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7 1
+  - first:
+      1: 100236
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere8
+  - first:
+      1: 100238
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere9
+  - first:
+      1: 100240
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Right_Eyes
+  - first:
+      1: 100242
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Right_Legs
+  - first:
+      1: 100244
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Robot
+  - first:
+      1: 100246
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Saw_Blade
+  - first:
+      1: 100248
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Scorpion_Body
+  - first:
+      1: 100250
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Tail_Base
+  - first:
+      1: 100252
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Tail_Tubes
+  - first:
+      1: 100254
+    second: Scorpion__With_Reference__Animation_Ready:tail_base_jnt_1
+  - first:
+      1: 100256
+    second: Scorpion__With_Reference__Animation_Ready:Tail_Ctrl
+  - first:
+      1: 100258
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_1
+  - first:
+      1: 100260
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_2
+  - first:
+      1: 100262
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_3
+  - first:
+      1: 100264
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_4
+  - first:
+      1: 100266
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_5
+  - first:
+      1: 100268
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_6
+  - first:
+      1: 100270
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_7
+  - first:
+      1: 100272
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_8
+  - first:
+      1: 100274
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_9
+  - first:
+      1: 100276
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_end
+  - first:
+      1: 100278
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_1
+  - first:
+      1: 100280
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_2
+  - first:
+      1: 100282
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_3
+  - first:
+      1: 100284
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_4
+  - first:
+      1: 100286
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_5
+  - first:
+      1: 100288
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_6
+  - first:
+      1: 100290
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_7
+  - first:
+      1: 100292
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_8
+  - first:
+      1: 100294
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_9
+  - first:
+      1: 100296
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_end
+  - first:
+      1: 100298
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_1
+  - first:
+      1: 100300
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_2
+  - first:
+      1: 100302
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_3
+  - first:
+      1: 100304
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_4
+  - first:
+      1: 100306
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_5
+  - first:
+      1: 100308
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_6
+  - first:
+      1: 100310
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_7
+  - first:
+      1: 100312
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_8
+  - first:
+      1: 100314
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_9
+  - first:
+      1: 100316
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_end
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Scorpion__Animation_Ready_
+  - first:
+      4: 400004
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint
+  - first:
+      4: 400006
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 1
+  - first:
+      4: 400008
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 2
+  - first:
+      4: 400010
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 3
+  - first:
+      4: 400012
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 4
+  - first:
+      4: 400014
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 5
+  - first:
+      4: 400016
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1
+  - first:
+      4: 400018
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 1
+  - first:
+      4: 400020
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 2
+  - first:
+      4: 400022
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 3
+  - first:
+      4: 400024
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 4
+  - first:
+      4: 400026
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 5
+  - first:
+      4: 400028
+    second: Scorpion__With_Reference__Animation_Ready:Body_Ctrl
+  - first:
+      4: 400030
+    second: Scorpion__With_Reference__Animation_Ready:Ctrl_Grp
+  - first:
+      4: 400032
+    second: Scorpion__With_Reference__Animation_Ready:Foot
+  - first:
+      4: 400034
+    second: Scorpion__With_Reference__Animation_Ready:Foot 1
+  - first:
+      4: 400036
+    second: Scorpion__With_Reference__Animation_Ready:Foot 2
+  - first:
+      4: 400038
+    second: Scorpion__With_Reference__Animation_Ready:Foot 3
+  - first:
+      4: 400040
+    second: Scorpion__With_Reference__Animation_Ready:Foot 4
+  - first:
+      4: 400042
+    second: Scorpion__With_Reference__Animation_Ready:Foot 5
+  - first:
+      4: 400044
+    second: Scorpion__With_Reference__Animation_Ready:Gun_Tail_Ctrl
+  - first:
+      4: 400046
+    second: Scorpion__With_Reference__Animation_Ready:L_Leg_Back
+  - first:
+      4: 400048
+    second: Scorpion__With_Reference__Animation_Ready:L_Leg_Front
+  - first:
+      4: 400050
+    second: Scorpion__With_Reference__Animation_Ready:L_Leg_Middle
+  - first:
+      4: 400052
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_1
+  - first:
+      4: 400054
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_2
+  - first:
+      4: 400056
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_2 1
+  - first:
+      4: 400058
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_3
+  - first:
+      4: 400060
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_3 1
+  - first:
+      4: 400062
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_end
+  - first:
+      4: 400064
+    second: Scorpion__With_Reference__Animation_Ready:left_back_leg_jnt_end 1
+  - first:
+      4: 400066
+    second: Scorpion__With_Reference__Animation_Ready:left_front_leg_jnt_1
+  - first:
+      4: 400068
+    second: Scorpion__With_Reference__Animation_Ready:Left_Leg_Grp
+  - first:
+      4: 400070
+    second: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_1
+  - first:
+      4: 400072
+    second: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_2
+  - first:
+      4: 400074
+    second: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_3
+  - first:
+      4: 400076
+    second: Scorpion__With_Reference__Animation_Ready:left_middle_leg_jnt_end
+  - first:
+      4: 400078
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1
+  - first:
+      4: 400080
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 1
+  - first:
+      4: 400082
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 2
+  - first:
+      4: 400084
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 3
+  - first:
+      4: 400086
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 4
+  - first:
+      4: 400088
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 5
+  - first:
+      4: 400090
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2
+  - first:
+      4: 400092
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 1
+  - first:
+      4: 400094
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 2
+  - first:
+      4: 400096
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 3
+  - first:
+      4: 400098
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 4
+  - first:
+      4: 400100
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 5
+  - first:
+      4: 400102
+    second: Scorpion__With_Reference__Animation_Ready:Needle_Tail_Ctrl
+  - first:
+      4: 400104
+    second: Scorpion__With_Reference__Animation_Ready:R_Leg_Back
+  - first:
+      4: 400106
+    second: Scorpion__With_Reference__Animation_Ready:R_Leg_Front
+  - first:
+      4: 400108
+    second: Scorpion__With_Reference__Animation_Ready:R_Leg_Middle
+  - first:
+      4: 400110
+    second: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_1
+  - first:
+      4: 400112
+    second: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_2
+  - first:
+      4: 400114
+    second: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_3
+  - first:
+      4: 400116
+    second: Scorpion__With_Reference__Animation_Ready:right_back_leg_jnt_end
+  - first:
+      4: 400118
+    second: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_1
+  - first:
+      4: 400120
+    second: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_2
+  - first:
+      4: 400122
+    second: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_3
+  - first:
+      4: 400124
+    second: Scorpion__With_Reference__Animation_Ready:right_front_leg_jnt_end
+  - first:
+      4: 400126
+    second: Scorpion__With_Reference__Animation_Ready:Right_Leg_Grp
+  - first:
+      4: 400128
+    second: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_1
+  - first:
+      4: 400130
+    second: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_2
+  - first:
+      4: 400132
+    second: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_3
+  - first:
+      4: 400134
+    second: Scorpion__With_Reference__Animation_Ready:right_middle_leg_jnt_end
+  - first:
+      4: 400136
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint
+  - first:
+      4: 400138
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 1
+  - first:
+      4: 400140
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 2
+  - first:
+      4: 400142
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 3
+  - first:
+      4: 400144
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 4
+  - first:
+      4: 400146
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 5
+  - first:
+      4: 400148
+    second: Scorpion__With_Reference__Animation_Ready:Saw_Tail_Ctrl
+  - first:
+      4: 400150
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion__UV_
+  - first:
+      4: 400152
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion__UV_locator
+  - first:
+      4: 400154
+    second: Scorpion__With_Reference__Animation_Ready:scorpion_head_jnt
+  - first:
+      4: 400156
+    second: Scorpion__With_Reference__Animation_Ready:scorpion_root_jnt
+  - first:
+      4: 400158
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Body_Grp
+  - first:
+      4: 400160
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube1
+  - first:
+      4: 400162
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube2
+  - first:
+      4: 400164
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tubes_grp
+  - first:
+      4: 400166
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Engine:polySurface1
+  - first:
+      4: 400168
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Gun
+  - first:
+      4: 400170
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head
+  - first:
+      4: 400172
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head_Grp
+  - first:
+      4: 400174
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head_Hood
+  - first:
+      4: 400176
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Left_Eyes
+  - first:
+      4: 400178
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Left_Legs
+  - first:
+      4: 400180
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Middle_Eyes
+  - first:
+      4: 400182
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Needle
+  - first:
+      4: 400184
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCone1
+  - first:
+      4: 400186
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube1
+  - first:
+      4: 400188
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube2
+  - first:
+      4: 400190
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder17
+  - first:
+      4: 400192
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder18
+  - first:
+      4: 400194
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder19
+  - first:
+      4: 400196
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder21
+  - first:
+      4: 400198
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder22
+  - first:
+      4: 400200
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder23
+  - first:
+      4: 400202
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder24
+  - first:
+      4: 400204
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder25
+  - first:
+      4: 400206
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder26
+  - first:
+      4: 400208
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10
+  - first:
+      4: 400210
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10 1
+  - first:
+      4: 400212
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11
+  - first:
+      4: 400214
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11 1
+  - first:
+      4: 400216
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12
+  - first:
+      4: 400218
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12 1
+  - first:
+      4: 400220
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13
+  - first:
+      4: 400222
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13 1
+  - first:
+      4: 400224
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere14
+  - first:
+      4: 400226
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5
+  - first:
+      4: 400228
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5 1
+  - first:
+      4: 400230
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere6
+  - first:
+      4: 400232
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7
+  - first:
+      4: 400234
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7 1
+  - first:
+      4: 400236
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere8
+  - first:
+      4: 400238
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere9
+  - first:
+      4: 400240
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Right_Eyes
+  - first:
+      4: 400242
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Right_Legs
+  - first:
+      4: 400244
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Robot
+  - first:
+      4: 400246
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Saw_Blade
+  - first:
+      4: 400248
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Scorpion_Body
+  - first:
+      4: 400250
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Tail_Base
+  - first:
+      4: 400252
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Tail_Tubes
+  - first:
+      4: 400254
+    second: Scorpion__With_Reference__Animation_Ready:tail_base_jnt_1
+  - first:
+      4: 400256
+    second: Scorpion__With_Reference__Animation_Ready:Tail_Ctrl
+  - first:
+      4: 400258
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_1
+  - first:
+      4: 400260
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_2
+  - first:
+      4: 400262
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_3
+  - first:
+      4: 400264
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_4
+  - first:
+      4: 400266
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_5
+  - first:
+      4: 400268
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_6
+  - first:
+      4: 400270
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_7
+  - first:
+      4: 400272
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_8
+  - first:
+      4: 400274
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_9
+  - first:
+      4: 400276
+    second: Scorpion__With_Reference__Animation_Ready:tail_l_jnt_end
+  - first:
+      4: 400278
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_1
+  - first:
+      4: 400280
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_2
+  - first:
+      4: 400282
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_3
+  - first:
+      4: 400284
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_4
+  - first:
+      4: 400286
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_5
+  - first:
+      4: 400288
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_6
+  - first:
+      4: 400290
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_7
+  - first:
+      4: 400292
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_8
+  - first:
+      4: 400294
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_9
+  - first:
+      4: 400296
+    second: Scorpion__With_Reference__Animation_Ready:tail_m_jnt_end
+  - first:
+      4: 400298
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_1
+  - first:
+      4: 400300
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_2
+  - first:
+      4: 400302
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_3
+  - first:
+      4: 400304
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_4
+  - first:
+      4: 400306
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_5
+  - first:
+      4: 400308
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_6
+  - first:
+      4: 400310
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_7
+  - first:
+      4: 400312
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_8
+  - first:
+      4: 400314
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_9
+  - first:
+      4: 400316
+    second: Scorpion__With_Reference__Animation_Ready:tail_r_jnt_end
+  - first:
+      21: 2100000
+    second: lambert1
+  - first:
+      21: 2100002
+    second: Scorpion__With_Reference__Animation_Ready_Scorpion_v6__UV__Engine_initialShadingGroup1
+  - first:
+      43: 4300000
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere6
+  - first:
+      43: 4300002
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere8
+  - first:
+      43: 4300004
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere9
+  - first:
+      43: 4300006
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head_Hood
+  - first:
+      43: 4300008
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head
+  - first:
+      43: 4300010
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13
+  - first:
+      43: 4300012
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11
+  - first:
+      43: 4300014
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10
+  - first:
+      43: 4300016
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7
+  - first:
+      43: 4300018
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5
+  - first:
+      43: 4300020
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12
+  - first:
+      43: 4300022
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13
+  - first:
+      43: 4300024
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11
+  - first:
+      43: 4300026
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10
+  - first:
+      43: 4300028
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7
+  - first:
+      43: 4300030
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5
+  - first:
+      43: 4300032
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12
+  - first:
+      43: 4300034
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder21
+  - first:
+      43: 4300036
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder22
+  - first:
+      43: 4300038
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder23
+  - first:
+      43: 4300040
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint
+  - first:
+      43: 4300042
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1
+  - first:
+      43: 4300044
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2
+  - first:
+      43: 4300046
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1
+  - first:
+      43: 4300048
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint
+  - first:
+      43: 4300050
+    second: Scorpion__With_Reference__Animation_Ready:Foot
+  - first:
+      43: 4300052
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint
+  - first:
+      43: 4300054
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1
+  - first:
+      43: 4300056
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2
+  - first:
+      43: 4300058
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1
+  - first:
+      43: 4300060
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint
+  - first:
+      43: 4300062
+    second: Scorpion__With_Reference__Animation_Ready:Foot
+  - first:
+      43: 4300064
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint
+  - first:
+      43: 4300066
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1
+  - first:
+      43: 4300068
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2
+  - first:
+      43: 4300070
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1
+  - first:
+      43: 4300072
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint
+  - first:
+      43: 4300074
+    second: Scorpion__With_Reference__Animation_Ready:Foot
+  - first:
+      43: 4300076
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint
+  - first:
+      43: 4300078
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1
+  - first:
+      43: 4300080
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2
+  - first:
+      43: 4300082
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1
+  - first:
+      43: 4300084
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint
+  - first:
+      43: 4300086
+    second: Scorpion__With_Reference__Animation_Ready:Foot
+  - first:
+      43: 4300088
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint
+  - first:
+      43: 4300090
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1
+  - first:
+      43: 4300092
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2
+  - first:
+      43: 4300094
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1
+  - first:
+      43: 4300096
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint
+  - first:
+      43: 4300098
+    second: Scorpion__With_Reference__Animation_Ready:Foot
+  - first:
+      43: 4300100
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint
+  - first:
+      43: 4300102
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1
+  - first:
+      43: 4300104
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2
+  - first:
+      43: 4300106
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1
+  - first:
+      43: 4300108
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint
+  - first:
+      43: 4300110
+    second: Scorpion__With_Reference__Animation_Ready:Foot
+  - first:
+      43: 4300112
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder24
+  - first:
+      43: 4300114
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCone1
+  - first:
+      43: 4300116
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube1
+  - first:
+      43: 4300118
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder25
+  - first:
+      43: 4300120
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder26
+  - first:
+      43: 4300122
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere14
+  - first:
+      43: 4300124
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube2
+  - first:
+      43: 4300126
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder19
+  - first:
+      43: 4300128
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder18
+  - first:
+      43: 4300130
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder17
+  - first:
+      43: 4300132
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Engine:polySurface1
+  - first:
+      43: 4300134
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Scorpion_Body
+  - first:
+      43: 4300136
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube1
+  - first:
+      43: 4300138
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube2
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint
+  - first:
+      137: 13700002
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 1
+  - first:
+      137: 13700004
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 2
+  - first:
+      137: 13700006
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 3
+  - first:
+      137: 13700008
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 4
+  - first:
+      137: 13700010
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint 5
+  - first:
+      137: 13700012
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1
+  - first:
+      137: 13700014
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 1
+  - first:
+      137: 13700016
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 2
+  - first:
+      137: 13700018
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 3
+  - first:
+      137: 13700020
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 4
+  - first:
+      137: 13700022
+    second: Scorpion__With_Reference__Animation_Ready:BallJoint1 5
+  - first:
+      137: 13700024
+    second: Scorpion__With_Reference__Animation_Ready:Foot
+  - first:
+      137: 13700026
+    second: Scorpion__With_Reference__Animation_Ready:Foot 1
+  - first:
+      137: 13700028
+    second: Scorpion__With_Reference__Animation_Ready:Foot 2
+  - first:
+      137: 13700030
+    second: Scorpion__With_Reference__Animation_Ready:Foot 3
+  - first:
+      137: 13700032
+    second: Scorpion__With_Reference__Animation_Ready:Foot 4
+  - first:
+      137: 13700034
+    second: Scorpion__With_Reference__Animation_Ready:Foot 5
+  - first:
+      137: 13700036
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1
+  - first:
+      137: 13700038
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 1
+  - first:
+      137: 13700040
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 2
+  - first:
+      137: 13700042
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 3
+  - first:
+      137: 13700044
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 4
+  - first:
+      137: 13700046
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston1 5
+  - first:
+      137: 13700048
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2
+  - first:
+      137: 13700050
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 1
+  - first:
+      137: 13700052
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 2
+  - first:
+      137: 13700054
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 3
+  - first:
+      137: 13700056
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 4
+  - first:
+      137: 13700058
+    second: Scorpion__With_Reference__Animation_Ready:LegPiston2 5
+  - first:
+      137: 13700060
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint
+  - first:
+      137: 13700062
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 1
+  - first:
+      137: 13700064
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 2
+  - first:
+      137: 13700066
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 3
+  - first:
+      137: 13700068
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 4
+  - first:
+      137: 13700070
+    second: Scorpion__With_Reference__Animation_Ready:RotateJoint 5
+  - first:
+      137: 13700072
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube1
+  - first:
+      137: 13700074
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Energy_Tube2
+  - first:
+      137: 13700076
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Engine:polySurface1
+  - first:
+      137: 13700078
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head
+  - first:
+      137: 13700080
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Head_Hood
+  - first:
+      137: 13700082
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCone1
+  - first:
+      137: 13700084
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube1
+  - first:
+      137: 13700086
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCube2
+  - first:
+      137: 13700088
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder17
+  - first:
+      137: 13700090
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder18
+  - first:
+      137: 13700092
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder19
+  - first:
+      137: 13700094
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder21
+  - first:
+      137: 13700096
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder22
+  - first:
+      137: 13700098
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder23
+  - first:
+      137: 13700100
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder24
+  - first:
+      137: 13700102
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder25
+  - first:
+      137: 13700104
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pCylinder26
+  - first:
+      137: 13700106
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10
+  - first:
+      137: 13700108
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere10 1
+  - first:
+      137: 13700110
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11
+  - first:
+      137: 13700112
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere11 1
+  - first:
+      137: 13700114
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12
+  - first:
+      137: 13700116
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere12 1
+  - first:
+      137: 13700118
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13
+  - first:
+      137: 13700120
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere13 1
+  - first:
+      137: 13700122
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere14
+  - first:
+      137: 13700124
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5
+  - first:
+      137: 13700126
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere5 1
+  - first:
+      137: 13700128
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere6
+  - first:
+      137: 13700130
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7
+  - first:
+      137: 13700132
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere7 1
+  - first:
+      137: 13700134
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere8
+  - first:
+      137: 13700136
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:pSphere9
+  - first:
+      137: 13700138
+    second: Scorpion__With_Reference__Animation_Ready:Scorpion_v6__UV_:Scorpion_Body
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -504,6 +1420,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -511,27 +1428,33 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips:
+  - 845b4df693155f84abd193b1b006a5df
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -541,8 +1464,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

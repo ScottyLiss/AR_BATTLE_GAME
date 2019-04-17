@@ -13,6 +13,12 @@ public class PetAI : MonoBehaviour
         StaticVariables.persistanceStoring.SavePetData();
         resources.Disable();
     }
+    
+    public void OnApplicationQuit()
+    {
+        StaticVariables.persistanceStoring.SavePetData();
+        resources.Disable();
+    }
 
     //Variables
     protected float maxSpeed = 5.0f;

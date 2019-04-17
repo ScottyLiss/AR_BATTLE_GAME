@@ -2,15 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceMove : MonoBehaviour {
+public class ResourceMove : MonoBehaviour
+{
 
-    public Vector3 t_pos = Vector3.zero;
+	private Vector3 positionTarget = Vector3.zero;
 
-	void Update ()
+    public Vector3 t_pos
     {
-		if(t_pos != Vector3.zero)
-        {
-            this.transform.position = Vector3.Lerp(this.transform.position, t_pos, 0.1f);
-        }
-	}
+	    get { return positionTarget; }
+
+	    set
+	    {
+		    
+		    StopAllCoroutines();
+		    positionTarget = value;
+		    
+		    MoveToLocation();
+	    }
+    }
+
+    void MoveToLocation()
+    {
+	    if(t_pos != Vector3.zero)
+	    {
+		    StartCoroutine(MoveToLocationCoroutine());
+	    }
+    }
+
+    private IEnumerator MoveToLocationCoroutine()
+    {
+
+	    while (Vector3.Distance(this.transform.position, t_pos) > 0.1f)
+	    {
+		    this.transform.position = Vector3.Lerp(this.transform.position, t_pos, 0.1f);
+		    
+		    yield return new WaitForEndOfFrame();
+	    }
+	    
+    }
 }
