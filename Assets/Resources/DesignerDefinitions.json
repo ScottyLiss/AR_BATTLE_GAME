@@ -379,36 +379,51 @@
     },
     "Wasp": {
       "Base": {
-        "Health": 1000,
-        "Armour": 15,
-        "Damage": 200,
-        "AttackSpeed": 2.5,
+        "Health": 600,
+        "Armour": 10,
+        "Damage": 300,
+        "AttackSpeed": 2,
         "StaggerResist": 10
       },
       "Scaling": {
-        "Health": 25,
-        "Armour": 25,
-        "Damage": 10,
+        "Health": 20,
+        "Armour": 20,
+        "Damage": 30,
         "AttackSpeed": 1,
         "StaggerResist": 25
       }
     },
     "Scorpion": {
       "Base": {
-        "Health": 1000,
-        "Armour": 15,
-        "Damage": 200,
-        "AttackSpeed": 2.5,
+        "Health": 800,
+        "Armour": 20,
+        "Damage": 300,
+        "AttackSpeed": 3,
         "StaggerResist": 10
       },
       "Scaling": {
         "Health": 25,
-        "Armour": 25,
-        "Damage": 10,
+        "Armour": 20,
+        "Damage": 20,
+        "AttackSpeed": 1,
+        "StaggerResist": 25
+      }
+    },
+    "Scorpiontail": {
+      "Base": {
+        "Health": 500,
+        "Armour": 5,
+        "Damage": 300,
+        "AttackSpeed": 3,
+        "StaggerResist": 10
+      },
+      "Scaling": {
+        "Health": 25,
+        "Armour": 20,
+        "Damage": 20,
         "AttackSpeed": 1,
         "StaggerResist": 25
       }
     }
   }
-
 }
