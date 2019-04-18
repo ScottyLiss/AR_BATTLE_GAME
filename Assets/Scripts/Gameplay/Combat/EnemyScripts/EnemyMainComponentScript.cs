@@ -8,11 +8,7 @@ using UnityEngine.UI;
 
 public class EnemyMainComponentScript : EnemyComponent
 {
-
-    public EnemyMainComponentScript()
-    {
-        HittableType = HittableTypes.Body;
-    }
+    public override HittableTypes HittableType => HittableTypes.Body;
 
     // The degrees to turn the enemy when they are hit
     public float RotationIntensity;
@@ -29,8 +25,6 @@ public class EnemyMainComponentScript : EnemyComponent
         base.Start();
         this.defaultRotationQuaternion = transform.parent.rotation;
 
-        gameObject.layer = 9;
-
         foreach (Transform child in gameObject.transform)
         {
             child.gameObject.layer = 9;
@@ -44,7 +38,7 @@ public class EnemyMainComponentScript : EnemyComponent
     /// This method should be subscribed to methods that damage the enemy
     /// </summary>
     /// <param name="positionHit">The world space position where the hit landed</param>
-    public override void OnHit(Vector3 positionHit, float? damageDealt = null)
+    protected override void OnHit(Vector3 positionHit, float? damageDealt = null)
     {
         base.OnHit(positionHit, damageDealt);
 
@@ -114,74 +108,19 @@ public class EnemyMainComponentScript : EnemyComponent
         gameObject.transform.parent.rotation = defaultRotationQuaternion;
     }
 
-    public override void Attack()
-    {
-        if (this.name == "Swarm__Final_:Root")
-        {
-
-        }
-        else if (this.name == "Wasp")
-        {
-            
-        }
-        else
-        {
-            base.Attack();
-        }
-    }
-
-    //protected virtual IEnumerator PlayDamagedCoroutine()
-    //{
-
-    //	if (!isRunningDamageCoroutine)
-    //	{
-    //		isRunningDamageCoroutine = true;
-
-    //		timeSinceLastHit = 0;
-    //		Material defaultMaterial = null;
-    //		Material[] defaultChildMaterials = new Material[gameObject.transform.childCount];
-
-    //		if (gameObject.GetComponent<MeshRenderer>() &&
-    //		    gameObject.GetComponent<MeshRenderer>().material != StaticVariables.damagedMaterial)
-    //		{
-    //			defaultMaterial = gameObject.GetComponent<MeshRenderer>().material;
-    //			gameObject.GetComponent<MeshRenderer>().material = StaticVariables.damagedMaterial;
-    //		}
-
-
-    //		for (var i = 0; i < gameObject.transform.childCount; i++)
-    //		{
-    //			if (gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() &&
-    //			    gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() != StaticVariables.damagedMaterial)
-    //			{
-    //				defaultChildMaterials[i] = gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material;
-    //				gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material =
-    //					StaticVariables.damagedMaterial;
-    //			}
-    //		}
-
-    //		while (timeSinceLastHit < 0.1)
-    //		{
-    //			timeSinceLastHit += Time.deltaTime;
-
-    //			yield return new WaitForEndOfFrame();
-    //		}
-
-    //		if (gameObject.GetComponent<MeshRenderer>() && defaultMaterial)
-    //			gameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
-
-    //		for (var i = 0; i < gameObject.transform.childCount; i++)
-    //		{
-    //			if (gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() && defaultChildMaterials[i])
-    //				gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material = defaultChildMaterials[i];
-    //		}
-
-    //		isRunningDamageCoroutine = false;
-    //	}
-
-    //	else
-    //	{
-    //		timeSinceLastHit = 0;
-    //	}
-    //}
+//    public override void Attack()
+//    {
+//        if (this.name == "Swarm__Final_:Root")
+//        {
+//
+//        }
+//        else if (this.name == "Wasp")
+//        {
+//            
+//        }
+//        else
+//        {
+//            base.Attack();
+//        }
+//    }
 }

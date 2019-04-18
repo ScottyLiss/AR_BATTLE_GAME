@@ -35,7 +35,7 @@ public class PetCombatScript : MonoBehaviour
     public event GenericVoidDelegate.RefDelegate<float> CalculatingLowStaminaMultiplier;
     public event GenericVoidDelegate.RefDelegate<float> CalculatingDamageMultiplier;
 
-    public event GenericDelegate<float>.RefDelegate<HittableTypes> CalculateComponentSpecificDamageMultiplier;
+    public event GenericDelegate<float>.Delegate<HittableTypes> CalculateComponentSpecificDamageMultiplier;
     public event GenericVoidDelegate.RefDelegate<float> OnPetHit;
     public event GenericVoidDelegate.RefDelegate<float> OnPetHitArmourCalculation;
     public event GenericVoidDelegate.ParamlessDelegate PetChangedLane;
@@ -59,22 +59,28 @@ public class PetCombatScript : MonoBehaviour
 
         set
         {
-            _iPetLanePosition = value;
 
-            gameObject.transform.position = petPositions[value].position;
-            PetChangedLane?.Invoke();
+            if (LaneBlocker.LaneBlockers[value] == null)
+            {
+                _iPetLanePosition = value;
+
+                gameObject.transform.position = petPositions[value].position;
+                PetChangedLane?.Invoke();
+            }
         }
     }
 
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         //attackingFeedback1.gameObject.SetActive(false);
         //attackingFeedback2.gameObject.SetActive(false);
         //attackingFeedback3.gameObject.SetActive(false);
 
         animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
+
+        PetPotentialPositions.positions = petPositions;
 
         //bDebug = EditorApplication.isPlaying;
         
@@ -124,7 +130,6 @@ public class PetCombatScript : MonoBehaviour
                 {
                     catalystEffect.Start();
                     catalystEffect.CombatStart();
-                    Debug.Log(catalystEffect.name);
                 }
             }            
         }
@@ -136,11 +141,14 @@ public class PetCombatScript : MonoBehaviour
     // Clear all events of handlers and stop all coroutines before exiting combat
     public void ClearData()
     {
-        OnPetHit = null;
-        PetChangedLane = null;
         CalculatingBaseDamage = null;
-        CalculatingDamageMultiplier = null;
         CalculatingDamageStaminaCost = null;
+        CalculatingLowStaminaMultiplier = null;
+        CalculateComponentSpecificDamageMultiplier = null;
+        CalculatingDamageMultiplier = null;
+        OnPetHit = null;
+        OnPetHitArmourCalculation = null;
+        PetChangedLane = null;
 
         StopAllCoroutines();
 }
@@ -238,12 +246,11 @@ public class PetCombatScript : MonoBehaviour
                     foreach (CatalystEffect catalystEffect in catalyst.effects)
                     {
                         catalystEffect.CombatEnd();
-                        Debug.Log(catalystEffect.name);
                     }
                 }
             }
 
-//            StaticVariables.currentEncounter.ConcludeCombat(false);
+            StaticVariables.currentEncounter.ConcludeCombat(false);
         }
     }
 
@@ -283,7 +290,7 @@ public class PetCombatScript : MonoBehaviour
         float componentDamageModulation = 1;
 
         if (CalculateComponentSpecificDamageMultiplier != null)
-            componentDamageModulation += CalculateComponentSpecificDamageMultiplier(ref hittableObject.HittableType);
+            componentDamageModulation += CalculateComponentSpecificDamageMultiplier(hittableObject.HittableType);
 
         damageToDeal *= componentDamageModulation;
         
@@ -291,7 +298,7 @@ public class PetCombatScript : MonoBehaviour
          * End Calculation
          -----------------*/
 
-        hittableObject.OnHit(pointHit, damageToDeal);
+        hittableObject.Hit(pointHit, damageToDeal);
 
         animator.SetTrigger(Attack);
     }

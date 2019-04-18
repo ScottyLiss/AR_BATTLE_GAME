@@ -14,10 +14,19 @@ public class PetComposer : MonoBehaviour {
 
 		gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMesh = null;
 		
-		AssignModel(PetBodySlot.Head, 2);
-		AssignModel(PetBodySlot.Body, 2);
-		AssignModel(PetBodySlot.Tail, 2);
-		AssignModel(PetBodySlot.Legs, 2);
+		for (int i = 0; i < 4; i++)
+		{
+			// Remove previous variants of the same type and rename this one
+			GameObject oldVariant = gameObject.transform.Find(((PetBodySlot) i).ToString())?.gameObject;
+			
+			if (!oldVariant)
+				AssignModel((PetBodySlot)i, 2);
+		}
+		
+//		AssignModel(PetBodySlot.Head, 2);
+//		AssignModel(PetBodySlot.Body, 2);
+//		AssignModel(PetBodySlot.Tail, 2);
+//		AssignModel(PetBodySlot.Legs, 2);
 	}
 	
 	public void AssignModel(PetBodySlot slot, int variant)

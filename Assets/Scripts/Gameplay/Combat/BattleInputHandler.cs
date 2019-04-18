@@ -88,8 +88,6 @@ public class BattleInputHandler : MonoBehaviour
 	void Start()
     {
 	    StaticVariables.isInBattle = true;
-	    StaticVariables.defaultEnemyMaterial = this.defaultEnemyMaterial;
-	    StaticVariables.defaultPetMaterial = this.defaultPetMaterial;
 	    StaticVariables.damagedMaterial = this.damagedMaterial;
 	    StaticVariables.battleHandler = this;
         StaticVariables.laneIndication = gameObject.GetComponent<LaneIndication>();

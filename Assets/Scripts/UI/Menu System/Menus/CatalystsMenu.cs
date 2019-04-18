@@ -13,11 +13,39 @@ public class CatalystsMenu : SimpleMenu<CatalystsMenu> {
     // The background and the content of the button
     public GameObject buttonBackground;
     public GameObject buttonContent;
+    
+    // The catalyst representation prefab
+    public GameObject catalystRepresentationPrefab;
+    
+    // The icons for the slot
+    public Sprite headSlotIcon;
+    public Sprite bodySlotIcon;
+    public Sprite tailSlotIcon;
+    public Sprite legsSlotIcon;
+    
+    // Get the sprite for the slot
+    private Sprite GetSpriteForSlot(PetBodySlot slot)
+    {
+	    switch (slot)
+	    {
+		    case PetBodySlot.Head:
+			    return headSlotIcon;
+		    case PetBodySlot.Body:
+			    return bodySlotIcon;
+		    case PetBodySlot.Tail:
+			    return tailSlotIcon;
+		    case PetBodySlot.Legs:
+			    return legsSlotIcon;
+	    }
+
+	    return null;
+    }
 	
     // Register the callbacks
     private void OnEnable()
     {
 	    RefreshMenu();
+	    
         StaticVariables.persistanceStoring.CatalystsChanged += RefreshMenu;
     }
 
@@ -50,6 +78,22 @@ public class CatalystsMenu : SimpleMenu<CatalystsMenu> {
 	    {
 		    Destroy(ContentContainer.transform.GetChild(i).gameObject);
 	    }
+    }
+
+    public void SpawnRepresentation(PointerEventData data)
+    {
+	    
+	    // Load in the catalyst
+	    InventoryCatalyst inventoryCatalyst = data.rawPointerPress.GetComponent<InventoryCatalyst>() ??
+	                                          data.rawPointerPress.GetComponentInParent<InventoryCatalyst>();
+		
+	    Catalyst catalystToLoad = inventoryCatalyst.catalystAssociated;
+	    
+	    // Spawn the representation
+	    GameObject representationInstance = Instantiate(catalystRepresentationPrefab, Instance.transform);
+	    
+	    representationInstance.GetComponent<CatalystViewer>().RepresentCatalyst(catalystToLoad);
+	    representationInstance.transform.Find("Interactions").gameObject.SetActive(true);
     }
     
     public void PopulateMenu()
@@ -90,21 +134,25 @@ public class CatalystsMenu : SimpleMenu<CatalystsMenu> {
                 // Set the catalyst
                 newButtonContent.GetComponent<InventoryCatalyst>().catalystAssociated = catalysts[i];
                 GameObject buttonName = newButtonContent.transform.Find("Name").gameObject;
+                GameObject bodyPartIcon = newButtonContent.transform.Find("BodyPartIcon").gameObject;
                 GameObject buttonLevel = newButtonContent.transform.Find("Level").gameObject;
 
                 buttonName.GetComponent<TextMeshProUGUI>().text = catalysts[i].name;
+                buttonName.GetComponent<TextMeshProUGUI>().color = CatalystFactory.rarityColors[(int)catalysts[i].rarity];
                 buttonLevel.GetComponent<TextMeshProUGUI>().text = "lvl." + catalysts[i].level.ToString();
                 buttonLevel.GetComponent<TextMeshProUGUI>().color =
 	                catalysts[i].level > StaticVariables.petData.level
 		                ? new Color32(255, 0, 0, 255)
 		                : new Color32(255, 255, 255, 255);
 
+                bodyPartIcon.GetComponent<Image>().sprite = GetSpriteForSlot(catalysts[i].slot);
+
                 // Create a new event trigger for the button and hook up the logic
                 EventTrigger trigger = newButtonContent.GetComponent<EventTrigger>();
                 EventTrigger.Entry entry = new EventTrigger.Entry();
 
                 entry.eventID = EventTriggerType.PointerClick;
-                entry.callback.AddListener((data) => { EquipCatalyst((PointerEventData) data); });
+                entry.callback.AddListener((data) => { SpawnRepresentation((PointerEventData) data); });
                 trigger.triggers.Add(entry);
             }
         }

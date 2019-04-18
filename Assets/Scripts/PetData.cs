@@ -21,6 +21,8 @@ public class PetData
     public List<Breach> breachesInventoryTemp = new List<Breach>();
     public float hungerDecayRate = 0.0004f;
 
+    public event GenericVoidDelegate.ParamlessDelegate EquippedCatalystsChanged;
+
     public Catalyst GetCatalystInSlot(PetBodySlot slot)
     {
         switch (slot)
@@ -82,6 +84,8 @@ public class PetData
         stats += catalystToEquip.statsAdjustment;
 		
 		StaticVariables.persistanceStoring.DeleteCatalystFromInventory(catalystToEquip.id);
+		
+        EquippedCatalystsChanged?.Invoke();
 	}
 
     public void UnequipCatalyst(Catalyst catalystToUnequip)
@@ -107,6 +111,8 @@ public class PetData
 
             stats -= catalystToUnequip.statsAdjustment;
         }
+        
+        EquippedCatalystsChanged?.Invoke();
     }
 
     public bool FeedPet(FoodQuantity foodQuantity)

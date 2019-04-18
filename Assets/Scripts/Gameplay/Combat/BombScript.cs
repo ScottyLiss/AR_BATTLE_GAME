@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombScript : HittableObject {
+public class BombScript : HittableObject
+{
+	public override HittableTypes HittableType => HittableTypes.Bomb;
 
-	public BombScript()
-	{
-		HittableType = HittableTypes.Bomb;
-	}
-
-    // The direction the bomb is going
+	// The direction the bomb is going
     public Vector2 direction;
 
 	// The speed the bomb travels at
@@ -72,7 +69,7 @@ public class BombScript : HittableObject {
 		}
 	}
 
-	public override void OnHit(Vector3 pointHit, float? damageDealth = null)
+	protected override void OnHit(Vector3 pointHit, float? damageDealth = null)
 	{
 		StaticVariables.combatPet.GetHit(400);
 

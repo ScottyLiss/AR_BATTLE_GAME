@@ -27,6 +27,8 @@ public class TraitBadgeUpdater : MonoBehaviour
 	{
 		gameObject.transform.Find("Text").GetComponent<Text>().text =
 			$"{traitToRepresent.ActivationPoints}/{traitToRepresent.activationThreshold}";
+		
+		
 	}
 
 	public void ToggleNamePlate()

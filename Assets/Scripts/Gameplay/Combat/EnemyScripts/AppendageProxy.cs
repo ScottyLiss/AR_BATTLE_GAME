@@ -6,9 +6,8 @@ public class AppendageProxy : HittableObject
 {
 	public EnemyAppendage ActualAppendage;
 
-	public override void OnHit(Vector3 positionHit, float? damageDealt = null)
+	protected override void OnHit(Vector3 positionHit, float? damageDealt = null)
 	{
-        Debug.Log(ActualAppendage.gameObject.name);
-		ActualAppendage.OnHit(positionHit, damageDealt);
+		ActualAppendage.Hit(positionHit, damageDealt);
 	}
 }

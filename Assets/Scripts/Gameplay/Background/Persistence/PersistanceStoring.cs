@@ -70,11 +70,6 @@ public class PersistanceStoring : MonoBehaviour
     private void Start()
     {
         StaticVariables.persistanceStoring = this;
-                
-        foreach (KeyValuePair<string, Mapbox.Utils.Vector2d> entry in coordinatesPos)
-        {
-            Debug.Log(entry.Value);
-        }
 
         UpdateDictionary();
         InitialiseXmlFile();
@@ -449,21 +444,28 @@ public class PersistanceStoring : MonoBehaviour
     // Delete a given catalyst from the persistent inventory by ID
     public void DeleteCatalystFromInventory(uint catalystId)
     {
-        mapDoc.Load(Application.persistentDataPath + "/Catalysts.xml");
-        XmlNodeList nodelist = mapDoc.SelectNodes("Catalyst");
+        // Load the XML document
+        var xmlDoc = XDocument.Load(Application.persistentDataPath + "/Catalysts.xml");
 
-        if (nodelist != null)
-            for (int i = 0; i < nodelist.Count; i++)
+        var catalystsElement = xmlDoc.Element("Catalysts");
+
+        var catalystElements = catalystsElement.Elements("Catalyst");
+
+        var xElements = catalystElements as XElement[] ?? catalystElements.ToArray();
+        
+        if (xElements.Any())
+        {
+            for (int i = 0; i < xElements.Count(); i++)
             {
                 // We've found our node, so delete it
-                if (nodelist[i].SelectSingleNode("ID")?.Value == catalystId.ToString())
+                if (xElements[i].Element("ID")?.Value == catalystId.ToString())
                 {
-                    var parentNode = nodelist[i].ParentNode;
-                    parentNode?.RemoveChild(nodelist[i]);
+                    xElements[i].Remove();
                 }
             }
+        }
         
-        mapDoc.Save(Application.persistentDataPath + "/Catalysts.xml");
+        xmlDoc.Save(Application.persistentDataPath + "/Catalysts.xml");
 
         // Notify the system that catalysts have changed
         CatalystsChanged?.Invoke();
@@ -518,7 +520,9 @@ public class PersistanceStoring : MonoBehaviour
             int typeIndex = Convert.ToInt32(catalystEffectData.Element("Type-Index")?.Value);
             Rarities rarity = (Rarities)Convert.ToInt32(catalystEffectData.Element("Rarity")?.Value);
 
-            newCatalystEffects.Add(CatalystFactory.CreateNewCatalystEffect(rarity, 0, typeIndex));
+            CatalystEffect newEffect = CatalystFactory.CreateNewCatalystEffect(rarity, 0, typeIndex);
+            newEffect.typeIndex = typeIndex;
+            newCatalystEffects.Add(newEffect);
         }
 
         // Parse the catalyst data
@@ -561,6 +565,8 @@ public class PersistanceStoring : MonoBehaviour
                 name = newCatalystName,
                 rarity = newCatalystRarity,
                 slot = newCatalystSlot,
+                
+                
                 
                 modelVariantIndex = newModelVariantIndex,
             
@@ -1367,12 +1373,23 @@ public class PersistanceStoring : MonoBehaviour
         petData.bodyCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Body")?.Element("Catalyst"));
         petData.tailCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Tail")?.Element("Catalyst"));
         petData.legsCatalyst = LoadCatalyst(petDataElement.Element("Catalysts")?.Element("Legs")?.Element("Catalyst"));
+
+        int index = 0;
         
         // Set the models
         foreach (var petDataCatalyst in petData.catalysts)
         {
             if (petDataCatalyst != null)
+            {
                 StaticVariables.petComposer.AssignModel(petDataCatalyst.slot, petDataCatalyst.modelVariantIndex);
+            }
+
+            else
+            {
+                StaticVariables.petComposer.AssignModel((PetBodySlot)index, 2);
+            }
+
+            index++;
         }
     }
 

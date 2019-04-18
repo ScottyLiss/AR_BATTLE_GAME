@@ -76,6 +76,12 @@ public class SceneTransitionHandler : MonoBehaviour
         // TODO: Set it up to save the map data
         //StaticVariables.persistanceManager.SaveMapData();
 
+        if (StaticVariables.petData.stats.health <= 0)
+        {
+            HealthWarningPopup.Show();
+            return;
+        }
+
         if (!isLoadingSomething && StaticVariables.petData.stats.health > 0)
         {
             StaticVariables.currentEncounter = combatEncounter;

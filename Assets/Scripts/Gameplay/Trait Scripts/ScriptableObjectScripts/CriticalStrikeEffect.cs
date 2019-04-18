@@ -68,12 +68,11 @@ public class CriticalStrikeEffect : GenericEffect
 				    (Vector2) Camera.main.WorldToScreenPoint(targetComponent.transform.position)
 				) <= instantiatedCriticalEffectOuterRing.GetComponent<Image>().rectTransform.rect.width * 0.6)
 			{
-				targetComponent.OnHit(targetComponent.transform.position, 
+				targetComponent.Hit(targetComponent.transform.position, 
 					StaticVariables.petData.stats.damage * Mathf.Lerp(1, StaticVariables.petData.stats.critMultiplier,
 						((mechanicDuration - currentMechanicLifetime) / mechanicDuration)
 					));
 
-				Debug.Log("CRITICAL STRIKE");
 
 				StaticVariables.battleHandler.RunShakeyCamera(0.3f);
 

@@ -149,7 +149,6 @@ public class PlayerData : DataHolder
         //Loop to search the breach that has been deployed from the inventory and delete it from the breaches list
         while (count < breaches.Count())
         {
-            Debug.Log(count.ToString());
 
             if (breaches[count].szName == "A" && iBreachNumber == 1)
             {

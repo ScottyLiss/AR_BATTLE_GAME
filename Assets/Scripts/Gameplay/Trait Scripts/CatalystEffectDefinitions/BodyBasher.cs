@@ -44,7 +44,7 @@ public class BodyBasher: CatalystEffect
         StaticVariables.combatPet.CalculateComponentSpecificDamageMultiplier -= GetDamageModulation;
     }
 
-    private float GetDamageModulation(ref HittableTypes hittableType)
+    private float GetDamageModulation(HittableTypes hittableType)
     {
         if (hittableType == HittableTypes.Appendage)
         {

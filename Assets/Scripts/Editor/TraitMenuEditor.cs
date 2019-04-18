@@ -81,7 +81,8 @@ public class TraitsMenuEditor : Editor
 		};
 
 		// Load in the designer definitions file      
-		string definitionsString = File.ReadAllText(Application.streamingAssetsPath + @".\\DesignerDefinitions.json", Encoding.UTF8);
+		//string definitionsString = File.ReadAllText(Application.streamingAssetsPath + @".\\DesignerDefinitions.json", Encoding.UTF8);
+		string definitionsString = LoadAsset<TextAsset>("DesignerDefinitions.json").text;
 		
 		// Parse the text into an object
 		JObject definitionsObject = JObject.Parse(definitionsString);

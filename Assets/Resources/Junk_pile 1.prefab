@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4657343434389384}
-  - component: {fileID: 65354739903496448}
+  - component: {fileID: 1568503660055820994}
   m_Layer: 12
   m_Name: Junk_pile 1
   m_TagString: JunkPile
@@ -253,15 +253,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423166238063922}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4990903897370888}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65354739903496448
+--- !u!65 &1568503660055820994
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,8 +272,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.3620796, y: 6.6, z: 2.7512448}
-  m_Center: {x: -0.008844376, y: 1.984623, z: 0.061912656}
+  m_Size: {x: 4.792035, y: 4.91039, z: 4.054113}
+  m_Center: {x: -0.15177807, y: 1.9551942, z: -0.057273947}
 --- !u!1 &1433009260828878
 GameObject:
   m_ObjectHideFlags: 0

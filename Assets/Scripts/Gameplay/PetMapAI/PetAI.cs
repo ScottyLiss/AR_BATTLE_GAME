@@ -65,7 +65,7 @@ public class PetAI : MonoBehaviour
 
         if (other.CompareTag("Robot"))
         {
-            //StaticVariables.sceneManager.TransitionToCombat();
+            StaticVariables.sceneManager.TransitionToCombat(other.GetComponent<MapEncounter>().Encounter);
 
             Destroy(other.gameObject);
         }

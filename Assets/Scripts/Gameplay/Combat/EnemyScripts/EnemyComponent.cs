@@ -19,46 +19,28 @@ public class EnemyComponent : HittableObject
 	public GameObject DamageTextPrefab;
 
     private float timeSinceLastActivation = 0;
-    public float fGapBetweenAttacks = 0;
     private bool isRunningDamageCoroutine;
 	private float timeSinceLastHit;
     
 
 	// Run on start
-	public void Start()
+	public override void Start()
 	{
-        //Assign to every enemy component a unique id
-        StaticVariables.iAttackingLoopID++;
+		base.Start();
+		
+		DamageTextPrefab = Resources.Load<GameObject>("UI/DamageNumberCanvas");
+		
         StaticVariables.EnemyComponents.Add(this);
-        //Calculate time since last activation based on the assigned id
-        timeSinceLastActivation = StaticVariables.iAttackingLoopID * fGapBetweenAttacks;
-
-    }
-
-	// Handle update logic
-	public void Update()
-	{
-        // Update the time
-        timeSinceLastActivation += Time.deltaTime;
-
-        if (timeSinceLastActivation > ((StaticVariables.iAttackingLoopID - 1) * fGapBetweenAttacks))
-        {
-            // Reset the time
-            timeSinceLastActivation -= ((StaticVariables.iAttackingLoopID - 1) * fGapBetweenAttacks);
-
-            // Proc an attack
-            this.Attack();
-        }
     }
 
 	// Handle attacking from this component
-	public virtual void Attack()
-	{
-		StaticVariables.combatPet.GetHit(damage);
-	}
+//	public virtual void Attack()
+//	{
+//		throw new NotImplementedException("Need to implement an animated attack");
+//	}
 
 	// Handle the hit on the component
-	public override void OnHit(Vector3 positionHit, float? damageToApply = null)
+	protected override void OnHit(Vector3 positionHit, float? damageToApply = null)
 	{
 		if (this.enabled)
 		{
@@ -77,8 +59,6 @@ public class EnemyComponent : HittableObject
 
 				ShowDamageNumber((int)damageToApply - (int)armour, positionHit);
 			}
-
-			StartCoroutine(PlayDamagedCoroutine());
 		}
 	}
 
@@ -114,60 +94,6 @@ public class EnemyComponent : HittableObject
 		damageTextCanvas.GetComponent<Rigidbody2D>().AddForce(new Vector2(horizontalOffset * sign, 130));
 	}
 
-	protected virtual IEnumerator PlayDamagedCoroutine()
-	{
-		if (!isRunningDamageCoroutine)
-		{
-			isRunningDamageCoroutine = true;
-
-			timeSinceLastHit = 0;
-			Material defaultMaterial = null;
-			Material[] defaultChildMaterials = new Material[gameObject.transform.childCount];
-
-			if (gameObject.GetComponent<MeshRenderer>() &&
-			    gameObject.GetComponent<MeshRenderer>().material != StaticVariables.damagedMaterial)
-			{
-				defaultMaterial = gameObject.GetComponent<MeshRenderer>().material;
-				gameObject.GetComponent<MeshRenderer>().material = StaticVariables.damagedMaterial;
-			}
-
-
-			for (var i = 0; i < gameObject.transform.childCount; i++)
-			{
-				if (gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() &&
-				    gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() != StaticVariables.damagedMaterial)
-				{
-					defaultChildMaterials[i] = gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material;
-					gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material =
-						StaticVariables.damagedMaterial;
-				}
-			}
-
-			while (timeSinceLastHit < 0.1)
-			{
-				timeSinceLastHit += Time.deltaTime;
-
-				yield return new WaitForEndOfFrame();
-			}
-
-			if (gameObject.GetComponent<MeshRenderer>() && defaultMaterial)
-				gameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
-
-			for (var i = 0; i < gameObject.transform.childCount; i++)
-			{
-				if (gameObject.transform.GetChild(i).GetComponent<MeshRenderer>() && defaultChildMaterials[i])
-					gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().material = defaultChildMaterials[i];
-			}
-
-			isRunningDamageCoroutine = false;
-		}
-
-		else
-		{
-			timeSinceLastHit = 0;
-		}
-	}
-
 	protected virtual IEnumerator DestroyObjectCoroutine(float time)
 	{
 		float currentTime = 0;
@@ -183,9 +109,4 @@ public class EnemyComponent : HittableObject
 
 		gameObject.SetActive(false);
 	}
-
-    void OnDestroy()
-    {
-        StaticVariables.iAttackingLoopID = 0; ;
-    }
 }

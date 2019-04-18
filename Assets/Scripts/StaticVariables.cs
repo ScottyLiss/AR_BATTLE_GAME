@@ -6,8 +6,6 @@ using UnityEngine;
 public static class StaticVariables
 {
 	public static PetCombatScript combatPet;
-	public static Material defaultEnemyMaterial;
-	public static Material defaultPetMaterial;
 	public static Material damagedMaterial;
 	public static TraitManager traitManager;
 	public static bool isInBattle;
@@ -28,13 +26,7 @@ public static class StaticVariables
 
     public static UpdateResources updateResourcesScript { get; set; }
 
-    public static int iAttackingLoopID = 0;
     public static int iRobotAttackLanePosition = 2;
-    public static bool bRobotAttackTriggered = false;
-
-    public static bool bWaspAttackTriggered = false;
-
-    public static bool bSwarmAttackTriggered = false;
     public static int[] lanesActive = new int[3];
     public static int swarmHealth = 0;
 

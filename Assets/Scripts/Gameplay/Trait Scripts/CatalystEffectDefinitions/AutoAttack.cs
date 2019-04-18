@@ -41,8 +41,9 @@ public class AutoAttack: CatalystEffect
         while (Active)
         {
             yield return new WaitForSeconds(autoAttackCooldowns[(int) rarity]);
-
-            StaticVariables.combatPet.AttackHittable(StaticVariables.EnemyComponents[0],
+            
+            if (StaticVariables.EnemyComponents[0] != null)
+             StaticVariables.combatPet.AttackHittable(StaticVariables.EnemyComponents[0],
                 StaticVariables.EnemyComponents[0].gameObject.transform.position);
         }
     }

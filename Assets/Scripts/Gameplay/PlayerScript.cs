@@ -107,9 +107,6 @@ public class PlayerScript : MonoBehaviour
 
 
         StaticVariables.playerData = playerdata;
-        StaticVariables.playerData.AddBreach();
-        StaticVariables.playerData.AddBreach();
-        StaticVariables.playerData.AddBreach();
 
     }
 
@@ -179,47 +176,73 @@ public class PlayerScript : MonoBehaviour
         if (beaconCount == 3)
         {
             //Grab position one, calculate distance between point 1 to point 2 and point 1 to point 3, then use those values to 1/2*(distance(p1-p2) * distance(p1-p3) = square volume of object
-            GameObject positionOne, PositionTwo, PositionThree;
-            PositionThree = beaconsPlaced.Pop();
-            PositionTwo = beaconsPlaced.Pop();
-            positionOne = beaconsPlaced.Pop();
+            var positionThree = beaconsPlaced.Pop();
+            var positionTwo = beaconsPlaced.Pop();
+            var positionOne = beaconsPlaced.Pop();
 
-            positionToTarget = PositionThree.transform.position;
+            var position3 = positionThree.transform.position;
+            positionToTarget = position3;
 
-            float distanceP1P2 = Vector3.Distance(positionOne.transform.position, PositionTwo.transform.position); //Distance P1 -> P2
-            float distanceP1P3 = Vector3.Distance(positionOne.transform.position, PositionThree.transform.position); //Distance P1 -> P3
+            var position1 = positionOne.transform.position;
+            var position2 = positionTwo.transform.position;
+            
+            float distanceP1P2 = Vector3.Distance(position1, position2); //Distance P1 -> P2
+            float distanceP1P3 = Vector3.Distance(position1, position3); //Distance P1 -> P3
 
-            Vector3 centrePoint = PositionTwo.transform.position;
+            Vector3 centrePoint = position2;
             centrePoint.y -= 0.01f;
 
             triangulationSpace = (distanceP1P2 * distanceP1P3) * 1 / 2; // Calculate the space of the triangle 
 
 
-            CTM.TheThreeVertices(positionOne.transform.position, PositionTwo.transform.position, PositionThree.transform.position, centrePoint);
+            CTM.TheThreeVertices(position1, position2, position3, centrePoint);
 
 
 
             beaconCount = 0;
             Destroy(positionOne);
-            Destroy(PositionTwo);
-            Destroy(PositionThree);
+            Destroy(positionTwo);
+            Destroy(positionThree);
 
-            StartCoroutine("SpawnRobotAndCallResources");
+            StartCoroutine(SpawnRobotAndCallResources(triangulationSpace));
         }
     }
 
 
 
-    IEnumerator SpawnRobotAndCallResources()
+    IEnumerator SpawnRobotAndCallResources(float space)
     {
         yield return new WaitForSeconds(1.0f);
         CTM.DeRenderTriangulation();
 
         if (CTM.resources.Count > 0)
         {
+            // Create a new encounter
+            CombatEncounter combatEncounter = EncounterFactory.CreateCombatEncounter(
+                Mathf.Clamp(StaticVariables.petData.level * (int)(space / 600), StaticVariables.petData.level - 1,
+                StaticVariables.petData.level + 1));
+            
+            // The map of prefabs
+            Dictionary<EncounterType, string> enemyPrefabPaths = new Dictionary<EncounterType, string>()
+            {
+                {EncounterType.Arsenal, "Combat/Prefabs/Shells/Arsenal"},
+                {EncounterType.Wasp, "Combat/Prefabs/Shells/Wasp_Main"},
+                {EncounterType.Swarm, "Combat/Prefabs/Shells/The_Swarm"},
+                {EncounterType.Scorpion, "Combat/Prefabs/Shells/Scorpion"},
+            };
+            
+            // Get the enemy representation
+            GameObject enemyRepresentation = Resources.Load<GameObject>(enemyPrefabPaths[combatEncounter.enemyType]);
+            
+            // Add an encounter script to this as well as a collider
+            var newRepresentation = GameObject.Instantiate(
+                enemyRepresentation, 
+                new Vector3(this.transform.position.x, 0, this.transform.position.z),
+                Quaternion.identity,
+                mapHolder.transform);
 
-            GameObject enemyRepresentation = Resources.Load<GameObject>("EnemyMapRepresentation");
-            Instantiate(robot, new Vector3(this.transform.position.x, robot.transform.position.y, this.transform.position.z), Quaternion.identity);
+            newRepresentation.AddComponent<MapEncounter>().Encounter = combatEncounter;
+            newRepresentation.AddComponent<BoxCollider>();
         }
 
         foreach (GameObject a in CTM.resources)
@@ -233,12 +256,14 @@ public class PlayerScript : MonoBehaviour
     #region AnimationMethods
 
     private Vector3 lastFramePosition = Vector3.zero;
+    private static readonly int Speed = Animator.StringToHash("Speed");
 
     private void Update()
     {
-        gameObject.transform.GetChild(0).GetComponent<Animator>().SetFloat("Speed", Vector3.Distance(lastFramePosition, gameObject.transform.position));
+        var position = gameObject.transform.position;
+        gameObject.transform.GetChild(0).GetComponent<Animator>().SetFloat(Speed, Vector3.Distance(lastFramePosition, position));
 
-        lastFramePosition = gameObject.transform.position;
+        lastFramePosition = position;
 
         CheckIfPileInRange();
 
@@ -253,39 +278,6 @@ public class PlayerScript : MonoBehaviour
         pet.GetComponent<Arrival>().targetPosition = this.transform.position;
         callingPet = true;
     }
-    #endregion
-
-    #region BattleMethods (Breaches)
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Breach")
-        {
-            breachPlaceable = false;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Breach")
-        {
-            breachPlaceable = true;
-        }
-    }
-
-    public void PlaceBreach()
-    {
-        if (iSelectedBreach > 0 && breachCount < 3 && StaticVariables.playerData.BreachCount() > 0 && breachPlaceable == true)
-        {
-            var newBreach = Instantiate(breach, gameObject.transform.parent);
-            newBreach.transform.position = new Vector3(this.transform.position.x, breach.transform.position.y,
-            this.transform.position.z);
-            StaticVariables.playerData.BreachDepolyed(iSelectedBreach);
-            //breachConsumable--;
-            breachCount++;
-        }
-    }
-
     #endregion
 
     #region JunkPile

@@ -41,6 +41,12 @@ public class Breach
     // Get the encounter to fight
     public void StartEncounter()
     {
+        if (StaticVariables.petData.stats.health <= 0)
+        {
+            HealthWarningPopup.Show();
+            return;
+        }
+        
         // Get the appropriate encounter
         if (CurrentTierIndex < BreachTiers.Count)
         {

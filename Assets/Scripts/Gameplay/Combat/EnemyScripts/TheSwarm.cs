@@ -204,12 +204,10 @@ public class TheSwarm : MonoBehaviour
         }
 
         performingAction = false;
-        StaticVariables.bSwarmAttackTriggered = false;
     }
 
     public virtual void Assault(int lanes)
     {
-        StaticVariables.bSwarmAttackTriggered = true;
         performingAction = true;
         StartCoroutine(Warning(lanes));
     }

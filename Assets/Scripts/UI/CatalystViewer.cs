@@ -32,6 +32,9 @@ public class CatalystViewer : MonoBehaviour {
 	
 	// The rectTrans of the object
 	private RectTransform rectTrans;
+	
+	// The currently represented catalyst
+	public Catalyst CurrentCatalyst;
 
 	private void Start()
 	{
@@ -70,10 +73,24 @@ public class CatalystViewer : MonoBehaviour {
 		
 		// Write the stat adjustments
 		RepresentStats(catalystToRepresent);
+		
+		// Represent the new look
+		PetComposer petComposer = gameObject.transform.Find("Pet Catalyst Representation").GetComponent<PetComposer>();
+		
+		// First assign the current equipped models
+		foreach (Catalyst petDataCatalyst in StaticVariables.petData.catalysts)
+		{
+			if (petDataCatalyst != null)
+				petComposer.AssignModel(petDataCatalyst.slot, petDataCatalyst.modelVariantIndex);
+		}
+		
+		petComposer.AssignModel(catalystToRepresent.slot, catalystToRepresent.modelVariantIndex);
 
 		// Write the description
 		descriptionField.text = catalystToRepresent.effects[0].name + ":\n";
 		descriptionField.text += catalystToRepresent.effects[0].description;
+
+		CurrentCatalyst = catalystToRepresent;
 	}
 
 	private void RepresentStats(Catalyst catalystToRepresent)
@@ -143,5 +160,18 @@ public class CatalystViewer : MonoBehaviour {
 				statsAdjusted++;
 			}
 		}
+	}
+
+	public void Close()
+	{
+		Destroy(gameObject);
+	}
+
+	public void Equip()
+	{
+		StaticVariables.petData.EquipCatalyst(CurrentCatalyst);
+		StaticVariables.persistanceStoring.DeleteCatalystFromInventory(CurrentCatalyst.id);
+		
+		Close();
 	}
 }

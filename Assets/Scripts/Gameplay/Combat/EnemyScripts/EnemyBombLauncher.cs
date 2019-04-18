@@ -14,14 +14,14 @@ public class EnemyBombLauncher : EnemyAppendage {
 	public GameObject BombPrefab;
 
 	// Override the attack method
-	public override void Attack()
-	{
-		if (StaticVariables.BombsInPlay < MaximumBombs)
-		{
-			enemyMainComponentScript.gameObject.transform.parent.GetComponent<Animator>().SetTrigger(AnimationTrigger);
-			StaticVariables.AttackCallbacks += AttackPrecise;
-		}
-	}
+//	public override void Attack()
+//	{
+//		if (StaticVariables.BombsInPlay < MaximumBombs)
+//		{
+//			enemyMainComponentScript.gameObject.transform.parent.GetComponent<Animator>().SetTrigger(AnimationTrigger);
+//			StaticVariables.AttackCallbacks += AttackPrecise;
+//		}
+//	}
 
 	private void AttackPrecise()
 	{

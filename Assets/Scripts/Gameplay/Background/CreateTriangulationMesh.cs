@@ -100,7 +100,6 @@ public class CreateTriangulationMesh : MonoBehaviour {
         if(other.tag == "Resources")
         {
             resources.Add(other.gameObject);
-            Debug.Log("Resource added to the list");
         }
     }
 

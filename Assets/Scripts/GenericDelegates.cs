@@ -2,6 +2,8 @@ public static class GenericVoidDelegate
 {
     public delegate void ParamlessDelegate();
     public delegate void RefDelegate<V>(ref V eventParameter);
+    
+    public delegate void Delegate<V>(V eventParameter);
     public delegate void ParamsDelegate<V>(params V[] eventParameters);
 }
 
@@ -9,6 +11,8 @@ public static class GenericDelegate<T>
 {
     public delegate T ParamlessDelegate();
     public delegate T RefDelegate<V>(ref V eventParameter);
+
+    public delegate T Delegate<V>(V eventParameter);
     public delegate T ParamsDelegate<V>(params V[] eventParameters);
 }
 

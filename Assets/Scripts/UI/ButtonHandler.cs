@@ -50,7 +50,6 @@ public class ButtonHandler : MonoBehaviour
         background.GetComponent<Image>().color = traitsBackgroundColor;
 
         traitMenu.SetActive(true);
-        Debug.Log(traitMenu.activeSelf);
 
     }
 

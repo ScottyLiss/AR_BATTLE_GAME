@@ -56,8 +56,6 @@ public class Wasp : MonoBehaviour
             if (arrived && !attacking) // If we arrived and we're not moving anymore
             {
                 attacking = true;
-                
-                StaticVariables.bRobotAttackTriggered = true;
                 StaticVariables.iRobotAttackLanePosition = StaticVariables.combatPet.iPetLanePosition;
                 GetRandomAction();
 
@@ -140,7 +138,6 @@ public class Wasp : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
         attacking = false;
-        StaticVariables.bRobotAttackTriggered = false;
         StaticVariables.iRobotAttackLanePosition = -1;
         doneAttacking = true;
     }
@@ -167,7 +164,6 @@ public class Wasp : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             if (CheckIfSameLane())
             {
-                Debug.Log("Damage");
                 StaticVariables.combatPet.GetHit(mainComponentScript.damage);
             }
 

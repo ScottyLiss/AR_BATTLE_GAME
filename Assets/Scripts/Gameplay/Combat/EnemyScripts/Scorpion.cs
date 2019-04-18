@@ -78,20 +78,16 @@ public class Scorpion : MonoBehaviour
             case 0: // Supposedly 15% chance
 
                 Burrow(); //Burrow
-
-                Debug.Log("Burrow");
                 break;
 
             case 1: // Supposedly 80% chance             
 
                 TailAttack(true); // Single Tail Attack
-                Debug.Log("Single attack");
                 break;
 
             case 2: // Supposedly 5% chance
 
                 TailAttack(false);
-                Debug.Log("Double attack");
                 break;
 
             default:
@@ -146,7 +142,6 @@ public class Scorpion : MonoBehaviour
         
         //Select randomly between which type of attack to perform
         int iRandom = (int)UnityEngine.Random.Range(1.0f, 3.0f);
-        Debug.Log(iRandom);
 
         //Save the current pet lane position
         StaticVariables.iRobotAttackLanePosition = StaticVariables.combatPet.iPetLanePosition;
