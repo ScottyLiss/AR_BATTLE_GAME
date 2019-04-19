@@ -82,6 +82,8 @@ public class PetData
 		}
 
         stats += catalystToEquip.statsAdjustment;
+        
+        StaticVariables.petComposer.AssignModel(catalystToEquip.slot, catalystToEquip.modelVariantIndex);
 		
 		StaticVariables.persistanceStoring.DeleteCatalystFromInventory(catalystToEquip.id);
 		
