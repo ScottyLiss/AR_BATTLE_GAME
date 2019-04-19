@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Mapbox.Json.Linq;
+using TMPro;
 using UnityEditor;
 using UnityEngine.UI;
 
@@ -62,12 +63,11 @@ public class TraitsMenuEditor : Editor
 		
 		badgeIconMap = new Dictionary<string, Sprite>()
 		{
-			{ "traits-strike", LoadAsset<Sprite>("traits-strike.png") },
-			{ "traits-damage", LoadAsset<Sprite>("traits-damage.png") },
-			{ "traits-resistance", LoadAsset<Sprite>("traits-resistance.png") },
-			{ "traits-health", LoadAsset<Sprite>("traits-health.png") },
-			{ "traits-power", LoadAsset<Sprite>("traits-power.png") },
-			{ "traits-temp", LoadAsset<Sprite>("traits-temp.png") },
+			{ "critstrike", LoadAsset<Sprite>("unlocked-critstrike.png") },
+			{ "damage", LoadAsset<Sprite>("unlocked-damage.png") },
+			{ "resistance", LoadAsset<Sprite>("unlocked-resistance.png") },
+			{ "health", LoadAsset<Sprite>("unlocked-health.png") },
+			{ "critpower", LoadAsset<Sprite>("unlocked-critpower.png") },
 		};
 		
 		Dictionary<string, Food> foodMap = new Dictionary<string, Food>()
@@ -228,19 +228,21 @@ public class TraitsMenuEditor : Editor
 
 			traitBadge.name = trait.name;
 			traitBadge.transform.Find("Image").GetComponent<Image>().sprite = badgeIconMap[trait.icon];
+
+			traitBadge.GetComponent<TraitBadgeUpdater>().iconName = trait.icon;
 			
-			traitBadge.transform.Find("Positive").GetChild(0).GetComponent<Image>().sprite =
+			traitBadge.transform.Find("SidePanel").Find("Positive").GetChild(0).GetComponent<Image>().sprite =
 				resourceIconMap[trait.activationFood];
 
 			if (trait.detrimentalFood != Food.None)
 			{
-				traitBadge.transform.Find("Negative").gameObject.SetActive(true);
+				traitBadge.transform.Find("SidePanel").Find("Negative").gameObject.SetActive(true);
 				
-				traitBadge.transform.Find("Negative").GetChild(0).GetComponent<Image>().sprite =
+				traitBadge.transform.Find("SidePanel").Find("Negative").GetChild(0).GetComponent<Image>().sprite =
 					resourceIconMap[trait.detrimentalFood];
 			}
 
-			traitBadge.transform.Find("Text").GetComponent<Text>().text =
+			traitBadge.transform.Find("TextBackground").Find("Text").GetComponent<TextMeshProUGUI>().text =
 				trait.ActivationPoints + "/" + trait.activationThreshold;
 
 			if (oldPositions.ContainsKey(trait.name))
@@ -248,7 +250,7 @@ public class TraitsMenuEditor : Editor
 				traitBadge.transform.position = oldPositions[trait.name];
 			}
 
-			traitBadge.transform.Find("NamePlate").GetChild(0).GetComponent<Text>().text = trait.name;
+			traitBadge.transform.Find("NamePlate").GetChild(0).GetComponent<TextMeshProUGUI>().text = trait.name;
 		}
 	}
 }

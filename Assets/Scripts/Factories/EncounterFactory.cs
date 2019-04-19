@@ -10,7 +10,7 @@ public static class EncounterFactory
     private static Dictionary<EncounterType, Func<int, CombatEncounterInfo>> generationMethods = new Dictionary<EncounterType, Func<int, CombatEncounterInfo>>()
     {
         { EncounterType.Arsenal, ArsenalGeneration },
-        { EncounterType.Scorpion, ScorpionGeneration }, // = nr 3
+        //{ EncounterType.Scorpion, ScorpionGeneration }, // = nr 3
         { EncounterType.Swarm, SwarmGeneration },
         { EncounterType.Wasp, WaspGeneration }
     };

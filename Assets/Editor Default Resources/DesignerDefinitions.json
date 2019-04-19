@@ -13,48 +13,13 @@
     },
     
     "TraitDefinitions": {
-	  "Growing": {
-        "PositiveCost": 1,
-        "PositiveElement": "Biom",
-        "NegativeElement": "None",
-        "BondingCost": 0,
-        
-        
-        "StatAdjustmentsScaling": {
-          "Health": 0.1
-        }
-      },
-	  "Fighting Spirit": {
-        "PositiveCost": 1,
-        "PositiveElement": "Radio",
-        "NegativeElement": "None",
-        "BondingCost": 0,
-        
-        "Dependency": "Growing",
-        
-        "StatAdjustmentsScaling": {
-          "Damage": 0.1
-        }
-      },
-	  "Adult": {
-        "PositiveCost": 1,
-        "PositiveElement": "Metal",
-        "NegativeElement": "None",
-        "BondingCost": 0,
-        
-        "Dependency": "Growing && Fighting Spirit",
-        
-        "StatAdjustmentsScaling": {
-          "Armour": 0.1
-        }
-      },
 	  "Hardy": {
         "PositiveCost": 5,
         "PositiveElement": "Biom",
         "NegativeElement": "None",
         "BondingCost": 0,
-        
-        "Dependency": "Adult",
+
+        "Icon": "health",
         
         "StatAdjustmentsScaling": {
           "Health": 0.1
@@ -65,8 +30,8 @@
         "PositiveElement": "Radio",
         "NegativeElement": "None",
         "BondingCost": 0,
-        
-        "Dependency": "Adult",
+
+        "Icon": "critpower",
         
         "StatAdjustmentsScaling": {
           "CritChance": 0.1
@@ -77,8 +42,8 @@
         "PositiveElement": "Water",
         "NegativeElement": "None",
         "BondingCost": 0,
-        
-        "Dependency": "Adult",
+
+        "Icon": "damage",
         
         "StatAdjustmentsScaling": {
           "StaminaMax": 0.1
@@ -89,6 +54,8 @@
         "PositiveElement": "Metal",
         "NegativeElement": "Biom",
         "BondingCost": 5,
+
+        "Icon": "critpower",
         
         "Dependency": "Precise",
         
@@ -102,6 +69,8 @@
         "PositiveElement": "Water",
         "NegativeElement": "Radio",
         "BondingCost": 5,
+
+        "Icon": "critstrike",
         
         "Dependency": "Persistent",
         
@@ -114,6 +83,8 @@
         "PositiveElement": "Metal",
         "NegativeElement": "None",
         "BondingCost": 0,
+
+        "Icon": "critstrike",
         
         "Dependency": "Persistent || Precise",
         
@@ -126,6 +97,8 @@
         "PositiveElement": "Rock",
         "NegativeElement": "Radio",
         "BondingCost": 0,
+
+        "Icon": "resistance",
         
         "Dependency": "Hardy",
         
@@ -138,6 +111,8 @@
         "PositiveElement": "Biom",
         "NegativeElement": "Metal",
         "BondingCost": 10,
+
+        "Icon": "resistance",
         
         "Dependency": "Thick Hide",
         
@@ -151,6 +126,8 @@
         "PositiveElement": "Biom",
         "NegativeElement": "None",
         "BondingCost": 0,
+
+        "Icon": "health",
         
         "Dependency": "Hardy",
         
@@ -163,6 +140,8 @@
         "PositiveElement": "Rock",
         "NegativeElement": "Metal",
         "BondingCost": 10,
+
+        "Icon": "health",
         
         "Dependency": "Hardier",
         
@@ -176,6 +155,8 @@
         "PositiveElement": "Water",
         "NegativeElement": "Biom",
         "BondingCost": 0,
+
+        "Icon": "damage",
         
         "Dependency": "Sharp Claws",
         
@@ -188,6 +169,8 @@
         "PositiveElement": "Metal",
         "NegativeElement": "Rock",
         "BondingCost": 0,
+
+        "Icon": "damage",
         
         "Dependency": "Recovering",
         
@@ -201,6 +184,8 @@
         "PositiveElement": "Radio",
         "NegativeElement": "Water",
         "BondingCost": 0,
+
+        "Icon": "critpower",
         
         "Dependency": "Sharp Claws",
         
@@ -213,6 +198,8 @@
         "PositiveElement": "Radio",
         "NegativeElement": "Metal",
         "BondingCost": 15,
+
+        "Icon": "critpower",
         
         "Dependency": "Good Shot",
         
@@ -226,6 +213,8 @@
         "PositiveElement": "Metal",
         "NegativeElement": "Radio",
         "BondingCost": 15,
+
+        "Icon": "critpower",
         
         "Dependency": "Good Shot",
         
@@ -239,8 +228,10 @@
         "PositiveElement": "Radio",
         "NegativeElement": "None",
         "BondingCost": 0,
+
+        "Icon": "critstrike",
         
-        "Dependency": "Recovering || && Good Shot",
+        "Dependency": "Recovering || Good Shot",
         
         "StatAdjustmentsScaling": {
           "Damage": 0.1
@@ -251,6 +242,8 @@
         "PositiveElement": "Radio",
         "NegativeElement": "Metal",
         "BondingCost": 20,
+
+        "Icon": "damage",
         
         "Dependency": "Dense Muscle Fiber",
         
@@ -264,6 +257,8 @@
         "PositiveElement": "Water",
         "NegativeElement": "Radio",
         "BondingCost": 0,
+
+        "Icon": "damage",
         
         "Dependency": "Hardier || Thick Hide",
         
@@ -276,6 +271,8 @@
         "PositiveElement": "Metal",
         "NegativeElement": "None",
         "BondingCost": 0,
+
+        "Icon": "resistance",
         
         "Dependency": "Unyielding",
         
@@ -288,6 +285,8 @@
         "PositiveElement": "Rock",
         "NegativeElement": "Radio",
         "BondingCost": 20,
+
+        "Icon": "resistance",
         
         "Dependency": "Tough Scales",
         
@@ -301,6 +300,8 @@
         "PositiveElement": "Metal",
         "NegativeElement": "Water",
         "BondingCost": 20,
+
+        "Icon": "resistance",
         
         "Dependency": "Tough Scales",
         
@@ -314,6 +315,8 @@
         "PositiveElement": "Radio",
         "NegativeElement": "None",
         "BondingCost": 30,
+
+        "Icon": "damage",
         
         "Dependency": "Tough Scales || Dense Muscle Fiber",
         
@@ -370,9 +373,57 @@
         "Health": 20,
         "Armour": 20,
         "Damage": 30,
+        "AttackSpeed": 1,
         "StaggerResist": 15
+      }
+    },
+    "Wasp": {
+      "Base": {
+        "Health": 600,
+        "Armour": 10,
+        "Damage": 300,
+        "AttackSpeed": 2,
+        "StaggerResist": 10
+      },
+      "Scaling": {
+        "Health": 20,
+        "Armour": 20,
+        "Damage": 30,
+        "AttackSpeed": 1,
+        "StaggerResist": 25
+      }
+    },
+    "Scorpion": {
+      "Base": {
+        "Health": 800,
+        "Armour": 20,
+        "Damage": 300,
+        "AttackSpeed": 3,
+        "StaggerResist": 10
+      },
+      "Scaling": {
+        "Health": 25,
+        "Armour": 20,
+        "Damage": 20,
+        "AttackSpeed": 1,
+        "StaggerResist": 25
+      }
+    },
+    "Scorpiontail": {
+      "Base": {
+        "Health": 500,
+        "Armour": 5,
+        "Damage": 300,
+        "AttackSpeed": 3,
+        "StaggerResist": 10
+      },
+      "Scaling": {
+        "Health": 25,
+        "Armour": 20,
+        "Damage": 20,
+        "AttackSpeed": 1,
+        "StaggerResist": 25
       }
     }
   }
-
 }

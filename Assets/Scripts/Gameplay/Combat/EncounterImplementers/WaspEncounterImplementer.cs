@@ -16,6 +16,8 @@ public class WaspEncounterImplementer : EncounterImplementer
         mainComponent.health = formattedEncounterInfo.mainBodyStats.Health;
         mainComponent.armour = formattedEncounterInfo.mainBodyStats.Armour;
         mainComponent.damage = formattedEncounterInfo.mainBodyStats.Damage;
+        
+        mainComponent.HealthSlider = transform.GetComponentInParent<EnemyPlaceholderScript>().EnemyHealthSlider;
         mainComponent.HealthSlider.maxValue = formattedEncounterInfo.mainBodyStats.MaxHealth;
     }
 

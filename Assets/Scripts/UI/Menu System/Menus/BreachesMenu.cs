@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -36,7 +37,8 @@ public class BreachesMenu : SimpleMenu<BreachesMenu>
 		{
 			GameObject newInstance = Instantiate(breachButtonPrefab, contentsScrollable.transform);
 
-			newInstance.transform.GetChild(0).GetComponent<Text>().text = breach.Name;
+			newInstance.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = breach.Name;
+			newInstance.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "lvl." + breach.Level.ToString();
 
 			UnityAction unityAction = () => { RepresentBreach(breach); }; 
 			newInstance.GetComponent<Button>().onClick.AddListener(unityAction);
