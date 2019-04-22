@@ -6,9 +6,11 @@ using UnityEngine;
 public static class JunkPileFactory
 {
 	private const int MINIMUM_REWARD_COUNT = 1; 
-	private const int MAXIMUM_REWARD_COUNT = 3; 
+	private const int MAXIMUM_REWARD_COUNT = 3;
 
-	public static JunkPile GenerateJunkPile(Rarities? rarity = null)
+    private static Breach[] breaches;
+
+    public static JunkPile GenerateJunkPile(Rarities? rarity = null)
 	{
 		
 		// The rarity of the pile
@@ -54,7 +56,13 @@ public static class JunkPileFactory
 				rewardType = typeof(CatalystReward);
 			else
 				rewardType = typeof(BreachReward);
-			
+
+            breaches = StaticVariables.persistanceStoring.LoadBreaches();
+            if(breaches.Length <= 0)
+            {
+                rewardType = typeof(BreachReward);
+            }
+
 			newPile.rewards.Add(RewardsFactory.GenerateReward(StaticVariables.petData.level, rewardType, newRarity));
 		}
 		

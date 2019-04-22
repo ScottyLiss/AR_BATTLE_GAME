@@ -260,15 +260,19 @@ public class PlayerScript : MonoBehaviour
 
     private void Update()
     {
-        var position = gameObject.transform.position;
-        gameObject.transform.GetChild(0).GetComponent<Animator>().SetFloat(Speed, Vector3.Distance(lastFramePosition, position));
+        if(!StaticVariables.infoOverlay)
+        {
+            var position = gameObject.transform.position;
+            gameObject.transform.GetChild(0).GetComponent<Animator>().SetFloat(Speed, Vector3.Distance(lastFramePosition, position));
 
-        lastFramePosition = position;
+            lastFramePosition = position;
 
-        CheckIfPileInRange();
+            CheckIfPileInRange();
 
-        RemoveBeacon();
-    }
+            RemoveBeacon();
+        }
+        }
+
 
     #endregion
 

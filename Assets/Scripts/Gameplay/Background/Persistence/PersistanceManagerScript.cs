@@ -43,17 +43,32 @@ public class PersistanceManagerScript : MonoBehaviour
 		map.OnInitialized += OnMapInitialized;
 	}
 
+
 	private void OnMapInitialized()
 	{
-		var mapBreaches = StaticVariables.persistanceStoring.LoadMapBreaches();
+        if(StaticVariables.dataExists)
+        {
+		    var mapBreaches = StaticVariables.persistanceStoring.LoadMapBreaches();
 		
-		foreach (var mapBreach in mapBreaches)
-		{
-			mapBreach.transform.SetParent(mapHolder.transform);
-		}
+		    foreach (var mapBreach in mapBreaches)
+		    {
+			    mapBreach.transform.SetParent(mapHolder.transform);
+		    }
+        }
+        else
+        {
+            StartCoroutine(WaitForASecond());
+        }
+
 	}
 
-	private void LoadPetData()
+    IEnumerator WaitForASecond()
+    {
+        yield return new WaitForSeconds(1.0f);
+        OnMapInitialized();
+    }
+
+    private void LoadPetData()
 	{
 		// TODO: Add logic for loading the pet data in from a file
 

@@ -38,13 +38,18 @@ public class TraitManager: MonoBehaviour
 	{
 		StaticVariables.traitManager = this;
 
-		GenerateTraits(StaticVariables.petData.level);
-		LoadTraits();
+        this.GetComponent<PersistanceManagerScript>().map.OnInitialized += LoadData;
 
 	#if UNITY_EDITOR
 		debugTraits = allTraits.Values.ToList();
 	#endif
 	}
+
+    void LoadData()
+    {
+        GenerateTraits(StaticVariables.petData.level);
+        LoadTraits();
+    }
 
 	private void LoadTraits()
 	{

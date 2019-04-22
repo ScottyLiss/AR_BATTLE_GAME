@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Mapbox.Unity.Map;
 
 public class PetAI : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PetAI : MonoBehaviour
     protected float maxSteering = 10.0f;
     private List<AIBehaviour> aiBehaviours = new List<AIBehaviour>();
     public StoreAllResources resources;
+    public AbstractMap map;
 
     public float l_Water;
     public float l_Bio;
@@ -38,20 +40,39 @@ public class PetAI : MonoBehaviour
     {
         StaticVariables.petAI = this;
 
-        StaticVariables.persistanceStoring.LoadPetData(StaticVariables.petData);
+        map.OnInitialized += LoadDataPet;
 
-        resources.Enable();
-        //l_Elec = resources.r_Elec;
-        //l_Fire = resources.r_Fire;
-        l_Water = resources.r_Water;
-        l_Bio = resources.r_Bio;
-       // l_Ice = resources.r_Ice;
-        l_Rock = resources.r_Rock;
-        l_Metal = resources.r_Metal;
-        l_Rad = resources.r_Rad;
-        l_Bonding = resources.r_Bonding;
+    }
 
-        //updateRS.UpdateValues();
+    void LoadDataPet()
+    {
+        if(StaticVariables.dataExists)
+        {
+            StaticVariables.persistanceStoring.LoadPetData(StaticVariables.petData);
+
+            resources.Enable();
+            //l_Elec = resources.r_Elec;
+            //l_Fire = resources.r_Fire;
+            l_Water = resources.r_Water;
+            l_Bio = resources.r_Bio;
+            // l_Ice = resources.r_Ice;
+            l_Rock = resources.r_Rock;
+            l_Metal = resources.r_Metal;
+            l_Rad = resources.r_Rad;
+            l_Bonding = resources.r_Bonding;
+
+            //updateRS.UpdateValues();
+        }
+        else
+        {
+            StartCoroutine(WaitForASecond());
+        }
+    }
+
+    IEnumerator WaitForASecond()
+    {
+        yield return new WaitForSeconds(1.0f);
+        LoadDataPet();
     }
 
     void OnTriggerEnter(Collider other)
@@ -74,20 +95,8 @@ public class PetAI : MonoBehaviour
 
         if (other.CompareTag("Breach") && otherBehaviour != null)
         {
-            //StaticVariables.sceneManager.TransitionToCombat(other.GetComponent<Breach>());
-            //other.gameObject.SetActive(false);
-            //SceneManager.LoadScene(Mathf.RoundToInt(Random.Range(1.6f, 3.4f)));
-            // SceneManager.LoadScene(3);
-            
             otherBehaviour.OnCollision();
         }
-
-//        if (other.CompareTag("BreachCollect"))
-//        {
-//            StaticVariables.playerData.AddBreach();
-//            Destroy(other.gameObject);
-//        }
-
     }
 
 

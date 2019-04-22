@@ -1589,7 +1589,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114240748527090118}
-        m_MethodName: OnPressSettings
+        m_MethodName: OnInfoPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

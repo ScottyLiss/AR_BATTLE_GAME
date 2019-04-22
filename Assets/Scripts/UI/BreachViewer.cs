@@ -112,7 +112,10 @@ public class BreachViewer : MonoBehaviour {
 	// What to do when the close button is pressed 
 	public void CloseBreachRepresentation()
 	{
+        Debug.Log("Re-open menu");
+        MainScreen.Show();
 		Destroy(gameObject);
+
 	}
 	
 	// What to do when the place button is pressed

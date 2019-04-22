@@ -13,8 +13,12 @@ public class MenuManager : MonoBehaviour
 	public PetMenu PetMenuPrefab;
 	public FoodsMenu FoodsMenuPrefab;
 	public BreachViewMenu BreachViewMenuPrefab;
+    public InfoMenu InfoMenuMain;
+    public InfoMenu InfoMenuPet;
+    public InfoMenu InfoMenuCatalyst;
+    public InfoMenu InfoMenuTraits;
 
-	public HealthWarningPopup HealthWarningPopupPrefab;
+    public HealthWarningPopup HealthWarningPopupPrefab;
 
     private Stack<KaijuCallMenu> menuStack = new Stack<KaijuCallMenu>();
 
@@ -22,6 +26,7 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
+        StaticVariables.menu = this;
         Instance = this;
 
         MainScreen.Show();
@@ -44,7 +49,7 @@ public class MenuManager : MonoBehaviour
         // De-activate top menu
         if (menuStack.Count > 0)
         {
-			if (instance.DisableMenusUnderneath)
+			if (instance.DisableMenusUnderneath && instance.tag != "Info")
 			{
 				foreach (var menu in menuStack)
 				{
@@ -55,12 +60,15 @@ public class MenuManager : MonoBehaviour
 				}
 			}
 
-            var topCanvas = instance.GetComponent<Canvas>();
-            var previousCanvas = menuStack.Peek().GetComponent<Canvas>();
-			topCanvas.sortingOrder = previousCanvas.sortingOrder + 1;
+            if(instance.tag != "Info")
+            {
+                var topCanvas = instance.GetComponent<Canvas>();
+                var previousCanvas = menuStack.Peek().GetComponent<Canvas>();
+                topCanvas.sortingOrder = previousCanvas.sortingOrder + 1;
+            }
         }
 		
-        if (instance.AddToStack)
+        if (instance.AddToStack && instance.tag != "Info")
 			menuStack.Push(instance);
     }
 

@@ -4,7 +4,7 @@
       "Health": 1000,
 	  "Armour": 50,
 	  "Damage": 25,
-	  "CritChance": 0.05,
+	  "CritChance": 5,
 	  "CritMulti": 2,
 	  "StaminaMax": 100,
 	  "StaminaRegen": 60,
@@ -333,8 +333,8 @@
       "Base": {
         "Health": 1000,
         "Armour": 15,
-        "Damage": 200,
-        "AttackSpeed": 2.5,
+        "Damage": 125,
+        "AttackSpeed": 3.5,
         "StaggerResist": 10
       },
       "Scaling": {
@@ -349,8 +349,8 @@
       "Base": {
         "Health": 500,
         "Armour": 5,
-        "Damage": 200,
-        "AttackSpeed": 2.5,
+        "Damage": 125,
+        "AttackSpeed": 3.5,
         "StaggerResist": 10
       },
       "Scaling": {
@@ -365,8 +365,8 @@
       "Base": {
         "Health": 75,
         "Armour": 5,
-        "Damage": 75,
-        "AttackSpeed": 2.5,
+        "Damage": 60,
+        "AttackSpeed": 3,
         "StaggerResist": 5
       },
       "Scaling": {
@@ -381,8 +381,8 @@
       "Base": {
         "Health": 600,
         "Armour": 10,
-        "Damage": 300,
-        "AttackSpeed": 2,
+        "Damage": 150,
+        "AttackSpeed": 3,
         "StaggerResist": 10
       },
       "Scaling": {
@@ -397,8 +397,8 @@
       "Base": {
         "Health": 800,
         "Armour": 20,
-        "Damage": 300,
-        "AttackSpeed": 3,
+        "Damage": 110,
+        "AttackSpeed": 4,
         "StaggerResist": 10
       },
       "Scaling": {
@@ -413,8 +413,8 @@
       "Base": {
         "Health": 500,
         "Armour": 5,
-        "Damage": 300,
-        "AttackSpeed": 3,
+        "Damage": 110,
+        "AttackSpeed": 4,
         "StaggerResist": 10
       },
       "Scaling": {

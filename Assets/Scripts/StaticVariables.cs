@@ -12,6 +12,10 @@ public static class StaticVariables
 
 	public static System.Random RandomInstance = new System.Random();
 
+    public static bool infoOverlay = false;
+
+    public static MenuManager menu;
+
 	public static List<EnemyComponent> EnemyComponents = new List<EnemyComponent>();
 	public static BattleInputHandler battleHandler;
 	public static CombatUIHandler CombatUiHandler;
@@ -22,6 +26,7 @@ public static class StaticVariables
 	public static PetData petData;
 	public static PlayerData playerData;
     public static LaneIndication laneIndication;
+    public static bool dataExists = false;
 	public static int BombsInPlay { get; set; }
 
     public static UpdateResources updateResourcesScript { get; set; }

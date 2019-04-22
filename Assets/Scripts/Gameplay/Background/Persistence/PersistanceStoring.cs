@@ -28,6 +28,7 @@ public class PersistanceStoring : MonoBehaviour
     public event VoidDelegate CatalystsChanged;
     public Location location;
     public AbstractMap map;
+    private bool initialiseIsDone = false;
 
     // Used to store all values that need to be stored
     public Dictionary<string, Vector3> coordinates = new Dictionary<string, Vector3>();
@@ -70,8 +71,14 @@ public class PersistanceStoring : MonoBehaviour
     private void Start()
     {
         StaticVariables.persistanceStoring = this;
-
         UpdateDictionary();
+        map.OnInitialized += InitMethods;
+    }
+
+
+
+    private void InitMethods()
+    {
         InitialiseXmlFile();
         LoadLastCatalystId();
     }
@@ -97,36 +104,40 @@ public class PersistanceStoring : MonoBehaviour
 
     private void InitialiseXmlFile()
     {
+        Debug.Log("test 1");
 
         //Note to anyone
         // Current way is a bit of a dire way, it's currently putting both names / coords in different lists, which will be in the same order
         // In other words, [0] in nodelist (name), has [0] in nodelistB (coords)
         if(File.Exists(Application.persistentDataPath + "/Data.xml")) 
         {
-//            mapDoc.Load("Data.xml");
-//            XmlNodeList nodelist = mapDoc.SelectNodes("Data/Objects/Name");
-//
-//            foreach (XmlNode node in nodelist)
-//            {
-//                tempList.Add(node.InnerText);
-//                //Debug.Log(node.InnerText); // Displays the name of the object stored
-//            }
-//
-//            XmlNodeList nodelistB = mapDoc.SelectNodes("Data/Objects/Coordinate");
-//            foreach (XmlNode node in nodelistB)
-//            {
-//                string tArray;
-//                if (node.InnerText.StartsWith("(") && node.InnerText.EndsWith(")")) //By default the coords are noted as (x,y,z), here we remove the ( ) 
-//                {
-//                    tArray = node.InnerText.Substring(1, node.InnerText.Length - 2);
-//                    string[] sArray = tArray.Split(','); // Here we remove the ',' between the numbers and pushing them into an array which allows us to create a single vector3 with all the numbers
-//                    tempListB.Add(new Vector3(float.Parse(sArray[0]), float.Parse(sArray[1]), float.Parse(sArray[2])));
-//                }
-//            }
+            StaticVariables.dataExists = true;
+            Debug.Log("test 2");
+            //            mapDoc.Load("Data.xml");
+            //            XmlNodeList nodelist = mapDoc.SelectNodes("Data/Objects/Name");
+            //
+            //            foreach (XmlNode node in nodelist)
+            //            {
+            //                tempList.Add(node.InnerText);
+            //                //Debug.Log(node.InnerText); // Displays the name of the object stored
+            //            }
+            //
+            //            XmlNodeList nodelistB = mapDoc.SelectNodes("Data/Objects/Coordinate");
+            //            foreach (XmlNode node in nodelistB)
+            //            {
+            //                string tArray;
+            //                if (node.InnerText.StartsWith("(") && node.InnerText.EndsWith(")")) //By default the coords are noted as (x,y,z), here we remove the ( ) 
+            //                {
+            //                    tArray = node.InnerText.Substring(1, node.InnerText.Length - 2);
+            //                    string[] sArray = tArray.Split(','); // Here we remove the ',' between the numbers and pushing them into an array which allows us to create a single vector3 with all the numbers
+            //                    tempListB.Add(new Vector3(float.Parse(sArray[0]), float.Parse(sArray[1]), float.Parse(sArray[2])));
+            //                }
+            //            }
             // Load Data 
         }
         else
         {
+            Debug.Log("Test");
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
 
@@ -152,6 +163,7 @@ public class PersistanceStoring : MonoBehaviour
 
             writer.Flush();
             writer.Close();
+            StaticVariables.dataExists = true;
         }
 
         // Initialize the inventory files

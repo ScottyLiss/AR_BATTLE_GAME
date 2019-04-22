@@ -16,6 +16,11 @@ public class MainScreen : SimpleMenu<MainScreen>
         StaticVariables.playerScript.CallPet();
     }
 
+    public void OnInfoPress()
+    {
+        InfoMenu.Show();   
+    }
+
     public void OnPlaceBeacon()
     {
         StaticVariables.playerScript.PlaceBeacon();
