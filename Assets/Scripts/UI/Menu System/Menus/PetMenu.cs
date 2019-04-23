@@ -28,6 +28,12 @@ public class PetMenu : SimpleMenu<PetMenu>
         MenuManager.Instance.BackToRoot();
     }
 
+    public void OnInfoPress()
+    {
+        InfoPetMenu.Show();
+    }
+
+
     public void OnPressTraitsButton()
     {
         TraitsMenu.Show();

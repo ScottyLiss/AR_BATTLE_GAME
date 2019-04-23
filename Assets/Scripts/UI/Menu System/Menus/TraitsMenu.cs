@@ -13,6 +13,12 @@ public class TraitsMenu : SimpleMenu<TraitsMenu>
         Hide();
     }
 
+    public void OnInfoPress()
+    {
+        InfoTraitMenu.Show();
+    }
+
+
     public void OnPressLevelUp()
     {
         // Check if the pet is ready for levelup

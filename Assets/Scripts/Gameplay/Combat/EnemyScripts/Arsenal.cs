@@ -8,7 +8,7 @@ public class Arsenal : EnemyController
     public const float ATTACK_RATE = 4;
     
     // The animator component
-    private Animator arsenalAnimator;
+    public Animator arsenalAnimator;
     
     // The main component
     public EnemyMainComponentScript MainComponentScript;

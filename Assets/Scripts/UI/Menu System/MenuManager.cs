@@ -14,9 +14,9 @@ public class MenuManager : MonoBehaviour
 	public FoodsMenu FoodsMenuPrefab;
 	public BreachViewMenu BreachViewMenuPrefab;
     public InfoMenu InfoMenuMain;
-    public InfoMenu InfoMenuPet;
-    public InfoMenu InfoMenuCatalyst;
-    public InfoMenu InfoMenuTraits;
+    public InfoPetMenu InfoMenuPet;
+    public InfoCataMenu InfoMenuCatalyst;
+    public InfoTraitMenu InfoMenuTraits;
 
     public HealthWarningPopup HealthWarningPopupPrefab;
 

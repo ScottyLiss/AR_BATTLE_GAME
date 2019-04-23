@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3122033, g: 0.6726522, b: 1.0503061, a: 1}
+  m_IndirectSpecularColor: {r: 0.3123447, g: 0.6727367, b: 1.0503682, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1692,13 +1692,13 @@ MonoBehaviour:
     type: 3}
   BreachViewMenuPrefab: {fileID: 114453271658247862, guid: 1eed5de44f7726345af105aeeb98d3df,
     type: 3}
-  InfoMenuMain: {fileID: 1401686732855747622, guid: 2f5082bdd907a384fa34d06bfdcce734,
+  InfoMenuMain: {fileID: 6866605544026037307, guid: ff9d03c719680264b8dfc616cca81766,
     type: 3}
-  InfoMenuPet: {fileID: 7019168518525780276, guid: 5ce75005afc7bc74eb966ee8a717ec91,
+  InfoMenuPet: {fileID: -5984209483219661476, guid: 0b5182b8be31ef84aad0393f24b828e9,
     type: 3}
-  InfoMenuCatalyst: {fileID: 3182726636322925065, guid: 9ba824f8dfb359048b29ad8dd937883c,
+  InfoMenuCatalyst: {fileID: -5750308166170111605, guid: b91ee9b629fc4b245adef51c9d61aa30,
     type: 3}
-  InfoMenuTraits: {fileID: 3233661314983068621, guid: 3c0a492523a844d40a490e1b405b55ed,
+  InfoMenuTraits: {fileID: 6033306615106895104, guid: df25a721c3f54534da92c7cac095a8b8,
     type: 3}
   HealthWarningPopupPrefab: {fileID: 114058586690821492, guid: 20bf804c004d48b4799c5a5a7daf8c75,
     type: 3}

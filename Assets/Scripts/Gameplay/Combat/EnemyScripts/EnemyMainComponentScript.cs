@@ -55,10 +55,20 @@ public class EnemyMainComponentScript : EnemyComponent
             }
             else
             {
-                StaticVariables.EnemyComponents = new List<EnemyComponent>();
-                StaticVariables.currentEncounter.ConcludeCombat(true);
+                if(this.gameObject.name == "MainCollider")
+                {
+                    //GameObject.Find("Arsenal_Idle").GetComponent<Arsenal>().arsenalAnimator.SetTrigger(death)
+                    StartCoroutine(WaitForDeath());
+                }
             }
         }
+    }
+
+    IEnumerator WaitForDeath()
+    {
+        yield return new WaitForSeconds(1.0f);
+        StaticVariables.EnemyComponents = new List<EnemyComponent>();
+        StaticVariables.currentEncounter.ConcludeCombat(true);
     }
 
     public void RotateOnDamage(Vector3 positionHit)

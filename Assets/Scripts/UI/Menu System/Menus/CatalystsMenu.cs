@@ -22,7 +22,13 @@ public class CatalystsMenu : SimpleMenu<CatalystsMenu> {
     public Sprite bodySlotIcon;
     public Sprite tailSlotIcon;
     public Sprite legsSlotIcon;
-    
+
+    public void OnInfoPress()
+    {
+        InfoCataMenu.Show();
+    }
+
+
     // Get the sprite for the slot
     private Sprite GetSpriteForSlot(PetBodySlot slot)
     {

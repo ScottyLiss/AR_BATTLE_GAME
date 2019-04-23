@@ -90,9 +90,26 @@ public class Wasp : MonoBehaviour
         }
         else
         {
-            StaticVariables.sceneManager.TransitionOutOfCombat();
+            animator.SetInteger("Animation", 6);
+            StartCoroutine(WaitTillDeathEnd());
+            //StaticVariables.sceneManager.TransitionOutOfCombat();
         }
     }
+
+    IEnumerator WaitTillDeathEnd()
+    {
+        yield return new WaitForSeconds(1.0f);
+        StaticVariables.sceneManager.TransitionOutOfCombat();
+    }
+
+    private IEnumerator WaitForAnimation(Animation animation)
+    {
+        do
+        {
+            yield return null;
+        } while (animation.isPlaying);
+    }
+
     void SwitchCheckPos(string tagName)
     {
         switch(tagName)

@@ -227,19 +227,19 @@ public class PlayerScript : MonoBehaviour
             {
                 {EncounterType.Arsenal, "Combat/Prefabs/Shells/Arsenal"},
                 {EncounterType.Wasp, "Combat/Prefabs/Shells/Wasp_Main"},
-                {EncounterType.Swarm, "Combat/Prefabs/Shells/The_Swarm"},
-                {EncounterType.Scorpion, "Combat/Prefabs/Shells/Scorpion"},
+                {EncounterType.Swarm, "Combat/Prefabs/Shells/The_Swarm"}
             };
             
             // Get the enemy representation
             GameObject enemyRepresentation = Resources.Load<GameObject>(enemyPrefabPaths[combatEncounter.enemyType]);
-            
+
             // Add an encounter script to this as well as a collider
             var newRepresentation = GameObject.Instantiate(
                 enemyRepresentation, 
-                new Vector3(this.transform.position.x, 0, this.transform.position.z),
+                new Vector3(this.transform.position.x, 3, this.transform.position.z),
                 Quaternion.identity,
                 mapHolder.transform);
+
 
             newRepresentation.AddComponent<MapEncounter>().Encounter = combatEncounter;
             newRepresentation.AddComponent<BoxCollider>();
