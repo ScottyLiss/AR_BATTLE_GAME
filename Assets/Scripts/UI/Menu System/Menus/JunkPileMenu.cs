@@ -59,6 +59,7 @@ public class JunkPileMenu : KaijuCallMenu<JunkPileMenu> {
 		// There are no more rewards to show, so close the menu
 		if (rewardIndex >= junkPile.rewards.Count)
 		{
+            StaticVariables.menuOpen = false;
 			Close();
 			return;
 		}

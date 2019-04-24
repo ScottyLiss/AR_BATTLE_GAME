@@ -10,9 +10,10 @@ public class PetComposer : MonoBehaviour {
 		if (StaticVariables.petComposer == null)
 			StaticVariables.petComposer = this;
 
-		//StaticVariables.persistanceStoring.SaveNewCatalyst(CatalystFactory.CreateNewCatalyst(1));
+        //StaticVariables.persistanceStoring.SaveNewCatalyst(CatalystFactory.CreateNewCatalyst(1));
 
 		gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMesh = null;
+
 		
 		for (int i = 0; i < 4; i++)
 		{
@@ -48,6 +49,7 @@ public class PetComposer : MonoBehaviour {
 		// Save references to the skinned meshes of the variant and pangolin base
 		SkinnedMeshRenderer variantSkinnedMeshRenderer = modelVariantInstance.GetComponentInChildren<SkinnedMeshRenderer>();
 		SkinnedMeshRenderer pangolinSkinnedMeshRenderer = gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
+
 
 		variantSkinnedMeshRenderer.gameObject.layer = 11;
 		variantSkinnedMeshRenderer.updateWhenOffscreen = true;

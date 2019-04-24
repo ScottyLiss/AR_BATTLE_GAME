@@ -112,16 +112,20 @@ public class BreachViewer : MonoBehaviour {
 	// What to do when the close button is pressed 
 	public void CloseBreachRepresentation()
 	{
-        Debug.Log("Re-open menu");
         MainScreen.Show();
-		Destroy(gameObject);
+        StaticVariables.menuOpen = false;
+        Destroy(gameObject);
 
 	}
 	
 	// What to do when the place button is pressed
 	public void PlaceBreach()
 	{
-		StaticVariables.playerScript.SpawnBreach(breachToRepresent);
-		Destroy(gameObject);
+        MainScreen.Show();
+        Debug.Log("Breach placed");
+        // Check if breach is not too close
+        StaticVariables.playerScript.SpawnBreach(breachToRepresent);
+        StaticVariables.menuOpen = false;
+        Destroy(gameObject);
 	}
 }

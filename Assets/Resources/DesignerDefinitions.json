@@ -365,7 +365,7 @@
       "Base": {
         "Health": 75,
         "Armour": 5,
-        "Damage": 60,
+        "Damage": 50,
         "AttackSpeed": 3,
         "StaggerResist": 5
       },
@@ -381,7 +381,7 @@
       "Base": {
         "Health": 600,
         "Armour": 10,
-        "Damage": 150,
+        "Damage": 100,
         "AttackSpeed": 3,
         "StaggerResist": 10
       },

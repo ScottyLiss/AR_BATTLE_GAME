@@ -82,6 +82,8 @@ public class PlayerScript : MonoBehaviour
     //--------------------------------------------------------------------------------------------------------------------//
     #endregion
 
+    public GameObject beaconToDestroy;
+
     public GameObject test21;
 
     public LayerMask layersToInteractWith;
@@ -159,16 +161,27 @@ public class PlayerScript : MonoBehaviour
                 // if we have hit the beacon
                 if (hit.collider.tag == "Beacon")
                 {
+
+                    // Ask if player is sure?
                     distance = Vector3.Distance(this.transform.position, hit.transform.position);
 
                     if ((distance < 30) && (beaconCount > 0) && (beaconCount < 3))
                     {
-                        Destroy(hit.collider.gameObject);
-                        beaconCount--;
+                        beaconToDestroy = hit.collider.gameObject;
+                        ConfirmRemovalBeacon.Show();
+                        StaticVariables.menuOpen = true;
                     }
                 }
             }
         }
+    }
+
+    public void DestroyBeacon()
+    {
+
+        beaconsPlaced.Contains(beaconToDestroy);
+        Destroy(beaconToDestroy);
+        beaconCount--;
     }
 
     public void Triangulation() //Connect all the beacons calculate the space and check all the items on the map
@@ -225,9 +238,9 @@ public class PlayerScript : MonoBehaviour
             // The map of prefabs
             Dictionary<EncounterType, string> enemyPrefabPaths = new Dictionary<EncounterType, string>()
             {
-                {EncounterType.Arsenal, "Combat/Prefabs/Shells/Arsenal"},
-                {EncounterType.Wasp, "Combat/Prefabs/Shells/Wasp_Main"},
-                {EncounterType.Swarm, "Combat/Prefabs/Shells/The_Swarm"}
+                {EncounterType.Arsenal, "Combat/Prefabs/Shells/Arsenal 1"},
+                {EncounterType.Wasp, "Combat/Prefabs/Shells/Wasp_Main 1"},
+                {EncounterType.Swarm, "Combat/Prefabs/Shells/The_Swarm 1"}
             };
             
             // Get the enemy representation
@@ -325,21 +338,23 @@ public class PlayerScript : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layersToInteractWith))
             {
                 // We've hit a part of an enemy
-                if (hit.collider.tag == "JunkPile")
+                if (hit.collider.tag == "JunkPile" && !StaticVariables.menuOpen)
                 {
                     distance = Vector3.Distance(this.transform.position, hit.transform.position);
 
-                    if (distance < 30)
+                    if (distance < 30 && !StaticVariables.menuOpen)
                     {
                         JunkPileMenu.Show(hit.collider.gameObject);
+                        StaticVariables.menuOpen = true;
                         Destroy(hit.collider.gameObject);
                     }
                 }
                 
                 // We've hit a breach, so display its information on the screen
-                if (hit.collider.CompareTag("Breach"))
+                if (hit.collider.CompareTag("Breach") && !StaticVariables.menuOpen)
                 {
                     BreachViewMenu.Show(hit.collider.GetComponent<BreachBehaviour>().BreachToRepresent);
+                    StaticVariables.menuOpen = true;
                 }
             }
         }
@@ -372,7 +387,7 @@ public class PlayerScript : MonoBehaviour
         newBreach.GetComponent<BreachBehaviour>().BreachToRepresent = breach;
         newBreach.GetComponent<BreachBehaviour>().Initialize();
         
-        MenuManager.Instance.BackToRoot();
+       // MenuManager.Instance.BackToRoot();
         
         StaticVariables.persistanceStoring.DeleteBreachFromInventory(breach);
     }

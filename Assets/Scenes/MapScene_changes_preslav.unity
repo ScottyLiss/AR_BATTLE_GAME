@@ -1300,6 +1300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk_pile 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1423166238063922, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4657343434389384, guid: a6029355e24c29d488f984695292f0a9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.265005
@@ -1343,6 +1347,70 @@ PrefabInstance:
     - target: {fileID: 4657343434389384, guid: a6029355e24c29d488f984695292f0a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721317522049634, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433009260828878, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772302072133818, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008064192993952, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218045908513478, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588828519749090, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467334768524064, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114015656521324, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525739939555146, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443460848607540, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334248783011236, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818147120120304, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957968426307616, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675886777417026, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151204040888534, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291680122912548, guid: a6029355e24c29d488f984695292f0a9, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6029355e24c29d488f984695292f0a9, type: 3}
@@ -1699,6 +1767,8 @@ MonoBehaviour:
   InfoMenuCatalyst: {fileID: -5750308166170111605, guid: b91ee9b629fc4b245adef51c9d61aa30,
     type: 3}
   InfoMenuTraits: {fileID: 6033306615106895104, guid: df25a721c3f54534da92c7cac095a8b8,
+    type: 3}
+  RemoveBeaconMennu: {fileID: 4428722129414342831, guid: 19bd2ffcdc012b543a048e5d7f6f43f2,
     type: 3}
   HealthWarningPopupPrefab: {fileID: 114058586690821492, guid: 20bf804c004d48b4799c5a5a7daf8c75,
     type: 3}
@@ -3190,6 +3260,7 @@ MonoBehaviour:
   petMenu: {fileID: 0}
   catalystInventoryTemp: {fileID: 0}
   playerMenu: {fileID: 0}
+  beaconToDestroy: {fileID: 0}
   test21: {fileID: 1522759914}
   layersToInteractWith:
     serializedVersion: 2

@@ -12,7 +12,7 @@ public class Swarm : MonoBehaviour
     public Slider HealthSlider;
     public float damage;
 
-
+    public bool spawnedExp = false;
 
     public bool alive = true;
     public bool moveLane;
@@ -42,6 +42,8 @@ public class Swarm : MonoBehaviour
 
     public void Start()
     {
+        spawnedExp = false;
+
         alive = true;
         damage = 50;
     }
@@ -82,10 +84,17 @@ public class Swarm : MonoBehaviour
 
     private void Death()
     {
+        if (!spawnedExp)
+        {
+            spawnedExp = true;
+            Debug.Log("EXPLOSION!");
+            Instantiate(Resources.Load("Combat/Prefabs/explosion-sprite_0"), this.transform.position, Quaternion.identity);
+            theSwarm.RegisterSwarmUnitDeath();
+            alive = false;
+            this.tag = "Dead";
+
+        }
         animator.SetInteger("Value", 2);
-        theSwarm.RegisterSwarmUnitDeath();
-        alive = false;
-        this.tag = "Dead";
         StartCoroutine("DeathsEnd");
     }
 

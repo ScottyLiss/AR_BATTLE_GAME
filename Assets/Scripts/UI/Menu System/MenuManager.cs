@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
     public InfoPetMenu InfoMenuPet;
     public InfoCataMenu InfoMenuCatalyst;
     public InfoTraitMenu InfoMenuTraits;
+    public ConfirmRemovalBeacon RemoveBeaconMennu;
 
     public HealthWarningPopup HealthWarningPopupPrefab;
 

@@ -6,7 +6,8 @@ public class InfoTraitMenu : SimpleMenu<InfoTraitMenu>
 {
     public void DestroyMenu()
     {
-        Destroy(this.gameObject);
+        StaticVariables.menuOpen = false;
+        this.gameObject.SetActive(false);
     }
 
 }

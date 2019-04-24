@@ -37,6 +37,24 @@ public class BreachesMenu : SimpleMenu<BreachesMenu>
 		{
 			GameObject newInstance = Instantiate(breachButtonPrefab, contentsScrollable.transform);
 
+            switch (breach.Rarity)
+            {
+                case Rarities.Common:
+                    newInstance.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Breach/breach-gray");
+                    break;
+                case Rarities.Uncommon:
+                    newInstance.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Breach/breach-blue");
+                    break;
+                case Rarities.Rare:
+                    newInstance.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Breach/breach-purple");
+                    break;
+                case Rarities.Legendary:
+                    newInstance.transform.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Breach/breach-gold");
+                    break;
+                default:
+                    break;
+            }
+
 			newInstance.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = breach.Name;
 			newInstance.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "lvl." + breach.Level.ToString();
 
@@ -54,6 +72,7 @@ public class BreachesMenu : SimpleMenu<BreachesMenu>
 		breachRepresentationInstance.GetComponent<BreachViewer>().RepresentBreach(breachToRepresent);
 		
 		breachRepresentationInstance.transform.Find("Interactions").gameObject.SetActive(true);
+        breachRepresentationInstance.transform.Find("Close_Timer").gameObject.SetActive(false);
 	}
 
 	public override void OnBackPressed()

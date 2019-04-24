@@ -16,6 +16,8 @@ namespace Mapbox.Unity.MeshGeneration.Data
         private Texture2D _rasterData;
         public VectorTile VectorData { get; private set; }
         private Texture2D _heightTexture;
+
+        private int iRandom;
         private float[] _heightData;
 
         private bool placedAllResources = false;
@@ -324,8 +326,10 @@ namespace Mapbox.Unity.MeshGeneration.Data
                     Instantiate(instance, gameObject.transform.position + new Vector3(UnityEngine.Random.Range(-50, 50), 1.584367f, UnityEngine.Random.Range(-50, 50)), Quaternion.identity, gameObject.transform);
                 }
 
+                iRandom = UnityEngine.Random.Range(2, 3);
+
                 //Spread the junk pile items on the map
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < iRandom; i++)
                 {
                     GameObject instance = Resources.Load("Junk_pile 1", typeof(GameObject)) as GameObject;
                     instance.layer = 12;

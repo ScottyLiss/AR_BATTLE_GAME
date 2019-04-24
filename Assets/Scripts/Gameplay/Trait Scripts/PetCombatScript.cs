@@ -78,7 +78,7 @@ public class PetCombatScript : MonoBehaviour
         //attackingFeedback2.gameObject.SetActive(false);
         //attackingFeedback3.gameObject.SetActive(false);
 
-        animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
+        animator = this.gameObject.GetComponent<Animator>();
 
         PetPotentialPositions.positions = petPositions;
 

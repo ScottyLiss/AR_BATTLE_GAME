@@ -7,7 +7,8 @@ public class InfoMenu : SimpleMenu<InfoMenu>
     
     public void DestroyMenu()
     {
-        Destroy(this.gameObject);
+        StaticVariables.menuOpen = false;
+        this.gameObject.SetActive(false);
     }
 
 }

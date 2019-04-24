@@ -4,7 +4,7 @@
       "Health": 1000,
 	  "Armour": 50,
 	  "Damage": 25,
-	  "CritChance": 0.05,
+	  "CritChance": 5,
 	  "CritMulti": 2,
 	  "StaminaMax": 100,
 	  "StaminaRegen": 60,
@@ -19,7 +19,7 @@
         "NegativeElement": "None",
         "BondingCost": 0,
 
-        "Icon": "health",
+        "Icon": "traits-health",
         
         "StatAdjustmentsScaling": {
           "Health": 0.1
@@ -31,7 +31,7 @@
         "NegativeElement": "None",
         "BondingCost": 0,
 
-        "Icon": "critpower",
+        "Icon": "traits-power",
         
         "StatAdjustmentsScaling": {
           "CritChance": 0.1
@@ -43,7 +43,7 @@
         "NegativeElement": "None",
         "BondingCost": 0,
 
-        "Icon": "damage",
+        "Icon": "traits-temp",
         
         "StatAdjustmentsScaling": {
           "StaminaMax": 0.1
@@ -55,7 +55,7 @@
         "NegativeElement": "Biom",
         "BondingCost": 5,
 
-        "Icon": "critpower",
+        "Icon": "traits-power",
         
         "Dependency": "Precise",
         
@@ -70,7 +70,7 @@
         "NegativeElement": "Radio",
         "BondingCost": 5,
 
-        "Icon": "critstrike",
+        "Icon": "traits-strike",
         
         "Dependency": "Persistent",
         
@@ -84,7 +84,7 @@
         "NegativeElement": "None",
         "BondingCost": 0,
 
-        "Icon": "critstrike",
+        "Icon": "traits-strike",
         
         "Dependency": "Persistent || Precise",
         
@@ -98,7 +98,7 @@
         "NegativeElement": "Radio",
         "BondingCost": 0,
 
-        "Icon": "resistance",
+        "Icon": "traits-resistance",
         
         "Dependency": "Hardy",
         
@@ -112,7 +112,7 @@
         "NegativeElement": "Metal",
         "BondingCost": 10,
 
-        "Icon": "resistance",
+        "Icon": "traits-resistance",
         
         "Dependency": "Thick Hide",
         
@@ -127,7 +127,7 @@
         "NegativeElement": "None",
         "BondingCost": 0,
 
-        "Icon": "health",
+        "Icon": "traits-health",
         
         "Dependency": "Hardy",
         
@@ -141,7 +141,7 @@
         "NegativeElement": "Metal",
         "BondingCost": 10,
 
-        "Icon": "health",
+        "Icon": "traits-health",
         
         "Dependency": "Hardier",
         
@@ -156,7 +156,7 @@
         "NegativeElement": "Biom",
         "BondingCost": 0,
 
-        "Icon": "damage",
+        "Icon": "traits-temp",
         
         "Dependency": "Sharp Claws",
         
@@ -170,7 +170,7 @@
         "NegativeElement": "Rock",
         "BondingCost": 0,
 
-        "Icon": "damage",
+        "Icon": "traits-temp",
         
         "Dependency": "Recovering",
         
@@ -185,7 +185,7 @@
         "NegativeElement": "Water",
         "BondingCost": 0,
 
-        "Icon": "critpower",
+        "Icon": "traits-power",
         
         "Dependency": "Sharp Claws",
         
@@ -199,7 +199,7 @@
         "NegativeElement": "Metal",
         "BondingCost": 15,
 
-        "Icon": "critpower",
+        "Icon": "traits-power",
         
         "Dependency": "Good Shot",
         
@@ -214,7 +214,7 @@
         "NegativeElement": "Radio",
         "BondingCost": 15,
 
-        "Icon": "critpower",
+        "Icon": "traits-power",
         
         "Dependency": "Good Shot",
         
@@ -229,7 +229,7 @@
         "NegativeElement": "None",
         "BondingCost": 0,
 
-        "Icon": "critstrike",
+        "Icon": "traits-strike",
         
         "Dependency": "Recovering || Good Shot",
         
@@ -243,7 +243,7 @@
         "NegativeElement": "Metal",
         "BondingCost": 20,
 
-        "Icon": "damage",
+        "Icon": "traits-damage",
         
         "Dependency": "Dense Muscle Fiber",
         
@@ -258,7 +258,7 @@
         "NegativeElement": "Radio",
         "BondingCost": 0,
 
-        "Icon": "damage",
+        "Icon": "traits-temp",
         
         "Dependency": "Hardier || Thick Hide",
         
@@ -272,7 +272,7 @@
         "NegativeElement": "None",
         "BondingCost": 0,
 
-        "Icon": "resistance",
+        "Icon": "traits-resistance",
         
         "Dependency": "Unyielding",
         
@@ -286,7 +286,7 @@
         "NegativeElement": "Radio",
         "BondingCost": 20,
 
-        "Icon": "resistance",
+        "Icon": "traits-resistance",
         
         "Dependency": "Tough Scales",
         
@@ -301,7 +301,7 @@
         "NegativeElement": "Water",
         "BondingCost": 20,
 
-        "Icon": "resistance",
+        "Icon": "traits-resistance",
         
         "Dependency": "Tough Scales",
         
@@ -316,7 +316,7 @@
         "NegativeElement": "None",
         "BondingCost": 30,
 
-        "Icon": "damage",
+        "Icon": "traits-temp",
         
         "Dependency": "Tough Scales || Dense Muscle Fiber",
         
@@ -333,8 +333,8 @@
       "Base": {
         "Health": 1000,
         "Armour": 15,
-        "Damage": 200,
-        "AttackSpeed": 2.5,
+        "Damage": 125,
+        "AttackSpeed": 3.5,
         "StaggerResist": 10
       },
       "Scaling": {
@@ -349,8 +349,8 @@
       "Base": {
         "Health": 500,
         "Armour": 5,
-        "Damage": 200,
-        "AttackSpeed": 2.5,
+        "Damage": 125,
+        "AttackSpeed": 3.5,
         "StaggerResist": 10
       },
       "Scaling": {
@@ -365,8 +365,8 @@
       "Base": {
         "Health": 75,
         "Armour": 5,
-        "Damage": 75,
-        "AttackSpeed": 2.5,
+        "Damage": 50,
+        "AttackSpeed": 3,
         "StaggerResist": 5
       },
       "Scaling": {
@@ -381,8 +381,8 @@
       "Base": {
         "Health": 600,
         "Armour": 10,
-        "Damage": 300,
-        "AttackSpeed": 2,
+        "Damage": 100,
+        "AttackSpeed": 3,
         "StaggerResist": 10
       },
       "Scaling": {
@@ -397,8 +397,8 @@
       "Base": {
         "Health": 800,
         "Armour": 20,
-        "Damage": 300,
-        "AttackSpeed": 3,
+        "Damage": 110,
+        "AttackSpeed": 4,
         "StaggerResist": 10
       },
       "Scaling": {
@@ -413,8 +413,8 @@
       "Base": {
         "Health": 500,
         "Armour": 5,
-        "Damage": 300,
-        "AttackSpeed": 3,
+        "Damage": 110,
+        "AttackSpeed": 4,
         "StaggerResist": 10
       },
       "Scaling": {

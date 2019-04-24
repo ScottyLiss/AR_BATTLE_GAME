@@ -18,6 +18,7 @@ public class MainScreen : SimpleMenu<MainScreen>
 
     public void OnInfoPress()
     {
+        StaticVariables.menuOpen = true;
         InfoMenu.Show();   
     }
 
@@ -32,11 +33,13 @@ public class MainScreen : SimpleMenu<MainScreen>
         //StaticVariables.playerData.BreachDepolyed(1);
 
         //Instantiate(Resources.Load<GameObject>("Breach"), player.transform.position, Quaternion.identity);
+        StaticVariables.menuOpen = true;
         BreachesMenu.Show();
     }
 
     public void OnPressPetMenu()
     {
+        StaticVariables.menuOpen = true;
         PetMenu.Show();
     }
 

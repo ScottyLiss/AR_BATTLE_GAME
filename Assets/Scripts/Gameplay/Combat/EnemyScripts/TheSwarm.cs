@@ -104,6 +104,7 @@ public class TheSwarm : MonoBehaviour
 
     public virtual void RegisterSwarmUnitDeath()
     {
+        Debug.Log("RemoveEnemySwarm");
         StaticVariables.swarmHealth--;
     }
 
@@ -194,7 +195,8 @@ public class TheSwarm : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         foreach (GameObject g in swarm)
         {
-            g.GetComponent<Swarm>().Shoot();
+            if (g.active)
+                g.GetComponent<Swarm>().Shoot();
         }
 
 
@@ -219,6 +221,7 @@ public class TheSwarm : MonoBehaviour
 
         foreach (GameObject g in swarm)
         {
+            if(g.active)
             g.GetComponent<Swarm>().MoveTowardsLane(currentLaneA);
         }
         Assault(0); // 1 lane
@@ -237,7 +240,8 @@ public class TheSwarm : MonoBehaviour
 
             foreach (GameObject g in swarm)
             {
-                g.GetComponent<Swarm>().MoveTowardsLane(RandomLaneID());
+                if (g.active)
+                    g.GetComponent<Swarm>().MoveTowardsLane(RandomLaneID());
             }
             Assault(3); // 3 lanes
         }
@@ -248,7 +252,8 @@ public class TheSwarm : MonoBehaviour
             StaticVariables.lanesActive[0] = x;
             foreach (GameObject g in swarm)
             {
-                g.GetComponent<Swarm>().MoveTowardsLane(x);
+                if (g.active)
+                    g.GetComponent<Swarm>().MoveTowardsLane(x);
             }
             Assault(1);
         }
@@ -265,12 +270,14 @@ public class TheSwarm : MonoBehaviour
             {
                 if (b == 0)
                 {
-                    g.GetComponent<Swarm>().MoveTowardsLane(x);
+                    if (g.active)
+                        g.GetComponent<Swarm>().MoveTowardsLane(x);
                     b++;
                 }
                 else
                 {
-                    g.GetComponent<Swarm>().MoveTowardsLane(y);
+                    if (g.active)
+                        g.GetComponent<Swarm>().MoveTowardsLane(y);
                     b--;
                 }
             }

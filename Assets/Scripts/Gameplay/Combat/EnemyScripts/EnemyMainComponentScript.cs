@@ -10,6 +10,7 @@ public class EnemyMainComponentScript : EnemyComponent
 {
     public override HittableTypes HittableType => HittableTypes.Body;
 
+    private bool spawnedExp = false;
     // The degrees to turn the enemy when they are hit
     public float RotationIntensity;
 
@@ -49,19 +50,36 @@ public class EnemyMainComponentScript : EnemyComponent
         {
             if (this.gameObject.name == "Swarm__Final_:Root")
             {
-                StaticVariables.swarmHealth--;
-                GameObject test = this.transform.parent.gameObject;
-                test.transform.parent.gameObject.SetActive(false);
+
+                StartCoroutine(WaitForDeathSwarm());
             }
             else
             {
                 if(this.gameObject.name == "MainCollider")
                 {
+                    if (!spawnedExp)
+                    {
+                        spawnedExp = true;
+                        Instantiate(Resources.Load("Combat/Prefabs/explosion-sprite_0"), this.transform.position, Quaternion.identity);
+                    }
                     //GameObject.Find("Arsenal_Idle").GetComponent<Arsenal>().arsenalAnimator.SetTrigger(death)
                     StartCoroutine(WaitForDeath());
                 }
             }
         }
+    }
+
+    IEnumerator WaitForDeathSwarm()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (!spawnedExp)
+        {
+            spawnedExp = true;
+            Instantiate(Resources.Load("Combat/Prefabs/explosion-sprite_0"), this.transform.position, Quaternion.identity);
+        }
+        GameObject test = this.transform.parent.gameObject;
+        test.transform.parent.gameObject.transform.parent.gameObject.transform.parent.gameObject.SetActive(false);
+        StaticVariables.swarmHealth--;
     }
 
     IEnumerator WaitForDeath()
@@ -127,9 +145,9 @@ public class EnemyMainComponentScript : EnemyComponent
 //        else if (this.name == "Wasp")
 //        {
 //            
-//        }
+//       }
 //        else
-//        {
+//       {
 //            base.Attack();
 //        }
 //    }

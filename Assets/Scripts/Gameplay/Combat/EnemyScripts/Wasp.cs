@@ -26,6 +26,7 @@ public class Wasp : MonoBehaviour
     private Vector3 endPos;
     private float fraction = 0;
     public float speed = 0.5f;
+    private bool spawnedExp = false;
     // Movement
     // Fast - Fast Attacking - No Dismemberment 
     // Node-based system, 10 nodes, stops at each node, only able to attack when at a node 
@@ -90,7 +91,13 @@ public class Wasp : MonoBehaviour
         }
         else
         {
+            if (!spawnedExp)
+            {
+                spawnedExp = true;
+                Instantiate(Resources.Load("Combat/Prefabs/explosion-sprite_0"), this.transform.position, Quaternion.identity);
+            }
             animator.SetInteger("Animation", 6);
+
             StartCoroutine(WaitTillDeathEnd());
             //StaticVariables.sceneManager.TransitionOutOfCombat();
         }
@@ -136,7 +143,7 @@ public class Wasp : MonoBehaviour
         }
         else
         {
-           StartCoroutine( DealDamage(3));
+           StartCoroutine( DealDamage(0));
         }
     }
 
@@ -148,7 +155,11 @@ public class Wasp : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             StaticVariables.combatPet.GetHit(mainComponentScript.damage * 0.5f);
         }
-
+        
+        if(quantity == 0)
+        {
+            yield return new WaitForSeconds(1.4f);
+        }
 
 
         animator.SetInteger("Animation", 0);
