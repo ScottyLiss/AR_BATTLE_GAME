@@ -443,10 +443,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Feedign - Open, then drag and drop food to pet
+  m_Text: "Feeding - Open, then\n drag and drop food to pet"
 --- !u!1 &4412486574424553401
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,8 +680,8 @@ MonoBehaviour:
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 0
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Armor (Damage reduction)
 --- !u!1 &6735682636358336508

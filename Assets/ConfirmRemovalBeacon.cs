@@ -20,8 +20,7 @@ public class ConfirmRemovalBeacon : SimpleMenu<ConfirmRemovalBeacon>
     public void RemoveBeacon()
     {
         StaticVariables.menuOpen = false;
-        MainScreen.Show();
+        MenuManager.Instance.BackToRoot();
         StaticVariables.playerScript.DestroyBeacon();
-        ConfirmRemovalBeacon.Close();
     }
 }

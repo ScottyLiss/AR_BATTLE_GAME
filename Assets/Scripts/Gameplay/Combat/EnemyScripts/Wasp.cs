@@ -22,6 +22,8 @@ public class Wasp : MonoBehaviour
     
     public Animator animator;
 
+    public GameObject shootPos;
+
     private Vector3 startPos;
     private Vector3 endPos;
     private float fraction = 0;
@@ -153,6 +155,9 @@ public class Wasp : MonoBehaviour
         for (int i = 0; i < quantity; i++)
         {
             yield return new WaitForSeconds(0.5f);
+            GameObject bullet = Instantiate(Resources.Load<GameObject>("Combat/Prefabs/Laser"));
+            bullet.GetComponent<MoveToPosition>().end = StaticVariables.laneObjectForLaser[StaticVariables.iRobotAttackLanePosition].transform.position;
+            bullet.GetComponent<MoveToPosition>().start = shootPos.transform.position;
             StaticVariables.combatPet.GetHit(mainComponentScript.damage * 0.5f);
         }
         
@@ -187,9 +192,15 @@ public class Wasp : MonoBehaviour
         for (int i = 0; i < x; i++)
         {
             StaticVariables.iRobotAttackLanePosition = 2 - i;
-            StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].timer = 0.5f;
+            StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].timer = 1.0f;
             StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].doneShrinking = false;
-            yield return new WaitForSeconds(0.5f);
+
+            yield return new WaitForSeconds(1.0f);
+
+            GameObject bullet = Instantiate(Resources.Load<GameObject>("Combat/Prefabs/Laser"));
+            bullet.GetComponent<MoveToPosition>().end = StaticVariables.laneObjectForLaser[StaticVariables.iRobotAttackLanePosition].transform.position;
+            bullet.GetComponent<MoveToPosition>().start = shootPos.transform.position;
+
             if (CheckIfSameLane())
             {
                 StaticVariables.combatPet.GetHit(mainComponentScript.damage);
@@ -216,12 +227,18 @@ public class Wasp : MonoBehaviour
     IEnumerator SplashDamage()
     {
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.0f);
+        GameObject bullet = Instantiate(Resources.Load<GameObject>("Combat/Prefabs/Laser"));
+        bullet.GetComponent<MoveToPosition>().end = StaticVariables.laneObjectForLaser[StaticVariables.iRobotAttackLanePosition].transform.position;
+        bullet.GetComponent<MoveToPosition>().start = shootPos.transform.position;
+
         if (!spawnedAcid)
         {
             Instantiate(Resources.Load<GameObject>("Combat/Prefabs/Acid"), lanePos[StaticVariables.iRobotAttackLanePosition].transform.position, Quaternion.identity);
             spawnedAcid = true;
         }
+
+
         
         // Spawn object on lane
 

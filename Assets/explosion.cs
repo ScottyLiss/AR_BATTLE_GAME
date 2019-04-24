@@ -5,10 +5,12 @@ using UnityEngine;
 public class explosion : MonoBehaviour
 {
     SpriteRenderer sprite;
+    public AudioSource audios;
     // Update is called once per frame
     void Start()
     {
         sprite = this.gameObject.GetComponent<SpriteRenderer>();
+
     }
 
     void Update()

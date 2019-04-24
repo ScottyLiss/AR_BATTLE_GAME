@@ -33,6 +33,11 @@ public class PetMenu : SimpleMenu<PetMenu>
         InfoPetMenu.Show();
     }
 
+    public void OnTapAnimation()
+    {
+        StaticVariables.petAI.anim.SetTrigger("TriggerAlternativeIdle");
+    }
+
 
     public void OnPressTraitsButton()
     {

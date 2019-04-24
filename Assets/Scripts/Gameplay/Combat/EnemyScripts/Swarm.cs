@@ -68,10 +68,14 @@ public class Swarm : MonoBehaviour
 
     public void Shoot() // Charge up a shot, fire at the player 
     {
+        GameObject bullet = Instantiate(Resources.Load<GameObject>("Combat/Prefabs/Laser"));
+        bullet.GetComponent<MoveToPosition>().end = StaticVariables.laneObjectForLaser[_laneID].transform.position;
+        bullet.GetComponent<MoveToPosition>().start = this.transform.position;
         if (StaticVariables.combatPet.iPetLanePosition == _laneID)
         {
             animator.SetInteger("Value", 3);
             StaticVariables.combatPet.GetHit(damage);
+            Debug.Log("Damage");
         }
         StartCoroutine("WaitTillNextShot");
     }
@@ -127,8 +131,8 @@ public class Swarm : MonoBehaviour
                 if (!shotTime)
                 {
                     //Timer for 1 second, then shoot
-                    Shoot();
-                    shotTime = true;
+                    //Shoot();
+                    //shotTime = true;
                 }
 
             }

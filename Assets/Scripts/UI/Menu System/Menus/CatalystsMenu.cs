@@ -67,6 +67,7 @@ public class CatalystsMenu : SimpleMenu<CatalystsMenu> {
 
     public void OnPressMapButton()
     {
+        //Close();
 	    MenuManager.Instance.BackToRoot();
     }
 

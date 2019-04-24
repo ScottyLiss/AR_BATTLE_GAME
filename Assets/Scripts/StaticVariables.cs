@@ -29,6 +29,8 @@ public static class StaticVariables
     public static bool dataExists = false;
 	public static int BombsInPlay { get; set; }
 
+    public static GameObject[] laneObjectForLaser = new GameObject[3];
+
     public static bool menuOpen = false;
 
     public static UpdateResources updateResourcesScript { get; set; }

@@ -126,10 +126,12 @@ public class MenuManager : MonoBehaviour
 
 	public void BackToRoot()
 	{
-		while (menuStack.Count > 1)
+        StaticVariables.menuOpen = false;
+        while (menuStack.Count > 1)
 		{
 			var menu = menuStack.Peek(); 
 			
+            
 			CloseMenu(menu);
 		}
 	}

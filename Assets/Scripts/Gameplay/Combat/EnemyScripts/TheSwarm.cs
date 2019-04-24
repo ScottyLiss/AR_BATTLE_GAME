@@ -38,8 +38,12 @@ public class TheSwarm : MonoBehaviour
             }
             else
             {
-                StartCoroutine("Choice");
-                timer = 4;
+                if (!performingAction)
+                {
+                    StartCoroutine("Choice");
+                    timer = 5;
+                }
+
             }
             if (StaticVariables.swarmHealth <= 0)
             {
@@ -186,17 +190,21 @@ public class TheSwarm : MonoBehaviour
         {
             if(i != -1)
             {
-                StaticVariables.laneIndication.shrinklane[i].timer = 0.5f;
+                StaticVariables.laneIndication.shrinklane[i].timer = 1.75f;
                 StaticVariables.laneIndication.shrinklane[i].doneShrinking = false;
             }
         }
 
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         foreach (GameObject g in swarm)
         {
-            if (g.active)
+            if (g.active && performingAction == true)
+            {
                 g.GetComponent<Swarm>().Shoot();
+
+            }
+
         }
 
 

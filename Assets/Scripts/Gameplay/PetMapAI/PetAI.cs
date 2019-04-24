@@ -29,6 +29,8 @@ public class PetAI : MonoBehaviour
     public StoreAllResources resources;
     public AbstractMap map;
 
+    public Animator anim;
+
     public float l_Water;
     public float l_Bio;
     public float l_Rock;
@@ -39,7 +41,7 @@ public class PetAI : MonoBehaviour
     private void Start()
     {
         StaticVariables.petAI = this;
-
+        anim = this.gameObject.GetComponent<Animator>();
         map.OnInitialized += LoadDataPet;
 
     }

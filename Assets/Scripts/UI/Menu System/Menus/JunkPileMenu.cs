@@ -27,10 +27,14 @@ public class JunkPileMenu : KaijuCallMenu<JunkPileMenu> {
 	private GameObject RewardUI;
 	public GameObject RewardPlaceholder;
 
+    public AudioClip[] audioClips;
+    public AudioSource audioSource;
+
 	public void OnPressedPile()
 	{
-		// Track the number of times the player has tapped
-		interactionCount++;
+        audioSource.PlayOneShot(audioClips[interactionCount]);
+        // Track the number of times the player has tapped
+        interactionCount++;
 		
 		// Make the graphical change
 		PileUI.transform.GetChild(1).localScale = new Vector3(1 - (((float) 1 / INTERACTIONS_NEEDED) * interactionCount) / 2, y: 1 -(((float)1 / INTERACTIONS_NEEDED) * interactionCount) / 2, z: 1);
@@ -56,18 +60,20 @@ public class JunkPileMenu : KaijuCallMenu<JunkPileMenu> {
 		// If we're currently looking at a reward, award it and move on to the next one
 		currentReward?.SpawnAwardOnMap(pressedPilePosition);
 
-		// There are no more rewards to show, so close the menu
-		if (rewardIndex >= junkPile.rewards.Count)
+        // There are no more rewards to show, so close the menu
+        if (rewardIndex >= junkPile.rewards.Count)
 		{
+            audioSource.PlayOneShot(audioClips[3]);
             StaticVariables.menuOpen = false;
-			Close();
-			return;
+            //Close();
+            MenuManager.Instance.BackToRoot();
+            return;
 		}
 		
 		// Set which reward we're currently looking at
 		currentReward = junkPile.rewards[rewardIndex];
-
 		rewardIndex++;
+
 		
 		// Instantiate the reward's UI representation on screen and delete the old reward UI
 		Destroy(RewardUI);
@@ -89,13 +95,14 @@ public class JunkPileMenu : KaijuCallMenu<JunkPileMenu> {
 
 	public void OnPressedReward()
 	{
-		currentReward.Award();
+        currentReward.Award();
 		ShowNextReward();
 	}
 
 	public static void Show(GameObject pilePressed)
 	{
 		Open();
+        Debug.Log("Show" + pilePressed.name);
 		Instance.pressedPilePosition = pilePressed.transform.position;
 		Instance.junkPile = JunkPileFactory.GenerateJunkPile();
 	}

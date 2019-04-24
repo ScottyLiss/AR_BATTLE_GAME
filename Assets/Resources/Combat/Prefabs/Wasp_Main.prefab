@@ -1565,6 +1565,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   animator: {fileID: 95886356286195870}
+  shootPos: {fileID: 1090164548726946}
   speed: 1.5
 --- !u!82 &82173854597483252
 AudioSource:

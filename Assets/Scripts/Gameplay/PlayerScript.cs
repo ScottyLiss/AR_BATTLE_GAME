@@ -178,10 +178,12 @@ public class PlayerScript : MonoBehaviour
 
     public void DestroyBeacon()
     {
-
-        beaconsPlaced.Contains(beaconToDestroy);
-        Destroy(beaconToDestroy);
-        beaconCount--;
+        if(beaconsPlaced.Contains(beaconToDestroy))
+        {
+            beaconsPlaced.Pop();
+            beaconCount--;
+            Destroy(beaconToDestroy);
+        }
     }
 
     public void Triangulation() //Connect all the beacons calculate the space and check all the items on the map
@@ -338,11 +340,11 @@ public class PlayerScript : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layersToInteractWith))
             {
                 // We've hit a part of an enemy
-                if (hit.collider.tag == "JunkPile" && !StaticVariables.menuOpen)
+                if (hit.collider.tag == "JunkPile" )//&& !StaticVariables.menuOpen)
                 {
                     distance = Vector3.Distance(this.transform.position, hit.transform.position);
 
-                    if (distance < 30 && !StaticVariables.menuOpen)
+                    if (distance < 30 )//&& !StaticVariables.menuOpen)
                     {
                         JunkPileMenu.Show(hit.collider.gameObject);
                         StaticVariables.menuOpen = true;

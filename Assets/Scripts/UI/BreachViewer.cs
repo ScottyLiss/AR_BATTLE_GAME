@@ -121,7 +121,7 @@ public class BreachViewer : MonoBehaviour {
 	// What to do when the place button is pressed
 	public void PlaceBreach()
 	{
-        MainScreen.Show();
+        MenuManager.Instance.BackToRoot();
         Debug.Log("Breach placed");
         // Check if breach is not too close
         StaticVariables.playerScript.SpawnBreach(breachToRepresent);

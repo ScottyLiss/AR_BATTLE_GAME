@@ -54,8 +54,7 @@ public class EnemyAppendage : EnemyComponent
 	  }
 	  
 	  StaticVariables.laneIndication.shrinklane[StaticVariables.iRobotAttackLanePosition].doneShrinking = false;
-
-	  var clipInfos = mainComponentAnimator.GetNextAnimatorClipInfo(0);
+        var clipInfos = mainComponentAnimator.GetNextAnimatorClipInfo(0);
 
 	  if (clipInfos.Length > 0)
 	  {

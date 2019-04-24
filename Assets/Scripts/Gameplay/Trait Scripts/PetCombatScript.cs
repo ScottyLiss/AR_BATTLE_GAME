@@ -22,6 +22,13 @@ public class PetCombatScript : MonoBehaviour
     public GameObject attackingFeedback2;
     public GameObject attackingFeedback3;
 
+    public GameObject pet_SLASH;
+    public GameObject hitResult;
+    public GameObject hitAnim;
+
+    public AudioSource audio;
+    public AudioClip[] audioClips;
+
     private bool bDebug;
     private bool isRunningAttackCoroutine = false;
     private bool isRunningDamageCoroutine = false;
@@ -220,8 +227,11 @@ public class PetCombatScript : MonoBehaviour
 
                 if (hittable != null)
                 {
-                    
+
                     // If we did hit a hittable object, run the hit logic
+                    Instantiate(pet_SLASH, hit.transform.position, Random.rotation);
+                    audio.pitch = Random.Range(0.9f, 1.1f);
+                    audio.PlayOneShot(audioClips[0]);
                     AttackHittable(hittable, hit.point);
                 }
             }
@@ -388,6 +398,8 @@ public class PetCombatScript : MonoBehaviour
         if (damage > 0)
         {
             OnPetHit?.Invoke(ref damage);
+
+            Instantiate(hitAnim, hitResult.transform.position + new Vector3(0,0,1), Quaternion.identity);
 
             float armour = StaticVariables.petData.stats.armour;
 

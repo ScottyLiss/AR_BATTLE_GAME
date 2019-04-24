@@ -32,7 +32,8 @@ public abstract class KaijuCallMenu<T> : KaijuCallMenu where T : KaijuCallMenu<T
 			return;
 		}
 
-		MenuManager.Instance.CloseMenu(Instance);
+        StaticVariables.menuOpen = false;
+        MenuManager.Instance.CloseMenu(Instance);
 	}
 
 	public override void OnBackPressed()

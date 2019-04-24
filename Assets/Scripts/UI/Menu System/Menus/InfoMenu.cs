@@ -7,8 +7,10 @@ public class InfoMenu : SimpleMenu<InfoMenu>
     
     public void DestroyMenu()
     {
+        Debug.Log("Test");
         StaticVariables.menuOpen = false;
         this.gameObject.SetActive(false);
+        
     }
 
 }

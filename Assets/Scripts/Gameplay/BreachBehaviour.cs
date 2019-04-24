@@ -15,7 +15,9 @@ public class BreachBehaviour : MonoBehaviour
         {EncounterType.Swarm, "Combat/Prefabs/Shells/The_Swarm"},
         {EncounterType.Scorpion, "Combat/Prefabs/Shells/Scorpion"},
     };
-    
+
+    public AudioSource audiosource;
+
     // The cooldown circle
     public Image cooldownCircle;
     
@@ -63,7 +65,7 @@ public class BreachBehaviour : MonoBehaviour
         // Transition into combat with the current tier if possible
         if (BreachToRepresent.Active)
         {
-            BreachToRepresent.StartEncounter();
+            StartCoroutine(WaitTillEndOfSound());
         }
 
         // The breach isn't active, so show an error on screen saying the breach is not ready yet
@@ -71,6 +73,12 @@ public class BreachBehaviour : MonoBehaviour
         {
             // TODO: Add the error
         }
+    }
+
+    IEnumerator WaitTillEndOfSound()
+    {
+        yield return new WaitForSeconds(audiosource.clip.length);
+        BreachToRepresent.StartEncounter();
     }
     
     // What to do when the breach is completed
