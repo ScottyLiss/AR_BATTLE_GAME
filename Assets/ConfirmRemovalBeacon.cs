@@ -13,8 +13,8 @@ public class ConfirmRemovalBeacon : SimpleMenu<ConfirmRemovalBeacon>
     public void DestroyMenu()
     {
         StaticVariables.menuOpen = false;
-        MainScreen.Show();
         ConfirmRemovalBeacon.Close();
+        MenuManager.Instance.BackToRoot();
     }
 
     public void RemoveBeacon()

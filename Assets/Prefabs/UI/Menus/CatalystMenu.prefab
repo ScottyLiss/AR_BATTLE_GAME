@@ -342,7 +342,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224689819224097504}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99976057
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -417,7 +417,7 @@ MonoBehaviour:
     type: 3}
   headSlotIcon: {fileID: 21300000, guid: f9ab7d4441c179b4499bbe30a2a8ee61, type: 3}
   bodySlotIcon: {fileID: 21300000, guid: f5ff874a3cdcc024f9525bac75e53611, type: 3}
-  tailSlotIcon: {fileID: 21300000, guid: 40e7d0fb521c1c64b8e322f30f412899, type: 3}
+  tailSlotIcon: {fileID: 21300000, guid: cb30e6af11e27814fa639c1bfe6da763, type: 3}
   legsSlotIcon: {fileID: 21300000, guid: 40e7d0fb521c1c64b8e322f30f412899, type: 3}
 --- !u!223 &223670915690141298
 Canvas:
@@ -717,7 +717,7 @@ MonoBehaviour:
     type: 3}
   headSlotIcon: {fileID: 21300000, guid: f9ab7d4441c179b4499bbe30a2a8ee61, type: 3}
   bodySlotIcon: {fileID: 21300000, guid: f5ff874a3cdcc024f9525bac75e53611, type: 3}
-  tailSlotIcon: {fileID: 21300000, guid: 40e7d0fb521c1c64b8e322f30f412899, type: 3}
+  tailSlotIcon: {fileID: 21300000, guid: cb30e6af11e27814fa639c1bfe6da763, type: 3}
   legsSlotIcon: {fileID: 21300000, guid: 40e7d0fb521c1c64b8e322f30f412899, type: 3}
 --- !u!114 &7547627805391263475
 MonoBehaviour:
@@ -1098,7 +1098,7 @@ MonoBehaviour:
     type: 3}
   headSlotIcon: {fileID: 21300000, guid: f9ab7d4441c179b4499bbe30a2a8ee61, type: 3}
   bodySlotIcon: {fileID: 21300000, guid: f5ff874a3cdcc024f9525bac75e53611, type: 3}
-  tailSlotIcon: {fileID: 21300000, guid: 40e7d0fb521c1c64b8e322f30f412899, type: 3}
+  tailSlotIcon: {fileID: 21300000, guid: cb30e6af11e27814fa639c1bfe6da763, type: 3}
   legsSlotIcon: {fileID: 21300000, guid: 40e7d0fb521c1c64b8e322f30f412899, type: 3}
 --- !u!114 &2332007504062030723
 MonoBehaviour:
@@ -1366,7 +1366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000028658576}
+  m_AnchoredPosition: {x: 0, y: -0.000007983281}
   m_SizeDelta: {x: -13.9, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1792514075838150
@@ -1465,7 +1465,7 @@ MonoBehaviour:
     type: 3}
   headSlotIcon: {fileID: 21300000, guid: f9ab7d4441c179b4499bbe30a2a8ee61, type: 3}
   bodySlotIcon: {fileID: 21300000, guid: f5ff874a3cdcc024f9525bac75e53611, type: 3}
-  tailSlotIcon: {fileID: 21300000, guid: 40e7d0fb521c1c64b8e322f30f412899, type: 3}
+  tailSlotIcon: {fileID: 21300000, guid: cb30e6af11e27814fa639c1bfe6da763, type: 3}
   legsSlotIcon: {fileID: 21300000, guid: 40e7d0fb521c1c64b8e322f30f412899, type: 3}
 --- !u!114 &5280933279840102209
 MonoBehaviour:
@@ -1904,7 +1904,7 @@ MonoBehaviour:
     type: 3}
   headSlotIcon: {fileID: 21300000, guid: f9ab7d4441c179b4499bbe30a2a8ee61, type: 3}
   bodySlotIcon: {fileID: 21300000, guid: f5ff874a3cdcc024f9525bac75e53611, type: 3}
-  tailSlotIcon: {fileID: 21300000, guid: 40e7d0fb521c1c64b8e322f30f412899, type: 3}
+  tailSlotIcon: {fileID: 21300000, guid: cb30e6af11e27814fa639c1bfe6da763, type: 3}
   legsSlotIcon: {fileID: 21300000, guid: 40e7d0fb521c1c64b8e322f30f412899, type: 3}
 --- !u!114 &4589661859562838703
 MonoBehaviour:

@@ -102,6 +102,13 @@ public class BreachBehaviour : MonoBehaviour
         // Close the breach
         breachAnimator.SetBool(Active, BreachToRepresent.Active);
     }
+    
+    // When the object is reenabled after combat, set the appropraite animation
+    private void OnEnable()
+    {
+        // Close the breach
+        breachAnimator.SetBool(Active, BreachToRepresent.Active);
+    }
 
     private void DeleteFromMap()
     {

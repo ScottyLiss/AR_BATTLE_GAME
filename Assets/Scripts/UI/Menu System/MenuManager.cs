@@ -93,7 +93,7 @@ public class MenuManager : MonoBehaviour
 	public void CloseMenu(KaijuCallMenu menuToClose)
 	{
 		
-		if (menuStack.Count == 0)
+		if (menuStack.Count < 2)
 		{
 			Debug.LogErrorFormat(menuToClose, "{0} cannot be closed because menu stack is empty", menuToClose.GetType());
 			return;

@@ -87,7 +87,7 @@ public class TraitBadgeUpdater : MonoBehaviour
 		if (traitToRepresent.statsAdjustment.damage > 0)
 		{
 			var newStatAdjustment = Instantiate(statAdjustmentPrefab, statAdjustmentPanel.transform);
-			//newStatAdjustment.GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("UI/armour");
+			newStatAdjustment.GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("UI/damage");
 			newStatAdjustment.GetComponentInChildren<TextMeshProUGUI>().text = ((int) traitToRepresent.statsAdjustment.damage).ToString();
 		}
 

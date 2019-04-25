@@ -20,6 +20,7 @@ public class PetMenu : SimpleMenu<PetMenu>
     public TextMeshProUGUI StaminaRegen;
     
     public TextMeshProUGUI Armour;
+    public TextMeshProUGUI Damage;
     public TextMeshProUGUI CriticalMulti;
     public TextMeshProUGUI CriticalChance;
 
@@ -87,6 +88,8 @@ public class PetMenu : SimpleMenu<PetMenu>
     {
         HealthBar.maxValue = StaticVariables.petData.stats.maxHealth;
         HealthBar.value = StaticVariables.petData.stats.health;
+        
+        Damage.text = Math.Round(StaticVariables.petData.stats.damage, 2).ToString(CultureInfo.InvariantCulture);
 
         MaxHealth.text = Math.Round(StaticVariables.petData.stats.maxHealth, 2).ToString(CultureInfo.InvariantCulture);
         MaxStamina.text = Math.Round(StaticVariables.petData.stats.maxStamina, 2).ToString(CultureInfo.InvariantCulture);

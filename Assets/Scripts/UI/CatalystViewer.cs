@@ -98,14 +98,19 @@ public class CatalystViewer : MonoBehaviour {
 		// Calculate the stat difference
 		Stats finalStatDifference = new Stats();
 
-		if (StaticVariables.petData.GetCatalystInSlot(catalystToRepresent.slot) != null)
+		if (StaticVariables.petData.GetCatalystInSlot(catalystToRepresent.slot) == null)
 		{
-			finalStatDifference = catalystToRepresent.statsAdjustment - StaticVariables.petData.GetCatalystInSlot(catalystToRepresent.slot).statsAdjustment;
+			finalStatDifference = catalystToRepresent.statsAdjustment;
+		}
+		
+		else if (StaticVariables.petData.GetCatalystInSlot(catalystToRepresent.slot).id == catalystToRepresent.id)
+		{
+			finalStatDifference = catalystToRepresent.statsAdjustment;
 		}
 
 		else
 		{
-			finalStatDifference = catalystToRepresent.statsAdjustment;
+			finalStatDifference = catalystToRepresent.statsAdjustment - StaticVariables.petData.GetCatalystInSlot(catalystToRepresent.slot).statsAdjustment;
 		}
 		
 		// Expand the stats into their own properties
@@ -115,7 +120,6 @@ public class CatalystViewer : MonoBehaviour {
 			finalStatDifference.armour,
 			finalStatDifference.damage,
 			finalStatDifference.maxStamina,
-			finalStatDifference.staminaDelay,
 			finalStatDifference.staminaRegen,
 			finalStatDifference.critChance,
 			finalStatDifference.critMultiplier,
@@ -128,13 +132,22 @@ public class CatalystViewer : MonoBehaviour {
 			StaticVariables.petData.stats.armour,
 			StaticVariables.petData.stats.damage,
 			StaticVariables.petData.stats.maxStamina,
-			StaticVariables.petData.stats.staminaDelay,
 			StaticVariables.petData.stats.staminaRegen,
 			StaticVariables.petData.stats.critChance,
 			StaticVariables.petData.stats.critMultiplier,
 		};
 		
 		// TODO: Add a list of icons for the stats
+		List<Sprite> spritesForStats = new List<Sprite>()
+		{
+			Resources.Load<Sprite>("UI/health"),
+			Resources.Load<Sprite>("UI/armour"),
+			Resources.Load<Sprite>("UI/damage"),
+			Resources.Load<Sprite>("UI/stamina"),
+			Resources.Load<Sprite>("UI/staminaregen"),
+			Resources.Load<Sprite>("UI/criticalchance"),
+			Resources.Load<Sprite>("UI/criticalmulti"),
+		};
 
 		int statsAdjusted = 0;
 
@@ -143,14 +156,24 @@ public class CatalystViewer : MonoBehaviour {
 			if (statList[i] != 0)
 			{				
 				GameObject statRepresentation = Instantiate(statChangePrefab, statChangesPanel.transform);
+
+				Image statImage = statRepresentation.transform.Find("StatImage").GetComponent<Image>();
+				statImage.sprite = spritesForStats[i];
 				
 				TextMeshProUGUI statNumber = statRepresentation.transform.Find("Stats").Find("CurrentStat").GetComponent<TextMeshProUGUI>();
-
-				statNumber.text = Math.Round(currentStatList[i], 2).ToString(CultureInfo.InvariantCulture);
-				
 				TextMeshProUGUI statAdjustment = statRepresentation.transform.Find("Stats").Find("StatAdjust").GetComponent<TextMeshProUGUI>();
+
+				if (StaticVariables.petData.GetCatalystInSlot(catalystToRepresent.slot).id != catalystToRepresent.id)
+				{
+					statNumber.text = Math.Round(currentStatList[i], 2).ToString(CultureInfo.InvariantCulture);
+					statAdjustment.text = statList[i] > 0 ? "+" + Math.Round(statList[i], 2) : Math.Round(statList[i], 2).ToString(CultureInfo.InvariantCulture);
+				}
+				else
+				{
+					statNumber.text = statList[i] > 0 ? "+" + Math.Round(statList[i], 2) : Math.Round(statList[i], 2).ToString(CultureInfo.InvariantCulture);
+					statAdjustment.text = "";
+				}
 				
-				statAdjustment.text = statList[i] > 0 ? "+" + Math.Round(statList[i], 2) : Math.Round(statList[i], 2).ToString(CultureInfo.InvariantCulture);
 
 				if (statList[i] < 0)
 				{
